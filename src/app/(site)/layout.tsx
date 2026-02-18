@@ -1,6 +1,12 @@
 import { Cormorant_Garamond } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+
+// SanityLive enables visual editing preview. Uncomment when NEXT_PUBLIC_SANITY_PROJECT_ID
+// is configured — defineLive requires a valid projectId at module-evaluation time.
+// import { SanityLive } from "@/sanity/lib/live";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -29,23 +35,13 @@ export default function SiteLayout({
 }>) {
   return (
     <div className={`${cormorant.variable} font-body`}>
-      <header className="border-b border-border px-4 py-3">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between">
-          <span className="font-heading text-lg tracking-wide">
-            emily kathryn photography
-          </span>
-          <span className="text-sm text-muted-foreground">Menu</span>
-        </nav>
-      </header>
+      <Header />
 
-      <main>{children}</main>
+      <main className="pt-16">{children}</main>
 
-      <footer className="border-t border-border px-4 py-8">
-        <div className="mx-auto max-w-7xl text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Emily Kathryn Photography. All rights reserved.</p>
-        </div>
-      </footer>
+      <Footer />
 
+      {/* <SanityLive /> */}
       <Analytics />
       <SpeedInsights />
     </div>
