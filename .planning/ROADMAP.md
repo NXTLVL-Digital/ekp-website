@@ -12,7 +12,7 @@ A conversion-optimized photography website built on Next.js + Sanity + Vercel, d
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation** - Next.js + Sanity + Vercel scaffolding with image pipeline, ISR, NAP config, and pitfall prevention
+- [x] **Phase 1: Foundation** - Next.js + Sanity + Vercel scaffolding with image pipeline, ISR, NAP config, and pitfall prevention
 - [ ] **Phase 2: Shared Components and Galleries** - Reusable gallery, lightbox, JSON-LD, and layout components with Core Web Vitals verification
 - [ ] **Phase 3: Core Pages and Conversion** - All 8 core pages with inquiry funnel, email delivery, spam protection, and brand-voice copy — MVP launch candidate
 - [ ] **Phase 4: SEO Infrastructure** - Site-wide JSON-LD schemas, XML sitemap, ISR webhook, and OG metadata
@@ -34,9 +34,9 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 3 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Project scaffolding: Next.js 15.5 + Sanity v4 + Tailwind v4 brand theme + editorial fonts + Studio route + Vercel deployment
-- [ ] 01-02-PLAN.md — Image pipeline: SanityImage wrapper with custom CDN loader, LQIP blur placeholders, sanityFetch ISR wrapper, webhook revalidation endpoint
-- [ ] 01-03-PLAN.md — NAP config + layout: siteConfig.ts single source of truth, scroll-aware Header, full-screen MobileNav, rich Footer, site layout integration
+- [x] 01-01-PLAN.md — Project scaffolding: Next.js 15.5 + Sanity v4 + Tailwind v4 brand theme + editorial fonts + Studio route + Vercel deployment
+- [x] 01-02-PLAN.md — Image pipeline: SanityImage wrapper with custom CDN loader, LQIP blur placeholders, sanityFetch ISR wrapper, webhook revalidation endpoint
+- [x] 01-03-PLAN.md — NAP config + layout: siteConfig.ts single source of truth, scroll-aware Header, full-screen MobileNav, rich Footer, site layout integration
 
 ### Phase 2: Shared Components and Galleries
 **Goal**: All reusable components — gallery grid, lightbox, JSON-LD patterns, pricing cards, storyboard, scarcity cue, answer block — built, tested with real CMS content, and meeting Core Web Vitals targets
@@ -128,7 +128,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/3 | Planned | - |
+| 1. Foundation | 3/3 | Complete | 2026-02-18 |
 | 2. Shared Components and Galleries | 0/3 | Not started | - |
 | 3. Core Pages and Conversion | 0/5 | Not started | - |
 | 4. SEO Infrastructure | 0/2 | Not started | - |

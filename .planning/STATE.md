@@ -9,29 +9,29 @@ See: .planning/PROJECT.md (updated 2026-02-18)
 
 ## Current Position
 
-Phase: 1 of 6 (Foundation)
-Plan: 2 of 3 in current phase
-Status: Executing
-Last activity: 2026-02-18 — Completed 01-02 (Image Pipeline & ISR)
+Phase: 1 of 6 (Foundation) -- COMPLETE
+Plan: 3 of 3 in current phase
+Status: Phase Complete
+Last activity: 2026-02-18 — Completed 01-03 (NAP Config + Layout)
 
-Progress: [██░░░░░░░░] 11%
+Progress: [██████░░░░░░░░░░░░░░] 16%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 1
-- Average duration: 4 min
-- Total execution time: 0.07 hours
+- Total plans completed: 2
+- Average duration: 4.5 min
+- Total execution time: 0.15 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 01-foundation | 1 | 4 min | 4 min |
+| 01-foundation | 2 | 9 min | 4.5 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-02 (4min)
-- Trend: Starting
+- Last 5 plans: 01-02 (4min), 01-03 (5min)
+- Trend: Consistent
 
 *Updated after each plan completion*
 
@@ -49,6 +49,9 @@ Recent decisions affecting current work:
 - Image pipeline: Custom Sanity CDN loader bypasses Vercel image optimization billing; SanityImage component is sole image renderer
 - ISR: sanityFetch wrapper with explicit cache: force-cache (Next.js 15 defaults to no-store); tag-based and time-based revalidation mutually exclusive
 - fetch.ts vs live.ts: Separate production ISR wrapper (fetch.ts) from visual editing live fetch (live.ts)
+- SanityLive deferred: Commented out in site layout because defineLive throws when NEXT_PUBLIC_SANITY_PROJECT_ID is empty -- will uncomment when Sanity project is configured
+- Header Server/Client split: Header.tsx (server) passes siteConfig props to HeaderClient.tsx (client) to minimize client JS bundle
+- Footer CTA as text link: "Get in Touch" uses text style to avoid competing with persistent gold nav CTA
 
 ### Pending Todos
 
@@ -64,5 +67,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-18
-Stopped at: Completed 01-02-PLAN.md (Image Pipeline & ISR)
-Resume file: .planning/phases/01-foundation/01-02-SUMMARY.md
+Stopped at: Completed 01-03-PLAN.md (NAP Config + Layout) -- Phase 1 Foundation COMPLETE
+Resume file: .planning/phases/01-foundation/01-03-SUMMARY.md

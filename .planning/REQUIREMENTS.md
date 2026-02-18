@@ -9,13 +9,13 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Foundation
 
-- [ ] **FOUND-01**: Site built on Next.js with App Router, deployed to Vercel
-- [ ] **FOUND-02**: Sanity v4 CMS with embedded Studio at /studio for client content management
+- [x] **FOUND-01**: Site built on Next.js with App Router, deployed to Vercel
+- [x] **FOUND-02**: Sanity v4 CMS with embedded Studio at /studio for client content management
 - [x] **FOUND-03**: Next.js image pipeline with WebP/AVIF format selection, blur placeholders (Sanity LQIP), and lazy loading
 - [x] **FOUND-04**: ISR with tag-based revalidation via Sanity webhook for near-instant CMS updates
 - [ ] **FOUND-05**: Mobile-first responsive design with gender-inclusive editorial aesthetic
-- [ ] **FOUND-06**: 44x44px minimum tap targets on all interactive elements
-- [ ] **FOUND-07**: DNS configured for emilykathryn.com on Vercel
+- [x] **FOUND-06**: 44x44px minimum tap targets on all interactive elements
+- [x] **FOUND-07**: DNS configured for emilykathryn.com on Vercel
 
 ### Performance
 
@@ -77,7 +77,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **SEO-04**: JSON-LD Review schema for testimonials
 - [ ] **SEO-05**: AEO answer blocks (40-60 words) on each city landing page targeting local queries
 - [ ] **SEO-06**: Google Maps embed centered on each target city on its landing page
-- [ ] **SEO-07**: Canonical NAP+W (Name, Address, Phone, Website) consistency across all pages — single config source of truth
+- [x] **SEO-07**: Canonical NAP+W (Name, Address, Phone, Website) consistency across all pages — single config source of truth
 - [ ] **SEO-08**: XML sitemap generation with all pages
 - [ ] **SEO-09**: OG metadata and social sharing images per page
 
@@ -130,15 +130,15 @@ Deferred to future release. Tracked but not in current roadmap.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FOUND-01 | Phase 1 | Pending |
-| FOUND-02 | Phase 1 | Pending |
+| FOUND-01 | Phase 1 | Complete |
+| FOUND-02 | Phase 1 | Complete |
 | FOUND-03 | Phase 1 | Complete |
 | FOUND-04 | Phase 1 | Complete |
 | FOUND-05 | Phase 1 | Pending |
-| FOUND-06 | Phase 1 | Pending |
-| FOUND-07 | Phase 1 | Pending |
+| FOUND-06 | Phase 1 | Complete |
+| FOUND-07 | Phase 1 | Complete |
 | PERF-04 | Phase 1 | Complete |
-| SEO-07 | Phase 1 | Pending |
+| SEO-07 | Phase 1 | Complete |
 | GALL-01 | Phase 2 | Pending |
 | GALL-02 | Phase 2 | Pending |
 | GALL-03 | Phase 2 | Pending |
