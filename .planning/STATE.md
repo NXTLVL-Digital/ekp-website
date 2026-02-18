@@ -10,28 +10,28 @@ See: .planning/PROJECT.md (updated 2026-02-18)
 ## Current Position
 
 Phase: 1 of 6 (Foundation)
-Plan: 0 of 3 in current phase
-Status: Ready to plan
-Last activity: 2026-02-18 — Roadmap and STATE.md created; 55 requirements mapped across 6 phases
+Plan: 2 of 3 in current phase
+Status: Executing
+Last activity: 2026-02-18 — Completed 01-02 (Image Pipeline & ISR)
 
-Progress: [░░░░░░░░░░] 0%
+Progress: [██░░░░░░░░] 11%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 0
-- Average duration: — min
-- Total execution time: 0 hours
+- Total plans completed: 1
+- Average duration: 4 min
+- Total execution time: 0.07 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| - | - | - | - |
+| 01-foundation | 1 | 4 min | 4 min |
 
 **Recent Trend:**
-- Last 5 plans: —
-- Trend: —
+- Last 5 plans: 01-02 (4min)
+- Trend: Starting
 
 *Updated after each plan completion*
 
@@ -46,6 +46,9 @@ Recent decisions affecting current work:
 - CMS: Sanity v4 chosen over Prismic — built-in LQIP, hotspot/crop, embedded Studio at /studio
 - City pages: Single app/[city]/page.tsx dynamic route with generateStaticParams — never 7 separate files
 - NAP config: Single siteConfig.ts canonical object — established in Phase 1 before any content is authored
+- Image pipeline: Custom Sanity CDN loader bypasses Vercel image optimization billing; SanityImage component is sole image renderer
+- ISR: sanityFetch wrapper with explicit cache: force-cache (Next.js 15 defaults to no-store); tag-based and time-based revalidation mutually exclusive
+- fetch.ts vs live.ts: Separate production ISR wrapper (fetch.ts) from visual editing live fetch (live.ts)
 
 ### Pending Todos
 
@@ -61,5 +64,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-18
-Stopped at: Phase 1 context gathered
-Resume file: .planning/phases/01-foundation/01-CONTEXT.md
+Stopped at: Completed 01-02-PLAN.md (Image Pipeline & ISR)
+Resume file: .planning/phases/01-foundation/01-02-SUMMARY.md

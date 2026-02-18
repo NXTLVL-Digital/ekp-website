@@ -11,8 +11,8 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [ ] **FOUND-01**: Site built on Next.js with App Router, deployed to Vercel
 - [ ] **FOUND-02**: Sanity v4 CMS with embedded Studio at /studio for client content management
-- [ ] **FOUND-03**: Next.js image pipeline with WebP/AVIF format selection, blur placeholders (Sanity LQIP), and lazy loading
-- [ ] **FOUND-04**: ISR with tag-based revalidation via Sanity webhook for near-instant CMS updates
+- [x] **FOUND-03**: Next.js image pipeline with WebP/AVIF format selection, blur placeholders (Sanity LQIP), and lazy loading
+- [x] **FOUND-04**: ISR with tag-based revalidation via Sanity webhook for near-instant CMS updates
 - [ ] **FOUND-05**: Mobile-first responsive design with gender-inclusive editorial aesthetic
 - [ ] **FOUND-06**: 44x44px minimum tap targets on all interactive elements
 - [ ] **FOUND-07**: DNS configured for emilykathryn.com on Vercel
@@ -22,7 +22,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **PERF-01**: LCP under 2.5 seconds on mobile
 - [ ] **PERF-02**: CLS under 0.1
 - [ ] **PERF-03**: 100/100 mobile performance score on Vercel Speed Insights
-- [ ] **PERF-04**: Hero images use `priority` loading with accurate `sizes` props
+- [x] **PERF-04**: Hero images use `priority` loading with accurate `sizes` props
 
 ### Pages — Core
 
@@ -132,12 +132,12 @@ Deferred to future release. Tracked but not in current roadmap.
 |-------------|-------|--------|
 | FOUND-01 | Phase 1 | Pending |
 | FOUND-02 | Phase 1 | Pending |
-| FOUND-03 | Phase 1 | Pending |
-| FOUND-04 | Phase 1 | Pending |
+| FOUND-03 | Phase 1 | Complete |
+| FOUND-04 | Phase 1 | Complete |
 | FOUND-05 | Phase 1 | Pending |
 | FOUND-06 | Phase 1 | Pending |
 | FOUND-07 | Phase 1 | Pending |
-| PERF-04 | Phase 1 | Pending |
+| PERF-04 | Phase 1 | Complete |
 | SEO-07 | Phase 1 | Pending |
 | GALL-01 | Phase 2 | Pending |
 | GALL-02 | Phase 2 | Pending |
