@@ -31,12 +31,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. A hero image on any test page achieves LCP under 2.5s on mobile Lighthouse audit (priority prop + correct sizes prop in place)
   4. Every footer, nav, and page component pulls business name/phone/URL from one siteConfig source — no hardcoded NAP strings anywhere in the codebase
   5. ISR revalidation fires when Emily saves a Sanity document — page updates within 60 seconds without a full rebuild
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 01-01: Project scaffolding — Next.js 15.5 + Sanity v4 + Tailwind v4 + Vercel deployment
-- [ ] 01-02: Image pipeline and SanityImage wrapper — LQIP blur placeholders, WebP/AVIF, remotePatterns, hero priority loading
-- [ ] 01-03: Sanity schemas, ISR revalidation, NAP config, root layout with nav/footer, DNS configuration
+- [ ] 01-01-PLAN.md — Project scaffolding: Next.js 15.5 + Sanity v4 + Tailwind v4 brand theme + editorial fonts + Studio route + Vercel deployment
+- [ ] 01-02-PLAN.md — Image pipeline: SanityImage wrapper with custom CDN loader, LQIP blur placeholders, sanityFetch ISR wrapper, webhook revalidation endpoint
+- [ ] 01-03-PLAN.md — NAP config + layout: siteConfig.ts single source of truth, scroll-aware Header, full-screen MobileNav, rich Footer, site layout integration
 
 ### Phase 2: Shared Components and Galleries
 **Goal**: All reusable components — gallery grid, lightbox, JSON-LD patterns, pricing cards, storyboard, scarcity cue, answer block — built, tested with real CMS content, and meeting Core Web Vitals targets
@@ -128,7 +128,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/3 | Not started | - |
+| 1. Foundation | 0/3 | Planned | - |
 | 2. Shared Components and Galleries | 0/3 | Not started | - |
 | 3. Core Pages and Conversion | 0/5 | Not started | - |
 | 4. SEO Infrastructure | 0/2 | Not started | - |
