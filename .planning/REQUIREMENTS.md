@@ -130,13 +130,67 @@ Deferred to future release. Tracked but not in current roadmap.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| *(Updated during roadmap creation)* | | |
+| FOUND-01 | Phase 1 | Pending |
+| FOUND-02 | Phase 1 | Pending |
+| FOUND-03 | Phase 1 | Pending |
+| FOUND-04 | Phase 1 | Pending |
+| FOUND-05 | Phase 1 | Pending |
+| FOUND-06 | Phase 1 | Pending |
+| FOUND-07 | Phase 1 | Pending |
+| PERF-04 | Phase 1 | Pending |
+| SEO-07 | Phase 1 | Pending |
+| GALL-01 | Phase 2 | Pending |
+| GALL-02 | Phase 2 | Pending |
+| GALL-03 | Phase 2 | Pending |
+| GALL-04 | Phase 2 | Pending |
+| PERF-01 | Phase 2 | Pending |
+| PERF-02 | Phase 2 | Pending |
+| PERF-03 | Phase 2 | Pending |
+| PAGE-01 | Phase 3 | Pending |
+| PAGE-02 | Phase 3 | Pending |
+| PAGE-03 | Phase 3 | Pending |
+| PAGE-04 | Phase 3 | Pending |
+| PAGE-05 | Phase 3 | Pending |
+| PAGE-06 | Phase 3 | Pending |
+| PAGE-07 | Phase 3 | Pending |
+| PAGE-08 | Phase 3 | Pending |
+| CONV-01 | Phase 3 | Pending |
+| CONV-02 | Phase 3 | Pending |
+| CONV-03 | Phase 3 | Pending |
+| CONV-04 | Phase 3 | Pending |
+| CONV-05 | Phase 3 | Pending |
+| CONV-06 | Phase 3 | Pending |
+| CONV-07 | Phase 3 | Pending |
+| CONT-01 | Phase 3 | Pending |
+| CONT-02 | Phase 3 | Pending |
+| CONT-03 | Phase 3 | Pending |
+| CONT-04 | Phase 3 | Pending |
+| INFRA-01 | Phase 3 | Pending |
+| INFRA-03 | Phase 3 | Pending |
+| SEO-09 | Phase 3 | Pending |
+| SEO-01 | Phase 4 | Pending |
+| SEO-02 | Phase 4 | Pending |
+| SEO-03 | Phase 4 | Pending |
+| SEO-04 | Phase 4 | Pending |
+| SEO-08 | Phase 4 | Pending |
+| INFRA-02 | Phase 4 | Pending |
+| LOCAL-01 | Phase 5 | Pending |
+| LOCAL-02 | Phase 5 | Pending |
+| LOCAL-03 | Phase 5 | Pending |
+| LOCAL-04 | Phase 5 | Pending |
+| LOCAL-05 | Phase 5 | Pending |
+| LOCAL-06 | Phase 5 | Pending |
+| LOCAL-07 | Phase 5 | Pending |
+| SEO-05 | Phase 5 | Pending |
+| SEO-06 | Phase 5 | Pending |
+| EXT-01 | Phase 6 | Pending |
+| EXT-02 | Phase 6 | Pending |
 
 **Coverage:**
-- v1 requirements: 44 total
-- Mapped to phases: 0
-- Unmapped: 44 ⚠️
+- v1 requirements: 55 total (note: original estimate of 44 was incorrect; full enumeration yields 55)
+- Mapped to phases: 55
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-02-18*
-*Last updated: 2026-02-18 after initial definition*
+*Last updated: 2026-02-18 after roadmap creation — traceability complete*
