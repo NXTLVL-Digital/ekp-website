@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand colors -- accents only */
+  --color-brand-gold: #c2a36c;
+  --color-brand-gold-dark: #a88c55;
+  --color-brand-rose: #dcb6ad;
+  --color-brand-sage: #b3d4cd;
+  --color-brand-gray: #d6d4d4;
+
+  /* Core palette */
+  --color-background: #ffffff;
+  --color-foreground: #1a1a1a;
+  --color-muted: #f5f5f5;
+  --color-muted-foreground: #737373;
+  --color-border: #e5e5e5;
+
+  /* Typography -- integrated with next/font CSS variables */
+  --font-heading: var(--font-cormorant), ui-serif, Georgia, serif;
+  --font-body: var(--font-acrom), ui-sans-serif, system-ui, sans-serif;
+
+  /* Spacing rhythm */
+  --spacing-section: 5rem;
+  --spacing-section-sm: 3rem;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-body);
+}
