@@ -8,6 +8,11 @@ const nextConfig: NextConfig = {
         hostname: "cdn.sanity.io",
         pathname: "/images/**",
       },
+      {
+        // Test images for gallery-test page (picsum.photos placeholders)
+        protocol: "https",
+        hostname: "picsum.photos",
+      },
     ],
   },
   // Suppress styled-components hydration warning from Sanity Studio

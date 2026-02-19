@@ -10,7 +10,7 @@ interface SanityImageAsset {
     dimensions?: {
       width: number;
       height: number;
-      aspectRatio: number;
+      aspectRatio?: number;
     };
   };
 }
