@@ -47,12 +47,12 @@ Plans:
   2. Clicking a gallery image opens a lightbox — user can navigate with arrow keys, swipe on mobile, see an image counter, and close with the Escape key
   3. Vercel Speed Insights reports 100/100 mobile performance score on a gallery test page
   4. All interactive gallery elements (lightbox open/close, nav arrows) have minimum 44x44px tap targets verified on device
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 02-01: GalleryGrid and GalleryLightbox components — masonry/grid layout, Server/Client boundary, SanityImage integration
-- [ ] 02-02: Shared layout components — Section, PricingCard, Storyboard, ScarcityCue, AnswerBlock, JsonLd with schema-dts
-- [ ] 02-03: Core Web Vitals verification — Lighthouse mobile audit, CLS audit, tap target audit on gallery test page
+- [ ] 02-01-PLAN.md — Sanity schemas (gallery, pricingTier, testimonial, scarcityCue), GROQ queries, GalleryGrid/GalleryClient/GalleryLightbox components, gallery test page
+- [ ] 02-02-PLAN.md — Shared layout components: Section, PricingCard, ScarcityCue, Storyboard, AnswerBlock, JsonLd with schema-dts
+- [ ] 02-03-PLAN.md — Core Web Vitals verification: Lighthouse mobile audit, CLS audit, tap target audit, human visual/interaction review
 
 ### Phase 3: Core Pages and Conversion
 **Goal**: Every core page is live with brand-voice copy, the inquiry funnel is functional end-to-end (form to Emily's inbox to auto-responder), and the site is ready to replace emilykathryn.com as the primary conversion surface
@@ -124,12 +124,12 @@ Plans:
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
+Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete | 2026-02-18 |
-| 2. Shared Components and Galleries | 0/3 | Not started | - |
+| 2. Shared Components and Galleries | 0/3 | Planned | - |
 | 3. Core Pages and Conversion | 0/5 | Not started | - |
 | 4. SEO Infrastructure | 0/2 | Not started | - |
 | 5. City Landing Pages | 0/3 | Not started | - |
