@@ -49,7 +49,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [ ] **GALL-01**: Senior Portraits gallery with masonry/grid layout, CMS-managed images
 - [ ] **GALL-02**: Family Portraits gallery with masonry/grid layout, CMS-managed images
-- [ ] **GALL-03**: Location-based portfolio galleries (mirroring current site's geographic gallery structure)
+- [x] **GALL-03**: Location-based portfolio galleries (mirroring current site's geographic gallery structure)
 - [ ] **GALL-04**: Responsive lightbox with keyboard nav, swipe gestures, image counter, escape-to-close
 
 ### Conversion
@@ -141,7 +141,7 @@ Deferred to future release. Tracked but not in current roadmap.
 | SEO-07 | Phase 1 | Complete |
 | GALL-01 | Phase 2 | Pending |
 | GALL-02 | Phase 2 | Pending |
-| GALL-03 | Phase 2 | Pending |
+| GALL-03 | Phase 2 | Complete |
 | GALL-04 | Phase 2 | Pending |
 | PERF-01 | Phase 2 | Pending |
 | PERF-02 | Phase 2 | Pending |
