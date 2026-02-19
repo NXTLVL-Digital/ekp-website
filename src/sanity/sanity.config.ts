@@ -7,6 +7,7 @@ import { schemaTypes } from "./schemas";
 export default defineConfig({
   name: "emilykathryn-photography",
   title: "Emily Kathryn Photography",
+  basePath: "/studio",
 
   projectId,
   dataset,
