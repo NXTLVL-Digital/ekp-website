@@ -45,3 +45,107 @@ export const SITE_SETTINGS_WITH_SOCIAL_QUERY = `*[_type == "siteSettings"][0]{
   address,
   socialLinks
 }`;
+
+// ---------------------------------------------------------------------------
+// Gallery queries
+// ---------------------------------------------------------------------------
+
+/**
+ * Fetch a single gallery by slug with full image metadata.
+ * Dereferences each image asset for LQIP, dimensions, and URL.
+ */
+export const GALLERY_BY_SLUG_QUERY = `*[_type == "gallery" && slug.current == $slug][0]{
+  title,
+  category,
+  displayStyle,
+  location,
+  "images": images[]{
+    _key,
+    alt,
+    caption,
+    ${IMAGE_FIELDS}
+  }
+}`;
+
+/**
+ * Fetch all galleries for a given category with preview data.
+ * Returns title, slug, and the first image for card/preview display.
+ */
+export const GALLERIES_BY_CATEGORY_QUERY = `*[_type == "gallery" && category == $category] | order(_createdAt desc) {
+  title,
+  "slug": slug.current,
+  category,
+  displayStyle,
+  "imageCount": count(images),
+  "previewImage": images[0]{
+    _key,
+    alt,
+    ${IMAGE_FIELDS}
+  }
+}`;
+
+// ---------------------------------------------------------------------------
+// Pricing queries
+// ---------------------------------------------------------------------------
+
+/**
+ * Fetch all pricing tiers ordered by sortOrder (ascending).
+ */
+export const PRICING_TIERS_QUERY = `*[_type == "pricingTier"] | order(sortOrder asc) {
+  _id,
+  name,
+  startingAt,
+  description,
+  features,
+  highlight,
+  sortOrder
+}`;
+
+// ---------------------------------------------------------------------------
+// Testimonial queries
+// ---------------------------------------------------------------------------
+
+/**
+ * Fetch testimonials with optional filtering.
+ * Pass $featured (boolean) and/or $service (string) as params.
+ * To fetch all: set both to null.
+ * To fetch featured only: set $featured to true and $service to null.
+ * To fetch by service: set $service to "senior"/"family"/"general" and $featured to null.
+ */
+export const TESTIMONIALS_QUERY = `*[_type == "testimonial"
+  && select(
+    defined($featured) && defined($service) => featured == $featured && service == $service,
+    defined($featured) => featured == $featured,
+    defined($service) => service == $service,
+    true
+  )
+] | order(_createdAt desc) {
+  _id,
+  name,
+  quote,
+  service,
+  featured,
+  "image": image {
+    ${IMAGE_FIELDS}
+  }
+}`;
+
+// ---------------------------------------------------------------------------
+// Scarcity cue queries
+// ---------------------------------------------------------------------------
+
+/**
+ * Fetch the first active scarcity cue.
+ * Active means isActive is true AND either no expiresAt or expiresAt is in the future.
+ */
+export const ACTIVE_SCARCITY_CUE_QUERY = `*[_type == "scarcityCue"
+  && isActive == true
+  && (
+    !defined(expiresAt) || expiresAt > now()
+  )
+][0]{
+  _id,
+  message,
+  isActive,
+  expiresAt
+}`;
