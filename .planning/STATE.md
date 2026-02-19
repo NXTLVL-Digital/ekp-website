@@ -10,28 +10,28 @@ See: .planning/PROJECT.md (updated 2026-02-18)
 ## Current Position
 
 Phase: 2 of 6 (Shared Components and Galleries) -- Executing
-Plan: 1 of 3 in current phase
+Plan: 2 of 3 in current phase
 Status: Executing plans
-Last activity: 2026-02-19 — Completed 02-02-PLAN.md
+Last activity: 2026-02-19 — Completed 02-01-PLAN.md
 
-Progress: [████████░░░░░░░░░░░░] 22%
+Progress: [██████████░░░░░░░░░░] 30%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 3
-- Average duration: 4.2 min
-- Total execution time: 0.21 hours
+- Total plans completed: 4
+- Average duration: 4.6 min
+- Total execution time: 0.33 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-foundation | 2 | 9 min | 4.5 min |
-| 02-shared-components-and-galleries | 1 | 3.5 min | 3.5 min |
+| 02-shared-components-and-galleries | 2 | 10.5 min | 5.3 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-02 (4min), 01-03 (5min), 02-02 (3.5min)
+- Last 5 plans: 01-02 (4min), 01-03 (5min), 02-02 (3.5min), 02-01 (7min)
 - Trend: Consistent
 
 *Updated after each plan completion*
@@ -56,6 +56,10 @@ Recent decisions affecting current work:
 - [Phase 02]: AnswerBlock uses native HTML details/summary for zero-JS accordion -- keyboard and screen reader accessible by default
 - [Phase 02]: JsonLd uses generic <T extends Thing> with schema-dts WithContext<T> for compile-time type safety across all page types
 - [Phase 02]: Storyboard uses dual layout: vertical stack on mobile, horizontal flow on desktop, connected by gold line
+- [Phase 02]: Gallery images array uses inline image fields (not galleryImage object type) for better Studio drag-and-drop UX
+- [Phase 02]: GalleryGrid detects Sanity vs external URLs to auto-fallback from SanityImage to next/image
+- [Phase 02]: YARL lightbox uses direct Sanity CDN URLs (not NextJsImage render) to avoid Vercel optimization billing
+- [Phase 02]: CSS columns masonry (columns-2 md:columns-3 lg:columns-4) for zero-JS gallery grid layout
 
 ### Pending Todos
 
@@ -71,5 +75,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-19
-Stopped at: Completed 02-02-PLAN.md
-Resume file: .planning/phases/02-shared-components-and-galleries/02-02-SUMMARY.md
+Stopped at: Completed 02-01-PLAN.md
+Resume file: .planning/phases/02-shared-components-and-galleries/02-01-SUMMARY.md
