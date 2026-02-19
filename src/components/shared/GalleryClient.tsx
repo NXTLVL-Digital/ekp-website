@@ -23,6 +23,8 @@ const GalleryLightbox = dynamic(
 interface GalleryClientProps {
   images: GalleryImageData[];
   displayStyle?: "masonry" | "grid";
+  /** Number of above-the-fold images to load eagerly with fetchpriority="high". Default: 4 */
+  priorityCount?: number;
 }
 
 /**
@@ -38,6 +40,7 @@ interface GalleryClientProps {
 export function GalleryClient({
   images,
   displayStyle = "masonry",
+  priorityCount,
 }: GalleryClientProps) {
   const [lightboxIndex, setLightboxIndex] = useState<number>(-1);
 
@@ -55,6 +58,7 @@ export function GalleryClient({
         images={images}
         displayStyle={displayStyle}
         onImageClick={handleImageClick}
+        priorityCount={priorityCount}
       />
       {lightboxIndex >= 0 && (
         <GalleryLightbox

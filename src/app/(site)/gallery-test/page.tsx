@@ -87,7 +87,7 @@ export default function GalleryTestPage() {
   const images = generateMockImages();
 
   return (
-    <main className="mx-auto max-w-7xl px-4 py-12">
+    <div className="mx-auto max-w-7xl px-4 py-12">
       <div className="mb-8">
         <h1 className="font-heading text-3xl font-bold tracking-tight md:text-4xl">
           Gallery Test Page
@@ -99,7 +99,7 @@ export default function GalleryTestPage() {
         </p>
       </div>
 
-      <GalleryClient images={images} displayStyle="masonry" />
-    </main>
+      <GalleryClient images={images} displayStyle="masonry" priorityCount={1} />
+    </div>
   );
 }

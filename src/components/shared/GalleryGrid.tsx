@@ -29,6 +29,8 @@ interface GalleryGridProps {
   images: GalleryImageData[];
   displayStyle?: "masonry" | "grid";
   onImageClick?: (index: number) => void;
+  /** Number of above-the-fold images to load eagerly with fetchpriority="high". Default: 4 */
+  priorityCount?: number;
 }
 
 /**
@@ -47,10 +49,13 @@ function GalleryImage({
   image,
   fill,
   className,
+  priority,
 }: {
   image: GalleryImageData;
   fill?: boolean;
   className?: string;
+  /** When true, sets loading="eager" and fetchpriority="high" for above-the-fold LCP images */
+  priority?: boolean;
 }) {
   const sizes = "(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw";
 
@@ -64,6 +69,8 @@ function GalleryImage({
         fill={fill}
         sizes={sizes}
         className={className}
+        priority={priority}
+        fetchPriority={priority ? "high" : undefined}
       />
     );
   }
@@ -76,6 +83,8 @@ function GalleryImage({
         fill
         sizes={sizes}
         className={className}
+        priority={priority}
+        fetchPriority={priority ? "high" : undefined}
       />
     );
   }
@@ -88,6 +97,8 @@ function GalleryImage({
       height={image.asset.metadata?.dimensions?.height || 1200}
       sizes={sizes}
       className={className}
+      priority={priority}
+      fetchPriority={priority ? "high" : undefined}
     />
   );
 }
@@ -108,6 +119,7 @@ export function GalleryGrid({
   images,
   displayStyle = "masonry",
   onImageClick,
+  priorityCount = 4,
 }: GalleryGridProps) {
   if (displayStyle === "grid") {
     return (
@@ -124,6 +136,7 @@ export function GalleryGrid({
               image={image}
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+              priority={index < priorityCount}
             />
           </button>
         ))}
@@ -145,6 +158,7 @@ export function GalleryGrid({
             <GalleryImage
               image={image}
               className="w-full transition-transform duration-500 group-hover:scale-[1.02]"
+              priority={index < priorityCount}
             />
           </button>
           {image.caption && (
