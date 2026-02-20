@@ -23,14 +23,12 @@ interface GalleryLightboxProps {
 }
 
 /**
- * Check if the image asset is a Sanity asset (has _id or url with cdn.sanity.io).
- * For non-Sanity images (e.g., picsum.photos), use the raw URL directly.
+ * Check if the image asset is from the Sanity CDN.
+ * Only Sanity CDN URLs can be passed to urlFor() safely.
+ * Non-Sanity images (e.g., picsum.photos for testing) use the raw URL directly.
  */
 function isSanityAsset(asset: GalleryImageData["asset"]): boolean {
-  return !!(
-    (asset._id && asset._id.startsWith("image-")) ||
-    (asset.url && asset.url.includes("cdn.sanity.io"))
-  );
+  return !!(asset.url && asset.url.includes("cdn.sanity.io"));
 }
 
 /**
