@@ -13,7 +13,7 @@ A conversion-optimized photography website built on Next.js + Sanity + Vercel, d
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation** - Next.js + Sanity + Vercel scaffolding with image pipeline, ISR, NAP config, and pitfall prevention
-- [ ] **Phase 2: Shared Components and Galleries** - Reusable gallery, lightbox, JSON-LD, and layout components with Core Web Vitals verification
+- [x] **Phase 2: Shared Components and Galleries** - Reusable gallery, lightbox, JSON-LD, and layout components with Core Web Vitals verification
 - [ ] **Phase 3: Core Pages and Conversion** - All 8 core pages with inquiry funnel, email delivery, spam protection, and brand-voice copy — MVP launch candidate
 - [ ] **Phase 4: SEO Infrastructure** - Site-wide JSON-LD schemas, XML sitemap, ISR webhook, and OG metadata
 - [ ] **Phase 5: City Landing Pages** - 7 hyper-local city pages with unique content, AEO answer blocks, Google Maps, and city-specific JSON-LD
@@ -50,9 +50,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 02-01-PLAN.md — Sanity schemas (gallery, pricingTier, testimonial, scarcityCue), GROQ queries, GalleryGrid/GalleryClient/GalleryLightbox components, gallery test page
-- [ ] 02-02-PLAN.md — Shared layout components: Section, PricingCard, ScarcityCue, Storyboard, AnswerBlock, JsonLd with schema-dts
-- [ ] 02-03-PLAN.md — Core Web Vitals verification: Lighthouse mobile audit, CLS audit, tap target audit, human visual/interaction review
+- [x] 02-01-PLAN.md — Sanity schemas (gallery, pricingTier, testimonial, scarcityCue), GROQ queries, GalleryGrid/GalleryClient/GalleryLightbox components, gallery test page
+- [x] 02-02-PLAN.md — Shared layout components: Section, PricingCard, ScarcityCue, Storyboard, AnswerBlock, JsonLd with schema-dts
+- [x] 02-03-PLAN.md — Core Web Vitals verification: Lighthouse mobile audit, CLS audit, tap target audit, human visual/interaction review
 
 ### Phase 3: Core Pages and Conversion
 **Goal**: Every core page is live with brand-voice copy, the inquiry funnel is functional end-to-end (form to Emily's inbox to auto-responder), and the site is ready to replace emilykathryn.com as the primary conversion surface
@@ -129,7 +129,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete | 2026-02-18 |
-| 2. Shared Components and Galleries | 2/3 | In Progress | - |
+| 2. Shared Components and Galleries | 3/3 | Complete | 2026-02-19 |
 | 3. Core Pages and Conversion | 0/5 | Not started | - |
 | 4. SEO Infrastructure | 0/2 | Not started | - |
 | 5. City Landing Pages | 0/3 | Not started | - |

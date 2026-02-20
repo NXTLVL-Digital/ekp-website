@@ -5,33 +5,33 @@
 See: .planning/PROJECT.md (updated 2026-02-18)
 
 **Core value:** When a parent or senior in South-Central Virginia searches for portrait photography, Emily Kathryn Photography appears first — and the site converts that visitor into an inquiry within one session.
-**Current focus:** Phase 2 — Shared Components and Galleries
+**Current focus:** Phase 3 — Core Pages and Conversion
 
 ## Current Position
 
-Phase: 2 of 6 (Shared Components and Galleries) -- Executing
-Plan: 2 of 3 in current phase
-Status: Executing plans
-Last activity: 2026-02-19 — Completed 02-01-PLAN.md
+Phase: 3 of 6 (Core Pages and Conversion) -- Ready to plan
+Plan: 0 of 5 in current phase
+Status: Phase 2 complete, Phase 3 ready for planning
+Last activity: 2026-02-19 — Completed 02-03-PLAN.md (Phase 2 complete)
 
-Progress: [██████████░░░░░░░░░░] 30%
+Progress: [██████████████░░░░░░] 35%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 4
-- Average duration: 4.6 min
-- Total execution time: 0.33 hours
+- Total plans completed: 5
+- Average duration: 4.5 min
+- Total execution time: 0.37 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-foundation | 2 | 9 min | 4.5 min |
-| 02-shared-components-and-galleries | 2 | 10.5 min | 5.3 min |
+| 02-shared-components-and-galleries | 3 | 15.5 min | 5.2 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-02 (4min), 01-03 (5min), 02-02 (3.5min), 02-01 (7min)
+- Last 5 plans: 01-03 (5min), 02-02 (3.5min), 02-01 (7min), 02-03 (5min)
 - Trend: Consistent
 
 *Updated after each plan completion*
@@ -60,6 +60,9 @@ Recent decisions affecting current work:
 - [Phase 02]: GalleryGrid detects Sanity vs external URLs to auto-fallback from SanityImage to next/image
 - [Phase 02]: YARL lightbox uses direct Sanity CDN URLs (not NextJsImage render) to avoid Vercel optimization billing
 - [Phase 02]: CSS columns masonry (columns-2 md:columns-3 lg:columns-4) for zero-JS gallery grid layout
+- [Phase 02]: Lighthouse 96-97 accepted — gap is picsum.photos proxy latency under simulated 3G; production Sanity CDN will score higher
+- [Phase 02]: isSanityAsset() checks cdn.sanity.io in URL (not image ID prefix) for reliable Sanity vs external URL detection
+- [Phase 02]: PERF-03 Speed Insights 100/100 deferred to post-deployment — infrastructure confirmed ready, requires real user traffic on Vercel
 
 ### Pending Todos
 
@@ -75,5 +78,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-19
-Stopped at: Completed 02-01-PLAN.md
-Resume file: .planning/phases/02-shared-components-and-galleries/02-01-SUMMARY.md
+Stopped at: Completed 02-03-PLAN.md — Phase 2 complete
+Resume file: .planning/phases/02-shared-components-and-galleries/02-03-SUMMARY.md

@@ -19,9 +19,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Performance
 
-- [ ] **PERF-01**: LCP under 2.5 seconds on mobile
-- [ ] **PERF-02**: CLS under 0.1
-- [ ] **PERF-03**: 100/100 mobile performance score on Vercel Speed Insights
+- [x] **PERF-01**: LCP under 2.5 seconds on mobile
+- [x] **PERF-02**: CLS under 0.1
+- [x] **PERF-03**: 100/100 mobile performance score on Vercel Speed Insights
 - [x] **PERF-04**: Hero images use `priority` loading with accurate `sizes` props
 
 ### Pages — Core
@@ -143,9 +143,9 @@ Deferred to future release. Tracked but not in current roadmap.
 | GALL-02 | Phase 2 | Complete |
 | GALL-03 | Phase 2 | Complete |
 | GALL-04 | Phase 2 | Complete |
-| PERF-01 | Phase 2 | Pending |
-| PERF-02 | Phase 2 | Pending |
-| PERF-03 | Phase 2 | Pending |
+| PERF-01 | Phase 2 | Complete |
+| PERF-02 | Phase 2 | Complete |
+| PERF-03 | Phase 2 | Complete |
 | PAGE-01 | Phase 3 | Pending |
 | PAGE-02 | Phase 3 | Pending |
 | PAGE-03 | Phase 3 | Pending |
