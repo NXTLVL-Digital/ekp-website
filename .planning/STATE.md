@@ -9,19 +9,19 @@ See: .planning/PROJECT.md (updated 2026-02-18)
 
 ## Current Position
 
-Phase: 3 of 6 (Core Pages and Conversion) -- Ready to plan
-Plan: 0 of 5 in current phase
-Status: Phase 2 complete, Phase 3 ready for planning
-Last activity: 2026-02-19 — Completed 02-03-PLAN.md (Phase 2 complete)
+Phase: 3 of 6 (Core Pages and Conversion) -- In progress
+Plan: 4 of 5 in current phase
+Status: Completed 03-04 (Inquiry Form and Contact Page)
+Last activity: 2026-02-22 — Completed 03-04-PLAN.md
 
-Progress: [██████████████░░░░░░] 35%
+Progress: [████████████████░░░░] 40%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 5
-- Average duration: 4.5 min
-- Total execution time: 0.37 hours
+- Total plans completed: 6
+- Average duration: 4.6 min
+- Total execution time: 0.45 hours
 
 **By Phase:**
 
@@ -29,9 +29,10 @@ Progress: [██████████████░░░░░░] 35%
 |-------|-------|-------|----------|
 | 01-foundation | 2 | 9 min | 4.5 min |
 | 02-shared-components-and-galleries | 3 | 15.5 min | 5.2 min |
+| 03-core-pages-and-conversion | 1 | 5 min | 5 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-03 (5min), 02-02 (3.5min), 02-01 (7min), 02-03 (5min)
+- Last 5 plans: 02-02 (3.5min), 02-01 (7min), 02-03 (5min), 03-04 (5min)
 - Trend: Consistent
 
 *Updated after each plan completion*
@@ -63,6 +64,11 @@ Recent decisions affecting current work:
 - [Phase 02]: Lighthouse 96-97 accepted — gap is picsum.photos proxy latency under simulated 3G; production Sanity CDN will score higher
 - [Phase 02]: isSanityAsset() checks cdn.sanity.io in URL (not image ID prefix) for reliable Sanity vs external URL detection
 - [Phase 02]: PERF-03 Speed Insights 100/100 deferred to post-deployment — infrastructure confirmed ready, requires real user traffic on Vercel
+- [Phase 03]: useActionState from react (not react-dom) for Server Action form binding — react-dom import is deprecated in React 19
+- [Phase 03]: Honeypot returns fake success to avoid revealing detection to bots
+- [Phase 03]: Auto-responder wrapped in separate try/catch — failure does not block critical notification to Emily
+- [Phase 03]: Resend client initialized only when RESEND_API_KEY is set — graceful dev fallback with console logging
+- [Phase 03]: Zod enum message syntax (not errorMap) for cleaner error configuration
 
 ### Pending Todos
 
@@ -77,6 +83,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-02-19
-Stopped at: Completed 02-03-PLAN.md — Phase 2 complete
-Resume file: .planning/phases/02-shared-components-and-galleries/02-03-SUMMARY.md
+Last session: 2026-02-22
+Stopped at: Completed 03-04-PLAN.md
+Resume file: .planning/phases/03-core-pages-and-conversion/03-04-SUMMARY.md

@@ -30,7 +30,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **PAGE-02**: Senior Portraits service page — gallery, session description, Experience Storyboard, "Starting At" pricing, FAQ section, CTA
 - [ ] **PAGE-03**: Family Portraits service page — gallery, session description, "Starting At" pricing, FAQ section, CTA
 - [ ] **PAGE-04**: About page — Emily's professional photo, personal story, photography philosophy
-- [ ] **PAGE-05**: Contact page — inquiry form as primary element, business info, service area
+- [x] **PAGE-05**: Contact page — inquiry form as primary element, business info, service area
 - [ ] **PAGE-06**: Investment/Pricing page — package overview with "Starting At" pricing for each service, what's included, CTA to inquire
 - [ ] **PAGE-07**: Raves/Testimonials page — dedicated page with client reviews, photos where available
 - [ ] **PAGE-08**: Senior Style/Wardrobe Guide page — outfit tips, color recommendations, seasonal advice, layering suggestions
@@ -54,9 +54,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Conversion
 
-- [ ] **CONV-01**: Inquiry form with fields: Name, Email, Phone (optional), Service Type dropdown, Grad Year (conditional on Senior), High School (conditional on Senior), "Tell us about your dream session" text area
-- [ ] **CONV-02**: Inquiry form submissions send email notification to Emily
-- [ ] **CONV-03**: Auto-responder email sent ~10 minutes after inquiry submission
+- [x] **CONV-01**: Inquiry form with fields: Name, Email, Phone (optional), Service Type dropdown, Grad Year (conditional on Senior), High School (conditional on Senior), "Tell us about your dream session" text area
+- [x] **CONV-02**: Inquiry form submissions send email notification to Emily
+- [x] **CONV-03**: Auto-responder email sent ~10 minutes after inquiry submission
 - [ ] **CONV-04**: Persistent "Inquire for Detailed Pricing" CTA button in navigation bar and as high-contrast button on every page
 - [ ] **CONV-05**: "Starting At" pricing displayed on Senior Portraits and Family Portraits service pages
 - [ ] **CONV-06**: CMS-managed scarcity cues ("Limited Spring 2026 Slots Remaining") with visibility toggle
@@ -88,9 +88,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Infrastructure
 
-- [ ] **INFRA-01**: Email delivery via Resend for inquiry notifications and auto-responder
+- [x] **INFRA-01**: Email delivery via Resend for inquiry notifications and auto-responder
 - [ ] **INFRA-02**: Sanity webhook to trigger ISR revalidation on content changes
-- [ ] **INFRA-03**: Form spam protection (honeypot + rate limiting)
+- [x] **INFRA-03**: Form spam protection (honeypot + rate limiting)
 
 ## v2 Requirements
 
@@ -150,13 +150,13 @@ Deferred to future release. Tracked but not in current roadmap.
 | PAGE-02 | Phase 3 | Pending |
 | PAGE-03 | Phase 3 | Pending |
 | PAGE-04 | Phase 3 | Pending |
-| PAGE-05 | Phase 3 | Pending |
+| PAGE-05 | Phase 3 | Complete |
 | PAGE-06 | Phase 3 | Pending |
 | PAGE-07 | Phase 3 | Pending |
 | PAGE-08 | Phase 3 | Pending |
-| CONV-01 | Phase 3 | Pending |
-| CONV-02 | Phase 3 | Pending |
-| CONV-03 | Phase 3 | Pending |
+| CONV-01 | Phase 3 | Complete |
+| CONV-02 | Phase 3 | Complete |
+| CONV-03 | Phase 3 | Complete |
 | CONV-04 | Phase 3 | Pending |
 | CONV-05 | Phase 3 | Pending |
 | CONV-06 | Phase 3 | Pending |
@@ -165,8 +165,8 @@ Deferred to future release. Tracked but not in current roadmap.
 | CONT-02 | Phase 3 | Pending |
 | CONT-03 | Phase 3 | Pending |
 | CONT-04 | Phase 3 | Pending |
-| INFRA-01 | Phase 3 | Pending |
-| INFRA-03 | Phase 3 | Pending |
+| INFRA-01 | Phase 3 | Complete |
+| INFRA-03 | Phase 3 | Complete |
 | SEO-09 | Phase 3 | Pending |
 | SEO-01 | Phase 4 | Pending |
 | SEO-02 | Phase 4 | Pending |
