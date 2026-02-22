@@ -1,13 +1,11 @@
 import { TestimonialCard } from '@/components/testimonials/TestimonialCard'
-import type { SanityImageProps } from '@/components/shared/SanityImage'
-
-type SanityImageAsset = SanityImageProps['asset']
+import type { TestimonialImage } from '@/components/testimonials/TestimonialCard'
 
 interface Testimonial {
   name: string
   quote: string
   service?: string
-  image?: SanityImageAsset
+  image?: TestimonialImage
 }
 
 interface TestimonialCarouselProps {

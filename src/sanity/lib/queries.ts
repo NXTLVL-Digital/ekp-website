@@ -84,6 +84,33 @@ export const GALLERIES_BY_CATEGORY_QUERY = `*[_type == "gallery" && category == 
   }
 }`;
 
+/**
+ * Fetch one gallery per category for homepage preview cards.
+ * Returns the most recent gallery per category with title, slug, and preview image.
+ * Uses the same pattern as GALLERIES_BY_CATEGORY_QUERY but fetches a single
+ * representative gallery per category for the homepage portfolio preview.
+ */
+export const HOMEPAGE_GALLERY_PREVIEW_QUERY = `{
+  "senior": *[_type == "gallery" && category == "senior"] | order(_createdAt desc) [0] {
+    title,
+    "slug": slug.current,
+    "previewImage": images[0]{
+      _key,
+      alt,
+      ${IMAGE_FIELDS}
+    }
+  },
+  "family": *[_type == "gallery" && category == "family"] | order(_createdAt desc) [0] {
+    title,
+    "slug": slug.current,
+    "previewImage": images[0]{
+      _key,
+      alt,
+      ${IMAGE_FIELDS}
+    }
+  }
+}`;
+
 // ---------------------------------------------------------------------------
 // Pricing queries
 // ---------------------------------------------------------------------------
@@ -111,6 +138,9 @@ export const PRICING_TIERS_QUERY = `*[_type == "pricingTier"] | order(sortOrder 
  * To fetch all: set both to null.
  * To fetch featured only: set $featured to true and $service to null.
  * To fetch by service: set $service to "senior"/"family"/"general" and $featured to null.
+ *
+ * Homepage featured testimonials pattern:
+ *   sanityFetch({ query: TESTIMONIALS_QUERY, params: { featured: true, service: null }, tags: ['testimonial'] })
  */
 export const TESTIMONIALS_QUERY = `*[_type == "testimonial"
   && select(

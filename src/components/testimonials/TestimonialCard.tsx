@@ -3,11 +3,22 @@ import type { SanityImageProps } from '@/components/shared/SanityImage'
 
 type SanityImageAsset = SanityImageProps['asset']
 
+/**
+ * Shape of a testimonial image as returned from GROQ queries.
+ * Matches the `image { asset->{ ... }, hotspot, crop, alt }` projection.
+ */
+export interface TestimonialImage {
+  asset: SanityImageAsset
+  hotspot?: { x: number; y: number }
+  crop?: { top: number; bottom: number; left: number; right: number }
+  alt?: string
+}
+
 interface TestimonialCardProps {
   name: string
   quote: string
   service?: string
-  image?: SanityImageAsset
+  image?: TestimonialImage
 }
 
 /**
@@ -18,11 +29,13 @@ interface TestimonialCardProps {
 export function TestimonialCard({ name, quote, service, image }: TestimonialCardProps) {
   return (
     <div className="rounded-lg border border-border bg-white p-6">
-      {image && (
+      {image?.asset && (
         <div className="mb-4 h-16 w-16 overflow-hidden rounded-full">
           <SanityImage
-            asset={image}
-            alt={name}
+            asset={image.asset}
+            alt={image.alt || name}
+            hotspot={image.hotspot}
+            crop={image.crop}
             width={64}
             height={64}
             sizes="64px"
