@@ -6,12 +6,30 @@ import { siteConfig } from '@/lib/siteConfig'
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Get in touch with Emily Kathryn Photography to book your senior portrait or family photography session in South-Central Virginia.',
+    'Get in touch with Emily Kathryn Photography to book your senior portrait or family photography session in South-Central Virginia. Response within 48 hours.',
   openGraph: {
     title: 'Contact | Emily Kathryn Photography',
     description:
       'Ready to book your dream session? Reach out to Emily Kathryn Photography — serving Gretna, Lynchburg, Danville, and South-Central Virginia.',
     url: `${siteConfig.url}/contact`,
+    siteName: 'Emily Kathryn Photography',
+    images: [
+      {
+        url: '/og/contact.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Contact Emily Kathryn Photography — book your senior or family portrait session',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact | Emily Kathryn Photography',
+    description:
+      'Ready to book your dream session? Reach out to Emily Kathryn Photography in South-Central Virginia.',
+    images: ['/og/contact.jpg'],
   },
 }
 
@@ -25,9 +43,9 @@ export default function ContactPage() {
             Get in Touch
           </h1>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-            We&apos;d love to hear from you! Whether you&apos;re ready to book
-            or just have questions, fill out the form below and Emily will
-            personally get back to you within 48 hours.
+            I would love to hear from you. Whether you are ready to book your
+            session or just exploring your options, fill out the form below
+            and I will personally get back to you within 48 hours.
           </p>
         </div>
       </Section>

@@ -12,6 +12,14 @@ export const metadata: Metadata = {
       'Meet Emily Kathryn — a portrait photographer in South-Central Virginia who believes every session should feel like a magazine shoot.',
     url: 'https://emilykathryn.com/about',
     siteName: 'Emily Kathryn Photography',
+    images: [
+      {
+        url: '/og/about.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Emily Kathryn — portrait photographer based in South-Central Virginia',
+      },
+    ],
     locale: 'en_US',
     type: 'website',
   },
@@ -20,6 +28,7 @@ export const metadata: Metadata = {
     title: 'About | Emily Kathryn Photography',
     description:
       'Meet Emily Kathryn — a portrait photographer in South-Central Virginia who believes every session should feel like a magazine shoot.',
+    images: ['/og/about.jpg'],
   },
 }
 
@@ -41,46 +50,47 @@ export default function AboutPage() {
           {/* Right: Story content */}
           <div>
             <h1 className="font-heading text-4xl font-light md:text-5xl">
-              About Emily
+              Hey, I&apos;m Emily
             </h1>
             <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed">
               <p>
                 There is something extraordinary about a photograph that makes
-                you stop and truly <em>feel</em> something. That moment when
-                light, expression, and emotion come together in a way that is
+                you stop and truly <em>feel</em> something. That single frame
+                where light, expression, and emotion align in a way that is
                 completely, unmistakably you. That is what I chase in every
-                single session.
+                session I shoot.
               </p>
               <p>
                 My journey into photography started the way most great loves
                 do — unexpectedly. What began as a creative outlet quickly
                 became a calling. I realized I was not just taking pictures; I
-                was capturing the confidence of a senior stepping into who they
-                are becoming, the unscripted laughter between a mother and her
-                child, and the quiet magic of a family just being together.
+                was capturing the quiet confidence of a senior stepping into
+                who they are becoming, the unscripted laughter between a
+                parent and their child, and the simple magic of a family just
+                being together.
               </p>
               <p>
                 Based in the heart of South-Central Virginia, I have built my
-                studio and my reputation on one belief: every session should
-                feel like a magazine shoot. Not stiff. Not rushed. Not generic.
-                I am talking about that relaxed, editorial quality where you
-                look at the final images and think, <em>&quot;That is actually
+                reputation on one belief: every session should feel like a
+                magazine shoot. Not stiff. Not rushed. Not generic. I am
+                talking about that relaxed, editorial quality where you look
+                at the final images and think, <em>&quot;That is actually
                 me.&quot;</em>
               </p>
               <p>
-                My approach is different because I take the time to know you
-                before I ever pick up the camera. Whether we are talking about
-                your senior&apos;s personality and style or the way your family
-                naturally connects, I want every frame to reflect something
-                real. The result is not just a portrait — it is art that tells
-                your story.
+                What makes my approach different is that I take the time to
+                know you before I ever pick up the camera. Whether we are
+                talking about your senior&apos;s personality and style or the
+                way your family naturally connects, I want every frame to
+                reflect something real. The result is not just a portrait — it
+                is art that tells your story.
               </p>
               <p>
                 From golden-hour fields in Chatham to the charming streetscapes
                 of Danville, the rolling foothills near Lynchburg, and
                 everywhere in between, I am honored to serve families and
-                seniors across this beautiful corner of Virginia. And I cannot
-                wait to create something beautiful with you.
+                seniors across this beautiful corner of Virginia. And I truly
+                cannot wait to create something beautiful with you.
               </p>
             </div>
           </div>

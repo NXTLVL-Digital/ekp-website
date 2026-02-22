@@ -47,6 +47,14 @@ export const metadata: Metadata = {
       'Editorial-style senior portrait and family photography in South-Central Virginia. Serving Chatham, Danville, Lynchburg, Smith Mountain Lake, and beyond.',
     url: 'https://emilykathryn.com',
     siteName: 'Emily Kathryn Photography',
+    images: [
+      {
+        url: '/og/default.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Emily Kathryn Photography — editorial senior portraits and family photography in South-Central Virginia',
+      },
+    ],
     locale: 'en_US',
     type: 'website',
   },
@@ -55,6 +63,7 @@ export const metadata: Metadata = {
     title: 'Emily Kathryn Photography | Senior & Family Portraits',
     description:
       'Editorial-style senior portrait and family photography in South-Central Virginia.',
+    images: ['/og/default.jpg'],
   },
 }
 
@@ -82,8 +91,8 @@ export default async function HomePage() {
       {/* 1. Hero — editorial first impression, gender-inclusive imagery     */}
       {/* ----------------------------------------------------------------- */}
       <Hero
-        heading="Your Story. Your Session. Your Moment."
-        subheading="Editorial-style senior and family portrait photography in South-Central Virginia. Every session is designed to feel like a magazine shoot — relaxed, authentic, and uniquely you."
+        heading="Your Story. Beautifully Told."
+        subheading="Senior and family portrait photography with an editorial edge — relaxed, authentic, and designed around you. Serving South-Central Virginia from Chatham to Lynchburg and everywhere in between."
         ctaLabel="Inquire for Detailed Pricing"
         ctaHref="/contact"
       />
@@ -109,9 +118,9 @@ export default async function HomePage() {
             What We Create Together
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-            Whether it is celebrating a milestone or capturing your family just
-            as you are, every session is a collaborative experience crafted
-            around your story.
+            Whether you are celebrating a milestone or simply want to freeze
+            this chapter exactly as it is, every session is a collaborative
+            experience crafted around your story.
           </p>
         </div>
         <PortfolioPreview
@@ -120,7 +129,7 @@ export default async function HomePage() {
               title: 'Senior Portraits',
               href: '/senior-portraits',
               description:
-                'Editorial-style sessions for guys and girls — bold, authentic, and nothing like the school photo. Your personality, your way.',
+                'Magazine-worthy sessions for guys and girls — bold, authentic, and nothing like the school photo. Your personality, your way.',
             },
             {
               title: 'Family Portraits',
@@ -138,7 +147,7 @@ export default async function HomePage() {
       <Section background="muted">
         <HomeCTA
           heading="Ready to Book Your Session?"
-          body="Let us know a little about yourself and what you are looking for. We will be in touch within 48 hours to start planning your session — no pressure, just a conversation."
+          body="Tell us a little about yourself and the session you have in mind. Emily will personally get back to you within 48 hours to start planning — no pressure, just a conversation."
           ctaLabel="Get in Touch"
           ctaHref="/contact"
         />
@@ -154,8 +163,8 @@ export default async function HomePage() {
               What Our Clients Are Saying
             </h2>
             <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-              Nothing means more than hearing how much our families love their
-              photos. Here is what a few of them had to say.
+              Nothing means more than hearing how a session made someone feel.
+              Here is what a few of our families and seniors had to say.
             </p>
           </div>
           <TestimonialCarousel testimonials={testimonials} />

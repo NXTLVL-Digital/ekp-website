@@ -19,15 +19,30 @@ import {
 export const metadata: Metadata = {
   title: 'Senior Portraits',
   description:
-    'Editorial-style senior portrait photography for boys and girls in South-Central Virginia. A magazine-worthy experience with style consultation, multiple outfits, and stunning locations.',
+    'Editorial senior portrait photography for boys and girls in South-Central Virginia. A magazine-worthy experience with wardrobe planning, multiple outfits, and handpicked locations.',
   openGraph: {
     title: 'Senior Portraits | Emily Kathryn Photography',
     description:
-      'Editorial-style senior portrait photography for boys and girls in South-Central Virginia. A magazine-worthy experience with style consultation, multiple outfits, and stunning locations.',
+      'Editorial senior portrait photography for boys and girls in South-Central Virginia. A magazine-worthy experience with wardrobe planning, multiple outfits, and handpicked locations.',
     url: 'https://emilykathryn.com/senior-portraits',
     siteName: 'Emily Kathryn Photography',
+    images: [
+      {
+        url: '/og/senior-portraits.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Senior portrait by Emily Kathryn Photography — editorial-style session in South-Central Virginia',
+      },
+    ],
     locale: 'en_US',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Senior Portraits | Emily Kathryn Photography',
+    description:
+      'Editorial senior portrait photography for boys and girls in South-Central Virginia.',
+    images: ['/og/senior-portraits.jpg'],
   },
 }
 
@@ -61,31 +76,31 @@ const storyboardSteps = [
     number: 1,
     title: 'Consultation',
     description:
-      "We'll chat about your vision, style, and what makes you you. This is where the magic starts.",
+      'We start with a relaxed conversation about your vision, personality, and style. This is where I get to know you and we map out every detail together.',
   },
   {
     number: 2,
     title: 'Wardrobe Planning',
     description:
-      "I'll guide you through outfit selections, colors, and accessories that photograph beautifully.",
+      'I guide you through outfit selections, color palettes, and accessories so you feel confident and camera-ready before session day even begins.',
   },
   {
     number: 3,
     title: 'Session Day',
     description:
-      "Relax and have fun \u2014 I'll direct every pose while you enjoy the experience.",
+      'Show up, relax, and have fun. I direct every pose and angle while you enjoy the experience in stunning South-Central Virginia locations.',
   },
   {
     number: 4,
     title: 'Gallery Reveal',
     description:
-      "About 2\u20133 weeks later, we'll meet to view your stunning gallery together.",
+      'About two to three weeks later, you and your family see your professionally retouched gallery for the first time. It is one of the best parts.',
   },
   {
     number: 5,
     title: 'Product Delivery',
     description:
-      'Your custom wall art, albums, and digital images are delivered with care.',
+      'Your custom wall art, heirloom albums, and digital images are delivered with care — pieces you will treasure for a lifetime.',
   },
 ]
 
@@ -161,8 +176,8 @@ export default async function SeniorPortraitsPage() {
           </h1>
           <p className="mt-4 text-lg text-muted-foreground md:text-xl">
             An editorial portrait experience for the bold, the creative, and the
-            unapologetically you. For boys and girls who deserve magazine-worthy
-            images that celebrate this milestone.
+            unapologetically you. For guys and girls who want magazine-worthy
+            images that capture exactly who they are right now.
           </p>
         </div>
 
@@ -281,11 +296,11 @@ export default async function SeniorPortraitsPage() {
       <Section background="muted">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-heading text-3xl font-light md:text-4xl">
-            Ready to Be Photographed?
+            Ready for Your Moment?
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Let&apos;s start planning your senior portrait experience. I&apos;d love
-            to hear your vision and create something incredible together.
+            Let&apos;s start planning your senior portrait experience. I would love
+            to hear your vision and create something truly incredible together.
           </p>
           <Link
             href="/contact"

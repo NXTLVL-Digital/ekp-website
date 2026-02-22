@@ -5,13 +5,21 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Style Guide',
   description:
-    'Your complete senior portrait wardrobe guide. Outfit ideas, color tips, seasonal advice, and styling secrets from Emily Kathryn Photography in South-Central Virginia.',
+    'Your complete senior portrait wardrobe guide. Outfit ideas, color palettes, seasonal advice, and styling tips from Emily Kathryn Photography in South-Central Virginia.',
   openGraph: {
     title: 'Senior Style Guide | Emily Kathryn Photography',
     description:
-      'Your complete senior portrait wardrobe guide. Outfit ideas, color tips, seasonal advice, and styling secrets.',
+      'Your complete senior portrait wardrobe guide. Outfit ideas, color palettes, seasonal advice, and styling tips for guys and girls.',
     url: 'https://emilykathryn.com/style-guide',
     siteName: 'Emily Kathryn Photography',
+    images: [
+      {
+        url: '/og/style-guide.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Senior Style Guide — wardrobe tips from Emily Kathryn Photography',
+      },
+    ],
     locale: 'en_US',
     type: 'website',
   },
@@ -19,7 +27,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Senior Style Guide | Emily Kathryn Photography',
     description:
-      'Your complete senior portrait wardrobe guide. Outfit ideas, color tips, seasonal advice, and styling secrets.',
+      'Your complete senior portrait wardrobe guide. Outfit ideas, color palettes, seasonal advice, and styling tips.',
+    images: ['/og/style-guide.jpg'],
   },
 }
 
@@ -34,11 +43,11 @@ export default function StyleGuidePage() {
           </h1>
           <p className="mt-6 text-muted-foreground leading-relaxed">
             One of the most common questions I get is, &quot;What should I
-            wear?&quot; And honestly, it is one of my favorite parts of the
-            planning process. Your wardrobe is not just about looking great in
-            photos — it is about feeling like <em>you</em>. I have put together
-            this guide to help you feel confident and camera-ready, so session
-            day is nothing but fun.
+            wear?&quot; And honestly, it is one of my favorite conversations
+            to have. Your wardrobe is not just about looking great in photos
+            — it is about feeling like the most confident version of
+            <em> you</em>. I put this guide together so you will feel
+            completely prepared and excited for session day.
           </p>
         </div>
       </Section>

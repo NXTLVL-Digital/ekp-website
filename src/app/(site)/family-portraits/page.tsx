@@ -18,15 +18,30 @@ import {
 export const metadata: Metadata = {
   title: 'Family Portraits',
   description:
-    'Relaxed, joyful family portrait photography in South-Central Virginia. Sessions for all ages — from newborns to grandparents — capturing the real connections that matter most.',
+    'Relaxed, joyful family portrait photography in South-Central Virginia. Sessions for all ages — from newborns to grandparents — capturing the connections that matter most.',
   openGraph: {
     title: 'Family Portraits | Emily Kathryn Photography',
     description:
-      'Relaxed, joyful family portrait photography in South-Central Virginia. Sessions for all ages — from newborns to grandparents — capturing the real connections that matter most.',
+      'Relaxed, joyful family portrait photography in South-Central Virginia. Sessions for all ages — from newborns to grandparents — capturing the connections that matter most.',
     url: 'https://emilykathryn.com/family-portraits',
     siteName: 'Emily Kathryn Photography',
+    images: [
+      {
+        url: '/og/family-portraits.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Family portrait session by Emily Kathryn Photography in South-Central Virginia',
+      },
+    ],
     locale: 'en_US',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Family Portraits | Emily Kathryn Photography',
+    description:
+      'Relaxed, joyful family portrait photography in South-Central Virginia. All ages welcome.',
+    images: ['/og/family-portraits.jpg'],
   },
 }
 
@@ -126,9 +141,9 @@ export default async function FamilyPortraitsPage() {
             Family Portraits
           </h1>
           <p className="mt-4 text-lg text-muted-foreground md:text-xl">
-            Relaxed, joyful sessions that capture the real connections between
-            the people who matter most. No stiff posing &mdash; just your family
-            being beautifully, perfectly you.
+            Warm, relaxed sessions that capture the real connections between
+            the people who matter most. No stiff posing, no forced smiles &mdash;
+            just your family being beautifully, perfectly you.
           </p>
         </div>
 
@@ -243,9 +258,9 @@ export default async function FamilyPortraitsPage() {
             Let&apos;s Capture Your Family
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Every family has a story worth telling. I&apos;d love to hear yours
-            and create portraits that celebrate the beautiful, messy, wonderful
-            people you love most.
+            Every family has a story worth telling beautifully. I would love to
+            hear yours and create portraits that celebrate the wonderful,
+            messy, perfectly imperfect people you love most.
           </p>
           <Link
             href="/contact"

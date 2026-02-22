@@ -8,13 +8,21 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Investment',
   description:
-    'Transparent session pricing for senior portraits and family photography. Starting at $400. Emily Kathryn Photography in South-Central Virginia.',
+    'Transparent session pricing for senior portraits and family photography with Emily Kathryn Photography. Starting at $400 in South-Central Virginia.',
   openGraph: {
     title: 'Investment | Emily Kathryn Photography',
     description:
-      'Transparent session pricing for senior portraits and family photography. Starting at $400.',
+      'Transparent session pricing for senior portraits and family photography. Starting at $400 in South-Central Virginia.',
     url: 'https://emilykathryn.com/investment',
     siteName: 'Emily Kathryn Photography',
+    images: [
+      {
+        url: '/og/investment.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Investment and pricing — Emily Kathryn Photography senior and family sessions',
+      },
+    ],
     locale: 'en_US',
     type: 'website',
   },
@@ -23,6 +31,7 @@ export const metadata: Metadata = {
     title: 'Investment | Emily Kathryn Photography',
     description:
       'Transparent session pricing for senior portraits and family photography. Starting at $400.',
+    images: ['/og/investment.jpg'],
   },
 }
 
@@ -90,18 +99,19 @@ export default async function InvestmentPage() {
           </h1>
           <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed">
             <p>
-              I believe in being upfront about pricing so you can focus on what
-              really matters — getting excited about your session. Below you
-              will find session fees for each service type. These are your
-              &quot;Starting At&quot; investment, which includes my time, talent,
-              and the full session experience.
+              I believe in being upfront about pricing so you can focus on
+              what really matters — getting excited about your session. Below
+              you will find the session fee for each service type. This is
+              your &quot;Starting At&quot; investment, which covers my time,
+              talent, direction, and the full session experience from
+              consultation to gallery reveal.
             </p>
             <p>
-              Product packages — wall art, albums, and digital collections —
-              are discussed personally after we have a chance to connect. I offer
-              a complimentary 15-minute discovery conversation where we talk
-              about your vision, answer all your questions, and find the perfect
-              package for you.
+              Product collections — wall art, heirloom albums, and curated
+              digital packages — are shared personally after we connect. I
+              offer a complimentary 15-minute discovery conversation where we
+              talk about your vision, answer every question, and find exactly
+              what is right for you.
             </p>
           </div>
         </div>

@@ -13,9 +13,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Raves | Emily Kathryn Photography',
     description:
-      'Hear what clients are saying about their experience with Emily Kathryn Photography.',
+      'Hear what clients are saying about their portrait experience with Emily Kathryn Photography in South-Central Virginia.',
     url: 'https://emilykathryn.com/raves',
     siteName: 'Emily Kathryn Photography',
+    images: [
+      {
+        url: '/og/raves.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Client testimonials — Emily Kathryn Photography',
+      },
+    ],
     locale: 'en_US',
     type: 'website',
   },
@@ -23,7 +31,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Raves | Emily Kathryn Photography',
     description:
-      'Hear what clients are saying about their experience with Emily Kathryn Photography.',
+      'Hear what clients are saying about their portrait experience with Emily Kathryn Photography.',
+    images: ['/og/raves.jpg'],
   },
 }
 
@@ -53,9 +62,9 @@ export default async function RavesPage() {
           </h1>
           <p className="mt-4 text-muted-foreground leading-relaxed">
             Nothing means more to me than knowing my clients walk away from
-            their session feeling absolutely amazing. These are their words,
-            not mine — and honestly, they make all the early mornings and
-            late edits worth it.
+            their session feeling confident, celebrated, and genuinely thrilled
+            with their images. These are their words, not mine — and honestly,
+            they make every early morning and late edit absolutely worth it.
           </p>
         </div>
       </Section>
