@@ -64,14 +64,14 @@ Plans:
   3. A bot submission attempt is blocked by honeypot or rate limiting — Emily's inbox does not receive the spam
   4. Emily can update testimonial copy, toggle scarcity cues on/off, and change a gallery image from Sanity Studio — changes appear on the live site within 60 seconds
   5. All 8 core pages exist, load without errors on mobile, display correct "Starting At" pricing, and carry the persistent CTA in the navigation
-**Plans**: TBD
+**Plans**: 5 plans
 
 Plans:
-- [ ] 03-01: Homepage — hero, portfolio preview grid, testimonials, scarcity cue, persistent CTA (PAGE-01, CONV-04, CONV-06, CONV-07)
-- [ ] 03-02: Senior Portraits and Family Portraits service pages — galleries, Experience Storyboard, pricing, FAQ (PAGE-02, PAGE-03, CONV-05, CONT-01, CONT-02)
-- [ ] 03-03: About, Contact, Investment/Pricing, Raves, Style Guide pages (PAGE-04, PAGE-05, PAGE-06, PAGE-07, PAGE-08)
-- [ ] 03-04: Inquiry form with Server Action, Resend email delivery, auto-responder, spam protection (CONV-01, CONV-02, CONV-03, INFRA-01, INFRA-03)
-- [ ] 03-05: Brand-voice copy for all 8 pages, OG metadata per page (CONT-03, CONT-04 partial, SEO-09)
+- [ ] 03-01-PLAN.md — Homepage: hero, portfolio preview, testimonials, scarcity cue, persistent CTA (PAGE-01, CONV-04, CONV-06, CONV-07)
+- [ ] 03-02-PLAN.md — Senior Portraits and Family Portraits service pages: Storyboard, pricing, distinct FAQs (PAGE-02, PAGE-03, CONV-05, CONT-01, CONT-02)
+- [ ] 03-03-PLAN.md — About, Investment/Pricing, Raves, Style Guide pages (PAGE-04, PAGE-06, PAGE-07, PAGE-08)
+- [ ] 03-04-PLAN.md — Contact page, inquiry form, Resend email delivery, auto-responder, spam protection (CONV-01, CONV-02, CONV-03, PAGE-05, INFRA-01, INFRA-03)
+- [ ] 03-05-PLAN.md — Brand-voice copy polish, OG metadata for all 8 pages, human verification (CONT-03, CONT-04, SEO-09)
 
 ### Phase 4: SEO Infrastructure
 **Goal**: Site-wide structured data is validated, every page type has correct JSON-LD, the XML sitemap covers all routes, and on-demand ISR revalidation is live — all in place before city pages are authored
@@ -130,7 +130,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete | 2026-02-18 |
 | 2. Shared Components and Galleries | 3/3 | Complete    | 2026-02-20 |
-| 3. Core Pages and Conversion | 0/5 | Not started | - |
+| 3. Core Pages and Conversion | 0/5 | Planned | - |
 | 4. SEO Infrastructure | 0/2 | Not started | - |
 | 5. City Landing Pages | 0/3 | Not started | - |
 | 6. External Platforms and Launch Polish | 0/3 | Not started | - |
