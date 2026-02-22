@@ -26,7 +26,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Pages — Core
 
-- [ ] **PAGE-01**: Homepage — senior-focused hero (boys AND girls), portfolio preview grid, testimonials, scarcity cue, persistent CTA
+- [x] **PAGE-01**: Homepage — senior-focused hero (boys AND girls), portfolio preview grid, testimonials, scarcity cue, persistent CTA
 - [x] **PAGE-02**: Senior Portraits service page — gallery, session description, Experience Storyboard, "Starting At" pricing, FAQ section, CTA
 - [x] **PAGE-03**: Family Portraits service page — gallery, session description, "Starting At" pricing, FAQ section, CTA
 - [x] **PAGE-04**: About page — Emily's professional photo, personal story, photography philosophy
@@ -57,10 +57,10 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **CONV-01**: Inquiry form with fields: Name, Email, Phone (optional), Service Type dropdown, Grad Year (conditional on Senior), High School (conditional on Senior), "Tell us about your dream session" text area
 - [x] **CONV-02**: Inquiry form submissions send email notification to Emily
 - [x] **CONV-03**: Auto-responder email sent ~10 minutes after inquiry submission
-- [ ] **CONV-04**: Persistent "Inquire for Detailed Pricing" CTA button in navigation bar and as high-contrast button on every page
+- [x] **CONV-04**: Persistent "Inquire for Detailed Pricing" CTA button in navigation bar and as high-contrast button on every page
 - [x] **CONV-05**: "Starting At" pricing displayed on Senior Portraits and Family Portraits service pages
-- [ ] **CONV-06**: CMS-managed scarcity cues ("Limited Spring 2026 Slots Remaining") with visibility toggle
-- [ ] **CONV-07**: Client testimonials displayed on homepage, service pages, and city landing pages (CMS-managed)
+- [x] **CONV-06**: CMS-managed scarcity cues ("Limited Spring 2026 Slots Remaining") with visibility toggle
+- [x] **CONV-07**: Client testimonials displayed on homepage, service pages, and city landing pages (CMS-managed)
 
 ### Content & Experience
 
@@ -146,7 +146,7 @@ Deferred to future release. Tracked but not in current roadmap.
 | PERF-01 | Phase 2 | Complete |
 | PERF-02 | Phase 2 | Complete |
 | PERF-03 | Phase 2 | Complete |
-| PAGE-01 | Phase 3 | Pending |
+| PAGE-01 | Phase 3 | Complete |
 | PAGE-02 | Phase 3 | Complete |
 | PAGE-03 | Phase 3 | Complete |
 | PAGE-04 | Phase 3 | Complete |
@@ -157,10 +157,10 @@ Deferred to future release. Tracked but not in current roadmap.
 | CONV-01 | Phase 3 | Complete |
 | CONV-02 | Phase 3 | Complete |
 | CONV-03 | Phase 3 | Complete |
-| CONV-04 | Phase 3 | Pending |
+| CONV-04 | Phase 3 | Complete |
 | CONV-05 | Phase 3 | Complete |
-| CONV-06 | Phase 3 | Pending |
-| CONV-07 | Phase 3 | Pending |
+| CONV-06 | Phase 3 | Complete |
+| CONV-07 | Phase 3 | Complete |
 | CONT-01 | Phase 3 | Complete |
 | CONT-02 | Phase 3 | Complete |
 | CONT-03 | Phase 3 | Pending |

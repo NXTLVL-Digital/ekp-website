@@ -36,6 +36,7 @@ Progress: [█████████████████░░░] 45%
 - Trend: Consistent
 
 *Updated after each plan completion*
+| Phase 03 P01 | 9 | 2 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -75,6 +76,8 @@ Recent decisions affecting current work:
 - [Phase 03]: Investment page placeholder PricingCards fallback when CMS has no data -- Emily updates in Sanity Studio before launch
 - [Phase 03]: Product packages teased on Investment page without prices -- framed as elevated personal reveal experience
 - [Phase 03]: Style Guide written as genuine 601-line resource with 9 sections for both conversion and SEO value
+- [Phase 03]: TestimonialCard accepts full GROQ image projection (TestimonialImage type with asset, hotspot, crop, alt) — not bare SanityImageAsset — for proper hotspot/crop rendering
+- [Phase 03]: Homepage scroll journey: Hero > ScarcityCue (conditional) > PortfolioPreview > HomeCTA > Testimonials > Bottom CTA — with parallel sanityFetch
 
 ### Pending Todos
 
@@ -90,5 +93,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-22
-Stopped at: Completed 03-03-PLAN.md (Secondary Core Pages)
-Resume file: .planning/phases/03-core-pages-and-conversion/03-03-SUMMARY.md
+Stopped at: Completed 03-01-PLAN.md (Homepage)
+Resume file: .planning/phases/03-core-pages-and-conversion/03-01-SUMMARY.md
