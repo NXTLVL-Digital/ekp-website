@@ -27,8 +27,8 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Pages — Core
 
 - [ ] **PAGE-01**: Homepage — senior-focused hero (boys AND girls), portfolio preview grid, testimonials, scarcity cue, persistent CTA
-- [ ] **PAGE-02**: Senior Portraits service page — gallery, session description, Experience Storyboard, "Starting At" pricing, FAQ section, CTA
-- [ ] **PAGE-03**: Family Portraits service page — gallery, session description, "Starting At" pricing, FAQ section, CTA
+- [x] **PAGE-02**: Senior Portraits service page — gallery, session description, Experience Storyboard, "Starting At" pricing, FAQ section, CTA
+- [x] **PAGE-03**: Family Portraits service page — gallery, session description, "Starting At" pricing, FAQ section, CTA
 - [ ] **PAGE-04**: About page — Emily's professional photo, personal story, photography philosophy
 - [x] **PAGE-05**: Contact page — inquiry form as primary element, business info, service area
 - [ ] **PAGE-06**: Investment/Pricing page — package overview with "Starting At" pricing for each service, what's included, CTA to inquire
@@ -58,14 +58,14 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **CONV-02**: Inquiry form submissions send email notification to Emily
 - [x] **CONV-03**: Auto-responder email sent ~10 minutes after inquiry submission
 - [ ] **CONV-04**: Persistent "Inquire for Detailed Pricing" CTA button in navigation bar and as high-contrast button on every page
-- [ ] **CONV-05**: "Starting At" pricing displayed on Senior Portraits and Family Portraits service pages
+- [x] **CONV-05**: "Starting At" pricing displayed on Senior Portraits and Family Portraits service pages
 - [ ] **CONV-06**: CMS-managed scarcity cues ("Limited Spring 2026 Slots Remaining") with visibility toggle
 - [ ] **CONV-07**: Client testimonials displayed on homepage, service pages, and city landing pages (CMS-managed)
 
 ### Content & Experience
 
-- [ ] **CONT-01**: Experience Storyboards on Senior Portraits page showing session journey (Consultation > Wardrobe Planning > Session Day > Gallery Reveal > Product Delivery)
-- [ ] **CONT-02**: FAQ sections on service pages addressing: pricing, session length, outfit count, locations, turnaround time, digital vs prints
+- [x] **CONT-01**: Experience Storyboards on Senior Portraits page showing session journey (Consultation > Wardrobe Planning > Session Day > Gallery Reveal > Product Delivery)
+- [x] **CONT-02**: FAQ sections on service pages addressing: pricing, session length, outfit count, locations, turnaround time, digital vs prints
 - [ ] **CONT-03**: All page copy written in Emily's existing brand voice — warm, confident, editorial
 - [ ] **CONT-04**: SEO copy generated for all 7 city landing pages (250-500 words each) with genuine local references (not template-swapped)
 
@@ -147,8 +147,8 @@ Deferred to future release. Tracked but not in current roadmap.
 | PERF-02 | Phase 2 | Complete |
 | PERF-03 | Phase 2 | Complete |
 | PAGE-01 | Phase 3 | Pending |
-| PAGE-02 | Phase 3 | Pending |
-| PAGE-03 | Phase 3 | Pending |
+| PAGE-02 | Phase 3 | Complete |
+| PAGE-03 | Phase 3 | Complete |
 | PAGE-04 | Phase 3 | Pending |
 | PAGE-05 | Phase 3 | Complete |
 | PAGE-06 | Phase 3 | Pending |
@@ -158,11 +158,11 @@ Deferred to future release. Tracked but not in current roadmap.
 | CONV-02 | Phase 3 | Complete |
 | CONV-03 | Phase 3 | Complete |
 | CONV-04 | Phase 3 | Pending |
-| CONV-05 | Phase 3 | Pending |
+| CONV-05 | Phase 3 | Complete |
 | CONV-06 | Phase 3 | Pending |
 | CONV-07 | Phase 3 | Pending |
-| CONT-01 | Phase 3 | Pending |
-| CONT-02 | Phase 3 | Pending |
+| CONT-01 | Phase 3 | Complete |
+| CONT-02 | Phase 3 | Complete |
 | CONT-03 | Phase 3 | Pending |
 | CONT-04 | Phase 3 | Pending |
 | INFRA-01 | Phase 3 | Complete |

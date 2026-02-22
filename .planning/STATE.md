@@ -19,9 +19,9 @@ Progress: [████████████████░░░░] 40%
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 6
-- Average duration: 4.6 min
-- Total execution time: 0.45 hours
+- Total plans completed: 8
+- Average duration: 5.0 min
+- Total execution time: 0.68 hours
 
 **By Phase:**
 
@@ -29,10 +29,10 @@ Progress: [████████████████░░░░] 40%
 |-------|-------|-------|----------|
 | 01-foundation | 2 | 9 min | 4.5 min |
 | 02-shared-components-and-galleries | 3 | 15.5 min | 5.2 min |
-| 03-core-pages-and-conversion | 1 | 5 min | 5 min |
+| 03-core-pages-and-conversion | 3 | 20 min | 6.7 min |
 
 **Recent Trend:**
-- Last 5 plans: 02-02 (3.5min), 02-01 (7min), 02-03 (5min), 03-04 (5min)
+- Last 5 plans: 02-01 (7min), 02-03 (5min), 03-04 (5min), 03-02 (7min)
 - Trend: Consistent
 
 *Updated after each plan completion*
@@ -69,6 +69,9 @@ Recent decisions affecting current work:
 - [Phase 03]: Auto-responder wrapped in separate try/catch — failure does not block critical notification to Emily
 - [Phase 03]: Resend client initialized only when RESEND_API_KEY is set — graceful dev fallback with console logging
 - [Phase 03]: Zod enum message syntax (not errorMap) for cleaner error configuration
+- [Phase 03]: Service page scroll journey pattern: hero > scarcity > description > storyboard(optional) > pricing > FAQ > CTA
+- [Phase 03]: Experience Storyboard is Senior-only (not Family) per CONT-01 requirement
+- [Phase 03]: CMS tier lookup by name substring with nullish coalescing fallback to placeholder $400 pricing
 
 ### Pending Todos
 
@@ -84,5 +87,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-22
-Stopped at: Completed 03-04-PLAN.md
-Resume file: .planning/phases/03-core-pages-and-conversion/03-04-SUMMARY.md
+Stopped at: Completed 03-02-PLAN.md (Service Pages)
+Resume file: .planning/phases/03-core-pages-and-conversion/03-02-SUMMARY.md
