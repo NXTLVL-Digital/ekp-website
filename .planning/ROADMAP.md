@@ -70,7 +70,7 @@ Plans:
 - [ ] 03-01-PLAN.md — Homepage: hero, portfolio preview, testimonials, scarcity cue, persistent CTA (PAGE-01, CONV-04, CONV-06, CONV-07)
 - [ ] 03-02-PLAN.md — Senior Portraits and Family Portraits service pages: Storyboard, pricing, distinct FAQs (PAGE-02, PAGE-03, CONV-05, CONT-01, CONT-02)
 - [ ] 03-03-PLAN.md — About, Investment/Pricing, Raves, Style Guide pages (PAGE-04, PAGE-06, PAGE-07, PAGE-08)
-- [ ] 03-04-PLAN.md — Contact page, inquiry form, Resend email delivery, auto-responder, spam protection (CONV-01, CONV-02, CONV-03, PAGE-05, INFRA-01, INFRA-03)
+- [x] 03-04-PLAN.md — Contact page, inquiry form, Resend email delivery, auto-responder, spam protection (CONV-01, CONV-02, CONV-03, PAGE-05, INFRA-01, INFRA-03)
 - [ ] 03-05-PLAN.md — Brand-voice copy polish, OG metadata for all 8 pages, human verification (CONT-03, CONT-04, SEO-09)
 
 ### Phase 4: SEO Infrastructure
