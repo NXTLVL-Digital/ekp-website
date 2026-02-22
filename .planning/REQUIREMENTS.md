@@ -29,11 +29,11 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **PAGE-01**: Homepage — senior-focused hero (boys AND girls), portfolio preview grid, testimonials, scarcity cue, persistent CTA
 - [x] **PAGE-02**: Senior Portraits service page — gallery, session description, Experience Storyboard, "Starting At" pricing, FAQ section, CTA
 - [x] **PAGE-03**: Family Portraits service page — gallery, session description, "Starting At" pricing, FAQ section, CTA
-- [ ] **PAGE-04**: About page — Emily's professional photo, personal story, photography philosophy
+- [x] **PAGE-04**: About page — Emily's professional photo, personal story, photography philosophy
 - [x] **PAGE-05**: Contact page — inquiry form as primary element, business info, service area
-- [ ] **PAGE-06**: Investment/Pricing page — package overview with "Starting At" pricing for each service, what's included, CTA to inquire
-- [ ] **PAGE-07**: Raves/Testimonials page — dedicated page with client reviews, photos where available
-- [ ] **PAGE-08**: Senior Style/Wardrobe Guide page — outfit tips, color recommendations, seasonal advice, layering suggestions
+- [x] **PAGE-06**: Investment/Pricing page — package overview with "Starting At" pricing for each service, what's included, CTA to inquire
+- [x] **PAGE-07**: Raves/Testimonials page — dedicated page with client reviews, photos where available
+- [x] **PAGE-08**: Senior Style/Wardrobe Guide page — outfit tips, color recommendations, seasonal advice, layering suggestions
 
 ### Pages — Local SEO
 
@@ -149,11 +149,11 @@ Deferred to future release. Tracked but not in current roadmap.
 | PAGE-01 | Phase 3 | Pending |
 | PAGE-02 | Phase 3 | Complete |
 | PAGE-03 | Phase 3 | Complete |
-| PAGE-04 | Phase 3 | Pending |
+| PAGE-04 | Phase 3 | Complete |
 | PAGE-05 | Phase 3 | Complete |
-| PAGE-06 | Phase 3 | Pending |
-| PAGE-07 | Phase 3 | Pending |
-| PAGE-08 | Phase 3 | Pending |
+| PAGE-06 | Phase 3 | Complete |
+| PAGE-07 | Phase 3 | Complete |
+| PAGE-08 | Phase 3 | Complete |
 | CONV-01 | Phase 3 | Complete |
 | CONV-02 | Phase 3 | Complete |
 | CONV-03 | Phase 3 | Complete |

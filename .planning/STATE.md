@@ -14,7 +14,7 @@ Plan: 4 of 5 in current phase
 Status: Completed 03-04 (Inquiry Form and Contact Page)
 Last activity: 2026-02-22 — Completed 03-04-PLAN.md
 
-Progress: [████████████████░░░░] 40%
+Progress: [█████████████████░░░] 45%
 
 ## Performance Metrics
 
@@ -32,7 +32,7 @@ Progress: [████████████████░░░░] 40%
 | 03-core-pages-and-conversion | 3 | 20 min | 6.7 min |
 
 **Recent Trend:**
-- Last 5 plans: 02-01 (7min), 02-03 (5min), 03-04 (5min), 03-02 (7min)
+- Last 5 plans: 02-03 (5min), 03-04 (5min), 03-02 (7min), 03-03 (8min)
 - Trend: Consistent
 
 *Updated after each plan completion*
@@ -72,6 +72,9 @@ Recent decisions affecting current work:
 - [Phase 03]: Service page scroll journey pattern: hero > scarcity > description > storyboard(optional) > pricing > FAQ > CTA
 - [Phase 03]: Experience Storyboard is Senior-only (not Family) per CONT-01 requirement
 - [Phase 03]: CMS tier lookup by name substring with nullish coalescing fallback to placeholder $400 pricing
+- [Phase 03]: Investment page placeholder PricingCards fallback when CMS has no data -- Emily updates in Sanity Studio before launch
+- [Phase 03]: Product packages teased on Investment page without prices -- framed as elevated personal reveal experience
+- [Phase 03]: Style Guide written as genuine 601-line resource with 9 sections for both conversion and SEO value
 
 ### Pending Todos
 
@@ -87,5 +90,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-22
-Stopped at: Completed 03-02-PLAN.md (Service Pages)
-Resume file: .planning/phases/03-core-pages-and-conversion/03-02-SUMMARY.md
+Stopped at: Completed 03-03-PLAN.md (Secondary Core Pages)
+Resume file: .planning/phases/03-core-pages-and-conversion/03-03-SUMMARY.md
