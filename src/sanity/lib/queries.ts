@@ -179,3 +179,42 @@ export const ACTIVE_SCARCITY_CUE_QUERY = `*[_type == "scarcityCue"
   isActive,
   expiresAt
 }`;
+
+// ---------------------------------------------------------------------------
+// City landing page queries
+// ---------------------------------------------------------------------------
+
+/**
+ * Fetch a single city page by slug with full image metadata and
+ * dereferenced testimonials. Used by the dynamic [city] route.
+ */
+export const CITY_PAGE_QUERY = `*[_type == "cityPage" && slug.current == $slug][0]{
+  title,
+  "slug": slug.current,
+  headline,
+  aeoBlock,
+  body,
+  metaDescription,
+  mapQuery,
+  testimonialLabel,
+  "galleryImages": galleryImages[]{
+    _key,
+    alt,
+    caption,
+    ${IMAGE_FIELDS}
+  },
+  "testimonials": testimonials[]->{
+    _id,
+    name,
+    quote,
+    service,
+    "image": image {
+      ${IMAGE_FIELDS}
+    }
+  }
+}`;
+
+/**
+ * Fetch all city page slugs for generateStaticParams and sitemap.
+ */
+export const CITY_SLUGS_QUERY = `*[_type == "cityPage"]{ "slug": slug.current }`;
