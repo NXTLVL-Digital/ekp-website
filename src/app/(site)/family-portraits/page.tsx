@@ -5,6 +5,7 @@ import { Section } from '@/components/shared/Section'
 import { PricingCard } from '@/components/shared/PricingCard'
 import { AnswerBlock } from '@/components/shared/AnswerBlock'
 import { ScarcityCue } from '@/components/shared/ScarcityCue'
+import { TestimonialCarousel } from '@/components/home/TestimonialCarousel'
 import { GalleryClient } from '@/components/shared/GalleryClient'
 import { familyGalleryImages } from '@/lib/placeholder-galleries'
 import { sanityFetch } from '@/sanity/lib/fetch'
@@ -112,12 +113,12 @@ const familyFaqs = [
 
 export default async function FamilyPortraitsPage() {
   /* --- data fetching (parallel) --- */
-  const [pricingTiers, , scarcityCue] = await Promise.all([
+  const [pricingTiers, testimonials, scarcityCue] = await Promise.all([
     sanityFetch<PricingTier[]>({
       query: PRICING_TIERS_QUERY,
       tags: ['pricingTier'],
     }),
-    sanityFetch<unknown[]>({
+    sanityFetch<Array<{ _id: string; name: string; quote: string; service?: string }>>({
       query: TESTIMONIALS_QUERY,
       params: { featured: null, service: 'family' },
       tags: ['testimonial'],
@@ -279,9 +280,23 @@ export default async function FamilyPortraitsPage() {
       </Section>
 
       {/* ------------------------------------------------------------------ */}
-      {/*  7. Bottom CTA                                                       */}
+      {/*  7. Testimonials                                                     */}
       {/* ------------------------------------------------------------------ */}
-      <Section>
+      {testimonials && testimonials.length > 0 && (
+        <Section>
+          <div className="mb-8 text-center">
+            <h2 className="font-heading text-3xl font-light md:text-4xl">
+              What Our Families Are Saying
+            </h2>
+          </div>
+          <TestimonialCarousel testimonials={testimonials} />
+        </Section>
+      )}
+
+      {/* ------------------------------------------------------------------ */}
+      {/*  8. Bottom CTA                                                       */}
+      {/* ------------------------------------------------------------------ */}
+      <Section background="muted">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-heading text-3xl font-light md:text-4xl">
             Let&apos;s Capture Your Family

@@ -6,6 +6,7 @@ import { Storyboard } from '@/components/shared/Storyboard'
 import { PricingCard } from '@/components/shared/PricingCard'
 import { AnswerBlock } from '@/components/shared/AnswerBlock'
 import { ScarcityCue } from '@/components/shared/ScarcityCue'
+import { TestimonialCarousel } from '@/components/home/TestimonialCarousel'
 import { GalleryClient } from '@/components/shared/GalleryClient'
 import { seniorGalleryImages } from '@/lib/placeholder-galleries'
 import { sanityFetch } from '@/sanity/lib/fetch'
@@ -146,12 +147,12 @@ const seniorFaqs = [
 
 export default async function SeniorPortraitsPage() {
   /* --- data fetching (parallel) --- */
-  const [pricingTiers, , scarcityCue] = await Promise.all([
+  const [pricingTiers, testimonials, scarcityCue] = await Promise.all([
     sanityFetch<PricingTier[]>({
       query: PRICING_TIERS_QUERY,
       tags: ['pricingTier'],
     }),
-    sanityFetch<unknown[]>({
+    sanityFetch<Array<{ _id: string; name: string; quote: string; service?: string }>>({
       query: TESTIMONIALS_QUERY,
       params: { featured: null, service: 'senior' },
       tags: ['testimonial'],
@@ -319,9 +320,23 @@ export default async function SeniorPortraitsPage() {
       </Section>
 
       {/* ------------------------------------------------------------------ */}
-      {/*  7. Bottom CTA                                                       */}
+      {/*  7. Testimonials                                                     */}
       {/* ------------------------------------------------------------------ */}
-      <Section background="muted">
+      {testimonials && testimonials.length > 0 && (
+        <Section background="muted">
+          <div className="mb-8 text-center">
+            <h2 className="font-heading text-3xl font-light md:text-4xl">
+              What Our Seniors Are Saying
+            </h2>
+          </div>
+          <TestimonialCarousel testimonials={testimonials} />
+        </Section>
+      )}
+
+      {/* ------------------------------------------------------------------ */}
+      {/*  8. Bottom CTA                                                       */}
+      {/* ------------------------------------------------------------------ */}
+      <Section>
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-heading text-3xl font-light md:text-4xl">
             Ready for Your Moment?

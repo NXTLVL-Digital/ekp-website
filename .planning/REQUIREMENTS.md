@@ -164,7 +164,7 @@ Deferred to future release. Tracked but not in current roadmap.
 | CONT-01 | Phase 3 | Complete |
 | CONT-02 | Phase 3 | Complete |
 | CONT-03 | Phase 3 | Complete |
-| CONT-04 | Phase 3 | Complete |
+| CONT-04 | Phase 3, 5 | Partial |
 | INFRA-01 | Phase 3 | Complete |
 | INFRA-03 | Phase 3 | Complete |
 | SEO-09 | Phase 3 | Complete |
