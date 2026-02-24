@@ -13,7 +13,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **FOUND-02**: Sanity v4 CMS with embedded Studio at /studio for client content management
 - [x] **FOUND-03**: Next.js image pipeline with WebP/AVIF format selection, blur placeholders (Sanity LQIP), and lazy loading
 - [x] **FOUND-04**: ISR with tag-based revalidation via Sanity webhook for near-instant CMS updates
-- [ ] **FOUND-05**: Mobile-first responsive design with gender-inclusive editorial aesthetic
+- [x] **FOUND-05**: Mobile-first responsive design with gender-inclusive editorial aesthetic
 - [x] **FOUND-06**: 44x44px minimum tap targets on all interactive elements
 - [x] **FOUND-07**: DNS configured for emilykathryn.com on Vercel
 
@@ -134,7 +134,7 @@ Deferred to future release. Tracked but not in current roadmap.
 | FOUND-02 | Phase 1 | Complete |
 | FOUND-03 | Phase 1 | Complete |
 | FOUND-04 | Phase 1 | Complete |
-| FOUND-05 | Phase 1 | Pending |
+| FOUND-05 | Phase 1 | Complete |
 | FOUND-06 | Phase 1 | Complete |
 | FOUND-07 | Phase 1 | Complete |
 | PERF-04 | Phase 1 | Complete |

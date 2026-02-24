@@ -38,6 +38,7 @@ Progress: [██████████████████░░] 50%
 *Updated after each plan completion*
 | Phase 03 P05 | 3 | 2 tasks | 17 files |
 | Phase 03 P01 | 9 | 2 tasks | 7 files |
+| Phase 01 P01 | 20 | 2 tasks | 30 files |
 
 ## Accumulated Context
 
@@ -83,6 +84,8 @@ Recent decisions affecting current work:
 - [Phase 03]: OG images reference /og/{page-slug}.jpg paths as placeholders — actual images to be created in Phase 4
 - [Phase 03]: Placeholder image system (public/placeholder/) for visual development preview — to be replaced by CMS-managed Sanity images before launch
 - [Phase 03]: Pages approved for development but require Emily (client) review and approval before production launch
+- [Phase 01]: env.ts uses fallback defaults over assertValue pattern to prevent build crashes when Sanity project is not yet configured
+- [Phase 01]: Studio.tsx runtime fallback UI when Sanity projectId is empty -- shows setup instructions instead of crashing
 
 ### Pending Todos
 
