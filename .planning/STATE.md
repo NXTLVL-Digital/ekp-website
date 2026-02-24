@@ -19,9 +19,9 @@ Progress: [██████████████████████░
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 10
-- Average duration: 4.6 min
-- Total execution time: 0.78 hours
+- Total plans completed: 11
+- Average duration: 4.5 min
+- Total execution time: 0.85 hours
 
 **By Phase:**
 
@@ -30,13 +30,14 @@ Progress: [██████████████████████░
 | 01-foundation | 2 | 9 min | 4.5 min |
 | 02-shared-components-and-galleries | 3 | 15.5 min | 5.2 min |
 | 03-core-pages-and-conversion | 4 | 23 min | 5.8 min |
-| 04-seo-infrastructure | 1 | 3 min | 3.0 min |
+| 04-seo-infrastructure | 2 | 7 min | 3.5 min |
 
 **Recent Trend:**
-- Last 5 plans: 04-02 (3min), 03-05 (3min), 02-03 (5min), 03-04 (5min), 03-02 (7min)
+- Last 5 plans: 04-01 (4min), 04-02 (3min), 03-05 (3min), 02-03 (5min), 03-04 (5min)
 - Trend: Consistent, accelerating
 
 *Updated after each plan completion*
+| Phase 04 P01 | 4 | 2 tasks | 9 files |
 | Phase 04 P02 | 3 | 2 tasks | 5 files |
 | Phase 03 P05 | 3 | 2 tasks | 17 files |
 | Phase 03 P01 | 9 | 2 tasks | 7 files |
@@ -88,6 +89,10 @@ Recent decisions affecting current work:
 - [Phase 03]: Pages approved for development but require Emily (client) review and approval before production launch
 - [Phase 01]: env.ts uses fallback defaults over assertValue pattern to prevent build crashes when Sanity project is not yet configured
 - [Phase 01]: Studio.tsx runtime fallback UI when Sanity projectId is empty -- shows setup instructions instead of crashing
+- [Phase 04]: Speakable markup intentionally omitted from FAQPage -- beta-only for US-English news publishers, may be discontinued
+- [Phase 04]: BUSINESS_ID exported as shared constant for @id cross-referencing across all schema types (LocalBusiness, Service, Review)
+- [Phase 04]: Review schemas render conditionally only when testimonials exist from CMS fetch
+- [Phase 04]: ProfessionalService used as @type despite Schema.org deprecation note -- still valid, Google processes it, most specific categorization
 - [Phase 04]: Image sitemaps included in sitemap.ts -- image:image XML tags drive Google Image traffic for photography business
 - [Phase 04]: GSC verification via NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION env var -- Next.js omits empty meta tag automatically
 - [Phase 04]: ISR webhook confirmed functional via code review -- no changes needed to Phase 1 implementation

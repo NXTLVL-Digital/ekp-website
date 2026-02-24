@@ -71,10 +71,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### SEO & Structured Data
 
-- [ ] **SEO-01**: JSON-LD LocalBusiness schema (service area business — no physical address displayed) on all pages
-- [ ] **SEO-02**: JSON-LD Service schema for Senior Portraits and Family Portraits
-- [ ] **SEO-03**: JSON-LD FAQPage schema on pages with FAQ sections
-- [ ] **SEO-04**: JSON-LD Review schema for testimonials
+- [x] **SEO-01**: JSON-LD LocalBusiness schema (service area business — no physical address displayed) on all pages
+- [x] **SEO-02**: JSON-LD Service schema for Senior Portraits and Family Portraits
+- [x] **SEO-03**: JSON-LD FAQPage schema on pages with FAQ sections
+- [x] **SEO-04**: JSON-LD Review schema for testimonials
 - [ ] **SEO-05**: AEO answer blocks (40-60 words) on each city landing page targeting local queries
 - [ ] **SEO-06**: Google Maps embed centered on each target city on its landing page
 - [x] **SEO-07**: Canonical NAP+W (Name, Address, Phone, Website) consistency across all pages — single config source of truth
@@ -168,10 +168,10 @@ Deferred to future release. Tracked but not in current roadmap.
 | INFRA-01 | Phase 3 | Complete |
 | INFRA-03 | Phase 3 | Complete |
 | SEO-09 | Phase 3 | Complete |
-| SEO-01 | Phase 4 | Pending |
-| SEO-02 | Phase 4 | Pending |
-| SEO-03 | Phase 4 | Pending |
-| SEO-04 | Phase 4 | Pending |
+| SEO-01 | Phase 4 | Complete |
+| SEO-02 | Phase 4 | Complete |
+| SEO-03 | Phase 4 | Complete |
+| SEO-04 | Phase 4 | Complete |
 | SEO-08 | Phase 4 | Complete |
 | INFRA-02 | Phase 4 | Complete |
 | LOCAL-01 | Phase 5 | Pending |
