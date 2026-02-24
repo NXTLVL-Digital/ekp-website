@@ -82,11 +82,11 @@ Plans:
   2. The XML sitemap at /sitemap.xml includes every published page URL and is submitted to Google Search Console
   3. Editing a Sanity document triggers the /api/revalidate webhook endpoint — the updated page is served from CDN cache within 60 seconds
   4. Every page type (homepage, service pages, about, contact) has distinct, valid JSON-LD that a validator confirms is error-free
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 04-01: JSON-LD component implementations — LocalBusiness ProfessionalService, Service, FAQPage with Speakable, Review schema (SEO-01, SEO-02, SEO-03, SEO-04)
-- [ ] 04-02: Sitemap, ISR webhook endpoint, Google Search Console setup, Rich Results Test validation (SEO-08, INFRA-02)
+- [ ] 04-01-PLAN.md — JSON-LD schema builders (LocalBusiness ProfessionalService, Service, FAQPage, Review+AggregateRating) and wiring into all page components (SEO-01, SEO-02, SEO-03, SEO-04)
+- [ ] 04-02-PLAN.md — XML sitemap with image refs, robots.txt, GSC verification meta tag, ISR webhook validation, GSC setup guide for Emily (SEO-08, INFRA-02)
 
 ### Phase 5: City Landing Pages
 **Goal**: All 7 city landing pages are live with genuinely unique content per city, AEO answer blocks, lazy-loaded Google Maps embeds, city-specific JSON-LD with geo coordinates, and uniqueness verified above 60% between any two pages
