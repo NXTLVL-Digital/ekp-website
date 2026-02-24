@@ -37,13 +37,13 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Pages — Local SEO
 
-- [ ] **LOCAL-01**: Chatham VA landing page — unique 250-500 word SEO copy, local testimonials, Google Maps embed, city-specific gallery, AEO answer block, JSON-LD with areaServed
-- [ ] **LOCAL-02**: Danville VA landing page — unique 250-500 word SEO copy, local testimonials, Google Maps embed, city-specific gallery, AEO answer block, JSON-LD with areaServed
-- [ ] **LOCAL-03**: Lynchburg VA landing page — unique 250-500 word SEO copy, local testimonials, Google Maps embed, city-specific gallery, AEO answer block, JSON-LD with areaServed
-- [ ] **LOCAL-04**: Smith Mountain Lake VA landing page — unique 250-500 word SEO copy, local testimonials, Google Maps embed, city-specific gallery, AEO answer block, JSON-LD with areaServed
-- [ ] **LOCAL-05**: Forest VA landing page — unique 250-500 word SEO copy, local testimonials, Google Maps embed, city-specific gallery, AEO answer block, JSON-LD with areaServed
-- [ ] **LOCAL-06**: Altavista VA landing page — unique 250-500 word SEO copy, local testimonials, Google Maps embed, city-specific gallery, AEO answer block, JSON-LD with areaServed
-- [ ] **LOCAL-07**: Evington VA landing page — unique 250-500 word SEO copy, local testimonials, Google Maps embed, city-specific gallery, AEO answer block, JSON-LD with areaServed
+- [x] **LOCAL-01**: Chatham VA landing page — unique 250-500 word SEO copy, local testimonials, Google Maps embed, city-specific gallery, AEO answer block, JSON-LD with areaServed
+- [x] **LOCAL-02**: Danville VA landing page — unique 250-500 word SEO copy, local testimonials, Google Maps embed, city-specific gallery, AEO answer block, JSON-LD with areaServed
+- [x] **LOCAL-03**: Lynchburg VA landing page — unique 250-500 word SEO copy, local testimonials, Google Maps embed, city-specific gallery, AEO answer block, JSON-LD with areaServed
+- [x] **LOCAL-04**: Smith Mountain Lake VA landing page — unique 250-500 word SEO copy, local testimonials, Google Maps embed, city-specific gallery, AEO answer block, JSON-LD with areaServed
+- [x] **LOCAL-05**: Forest VA landing page — unique 250-500 word SEO copy, local testimonials, Google Maps embed, city-specific gallery, AEO answer block, JSON-LD with areaServed
+- [x] **LOCAL-06**: Altavista VA landing page — unique 250-500 word SEO copy, local testimonials, Google Maps embed, city-specific gallery, AEO answer block, JSON-LD with areaServed
+- [x] **LOCAL-07**: Evington VA landing page — unique 250-500 word SEO copy, local testimonials, Google Maps embed, city-specific gallery, AEO answer block, JSON-LD with areaServed
 
 ### Galleries
 
@@ -75,8 +75,8 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **SEO-02**: JSON-LD Service schema for Senior Portraits and Family Portraits
 - [x] **SEO-03**: JSON-LD FAQPage schema on pages with FAQ sections
 - [x] **SEO-04**: JSON-LD Review schema for testimonials
-- [ ] **SEO-05**: AEO answer blocks (40-60 words) on each city landing page targeting local queries
-- [ ] **SEO-06**: Google Maps embed centered on each target city on its landing page
+- [x] **SEO-05**: AEO answer blocks (40-60 words) on each city landing page targeting local queries
+- [x] **SEO-06**: Google Maps embed centered on each target city on its landing page
 - [x] **SEO-07**: Canonical NAP+W (Name, Address, Phone, Website) consistency across all pages — single config source of truth
 - [x] **SEO-08**: XML sitemap generation with all pages
 - [x] **SEO-09**: OG metadata and social sharing images per page
@@ -174,15 +174,15 @@ Deferred to future release. Tracked but not in current roadmap.
 | SEO-04 | Phase 4 | Complete |
 | SEO-08 | Phase 4 | Complete |
 | INFRA-02 | Phase 4 | Complete |
-| LOCAL-01 | Phase 5 | Pending |
-| LOCAL-02 | Phase 5 | Pending |
-| LOCAL-03 | Phase 5 | Pending |
-| LOCAL-04 | Phase 5 | Pending |
-| LOCAL-05 | Phase 5 | Pending |
-| LOCAL-06 | Phase 5 | Pending |
-| LOCAL-07 | Phase 5 | Pending |
-| SEO-05 | Phase 5 | Pending |
-| SEO-06 | Phase 5 | Pending |
+| LOCAL-01 | Phase 5 | Complete |
+| LOCAL-02 | Phase 5 | Complete |
+| LOCAL-03 | Phase 5 | Complete |
+| LOCAL-04 | Phase 5 | Complete |
+| LOCAL-05 | Phase 5 | Complete |
+| LOCAL-06 | Phase 5 | Complete |
+| LOCAL-07 | Phase 5 | Complete |
+| SEO-05 | Phase 5 | Complete |
+| SEO-06 | Phase 5 | Complete |
 | EXT-01 | Phase 6 | Pending |
 | EXT-02 | Phase 6 | Pending |
 

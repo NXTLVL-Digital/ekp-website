@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-18)
 
 **Core value:** When a parent or senior in South-Central Virginia searches for portrait photography, Emily Kathryn Photography appears first — and the site converts that visitor into an inquiry within one session.
-**Current focus:** Phase 4 SEO Infrastructure -- Plan 02 Complete
+**Current focus:** Phase 5 City Landing Pages -- Plan 01 Complete
 
 ## Current Position
 
-Phase: 4 of 6 (SEO Infrastructure)
-Plan: 2 of 2 in current phase (all complete)
-Status: Completed 04-02 (SEO Discovery and Indexing Infrastructure)
-Last activity: 2026-02-24 — Completed 04-02-PLAN.md
+Phase: 5 of 6 (City Landing Pages)
+Plan: 1 of 3 in current phase
+Status: Completed 05-01 (City Landing Page Infrastructure)
+Last activity: 2026-02-24 — Completed 05-01-PLAN.md
 
-Progress: [██████████████████████░░] 55%
+Progress: [████████████████████████░░] 60%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 11
+- Total plans completed: 12
 - Average duration: 4.5 min
-- Total execution time: 0.85 hours
+- Total execution time: 0.92 hours
 
 **By Phase:**
 
@@ -31,17 +31,18 @@ Progress: [██████████████████████░
 | 02-shared-components-and-galleries | 3 | 15.5 min | 5.2 min |
 | 03-core-pages-and-conversion | 4 | 23 min | 5.8 min |
 | 04-seo-infrastructure | 2 | 7 min | 3.5 min |
+| 05-city-landing-pages | 1 | 4 min | 4 min |
 
 **Recent Trend:**
-- Last 5 plans: 04-01 (4min), 04-02 (3min), 03-05 (3min), 02-03 (5min), 03-04 (5min)
+- Last 5 plans: 05-01 (4min), 04-01 (4min), 04-02 (3min), 03-05 (3min), 02-03 (5min)
 - Trend: Consistent, accelerating
 
 *Updated after each plan completion*
+| Phase 05 P01 | 4 | 2 tasks | 10 files |
 | Phase 04 P01 | 4 | 2 tasks | 9 files |
 | Phase 04 P02 | 3 | 2 tasks | 5 files |
 | Phase 03 P05 | 3 | 2 tasks | 17 files |
 | Phase 03 P01 | 9 | 2 tasks | 7 files |
-| Phase 01 P01 | 20 | 2 tasks | 30 files |
 
 ## Accumulated Context
 
@@ -96,6 +97,13 @@ Recent decisions affecting current work:
 - [Phase 04]: Image sitemaps included in sitemap.ts -- image:image XML tags drive Google Image traffic for photography business
 - [Phase 04]: GSC verification via NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION env var -- Next.js omits empty meta tag automatically
 - [Phase 04]: ISR webhook confirmed functional via code review -- no changes needed to Phase 1 implementation
+- [Phase 05]: CITY_DATA used as generateStaticParams source (not Sanity) so builds work before CMS content exists
+- [Phase 05]: dynamicParams = false ensures unknown city slugs return 404 immediately
+- [Phase 05]: buildCityLocalBusinessSchema uses unique @id per city (e.g., /chatham/#business), not site-wide BUSINESS_ID
+- [Phase 05]: Google Maps facade shows graceful 'Map coming soon' fallback when NEXT_PUBLIC_GOOGLE_MAPS_EMBED_KEY is not set
+- [Phase 05]: AeoBlock is always-visible callout box (not collapsible AnswerBlock FAQ accordion)
+- [Phase 05]: Sitemap falls back to hardcoded CITY_SLUGS when Sanity has no cityPage documents yet
+- [Phase 05]: Body copy uses Portable Text (array of blocks) for rich text editing in Sanity Studio
 
 ### Pending Todos
 
@@ -111,5 +119,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-24
-Stopped at: Completed 04-02-PLAN.md (SEO Discovery and Indexing Infrastructure)
-Resume file: .planning/phases/04-seo-infrastructure/04-02-SUMMARY.md
+Stopped at: Completed 05-01-PLAN.md (City Landing Page Infrastructure)
+Resume file: .planning/phases/05-city-landing-pages/05-01-SUMMARY.md
