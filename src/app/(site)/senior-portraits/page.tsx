@@ -1,10 +1,13 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { Section } from '@/components/shared/Section'
 import { Storyboard } from '@/components/shared/Storyboard'
 import { PricingCard } from '@/components/shared/PricingCard'
 import { AnswerBlock } from '@/components/shared/AnswerBlock'
 import { ScarcityCue } from '@/components/shared/ScarcityCue'
+import { GalleryClient } from '@/components/shared/GalleryClient'
+import { seniorGalleryImages } from '@/lib/placeholder-galleries'
 import { sanityFetch } from '@/sanity/lib/fetch'
 import {
   PRICING_TIERS_QUERY,
@@ -181,14 +184,39 @@ export default async function SeniorPortraitsPage() {
           </p>
         </div>
 
-        {/* Placeholder hero area -- Emily will replace with a featured senior image from CMS */}
-        <div className="mt-10 overflow-hidden rounded-lg bg-gradient-to-br from-brand-gold/10 via-muted to-brand-gold/5">
-          <div className="flex h-64 items-center justify-center sm:h-80 md:h-96">
-            <p className="text-sm text-muted-foreground">
-              Featured senior portrait image
-            </p>
+        {/* Featured senior portrait image */}
+        <div className="relative mt-10 overflow-hidden rounded-lg">
+          <div className="relative h-64 sm:h-80 md:h-96">
+            <Image
+              src="/placeholder/senior-2.jpeg"
+              alt="Editorial senior portrait by Emily Kathryn Photography"
+              fill
+              className="object-cover"
+              sizes="100vw"
+              priority
+            />
           </div>
         </div>
+      </Section>
+
+      {/* ------------------------------------------------------------------ */}
+      {/*  1b. Senior Gallery                                                  */}
+      {/* ------------------------------------------------------------------ */}
+      <Section background="muted">
+        <div className="mb-8 text-center">
+          <h2 className="font-heading text-3xl font-light md:text-4xl">
+            Senior Portfolio
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
+            Every session is as unique as the person in front of my camera.
+            Here is a look at some of my favorite senior moments.
+          </p>
+        </div>
+        <GalleryClient
+          images={seniorGalleryImages}
+          displayStyle="masonry"
+          priorityCount={0}
+        />
       </Section>
 
       {/* ------------------------------------------------------------------ */}

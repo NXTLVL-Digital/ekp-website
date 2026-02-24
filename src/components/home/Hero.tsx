@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
 interface HeroProps {
@@ -8,33 +9,27 @@ interface HeroProps {
 }
 
 /**
- * Full-bleed hero section with brand gradient placeholder background, overlay heading,
+ * Full-bleed hero section with background image, overlay heading,
  * subheading, and a gold CTA button. Gender-inclusive, editorial aesthetic.
  *
  * When Sanity content is connected, this will be enhanced to use SanityImage with
- * `priority` and `fetchPriority="high"` for LCP optimization. For now, a styled
- * gradient background serves as a placeholder Emily will replace.
+ * `priority` and `fetchPriority="high"` for LCP optimization.
  */
 export function Hero({ heading, subheading, ctaLabel, ctaHref }: HeroProps) {
   return (
     <section className="relative h-[70vh] min-h-[500px] overflow-hidden">
-      {/* Gradient placeholder — dark editorial feel with gold accent */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            'linear-gradient(135deg, #1a1a1a 0%, #2d2926 40%, #3b3530 60%, #1a1a1a 100%)',
-        }}
+      {/* Hero background image */}
+      <Image
+        src="/placeholder/hero-1.jpeg"
+        alt="Senior portrait session by Emily Kathryn Photography"
+        fill
+        priority
+        className="object-cover"
+        sizes="100vw"
       />
 
-      {/* Subtle gold light accent */}
-      <div
-        className="absolute inset-0 opacity-20"
-        style={{
-          background:
-            'radial-gradient(ellipse at 70% 60%, #c4a35a 0%, transparent 60%)',
-        }}
-      />
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-black/40" />
 
       {/* Content overlay */}
       <div className="relative flex h-full items-end">

@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { Section } from '@/components/shared/Section'
 import type { Metadata } from 'next'
@@ -38,13 +39,15 @@ export default function AboutPage() {
       {/* Hero — Emily's story with photo placeholder */}
       <Section>
         <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-12">
-          {/* Left: Photo placeholder (replaced with SanityImage when CMS content is added) */}
-          <div className="relative aspect-[3/4] overflow-hidden rounded-lg bg-gradient-to-br from-brand-sage/30 via-brand-rose/20 to-brand-gold/20">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <p className="font-heading text-lg text-muted-foreground">
-                Emily&apos;s portrait
-              </p>
-            </div>
+          {/* Left: Emily's portrait (replaced with SanityImage when CMS content is added) */}
+          <div className="relative aspect-[3/4] overflow-hidden rounded-lg">
+            <Image
+              src="/placeholder/emily.jpeg"
+              alt="Emily Kathryn — portrait photographer in South-Central Virginia"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
           </div>
 
           {/* Right: Story content */}

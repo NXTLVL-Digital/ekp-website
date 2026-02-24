@@ -11,6 +11,8 @@ import { Hero } from '@/components/home/Hero'
 import { PortfolioPreview } from '@/components/home/PortfolioPreview'
 import { TestimonialCarousel } from '@/components/home/TestimonialCarousel'
 import { HomeCTA } from '@/components/home/HomeCTA'
+import { GalleryClient } from '@/components/shared/GalleryClient'
+import { homepageGalleryImages } from '@/lib/placeholder-galleries'
 import type { TestimonialImage } from '@/components/testimonials/TestimonialCard'
 
 // ---------------------------------------------------------------------------
@@ -138,6 +140,26 @@ export default async function HomePage() {
                 'Natural, relaxed sessions that capture your family exactly as you are — the laughter, the connections, the moments that matter.',
             },
           ]}
+        />
+      </Section>
+
+      {/* ----------------------------------------------------------------- */}
+      {/* 3b. Featured Gallery — curated "best of" mix                      */}
+      {/* ----------------------------------------------------------------- */}
+      <Section background="muted">
+        <div className="mb-8 text-center">
+          <h2 className="font-heading text-3xl font-light md:text-4xl">
+            Recent Work
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
+            A glimpse into what we create together — editorial senior portraits
+            and heartfelt family sessions across South-Central Virginia.
+          </p>
+        </div>
+        <GalleryClient
+          images={homepageGalleryImages}
+          displayStyle="masonry"
+          priorityCount={0}
         />
       </Section>
 

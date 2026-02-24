@@ -1,9 +1,12 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { Section } from '@/components/shared/Section'
 import { PricingCard } from '@/components/shared/PricingCard'
 import { AnswerBlock } from '@/components/shared/AnswerBlock'
 import { ScarcityCue } from '@/components/shared/ScarcityCue'
+import { GalleryClient } from '@/components/shared/GalleryClient'
+import { familyGalleryImages } from '@/lib/placeholder-galleries'
 import { sanityFetch } from '@/sanity/lib/fetch'
 import {
   PRICING_TIERS_QUERY,
@@ -147,14 +150,40 @@ export default async function FamilyPortraitsPage() {
           </p>
         </div>
 
-        {/* Placeholder hero area -- Emily will replace with a featured family image from CMS */}
-        <div className="mt-10 overflow-hidden rounded-lg bg-gradient-to-br from-brand-gold/10 via-muted to-brand-gold/5">
-          <div className="flex h-64 items-center justify-center sm:h-80 md:h-96">
-            <p className="text-sm text-muted-foreground">
-              Featured family portrait image
-            </p>
+        {/* Featured family portrait image */}
+        <div className="relative mt-10 overflow-hidden rounded-lg">
+          <div className="relative h-64 sm:h-80 md:h-96">
+            <Image
+              src="/placeholder/family-2.jpeg"
+              alt="Family portrait session by Emily Kathryn Photography"
+              fill
+              className="object-cover"
+              sizes="100vw"
+              priority
+            />
           </div>
         </div>
+      </Section>
+
+      {/* ------------------------------------------------------------------ */}
+      {/*  1b. Family Gallery                                                  */}
+      {/* ------------------------------------------------------------------ */}
+      <Section background="muted">
+        <div className="mb-8 text-center">
+          <h2 className="font-heading text-3xl font-light md:text-4xl">
+            Family Portfolio
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
+            The laughter, the cuddles, the way your kids look at each other
+            when they think no one is watching — those are the moments I live
+            to capture.
+          </p>
+        </div>
+        <GalleryClient
+          images={familyGalleryImages}
+          displayStyle="masonry"
+          priorityCount={0}
+        />
       </Section>
 
       {/* ------------------------------------------------------------------ */}

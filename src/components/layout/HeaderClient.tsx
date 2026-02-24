@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { MobileNav } from './MobileNav'
 
@@ -44,11 +45,15 @@ export function HeaderClient({ navigation, cta, logoText }: HeaderClientProps) {
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
           {/* Logo */}
-          <Link
-            href="/"
-            className="font-heading text-lg tracking-wide text-foreground"
-          >
-            {logoText.toLowerCase()}
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/placeholder/logo.png"
+              alt={logoText}
+              width={220}
+              height={109}
+              className="h-20 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop navigation */}

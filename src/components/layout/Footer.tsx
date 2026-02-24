@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { siteConfig } from '@/lib/siteConfig'
 
@@ -58,11 +59,14 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-3">
           {/* Column 1 -- Brand */}
           <div>
-            <Link
-              href="/"
-              className="font-heading text-xl tracking-wide text-white"
-            >
-              {siteConfig.name.toLowerCase()}
+            <Link href="/" className="inline-block">
+              <Image
+                src="/placeholder/logo-footer.png"
+                alt={siteConfig.name}
+                width={160}
+                height={40}
+                className="h-8 w-auto brightness-0 invert"
+              />
             </Link>
             <p className="mt-2 text-sm text-white/70">
               {siteConfig.tagline}
