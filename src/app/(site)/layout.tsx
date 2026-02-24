@@ -3,6 +3,8 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { JsonLd } from "@/components/shared/JsonLd";
+import { buildLocalBusinessSchema } from "@/lib/schemas/localBusiness";
 
 // SanityLive enables visual editing preview. Uncomment when NEXT_PUBLIC_SANITY_PROJECT_ID
 // is configured — defineLive requires a valid projectId at module-evaluation time.
@@ -35,6 +37,7 @@ export default function SiteLayout({
 }>) {
   return (
     <div className={`${cormorant.variable} font-body`}>
+      <JsonLd data={buildLocalBusinessSchema()} />
       <Header />
 
       <main className="pt-16">{children}</main>

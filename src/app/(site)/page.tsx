@@ -12,8 +12,11 @@ import { PortfolioPreview } from '@/components/home/PortfolioPreview'
 import { TestimonialCarousel } from '@/components/home/TestimonialCarousel'
 import { HomeCTA } from '@/components/home/HomeCTA'
 import { GalleryClient } from '@/components/shared/GalleryClient'
+import { JsonLd } from '@/components/shared/JsonLd'
 import { homepageGalleryImages } from '@/lib/placeholder-galleries'
 import type { TestimonialImage } from '@/components/testimonials/TestimonialCard'
+import { buildReviewSchemas, buildAggregateRatingSchema } from '@/lib/schemas/review'
+import type { TestimonialData as ReviewTestimonialData } from '@/lib/schemas/review'
 
 // ---------------------------------------------------------------------------
 // Types for CMS data
@@ -87,8 +90,24 @@ export default async function HomePage() {
     }),
   ])
 
+  /* --- JSON-LD structured data: Review schemas when testimonials exist --- */
+  const reviewTestimonialData: ReviewTestimonialData[] =
+    testimonials && testimonials.length > 0
+      ? testimonials.map((t) => ({ name: t.name, quote: t.quote, service: t.service }))
+      : []
+  const reviewSchemas =
+    reviewTestimonialData.length > 0 ? buildReviewSchemas(reviewTestimonialData) : []
+
   return (
     <>
+      {/* JSON-LD: Review schemas (conditional on testimonials) */}
+      {reviewSchemas.map((schema, i) => (
+        <JsonLd key={i} data={schema} />
+      ))}
+      {reviewTestimonialData.length > 0 && (
+        <JsonLd data={buildAggregateRatingSchema(reviewTestimonialData)} />
+      )}
+
       {/* ----------------------------------------------------------------- */}
       {/* 1. Hero — editorial first impression, gender-inclusive imagery     */}
       {/* ----------------------------------------------------------------- */}

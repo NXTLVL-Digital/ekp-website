@@ -2,9 +2,12 @@ import Link from 'next/link'
 import { sanityFetch } from '@/sanity/lib/fetch'
 import { TESTIMONIALS_QUERY } from '@/sanity/lib/queries'
 import { Section } from '@/components/shared/Section'
+import { JsonLd } from '@/components/shared/JsonLd'
 import { TestimonialCard } from '@/components/testimonials/TestimonialCard'
 import type { TestimonialImage } from '@/components/testimonials/TestimonialCard'
 import type { Metadata } from 'next'
+import { buildReviewSchemas, buildAggregateRatingSchema } from '@/lib/schemas/review'
+import type { TestimonialData } from '@/lib/schemas/review'
 
 export const metadata: Metadata = {
   title: 'Raves',
@@ -52,8 +55,24 @@ export default async function RavesPage() {
     tags: ['testimonial'],
   })
 
+  /* --- JSON-LD structured data: Review schemas when testimonials exist --- */
+  const reviewData: TestimonialData[] = testimonials.map((t) => ({
+    name: t.name,
+    quote: t.quote,
+    service: t.service,
+  }))
+  const reviewSchemas = reviewData.length > 0 ? buildReviewSchemas(reviewData) : []
+
   return (
     <>
+      {/* JSON-LD: Review schemas (conditional on testimonials) */}
+      {reviewSchemas.map((schema, i) => (
+        <JsonLd key={i} data={schema} />
+      ))}
+      {reviewData.length > 0 && (
+        <JsonLd data={buildAggregateRatingSchema(reviewData)} />
+      )}
+
       {/* Heading section */}
       <Section>
         <div className="mx-auto max-w-3xl text-center">

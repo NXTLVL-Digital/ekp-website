@@ -8,6 +8,7 @@ import { AnswerBlock } from '@/components/shared/AnswerBlock'
 import { ScarcityCue } from '@/components/shared/ScarcityCue'
 import { TestimonialCarousel } from '@/components/home/TestimonialCarousel'
 import { GalleryClient } from '@/components/shared/GalleryClient'
+import { JsonLd } from '@/components/shared/JsonLd'
 import { seniorGalleryImages } from '@/lib/placeholder-galleries'
 import { sanityFetch } from '@/sanity/lib/fetch'
 import {
@@ -15,6 +16,10 @@ import {
   TESTIMONIALS_QUERY,
   ACTIVE_SCARCITY_CUE_QUERY,
 } from '@/sanity/lib/queries'
+import { buildServiceSchema } from '@/lib/schemas/service'
+import { buildFaqPageSchema } from '@/lib/schemas/faqPage'
+import { buildReviewSchemas, buildAggregateRatingSchema } from '@/lib/schemas/review'
+import type { TestimonialData } from '@/lib/schemas/review'
 
 /* -------------------------------------------------------------------------- */
 /*  Metadata                                                                   */
@@ -168,8 +173,28 @@ export default async function SeniorPortraitsPage() {
     (t) => t.name?.toLowerCase().includes('senior'),
   )
 
+  /* --- JSON-LD structured data --- */
+  const testimonialData: TestimonialData[] = testimonials
+    ? testimonials.map((t) => ({ name: t.name, quote: t.quote, service: t.service }))
+    : []
+  const reviewSchemas = testimonialData.length > 0 ? buildReviewSchemas(testimonialData) : []
+
   return (
     <>
+      {/* JSON-LD: Service, FAQPage, Review schemas */}
+      <JsonLd data={buildServiceSchema({
+        name: 'Senior Portrait Photography',
+        description: 'Editorial senior portrait photography for boys and girls in South-Central Virginia. A magazine-worthy experience with wardrobe planning, multiple outfits, and handpicked locations.',
+        url: 'https://emilykathryn.com/senior-portraits',
+      })} />
+      <JsonLd data={buildFaqPageSchema(seniorFaqs)} />
+      {reviewSchemas.map((schema, i) => (
+        <JsonLd key={i} data={schema} />
+      ))}
+      {testimonialData.length > 0 && (
+        <JsonLd data={buildAggregateRatingSchema(testimonialData)} />
+      )}
+
       {/* ------------------------------------------------------------------ */}
       {/*  1. Hero Section                                                     */}
       {/* ------------------------------------------------------------------ */}
