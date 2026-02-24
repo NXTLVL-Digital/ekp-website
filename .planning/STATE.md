@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-18)
 
 **Core value:** When a parent or senior in South-Central Virginia searches for portrait photography, Emily Kathryn Photography appears first — and the site converts that visitor into an inquiry within one session.
-**Current focus:** Phase 5 City Landing Pages -- Plan 01 Complete
+**Current focus:** Phase 5 City Landing Pages -- Plan 02 Complete
 
 ## Current Position
 
 Phase: 5 of 6 (City Landing Pages)
-Plan: 1 of 3 in current phase
-Status: Completed 05-01 (City Landing Page Infrastructure)
-Last activity: 2026-02-24 — Completed 05-01-PLAN.md
+Plan: 2 of 3 in current phase
+Status: Completed 05-02 (City Content)
+Last activity: 2026-02-24 — Completed 05-02-PLAN.md
 
-Progress: [████████████████████████░░] 60%
+Progress: [██████████████████████████░] 65%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 12
-- Average duration: 4.5 min
-- Total execution time: 0.92 hours
+- Total plans completed: 13
+- Average duration: 4.9 min
+- Total execution time: 1.08 hours
 
 **By Phase:**
 
@@ -31,13 +31,14 @@ Progress: [███████████████████████
 | 02-shared-components-and-galleries | 3 | 15.5 min | 5.2 min |
 | 03-core-pages-and-conversion | 4 | 23 min | 5.8 min |
 | 04-seo-infrastructure | 2 | 7 min | 3.5 min |
-| 05-city-landing-pages | 1 | 4 min | 4 min |
+| 05-city-landing-pages | 2 | 14 min | 7 min |
 
 **Recent Trend:**
-- Last 5 plans: 05-01 (4min), 04-01 (4min), 04-02 (3min), 03-05 (3min), 02-03 (5min)
-- Trend: Consistent, accelerating
+- Last 5 plans: 05-02 (10min), 05-01 (4min), 04-01 (4min), 04-02 (3min), 03-05 (3min)
+- Trend: Content-heavy plan took longer due to unique copy generation and quality gates
 
 *Updated after each plan completion*
+| Phase 05 P02 | 10 | 2 tasks | 2 files |
 | Phase 05 P01 | 4 | 2 tasks | 10 files |
 | Phase 04 P01 | 4 | 2 tasks | 9 files |
 | Phase 04 P02 | 3 | 2 tasks | 5 files |
@@ -104,6 +105,10 @@ Recent decisions affecting current work:
 - [Phase 05]: AeoBlock is always-visible callout box (not collapsible AnswerBlock FAQ accordion)
 - [Phase 05]: Sitemap falls back to hardcoded CITY_SLUGS when Sanity has no cityPage documents yet
 - [Phase 05]: Body copy uses Portable Text (array of blocks) for rich text editing in Sanity Studio
+- [Phase 05]: Seed content uses pre-rendered HTML (bodyHtml) with dangerouslySetInnerHTML — safe because content is hardcoded in codebase
+- [Phase 05]: CMS data takes priority over seed content at every level (metadata, hero, AEO, body) with graceful fallback chain
+- [Phase 05]: notFound() only triggers when BOTH Sanity data AND seed content are missing — prevents broken pages during pre-CMS deployment
+- [Phase 05]: Gallery and testimonials hidden (not errored) when CMS is empty — they require CMS-managed images/references
 
 ### Pending Todos
 
@@ -119,5 +124,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-24
-Stopped at: Completed 05-01-PLAN.md (City Landing Page Infrastructure)
-Resume file: .planning/phases/05-city-landing-pages/05-01-SUMMARY.md
+Stopped at: Completed 05-02-PLAN.md (City Content)
+Resume file: .planning/phases/05-city-landing-pages/05-02-SUMMARY.md
