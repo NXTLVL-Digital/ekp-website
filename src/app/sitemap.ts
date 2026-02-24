@@ -1,20 +1,42 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/siteConfig";
+import { sanityFetch } from "@/sanity/lib/fetch";
+import { CITY_SLUGS_QUERY } from "@/sanity/lib/queries";
+import { CITY_SLUGS } from "@/lib/cityData";
 
 /**
- * XML sitemap for all core pages.
+ * XML sitemap for all core pages and city landing pages.
  *
  * Next.js generates /sitemap.xml from this file automatically.
  * Each entry includes image references for Google Image search
  * (critical for a photography business).
  *
- * TODO: Phase 5 — Add city landing pages dynamically via Sanity query
- * e.g., /chatham-va-photographer, /danville-va-photographer, etc.
+ * City pages are fetched from Sanity. If Sanity has no city content yet
+ * (CMS not populated), falls back to the hardcoded CITY_SLUGS list so
+ * the sitemap always includes all 7 city URLs.
  */
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const BASE_URL = siteConfig.url;
 
-  return [
+  // Fetch city slugs from Sanity, with hardcoded fallback
+  const sanityCtySlugs = await sanityFetch<Array<{ slug: string }>>({
+    query: CITY_SLUGS_QUERY,
+    tags: ["cityPage"],
+  });
+
+  const citySlugs =
+    sanityCtySlugs && sanityCtySlugs.length > 0
+      ? sanityCtySlugs.map((c) => c.slug)
+      : CITY_SLUGS;
+
+  const cityPages: MetadataRoute.Sitemap = citySlugs.map((slug) => ({
+    url: `${BASE_URL}/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  const staticPages: MetadataRoute.Sitemap = [
     {
       url: BASE_URL,
       lastModified: new Date(),
@@ -72,4 +94,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       images: [`${BASE_URL}/og/style-guide.jpg`],
     },
   ];
+
+  return [...staticPages, ...cityPages];
 }

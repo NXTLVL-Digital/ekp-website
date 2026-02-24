@@ -1,5 +1,6 @@
 import type { LocalBusiness, WithContext } from 'schema-dts'
 import { siteConfig } from '@/lib/siteConfig'
+import type { CityGeoData } from '@/lib/cityData'
 
 /**
  * Canonical @id for the LocalBusiness entity. Exported so Service and Review
@@ -67,6 +68,74 @@ export function buildLocalBusinessSchema(): WithContext<LocalBusiness> {
     ],
     description:
       'Editorial-style senior portrait and family photographer serving South-Central Virginia.',
+    knowsAbout: [
+      'Senior Portrait Photography',
+      'Family Portrait Photography',
+      'Editorial Photography',
+    ],
+  }
+}
+
+/**
+ * Build a city-specific ProfessionalService JSON-LD schema.
+ *
+ * Each city page gets its own LocalBusiness with a unique @id
+ * (e.g., emilykathryn.com/chatham/#business), a single-city areaServed,
+ * and geo coordinates for that specific city. Shares NAP data and other
+ * properties with the site-wide schema.
+ */
+export function buildCityLocalBusinessSchema(
+  city: CityGeoData,
+): WithContext<LocalBusiness> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    '@id': `${siteConfig.url}/${city.slug}/#business`,
+    name: siteConfig.name,
+    url: `${siteConfig.url}/${city.slug}`,
+    telephone: siteConfig.phone,
+    email: siteConfig.email,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: siteConfig.address.street,
+      addressLocality: siteConfig.address.city,
+      addressRegion: siteConfig.address.state,
+      postalCode: siteConfig.address.zip,
+      addressCountry: 'US',
+    },
+    areaServed: {
+      '@type': 'City',
+      name: city.name,
+      containedInPlace: { '@type': 'State', name: 'Virginia' },
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: city.latitude,
+      longitude: city.longitude,
+    },
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '09:00',
+        closes: '17:00',
+      },
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: 'Saturday',
+        opens: '09:00',
+        closes: '17:00',
+      },
+    ],
+    priceRange: '$$$',
+    paymentAccepted: 'Cash, Credit Card, Venmo',
+    image: `${siteConfig.url}/og/default.jpg`,
+    sameAs: [
+      siteConfig.social.instagram,
+      siteConfig.social.facebook,
+      siteConfig.social.tiktok,
+    ],
+    description: `Editorial-style senior portrait and family photographer serving ${city.name}, Virginia.`,
     knowsAbout: [
       'Senior Portrait Photography',
       'Family Portrait Photography',
