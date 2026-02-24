@@ -66,8 +66,8 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [x] **CONT-01**: Experience Storyboards on Senior Portraits page showing session journey (Consultation > Wardrobe Planning > Session Day > Gallery Reveal > Product Delivery)
 - [x] **CONT-02**: FAQ sections on service pages addressing: pricing, session length, outfit count, locations, turnaround time, digital vs prints
-- [ ] **CONT-03**: All page copy written in Emily's existing brand voice — warm, confident, editorial
-- [ ] **CONT-04**: SEO copy generated for all 7 city landing pages (250-500 words each) with genuine local references (not template-swapped)
+- [x] **CONT-03**: All page copy written in Emily's existing brand voice — warm, confident, editorial
+- [x] **CONT-04**: SEO copy generated for all 7 city landing pages (250-500 words each) with genuine local references (not template-swapped)
 
 ### SEO & Structured Data
 
@@ -79,7 +79,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **SEO-06**: Google Maps embed centered on each target city on its landing page
 - [x] **SEO-07**: Canonical NAP+W (Name, Address, Phone, Website) consistency across all pages — single config source of truth
 - [ ] **SEO-08**: XML sitemap generation with all pages
-- [ ] **SEO-09**: OG metadata and social sharing images per page
+- [x] **SEO-09**: OG metadata and social sharing images per page
 
 ### External Platforms
 
@@ -163,11 +163,11 @@ Deferred to future release. Tracked but not in current roadmap.
 | CONV-07 | Phase 3 | Complete |
 | CONT-01 | Phase 3 | Complete |
 | CONT-02 | Phase 3 | Complete |
-| CONT-03 | Phase 3 | Pending |
-| CONT-04 | Phase 3 | Pending |
+| CONT-03 | Phase 3 | Complete |
+| CONT-04 | Phase 3 | Complete |
 | INFRA-01 | Phase 3 | Complete |
 | INFRA-03 | Phase 3 | Complete |
-| SEO-09 | Phase 3 | Pending |
+| SEO-09 | Phase 3 | Complete |
 | SEO-01 | Phase 4 | Pending |
 | SEO-02 | Phase 4 | Pending |
 | SEO-03 | Phase 4 | Pending |

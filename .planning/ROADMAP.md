@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation** - Next.js + Sanity + Vercel scaffolding with image pipeline, ISR, NAP config, and pitfall prevention
 - [x] **Phase 2: Shared Components and Galleries** - Reusable gallery, lightbox, JSON-LD, and layout components with Core Web Vitals verification
-- [ ] **Phase 3: Core Pages and Conversion** - All 8 core pages with inquiry funnel, email delivery, spam protection, and brand-voice copy — MVP launch candidate
+- [x] **Phase 3: Core Pages and Conversion** - All 8 core pages with inquiry funnel, email delivery, spam protection, and brand-voice copy — MVP launch candidate
 - [ ] **Phase 4: SEO Infrastructure** - Site-wide JSON-LD schemas, XML sitemap, ISR webhook, and OG metadata
 - [ ] **Phase 5: City Landing Pages** - 7 hyper-local city pages with unique content, AEO answer blocks, Google Maps, and city-specific JSON-LD
 - [ ] **Phase 6: External Platforms and Launch Polish** - GBP setup guide, Apple Business Connect setup guide, and final cross-site verification
@@ -67,11 +67,11 @@ Plans:
 **Plans**: 5 plans
 
 Plans:
-- [ ] 03-01-PLAN.md — Homepage: hero, portfolio preview, testimonials, scarcity cue, persistent CTA (PAGE-01, CONV-04, CONV-06, CONV-07)
-- [ ] 03-02-PLAN.md — Senior Portraits and Family Portraits service pages: Storyboard, pricing, distinct FAQs (PAGE-02, PAGE-03, CONV-05, CONT-01, CONT-02)
-- [ ] 03-03-PLAN.md — About, Investment/Pricing, Raves, Style Guide pages (PAGE-04, PAGE-06, PAGE-07, PAGE-08)
+- [x] 03-01-PLAN.md — Homepage: hero, portfolio preview, testimonials, scarcity cue, persistent CTA (PAGE-01, CONV-04, CONV-06, CONV-07)
+- [x] 03-02-PLAN.md — Senior Portraits and Family Portraits service pages: Storyboard, pricing, distinct FAQs (PAGE-02, PAGE-03, CONV-05, CONT-01, CONT-02)
+- [x] 03-03-PLAN.md — About, Investment/Pricing, Raves, Style Guide pages (PAGE-04, PAGE-06, PAGE-07, PAGE-08)
 - [x] 03-04-PLAN.md — Contact page, inquiry form, Resend email delivery, auto-responder, spam protection (CONV-01, CONV-02, CONV-03, PAGE-05, INFRA-01, INFRA-03)
-- [ ] 03-05-PLAN.md — Brand-voice copy polish, OG metadata for all 8 pages, human verification (CONT-03, CONT-04, SEO-09)
+- [x] 03-05-PLAN.md — Brand-voice copy polish, OG metadata for all 8 pages, human verification (CONT-03, CONT-04, SEO-09)
 
 ### Phase 4: SEO Infrastructure
 **Goal**: Site-wide structured data is validated, every page type has correct JSON-LD, the XML sitemap covers all routes, and on-demand ISR revalidation is live — all in place before city pages are authored
@@ -130,7 +130,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete | 2026-02-18 |
 | 2. Shared Components and Galleries | 3/3 | Complete    | 2026-02-20 |
-| 3. Core Pages and Conversion | 0/5 | Planned | - |
+| 3. Core Pages and Conversion | 5/5 | Complete | 2026-02-24 |
 | 4. SEO Infrastructure | 0/2 | Not started | - |
 | 5. City Landing Pages | 0/3 | Not started | - |
 | 6. External Platforms and Launch Polish | 0/3 | Not started | - |

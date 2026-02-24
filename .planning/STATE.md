@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-18)
 
 **Core value:** When a parent or senior in South-Central Virginia searches for portrait photography, Emily Kathryn Photography appears first — and the site converts that visitor into an inquiry within one session.
-**Current focus:** Phase 3 — Core Pages and Conversion
+**Current focus:** Phase 3 Complete -- Ready for Phase 4
 
 ## Current Position
 
-Phase: 3 of 6 (Core Pages and Conversion) -- In progress
-Plan: 4 of 5 in current phase
-Status: Completed 03-04 (Inquiry Form and Contact Page)
-Last activity: 2026-02-22 — Completed 03-04-PLAN.md
+Phase: 3 of 6 (Core Pages and Conversion) -- Complete
+Plan: 5 of 5 in current phase (all complete)
+Status: Completed 03-05 (Brand-Voice Copy Polish and OG Metadata)
+Last activity: 2026-02-24 — Completed 03-05-PLAN.md
 
-Progress: [█████████████████░░░] 45%
+Progress: [██████████████████░░] 50%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 8
-- Average duration: 5.0 min
-- Total execution time: 0.68 hours
+- Total plans completed: 9
+- Average duration: 4.8 min
+- Total execution time: 0.73 hours
 
 **By Phase:**
 
@@ -29,13 +29,14 @@ Progress: [█████████████████░░░] 45%
 |-------|-------|-------|----------|
 | 01-foundation | 2 | 9 min | 4.5 min |
 | 02-shared-components-and-galleries | 3 | 15.5 min | 5.2 min |
-| 03-core-pages-and-conversion | 3 | 20 min | 6.7 min |
+| 03-core-pages-and-conversion | 4 | 23 min | 5.8 min |
 
 **Recent Trend:**
-- Last 5 plans: 02-03 (5min), 03-04 (5min), 03-02 (7min), 03-03 (8min)
+- Last 5 plans: 03-05 (3min), 02-03 (5min), 03-04 (5min), 03-02 (7min), 03-03 (8min)
 - Trend: Consistent
 
 *Updated after each plan completion*
+| Phase 03 P05 | 3 | 2 tasks | 17 files |
 | Phase 03 P01 | 9 | 2 tasks | 7 files |
 
 ## Accumulated Context
@@ -78,6 +79,10 @@ Recent decisions affecting current work:
 - [Phase 03]: Style Guide written as genuine 601-line resource with 9 sections for both conversion and SEO value
 - [Phase 03]: TestimonialCard accepts full GROQ image projection (TestimonialImage type with asset, hotspot, crop, alt) — not bare SanityImageAsset — for proper hotspot/crop rendering
 - [Phase 03]: Homepage scroll journey: Hero > ScarcityCue (conditional) > PortfolioPreview > HomeCTA > Testimonials > Bottom CTA — with parallel sanityFetch
+- [Phase 03]: Complete OG metadata pattern: every page exports metadata with openGraph (title, description, url, siteName, images, locale, type) and twitter card — shallow merge means ALL fields required per page
+- [Phase 03]: OG images reference /og/{page-slug}.jpg paths as placeholders — actual images to be created in Phase 4
+- [Phase 03]: Placeholder image system (public/placeholder/) for visual development preview — to be replaced by CMS-managed Sanity images before launch
+- [Phase 03]: Pages approved for development but require Emily (client) review and approval before production launch
 
 ### Pending Todos
 
@@ -92,6 +97,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-02-22
-Stopped at: Completed 03-01-PLAN.md (Homepage)
-Resume file: .planning/phases/03-core-pages-and-conversion/03-01-SUMMARY.md
+Last session: 2026-02-24
+Stopped at: Completed 03-05-PLAN.md (Brand-Voice Copy Polish and OG Metadata) — Phase 3 complete
+Resume file: .planning/phases/03-core-pages-and-conversion/03-05-SUMMARY.md
