@@ -14,6 +14,7 @@ import { GoogleMapFacade } from '@/components/city/GoogleMapFacade'
 import { sanityFetch } from '@/sanity/lib/fetch'
 import { CITY_PAGE_QUERY } from '@/sanity/lib/queries'
 import { CITY_DATA, CITY_SLUGS } from '@/lib/cityData'
+import { CITY_CONTENT } from '@/lib/cityContent'
 import { buildCityLocalBusinessSchema } from '@/lib/schemas/localBusiness'
 import { siteConfig } from '@/lib/siteConfig'
 import type { PortableTextBlock } from '@portabletext/types'
@@ -74,33 +75,32 @@ export async function generateMetadata({
 
   const cityGeo = CITY_DATA[city]
   const cityName = cityGeo?.name ?? city
+  const seedContent = CITY_CONTENT[city]
 
-  if (!data) {
-    return {
-      title: `${cityName} Portrait Photographer`,
-      description: `Senior and family portrait photographer serving ${cityName}, Virginia. Editorial-style photography by Emily Kathryn Photography.`,
-    }
-  }
+  // Use CMS data first, then seed content, then generic fallback
+  const headline =
+    data?.headline || seedContent?.headline || `${cityName} Portrait Photographer`
+  const metaDesc =
+    data?.metaDescription ||
+    seedContent?.metaDescription ||
+    `Senior and family portrait photographer serving ${cityName}, Virginia. Editorial-style photography by Emily Kathryn Photography.`
 
-  const title = `${data.title} Portrait Photographer | Emily Kathryn Photography`
-  const description =
-    data.metaDescription ||
-    `Senior and family portrait photographer serving ${data.title}, Virginia. Editorial-style photography by Emily Kathryn Photography.`
+  const title = `${cityName} Portrait Photographer | Emily Kathryn Photography`
 
   return {
-    title: `${data.title} Portrait Photographer`,
-    description,
+    title: `${cityName} Portrait Photographer`,
+    description: metaDesc,
     openGraph: {
       title,
-      description,
-      url: `${siteConfig.url}/${data.slug}`,
+      description: metaDesc,
+      url: `${siteConfig.url}/${city}`,
       siteName: siteConfig.name,
       images: [
         {
           url: '/og/default.jpg',
           width: 1200,
           height: 630,
-          alt: `Portrait photographer serving ${data.title}, Virginia`,
+          alt: `Portrait photographer serving ${cityName}, Virginia`,
         },
       ],
       locale: 'en_US',
@@ -109,7 +109,7 @@ export async function generateMetadata({
     twitter: {
       card: 'summary_large_image',
       title,
-      description,
+      description: metaDesc,
       images: ['/og/default.jpg'],
     },
   }
@@ -132,11 +132,23 @@ export default async function CityPage({
     tags: ['cityPage'],
   })
 
-  if (!data) notFound()
-
   const cityGeo = CITY_DATA[city]
-  const mapQuery = data.mapQuery || cityGeo?.mapQuery || `${data.title}, Virginia`
-  const testimonialLabel = data.testimonialLabel || data.title
+  const seedContent = CITY_CONTENT[city]
+
+  // Only 404 if BOTH CMS data AND seed content are missing (should never
+  // happen since CITY_DATA defines all 7 slugs and CITY_CONTENT covers them)
+  if (!data && !seedContent) notFound()
+
+  const cityName = data?.title || cityGeo?.name || city
+  const mapQuery =
+    data?.mapQuery || cityGeo?.mapQuery || `${cityName}, Virginia`
+  const testimonialLabel = data?.testimonialLabel || cityName
+
+  // Resolve content: CMS takes priority, seed content is fallback
+  const headline =
+    data?.headline || seedContent?.headline || `Senior Portraits in ${cityName}, VA`
+  const aeoBlock = data?.aeoBlock || seedContent?.aeoBlock || ''
+  const hasCmsBody = data?.body && data.body.length > 0
 
   return (
     <>
@@ -146,26 +158,24 @@ export default async function CityPage({
       {/* ------------------------------------------------------------------ */}
       {/*  1. City Hero                                                       */}
       {/* ------------------------------------------------------------------ */}
-      <CityHero
-        cityName={data.title}
-        headline={data.headline || `Senior Portraits in ${data.title}, VA`}
-      />
+      <CityHero cityName={cityName} headline={headline} />
 
       {/* ------------------------------------------------------------------ */}
       {/*  2. AEO Answer Block                                                */}
       {/* ------------------------------------------------------------------ */}
-      {data.aeoBlock && (
+      {aeoBlock && (
         <Section>
           <div className="mx-auto max-w-3xl">
-            <AeoBlock text={data.aeoBlock} cityName={data.title} />
+            <AeoBlock text={aeoBlock} cityName={cityName} />
           </div>
         </Section>
       )}
 
       {/* ------------------------------------------------------------------ */}
-      {/*  3. Body Copy (Portable Text)                                       */}
+      {/*  3. Body Copy                                                       */}
       {/* ------------------------------------------------------------------ */}
-      {data.body && data.body.length > 0 && (
+      {hasCmsBody ? (
+        /* CMS-populated: render Portable Text */
         <Section background="muted">
           <div className="prose prose-lg mx-auto max-w-3xl text-muted-foreground">
             <PortableText value={data.body} />
@@ -185,20 +195,46 @@ export default async function CityPage({
                 family portraits
               </Link>
               , Emily Kathryn Photography would love to create something beautiful
-              with you in {data.title}.
+              with you in {cityName}.
             </p>
           </div>
         </Section>
-      )}
+      ) : seedContent?.bodyHtml ? (
+        /* Seed content fallback: render pre-built HTML */
+        <Section background="muted">
+          <div className="prose prose-lg mx-auto max-w-3xl text-muted-foreground">
+            {/* Safe: content is hardcoded in our own codebase, not user-generated */}
+            <div dangerouslySetInnerHTML={{ __html: seedContent.bodyHtml }} />
+            <p className="mt-6">
+              Whether you are looking for{' '}
+              <Link
+                href="/senior-portraits"
+                className="text-brand-gold underline underline-offset-2 hover:text-brand-gold-dark"
+              >
+                senior portraits
+              </Link>{' '}
+              or{' '}
+              <Link
+                href="/family-portraits"
+                className="text-brand-gold underline underline-offset-2 hover:text-brand-gold-dark"
+              >
+                family portraits
+              </Link>
+              , Emily Kathryn Photography would love to create something beautiful
+              with you in {cityName}.
+            </p>
+          </div>
+        </Section>
+      ) : null}
 
       {/* ------------------------------------------------------------------ */}
-      {/*  4. Gallery Section                                                  */}
+      {/*  4. Gallery Section (CMS only — hidden when empty)                   */}
       {/* ------------------------------------------------------------------ */}
-      {data.galleryImages && data.galleryImages.length > 0 && (
+      {data?.galleryImages && data.galleryImages.length > 0 && (
         <Section>
           <div className="mb-8 text-center">
             <h2 className="font-heading text-3xl font-light md:text-4xl">
-              Our Work in {data.title}
+              Our Work in {cityName}
             </h2>
           </div>
           <GalleryClient
@@ -210,9 +246,9 @@ export default async function CityPage({
       )}
 
       {/* ------------------------------------------------------------------ */}
-      {/*  5. Testimonials Section                                             */}
+      {/*  5. Testimonials Section (CMS only — hidden when empty)              */}
       {/* ------------------------------------------------------------------ */}
-      {data.testimonials && data.testimonials.length > 0 && (
+      {data?.testimonials && data.testimonials.length > 0 && (
         <Section background="muted">
           <div className="mb-8 text-center">
             <h2 className="font-heading text-3xl font-light md:text-4xl">
@@ -239,9 +275,9 @@ export default async function CityPage({
       <Section>
         <div className="mx-auto max-w-4xl">
           <h2 className="mb-6 text-center font-heading text-3xl font-light md:text-4xl">
-            Find Us Near {data.title}, VA
+            Find Us Near {cityName}, VA
           </h2>
-          <GoogleMapFacade query={mapQuery} cityName={data.title} />
+          <GoogleMapFacade query={mapQuery} cityName={cityName} />
         </div>
       </Section>
 
@@ -251,17 +287,17 @@ export default async function CityPage({
       <Section background="muted">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-heading text-3xl font-light md:text-4xl">
-            Start Planning Your {data.title} Session
+            Start Planning Your {cityName} Session
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Ready to create stunning portraits in {data.title}? I would love to
+            Ready to create stunning portraits in {cityName}? I would love to
             hear about your vision and make it happen.
           </p>
           <Link
             href="/contact"
             className="mt-8 inline-flex min-h-11 items-center justify-center rounded bg-brand-gold px-8 py-3 text-sm font-medium tracking-wide text-white transition-colors hover:bg-brand-gold-dark"
           >
-            Start Planning Your {data.title} Session
+            Start Planning Your {cityName} Session
           </Link>
         </div>
       </Section>
