@@ -98,12 +98,12 @@ Plans:
   3. Clicking "View Map" on a city page opens a Google Maps embed centered on that city — the embed is not loaded until the user interacts (facade pattern)
   4. Google Rich Results Test confirms valid LocalBusiness JSON-LD with unique areaServed and geo coordinates on each of the 7 city pages
   5. The sitemap at /sitemap.xml includes all 7 city page URLs
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 05-01: City dynamic route — app/[city]/page.tsx with generateStaticParams, Sanity city content schema, city-specific JSON-LD (LOCAL-01 through LOCAL-07, SEO-06)
-- [ ] 05-02: City page content — unique copy for all 7 cities in Emily's brand voice, AEO answer blocks, local testimonials, city galleries (CONT-04, SEO-05)
-- [ ] 05-03: Google Maps facade implementation, uniqueness verification (Copyscape or manual audit), city page Lighthouse audit
+- [ ] 05-01-PLAN.md — City infrastructure: Sanity cityPage schema, dynamic [city] route with generateStaticParams, city-specific JSON-LD builder, Google Maps facade, AEO block component, sitemap integration (LOCAL-01 through LOCAL-07, SEO-05, SEO-06)
+- [ ] 05-02-PLAN.md — City content: unique SEO copy for all 7 cities in Emily's brand voice, tiered word counts, AEO answer blocks, seed content module with CMS fallback (LOCAL-01 through LOCAL-07, SEO-05, SEO-06)
+- [ ] 05-03-PLAN.md — Verification: automated uniqueness audit, word count validation, JSON-LD check, human visual and content review (LOCAL-01 through LOCAL-07, SEO-05, SEO-06)
 
 ### Phase 6: External Platforms and Launch Polish
 **Goal**: Emily has actionable step-by-step guides to complete GBP and Apple Business Connect setup, and the site passes a final cross-site verification checklist covering performance, tap targets, EXIF stripping, and NAP consistency
