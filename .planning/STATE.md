@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-18)
 
 **Core value:** When a parent or senior in South-Central Virginia searches for portrait photography, Emily Kathryn Photography appears first — and the site converts that visitor into an inquiry within one session.
-**Current focus:** Phase 3 Complete -- Ready for Phase 4
+**Current focus:** Phase 4 SEO Infrastructure -- Plan 02 Complete
 
 ## Current Position
 
-Phase: 3 of 6 (Core Pages and Conversion) -- Complete
-Plan: 5 of 5 in current phase (all complete)
-Status: Completed 03-05 (Brand-Voice Copy Polish and OG Metadata)
-Last activity: 2026-02-24 — Completed 03-05-PLAN.md
+Phase: 4 of 6 (SEO Infrastructure)
+Plan: 2 of 2 in current phase (all complete)
+Status: Completed 04-02 (SEO Discovery and Indexing Infrastructure)
+Last activity: 2026-02-24 — Completed 04-02-PLAN.md
 
-Progress: [██████████████████░░] 50%
+Progress: [██████████████████████░░] 55%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 9
-- Average duration: 4.8 min
-- Total execution time: 0.73 hours
+- Total plans completed: 10
+- Average duration: 4.6 min
+- Total execution time: 0.78 hours
 
 **By Phase:**
 
@@ -30,12 +30,14 @@ Progress: [██████████████████░░] 50%
 | 01-foundation | 2 | 9 min | 4.5 min |
 | 02-shared-components-and-galleries | 3 | 15.5 min | 5.2 min |
 | 03-core-pages-and-conversion | 4 | 23 min | 5.8 min |
+| 04-seo-infrastructure | 1 | 3 min | 3.0 min |
 
 **Recent Trend:**
-- Last 5 plans: 03-05 (3min), 02-03 (5min), 03-04 (5min), 03-02 (7min), 03-03 (8min)
-- Trend: Consistent
+- Last 5 plans: 04-02 (3min), 03-05 (3min), 02-03 (5min), 03-04 (5min), 03-02 (7min)
+- Trend: Consistent, accelerating
 
 *Updated after each plan completion*
+| Phase 04 P02 | 3 | 2 tasks | 5 files |
 | Phase 03 P05 | 3 | 2 tasks | 17 files |
 | Phase 03 P01 | 9 | 2 tasks | 7 files |
 | Phase 01 P01 | 20 | 2 tasks | 30 files |
@@ -86,6 +88,9 @@ Recent decisions affecting current work:
 - [Phase 03]: Pages approved for development but require Emily (client) review and approval before production launch
 - [Phase 01]: env.ts uses fallback defaults over assertValue pattern to prevent build crashes when Sanity project is not yet configured
 - [Phase 01]: Studio.tsx runtime fallback UI when Sanity projectId is empty -- shows setup instructions instead of crashing
+- [Phase 04]: Image sitemaps included in sitemap.ts -- image:image XML tags drive Google Image traffic for photography business
+- [Phase 04]: GSC verification via NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION env var -- Next.js omits empty meta tag automatically
+- [Phase 04]: ISR webhook confirmed functional via code review -- no changes needed to Phase 1 implementation
 
 ### Pending Todos
 
@@ -101,5 +106,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-24
-Stopped at: Completed 03-05-PLAN.md (Brand-Voice Copy Polish and OG Metadata) — Phase 3 complete
-Resume file: .planning/phases/03-core-pages-and-conversion/03-05-SUMMARY.md
+Stopped at: Completed 04-02-PLAN.md (SEO Discovery and Indexing Infrastructure)
+Resume file: .planning/phases/04-seo-infrastructure/04-02-SUMMARY.md

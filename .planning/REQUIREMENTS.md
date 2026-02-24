@@ -78,7 +78,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **SEO-05**: AEO answer blocks (40-60 words) on each city landing page targeting local queries
 - [ ] **SEO-06**: Google Maps embed centered on each target city on its landing page
 - [x] **SEO-07**: Canonical NAP+W (Name, Address, Phone, Website) consistency across all pages — single config source of truth
-- [ ] **SEO-08**: XML sitemap generation with all pages
+- [x] **SEO-08**: XML sitemap generation with all pages
 - [x] **SEO-09**: OG metadata and social sharing images per page
 
 ### External Platforms
@@ -89,7 +89,7 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Infrastructure
 
 - [x] **INFRA-01**: Email delivery via Resend for inquiry notifications and auto-responder
-- [ ] **INFRA-02**: Sanity webhook to trigger ISR revalidation on content changes
+- [x] **INFRA-02**: Sanity webhook to trigger ISR revalidation on content changes
 - [x] **INFRA-03**: Form spam protection (honeypot + rate limiting)
 
 ## v2 Requirements
@@ -172,8 +172,8 @@ Deferred to future release. Tracked but not in current roadmap.
 | SEO-02 | Phase 4 | Pending |
 | SEO-03 | Phase 4 | Pending |
 | SEO-04 | Phase 4 | Pending |
-| SEO-08 | Phase 4 | Pending |
-| INFRA-02 | Phase 4 | Pending |
+| SEO-08 | Phase 4 | Complete |
+| INFRA-02 | Phase 4 | Complete |
 | LOCAL-01 | Phase 5 | Pending |
 | LOCAL-02 | Phase 5 | Pending |
 | LOCAL-03 | Phase 5 | Pending |
