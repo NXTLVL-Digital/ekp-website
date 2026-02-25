@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { PortableText } from '@portabletext/react'
@@ -8,14 +9,20 @@ import type { GalleryImageData } from '@/components/shared/GalleryClient'
 import { TestimonialCard } from '@/components/testimonials/TestimonialCard'
 import type { TestimonialImage } from '@/components/testimonials/TestimonialCard'
 import { JsonLd } from '@/components/shared/JsonLd'
+import { AnswerBlock } from '@/components/shared/AnswerBlock'
 import { CityHero } from '@/components/city/CityHero'
 import { AeoBlock } from '@/components/city/AeoBlock'
+import { TrustBar } from '@/components/city/TrustBar'
+import { ServiceCards } from '@/components/city/ServiceCards'
 import { GoogleMapFacade } from '@/components/city/GoogleMapFacade'
+import { TestimonialCarousel } from '@/components/home/TestimonialCarousel'
 import { sanityFetch } from '@/sanity/lib/fetch'
-import { CITY_PAGE_QUERY } from '@/sanity/lib/queries'
+import { CITY_PAGE_QUERY, TESTIMONIALS_QUERY } from '@/sanity/lib/queries'
 import { CITY_DATA, CITY_SLUGS } from '@/lib/cityData'
 import { CITY_CONTENT } from '@/lib/cityContent'
+import { cityGalleryImages } from '@/lib/placeholder-galleries'
 import { buildCityLocalBusinessSchema } from '@/lib/schemas/localBusiness'
+import { buildFaqPageSchema } from '@/lib/schemas/faqPage'
 import { siteConfig } from '@/lib/siteConfig'
 import type { PortableTextBlock } from '@portabletext/types'
 
@@ -126,11 +133,18 @@ export default async function CityPage({
 }) {
   const { city } = await params
 
-  const data = await sanityFetch<CityPageData | null>({
-    query: CITY_PAGE_QUERY,
-    params: { slug: city },
-    tags: ['cityPage'],
-  })
+  const [data, featuredTestimonials] = await Promise.all([
+    sanityFetch<CityPageData | null>({
+      query: CITY_PAGE_QUERY,
+      params: { slug: city },
+      tags: ['cityPage'],
+    }),
+    sanityFetch<Array<{ _id: string; name: string; quote: string; service?: string }>>({
+      query: TESTIMONIALS_QUERY,
+      params: { featured: true, service: null },
+      tags: ['testimonial'],
+    }),
+  ])
 
   const cityGeo = CITY_DATA[city]
   const seedContent = CITY_CONTENT[city]
@@ -149,11 +163,15 @@ export default async function CityPage({
     data?.headline || seedContent?.headline || `Senior Portraits in ${cityName}, VA`
   const aeoBlock = data?.aeoBlock || seedContent?.aeoBlock || ''
   const hasCmsBody = data?.body && data.body.length > 0
+  const cityFaqs = seedContent?.faqs ?? []
 
   return (
     <>
       {/* JSON-LD: City-specific LocalBusiness */}
       {cityGeo && <JsonLd data={buildCityLocalBusinessSchema(cityGeo)} />}
+
+      {/* JSON-LD: FAQPage for AEO extraction */}
+      {cityFaqs.length > 0 && <JsonLd data={buildFaqPageSchema(cityFaqs)} />}
 
       {/* ------------------------------------------------------------------ */}
       {/*  1. City Hero                                                       */}
@@ -161,7 +179,7 @@ export default async function CityPage({
       <CityHero cityName={cityName} headline={headline} />
 
       {/* ------------------------------------------------------------------ */}
-      {/*  2. AEO Answer Block                                                */}
+      {/*  2. AEO Answer Block  (white)                                       */}
       {/* ------------------------------------------------------------------ */}
       {aeoBlock && (
         <Section>
@@ -172,84 +190,133 @@ export default async function CityPage({
       )}
 
       {/* ------------------------------------------------------------------ */}
-      {/*  3. Body Copy                                                       */}
+      {/*  3. Trust Bar  (gold/5 tint — self-contained, not a Section)        */}
+      {/* ------------------------------------------------------------------ */}
+      <TrustBar />
+
+      {/* ------------------------------------------------------------------ */}
+      {/*  4. Body Copy — split layout: text + portrait image                 */}
       {/* ------------------------------------------------------------------ */}
       {hasCmsBody ? (
-        /* CMS-populated: render Portable Text */
-        <Section background="muted">
-          <div className="prose prose-lg mx-auto max-w-3xl text-muted-foreground">
-            <PortableText value={data.body} />
-            <p className="mt-6">
-              Whether you are looking for{' '}
-              <Link
-                href="/senior-portraits"
-                className="text-brand-gold underline underline-offset-2 hover:text-brand-gold-dark"
-              >
-                senior portraits
-              </Link>{' '}
-              or{' '}
-              <Link
-                href="/family-portraits"
-                className="text-brand-gold underline underline-offset-2 hover:text-brand-gold-dark"
-              >
-                family portraits
-              </Link>
-              , Emily Kathryn Photography would love to create something beautiful
-              with you in {cityName}.
-            </p>
+        <Section>
+          <div className="grid items-center gap-8 md:grid-cols-2 md:gap-12">
+            {/* Portrait image — shows first on mobile */}
+            <div className="relative aspect-[3/4] overflow-hidden rounded-lg">
+              <Image
+                src="/placeholder/senior-3.jpeg"
+                alt={`Portrait session in ${cityName}, Virginia`}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            {/* Text column — flips to left on desktop */}
+            <div className="prose prose-lg text-muted-foreground md:order-first">
+              <PortableText value={data.body} />
+              <p className="mt-6">
+                Whether you are looking for{' '}
+                <Link
+                  href="/senior-portraits"
+                  className="text-brand-gold underline underline-offset-2 hover:text-brand-gold-dark"
+                >
+                  senior portraits
+                </Link>{' '}
+                or{' '}
+                <Link
+                  href="/family-portraits"
+                  className="text-brand-gold underline underline-offset-2 hover:text-brand-gold-dark"
+                >
+                  family portraits
+                </Link>
+                , Emily Kathryn Photography would love to create something beautiful
+                with you in {cityName}.
+              </p>
+            </div>
           </div>
         </Section>
       ) : seedContent?.bodyHtml ? (
-        /* Seed content fallback: render pre-built HTML */
-        <Section background="muted">
-          <div className="prose prose-lg mx-auto max-w-3xl text-muted-foreground">
-            {/* Safe: content is hardcoded in our own codebase, not user-generated */}
-            <div dangerouslySetInnerHTML={{ __html: seedContent.bodyHtml }} />
-            <p className="mt-6">
-              Whether you are looking for{' '}
-              <Link
-                href="/senior-portraits"
-                className="text-brand-gold underline underline-offset-2 hover:text-brand-gold-dark"
-              >
-                senior portraits
-              </Link>{' '}
-              or{' '}
-              <Link
-                href="/family-portraits"
-                className="text-brand-gold underline underline-offset-2 hover:text-brand-gold-dark"
-              >
-                family portraits
-              </Link>
-              , Emily Kathryn Photography would love to create something beautiful
-              with you in {cityName}.
-            </p>
+        <Section>
+          <div className="grid items-center gap-8 md:grid-cols-2 md:gap-12">
+            {/* Portrait image — shows first on mobile */}
+            <div className="relative aspect-[3/4] overflow-hidden rounded-lg">
+              <Image
+                src="/placeholder/senior-3.jpeg"
+                alt={`Portrait session in ${cityName}, Virginia`}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            {/* Text column — flips to left on desktop */}
+            <div className="prose prose-lg text-muted-foreground md:order-first">
+              {/* Safe: content is hardcoded in our own codebase, not user-generated */}
+              <div dangerouslySetInnerHTML={{ __html: seedContent.bodyHtml }} />
+              <p className="mt-6">
+                Whether you are looking for{' '}
+                <Link
+                  href="/senior-portraits"
+                  className="text-brand-gold underline underline-offset-2 hover:text-brand-gold-dark"
+                >
+                  senior portraits
+                </Link>{' '}
+                or{' '}
+                <Link
+                  href="/family-portraits"
+                  className="text-brand-gold underline underline-offset-2 hover:text-brand-gold-dark"
+                >
+                  family portraits
+                </Link>
+                , Emily Kathryn Photography would love to create something beautiful
+                with you in {cityName}.
+              </p>
+            </div>
           </div>
         </Section>
       ) : null}
 
       {/* ------------------------------------------------------------------ */}
-      {/*  4. Gallery Section (CMS only — hidden when empty)                   */}
+      {/*  5. Service Link Cards  (muted)                                     */}
       {/* ------------------------------------------------------------------ */}
-      {data?.galleryImages && data.galleryImages.length > 0 && (
-        <Section>
-          <div className="mb-8 text-center">
-            <h2 className="font-heading text-3xl font-light md:text-4xl">
-              Our Work in {cityName}
-            </h2>
-          </div>
-          <GalleryClient
-            images={data.galleryImages}
-            displayStyle="masonry"
-            priorityCount={0}
-          />
-        </Section>
-      )}
+      <Section background="muted">
+        <div className="mb-8 text-center">
+          <h2 className="font-heading text-3xl font-light md:text-4xl">
+            Portrait Services in {cityName}
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
+            Two signature experiences designed to celebrate who you are right now.
+          </p>
+        </div>
+        <div className="mx-auto max-w-4xl">
+          <ServiceCards cityName={cityName} />
+        </div>
+      </Section>
 
       {/* ------------------------------------------------------------------ */}
-      {/*  5. Testimonials Section (CMS only — hidden when empty)              */}
+      {/*  6. Gallery Section  (white)                                        */}
       {/* ------------------------------------------------------------------ */}
-      {data?.testimonials && data.testimonials.length > 0 && (
-        <Section background="muted">
+      <Section>
+        <div className="mb-8 text-center">
+          <h2 className="font-heading text-3xl font-light md:text-4xl">
+            Our Work in {cityName}
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
+            Every session is as unique as the person in front of the camera.
+          </p>
+        </div>
+        <GalleryClient
+          images={data?.galleryImages && data.galleryImages.length > 0
+            ? data.galleryImages
+            : cityGalleryImages}
+          displayStyle="masonry"
+          priorityCount={0}
+        />
+      </Section>
+
+      {/* ------------------------------------------------------------------ */}
+      {/*  7. Testimonials Section  (rose tint)                               */}
+      {/* ------------------------------------------------------------------ */}
+      {data?.testimonials && data.testimonials.length > 0 ? (
+        <Section className="!bg-brand-rose/10">
           <div className="mb-8 text-center">
             <h2 className="font-heading text-3xl font-light md:text-4xl">
               Kind Words from {testimonialLabel}
@@ -267,10 +334,33 @@ export default async function CityPage({
             ))}
           </div>
         </Section>
+      ) : featuredTestimonials && featuredTestimonials.length > 0 ? (
+        <Section className="!bg-brand-rose/10">
+          <div className="mb-8 text-center">
+            <h2 className="font-heading text-3xl font-light md:text-4xl">
+              What Our Clients Are Saying
+            </h2>
+          </div>
+          <TestimonialCarousel testimonials={featuredTestimonials} />
+        </Section>
+      ) : null}
+
+      {/* ------------------------------------------------------------------ */}
+      {/*  8. FAQ Section  (muted)                                            */}
+      {/* ------------------------------------------------------------------ */}
+      {cityFaqs.length > 0 && (
+        <Section background="muted">
+          <div className="mx-auto max-w-3xl">
+            <h2 className="mb-8 text-center font-heading text-3xl font-light md:text-4xl">
+              Frequently Asked Questions
+            </h2>
+            <AnswerBlock items={cityFaqs} id="faq" />
+          </div>
+        </Section>
       )}
 
       {/* ------------------------------------------------------------------ */}
-      {/*  6. Google Maps Section                                              */}
+      {/*  9. Google Maps Section  (white)                                    */}
       {/* ------------------------------------------------------------------ */}
       <Section>
         <div className="mx-auto max-w-4xl">
@@ -282,14 +372,22 @@ export default async function CityPage({
       </Section>
 
       {/* ------------------------------------------------------------------ */}
-      {/*  7. CTA Section                                                      */}
+      {/*  10. CTA Section — photo-backed bookend                             */}
       {/* ------------------------------------------------------------------ */}
-      <Section background="muted">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-heading text-3xl font-light md:text-4xl">
+      <section className="relative overflow-hidden py-section-sm md:py-section">
+        <Image
+          src="/placeholder/hero-3.jpeg"
+          alt="Emily Kathryn Photography session"
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative mx-auto max-w-2xl px-4 text-center sm:px-6 lg:px-8">
+          <h2 className="font-heading text-3xl font-light text-white md:text-4xl">
             Start Planning Your {cityName} Session
           </h2>
-          <p className="mt-4 text-muted-foreground">
+          <p className="mt-4 text-white/80">
             Ready to create stunning portraits in {cityName}? I would love to
             hear about your vision and make it happen.
           </p>
@@ -300,7 +398,7 @@ export default async function CityPage({
             Start Planning Your {cityName} Session
           </Link>
         </div>
-      </Section>
+      </section>
     </>
   )
 }
