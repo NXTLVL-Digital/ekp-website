@@ -165,6 +165,21 @@ export default async function CityPage({
   const hasCmsBody = data?.body && data.body.length > 0
   const cityFaqs = seedContent?.faqs ?? []
 
+  // Split seed content into paragraphs for editorial flow layout
+  const bodyParagraphs =
+    !hasCmsBody && seedContent?.bodyHtml
+      ? seedContent.bodyHtml
+          .split('</p>')
+          .map((p: string) => p.replace(/^\s*<p>/, '').trim())
+          .filter(Boolean)
+      : []
+  const introParas = bodyParagraphs.slice(0, 2)
+  const remainingParas = bodyParagraphs.slice(2)
+  const closingParas =
+    remainingParas.length > 2 ? remainingParas.slice(-2) : remainingParas
+  const middleParas =
+    remainingParas.length > 2 ? remainingParas.slice(0, -2) : []
+
   return (
     <>
       {/* JSON-LD: City-specific LocalBusiness */}
@@ -195,83 +210,123 @@ export default async function CityPage({
       <TrustBar />
 
       {/* ------------------------------------------------------------------ */}
-      {/*  4. Body Copy — split layout: text + portrait image                 */}
+      {/*  4. Body Content — Editorial Flow                                   */}
       {/* ------------------------------------------------------------------ */}
       {hasCmsBody ? (
+        /* CMS content — centered prose (will be restructured when CMS is populated) */
         <Section>
-          <div className="grid items-center gap-8 md:grid-cols-2 md:gap-12">
-            {/* Portrait image — shows first on mobile */}
-            <div className="relative aspect-[3/4] overflow-hidden rounded-lg">
-              <Image
-                src="/placeholder/senior-3.jpeg"
-                alt={`Portrait session in ${cityName}, Virginia`}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-            {/* Text column — flips to left on desktop */}
-            <div className="prose prose-lg text-muted-foreground md:order-first">
+          <div className="mx-auto max-w-3xl">
+            <div className="prose prose-lg text-muted-foreground">
               <PortableText value={data.body} />
-              <p className="mt-6">
-                Whether you are looking for{' '}
-                <Link
-                  href="/senior-portraits"
-                  className="text-brand-gold underline underline-offset-2 hover:text-brand-gold-dark"
-                >
-                  senior portraits
-                </Link>{' '}
-                or{' '}
-                <Link
-                  href="/family-portraits"
-                  className="text-brand-gold underline underline-offset-2 hover:text-brand-gold-dark"
-                >
-                  family portraits
-                </Link>
-                , Emily Kathryn Photography would love to create something beautiful
-                with you in {cityName}.
-              </p>
             </div>
           </div>
         </Section>
-      ) : seedContent?.bodyHtml ? (
-        <Section>
-          <div className="grid items-center gap-8 md:grid-cols-2 md:gap-12">
-            {/* Portrait image — shows first on mobile */}
-            <div className="relative aspect-[3/4] overflow-hidden rounded-lg">
+      ) : bodyParagraphs.length > 0 ? (
+        <>
+          {/* Intro — text left, portrait right */}
+          <Section>
+            <div className="grid items-start gap-8 md:grid-cols-2 md:gap-16">
+              <div className="prose prose-lg text-muted-foreground">
+                {introParas.map((p, i) => (
+                  <p key={i} dangerouslySetInnerHTML={{ __html: p }} />
+                ))}
+              </div>
+              <div className="relative aspect-[3/4] overflow-hidden rounded-lg">
+                <Image
+                  src="/placeholder/senior-1.jpeg"
+                  alt={`Senior portrait in ${cityName}, Virginia`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+            </div>
+          </Section>
+
+          {/* Image strip — full-bleed editorial break */}
+          <div className="grid grid-cols-3 gap-1">
+            <div className="relative aspect-[3/4] overflow-hidden">
               <Image
-                src="/placeholder/senior-3.jpeg"
-                alt={`Portrait session in ${cityName}, Virginia`}
+                src="/placeholder/senior-2.jpeg"
+                alt={`Portrait photography in ${cityName}`}
                 fill
                 className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="33vw"
               />
             </div>
-            {/* Text column — flips to left on desktop */}
-            <div className="prose prose-lg text-muted-foreground md:order-first">
-              {/* Safe: content is hardcoded in our own codebase, not user-generated */}
-              <div dangerouslySetInnerHTML={{ __html: seedContent.bodyHtml }} />
-              <p className="mt-6">
-                Whether you are looking for{' '}
-                <Link
-                  href="/senior-portraits"
-                  className="text-brand-gold underline underline-offset-2 hover:text-brand-gold-dark"
-                >
-                  senior portraits
-                </Link>{' '}
-                or{' '}
-                <Link
-                  href="/family-portraits"
-                  className="text-brand-gold underline underline-offset-2 hover:text-brand-gold-dark"
-                >
-                  family portraits
-                </Link>
-                , Emily Kathryn Photography would love to create something beautiful
-                with you in {cityName}.
-              </p>
+            <div className="relative aspect-[3/4] overflow-hidden">
+              <Image
+                src="/placeholder/family-5.jpeg"
+                alt={`Family portraits in ${cityName}`}
+                fill
+                className="object-cover"
+                sizes="33vw"
+              />
+            </div>
+            <div className="relative aspect-[3/4] overflow-hidden">
+              <Image
+                src="/placeholder/gallery-1.jpeg"
+                alt="Editorial portraits by Emily Kathryn Photography"
+                fill
+                className="object-cover"
+                sizes="33vw"
+              />
             </div>
           </div>
-        </Section>
+
+          {/* Middle — image left, text right (reversed flow) */}
+          {middleParas.length > 0 && (
+            <Section>
+              <div className="grid items-start gap-8 md:grid-cols-2 md:gap-16">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-lg">
+                  <Image
+                    src="/placeholder/family-1.jpeg"
+                    alt={`Family portrait session in ${cityName}, Virginia`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                <div className="prose prose-lg text-muted-foreground">
+                  {middleParas.map((p, i) => (
+                    <p key={i} dangerouslySetInnerHTML={{ __html: p }} />
+                  ))}
+                </div>
+              </div>
+            </Section>
+          )}
+
+          {/* Closing — centered text with service links */}
+          {closingParas.length > 0 && (
+            <Section spacing="tight">
+              <div className="mx-auto max-w-3xl text-center">
+                <div className="prose prose-lg mx-auto text-muted-foreground">
+                  {closingParas.map((p, i) => (
+                    <p key={i} dangerouslySetInnerHTML={{ __html: p }} />
+                  ))}
+                </div>
+                <p className="mt-6 text-lg text-muted-foreground">
+                  Whether you are looking for{' '}
+                  <Link
+                    href="/senior-portraits"
+                    className="text-brand-gold underline underline-offset-2 hover:text-brand-gold-dark"
+                  >
+                    senior portraits
+                  </Link>{' '}
+                  or{' '}
+                  <Link
+                    href="/family-portraits"
+                    className="text-brand-gold underline underline-offset-2 hover:text-brand-gold-dark"
+                  >
+                    family portraits
+                  </Link>
+                  , Emily Kathryn Photography would love to create something
+                  beautiful with you in {cityName}.
+                </p>
+              </div>
+            </Section>
+          )}
+        </>
       ) : null}
 
       {/* ------------------------------------------------------------------ */}
