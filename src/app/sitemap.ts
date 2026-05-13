@@ -18,11 +18,17 @@ import { CITY_SLUGS } from "@/lib/cityData";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const BASE_URL = siteConfig.url;
 
-  // Fetch city slugs from Sanity, with hardcoded fallback
-  const sanityCtySlugs = await sanityFetch<Array<{ slug: string }>>({
-    query: CITY_SLUGS_QUERY,
-    tags: ["cityPage"],
-  });
+  // Fetch city slugs from Sanity, with hardcoded fallback.
+  // Wrapped in try/catch so a missing/invalid projectId doesn't crash the build.
+  let sanityCtySlugs: Array<{ slug: string }> = [];
+  try {
+    sanityCtySlugs = await sanityFetch<Array<{ slug: string }>>({
+      query: CITY_SLUGS_QUERY,
+      tags: ["cityPage"],
+    });
+  } catch {
+    // Sanity not configured — fall through to hardcoded slugs
+  }
 
   const citySlugs =
     sanityCtySlugs && sanityCtySlugs.length > 0
