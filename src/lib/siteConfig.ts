@@ -22,6 +22,7 @@ export const siteConfig = {
     { label: 'Investment', href: '/investment' },
     { label: 'About', href: '/about' },
     { label: 'Raves', href: '/raves' },
+    { label: 'Journal', href: '/journal' },
     { label: 'Style Guide', href: '/style-guide' },
     { label: 'Contact', href: '/contact' },
   ],
