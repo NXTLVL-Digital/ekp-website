@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Inquire — Emily Kathryn Photography</title>
+<meta name="description" content="Inquire about your senior or family session with Emily Kathryn Photography. Based in Gretna, VA — serving South-Central Virginia." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<a href="#main" class="skip">Skip to content</a>
+
+<nav class="nav-bar" aria-label="Primary">
+  <div class="links">
+    <a href="meet-emily.html">Meet Emily</a>
+    <a href="experience.html">Experience</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="raves.html">Raves</a>
+  </div>
+  <a class="logo" href="index.html">emily kathryn<small>P H O T O G R A P H Y</small></a>
+  <div class="right">
+    <a href="contact.html" class="btn-soft active">Inquire</a>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span></button>
+  </div>
+</nav>
+
+<div class="scrim" aria-hidden="true"></div>
+<aside class="mobile-drawer" aria-label="Mobile menu">
+  <a href="index.html">Home</a>
+  <a href="meet-emily.html">Meet Emily</a>
+  <a href="experience.html">The Experience</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="raves.html">Raves</a>
+  <a href="blog.html">The Journal</a>
+  <a href="contact.html" class="italic">Inquire →</a>
+  <div class="meta"><span class="small-caps">Connect</span><a href="#">Instagram</a><a href="#">Pinterest</a><a href="#">Facebook</a></div>
+</aside>
+
+<main id="main">
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <span class="small-caps">— Begin Your Inquiry —</span>
+  <h1>Let's <em>chat.</em></h1>
+  <p class="lede">Send a note and I'll reply with the Senior Magazine — full of session details, sample images, and pricing information.</p>
+</section>
+
+<!-- INTRO -->
+<section class="section section-narrow section-center" style="padding-top:48px;padding-bottom:48px">
+  <div class="body-prose">
+    <p>If you'd like more info about the EKP experience, reach out using the form below. I'll send back our Senior Magazine, which is full of session details, sample images, and pricing. Since this is a custom experience, I only work with a select number of clients each year and usually book up several months in advance — so booking ahead is always a good idea. <em>Hope to hear from you soon!</em></p>
+  </div>
+</section>
+
+<!-- CONTACT GRID -->
+<section class="contact-grid">
+
+  <!-- FORM -->
+  <form class="form" onsubmit="event.preventDefault(); alert('Thank you! This is a design preview.')">
+    <div class="row">
+      <div>
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" name="firstName" required />
+      </div>
+      <div>
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" name="lastName" required />
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+      <div>
+        <label for="phone">Phone (optional)</label>
+        <input type="tel" id="phone" name="phone" />
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <label for="sessionType">Session Type</label>
+        <select id="sessionType" name="sessionType">
+          <option>Senior Portraits</option>
+          <option>Family Session</option>
+          <option>Other / Not sure yet</option>
+        </select>
+      </div>
+      <div>
+        <label for="gradYear">Grad Year (if applicable)</label>
+        <select id="gradYear" name="gradYear">
+          <option>—</option>
+          <option>2026</option>
+          <option>2027</option>
+          <option>2028</option>
+          <option>Not Applicable</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <label for="highSchool">High School (if applicable)</label>
+        <input type="text" id="highSchool" name="highSchool" placeholder="e.g. Gretna High" />
+      </div>
+      <div>
+        <label for="city">City / Town</label>
+        <input type="text" id="city" name="city" placeholder="e.g. Lynchburg, VA" />
+      </div>
+    </div>
+    <div style="margin-bottom:18px">
+      <label for="vibe">The Look You're Imagining</label>
+      <select id="vibe" name="vibe">
+        <option>Editorial &amp; classic</option>
+        <option>Soft &amp; romantic</option>
+        <option>Urban &amp; modern</option>
+        <option>Country / outdoorsy</option>
+        <option>A mix — I'm open!</option>
+      </select>
+    </div>
+    <div style="margin-bottom:18px">
+      <label for="message">Tell me a little about you</label>
+      <textarea id="message" name="message" placeholder="What you're hoping for, your favorite spots, or anything else you'd love me to know."></textarea>
+    </div>
+    <div class="submit">
+      <button type="submit" class="btn-ink">Send Inquiry →</button>
+      <p class="form-note">— I personally reply to every inquiry within 1–2 business days. —</p>
+    </div>
+  </form>
+
+  <!-- ADDRESS / DETAILS -->
+  <aside class="address-block">
+    <h3>The <em>Studio.</em></h3>
+    <address>
+      Jeff &amp; Emily Walker<br/>
+      8285 Chalk Level Rd<br/>
+      Gretna, VA 24557
+    </address>
+    <span class="small-caps">— Email —</span>
+    <address><a href="mailto:hello@emilykathryn.com" style="text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:2px">hello@emilykathryn.com</a></address>
+
+    <span class="small-caps">— Service Area —</span>
+    <div class="area">
+      Danville · Chatham · Gretna · Altavista · Evington · Forest · Lynchburg · Smith Mountain Lake — and surrounding South-Central Virginia.
+    </div>
+    <p style="font-size:13px;color:var(--muted);margin-top:18px;font-weight:300">We've also traveled for clients in Florida, New Hampshire, and California. Destination sessions are always welcome — just ask.</p>
+
+    <span class="small-caps">— Connect —</span>
+    <div style="display:flex;gap:18px;margin-top:6px">
+      <a href="#" style="text-decoration:none;font-size:13px;color:var(--ink);border-bottom:1px solid var(--gold);padding-bottom:2px">Instagram</a>
+      <a href="#" style="text-decoration:none;font-size:13px;color:var(--ink);border-bottom:1px solid var(--gold);padding-bottom:2px">Pinterest</a>
+      <a href="#" style="text-decoration:none;font-size:13px;color:var(--ink);border-bottom:1px solid var(--gold);padding-bottom:2px">Facebook</a>
+    </div>
+  </aside>
+
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial">
+  <div class="stars">★ ★ ★ ★ ★</div>
+  <blockquote>
+    "I've known I wanted to take my senior pictures with Emily since the 6th grade — and I'm so glad I finally got to. The entire experience was even better than I dreamed."
+  </blockquote>
+  <div class="who">— A Recent EKP Senior</div>
+</section>
+
+</main>
+
+<footer>
+  <div class="foot-top">
+    <div>
+      <a class="foot-logo" href="index.html">emily kathryn<small>P H O T O G R A P H Y</small></a>
+      <p style="color:var(--muted);font-size:14px;margin-top:18px;max-width:340px;font-weight:300">Editorial senior &amp; family portrait photography. Gretna, VA · Serving Danville, Chatham, Altavista, Lynchburg, Evington, Forest, Smith Mountain Lake &amp; surrounding South-Central Virginia.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <a href="meet-emily.html">Meet Emily</a>
+      <a href="experience.html">The Experience</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="raves.html">Raves</a>
+      <a href="blog.html">The Journal</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="contact.html">Inquire</a>
+      <a href="mailto:hello@emilykathryn.com">hello@emilykathryn.com</a>
+      <a href="#">8285 Chalk Level Rd<br/>Gretna, VA 24557</a>
+    </div>
+    <div>
+      <h4>Follow</h4>
+      <a href="#">Instagram</a>
+      <a href="#">Pinterest</a>
+      <a href="#">Facebook</a>
+      <a href="#">YouTube</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Emily Kathryn Photography</span>
+    <span>Site by NXTLVL Digital</span>
+  </div>
+</footer>
+
+<script src="js/site.js"></script>
+</body>
+</html>

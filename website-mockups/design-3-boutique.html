@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Emily Kathryn Photography — Boutique Luxury</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0a0a0a;
+    --black-2:#161412;
+    --black-3:#1f1c19;
+    --bone:#e9e2d6;
+    --paper:#f5efe5;
+    --gold:#c2a36c;
+    --gold-2:#d8bd8a;
+    --pink:#dcb6ad;
+    --mint:#b3d4cd;
+    --muted:#8c857a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Manrope',sans-serif;font-weight:300;
+    color:var(--bone);background:var(--black);
+    line-height:1.7;-webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--gold);color:var(--black)}
+  .small-caps{font-size:11px;letter-spacing:0.4em;text-transform:uppercase;font-weight:400;color:var(--gold)}
+
+  /* NAV */
+  nav.main{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:grid;grid-template-columns:auto 1fr auto;align-items:center;
+    padding:24px 56px;background:rgba(10,10,10,0.85);backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(194,163,108,0.15);
+  }
+  nav.main .logo{font-family:'Playfair Display',serif;font-weight:500;font-size:26px;color:var(--bone);line-height:1}
+  nav.main .logo small{display:block;font-family:'Manrope',sans-serif;font-size:9px;letter-spacing:0.5em;font-weight:400;margin-top:4px;color:var(--gold)}
+  nav.main .links{display:flex;gap:32px;justify-content:center;font-size:11px;letter-spacing:0.32em;text-transform:uppercase}
+  nav.main .links a{color:var(--bone);text-decoration:none;transition:color .3s;position:relative}
+  nav.main .links a::after{content:"";position:absolute;left:50%;bottom:-6px;width:0;height:1px;background:var(--gold);transition:all .3s}
+  nav.main .links a:hover{color:var(--gold)}
+  nav.main .links a:hover::after{width:100%;left:0}
+  .btn-gold{
+    background:var(--gold);color:var(--black);padding:14px 28px;
+    font-size:11px;letter-spacing:0.32em;text-transform:uppercase;font-weight:500;
+    text-decoration:none;display:inline-block;transition:all .3s;border:1px solid var(--gold);
+  }
+  .btn-gold:hover{background:transparent;color:var(--gold)}
+  .btn-outline{
+    background:transparent;color:var(--bone);padding:14px 28px;border:1px solid rgba(233,226,214,0.4);
+    font-size:11px;letter-spacing:0.32em;text-transform:uppercase;font-weight:500;
+    text-decoration:none;display:inline-block;transition:all .3s;
+  }
+  .btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+
+  /* HERO */
+  .hero{
+    height:100vh;min-height:760px;position:relative;overflow:hidden;
+    display:flex;align-items:center;
+  }
+  .hero-bg{
+    position:absolute;inset:0;background:url('../public/placeholder/hero-1.jpeg') center/cover;
+  }
+  .hero-bg::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(110deg,rgba(10,10,10,0.85) 0%,rgba(10,10,10,0.55) 45%,rgba(10,10,10,0.25) 100%);
+  }
+  .hero-content{
+    position:relative;z-index:2;padding:0 56px;max-width:1100px;
+  }
+  .hero .small-caps{margin-bottom:32px;display:inline-flex;align-items:center;gap:14px}
+  .hero .small-caps .line{width:48px;height:1px;background:var(--gold)}
+  .hero h1{
+    font-family:'Playfair Display',serif;font-weight:500;
+    font-size:clamp(64px,9vw,150px);line-height:0.96;
+    letter-spacing:-0.02em;margin-bottom:32px;color:var(--bone);
+  }
+  .hero h1 em{font-style:italic;font-weight:400;color:var(--gold);font-family:'Playfair Display',serif}
+  .hero p{font-size:18px;color:#d4cdc1;max-width:560px;margin-bottom:40px;font-weight:300;line-height:1.8}
+  .hero-actions{display:flex;gap:18px;flex-wrap:wrap}
+  .hero-meta{
+    position:absolute;bottom:48px;right:56px;display:flex;gap:48px;z-index:2;
+  }
+  .hero-meta .item{text-align:right}
+  .hero-meta .item .num{font-family:'Playfair Display',serif;font-size:32px;color:var(--gold);line-height:1}
+  .hero-meta .item .lbl{font-size:10px;letter-spacing:0.36em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+
+  /* MARQUEE GOLD */
+  .gold-strip{
+    background:var(--black-2);border-top:1px solid rgba(194,163,108,0.15);border-bottom:1px solid rgba(194,163,108,0.15);
+    padding:28px 56px;display:flex;justify-content:space-between;align-items:center;
+    flex-wrap:wrap;gap:24px;
+  }
+  .gold-strip .item{display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:0.32em;text-transform:uppercase;color:var(--bone);font-weight:400}
+  .gold-strip .item span{color:var(--gold);font-family:'Playfair Display',serif;font-style:italic;text-transform:none;letter-spacing:0;font-size:18px}
+
+  /* MISSION */
+  .mission{padding:160px 56px;text-align:center;max-width:1100px;margin:0 auto;position:relative}
+  .mission .small-caps{margin-bottom:24px;display:block}
+  .mission h2{
+    font-family:'Playfair Display',serif;font-weight:500;
+    font-size:clamp(40px,5vw,72px);line-height:1.15;letter-spacing:-0.01em;
+    color:var(--bone);
+  }
+  .mission h2 em{font-style:italic;color:var(--gold);font-weight:400}
+
+  /* SERVICES (dark cards) */
+  .services{padding:0 56px 160px;display:grid;grid-template-columns:1fr 1fr;gap:32px}
+  .svc-card{
+    position:relative;background:var(--black-2);overflow:hidden;
+    border:1px solid rgba(194,163,108,0.12);transition:border-color .4s;
+  }
+  .svc-card:hover{border-color:var(--gold)}
+  .svc-img{
+    width:100%;aspect-ratio:5/4;background-size:cover;background-position:center;
+    position:relative;overflow:hidden;
+  }
+  .svc-img::after{
+    content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(10,10,10,0.85));
+  }
+  .svc-tag{
+    position:absolute;top:24px;left:24px;background:rgba(10,10,10,0.7);backdrop-filter:blur(10px);
+    padding:10px 18px;font-size:10px;letter-spacing:0.36em;text-transform:uppercase;color:var(--gold);
+    border:1px solid rgba(194,163,108,0.3);z-index:2;
+  }
+  .svc-body{padding:40px 36px}
+  .svc-body h3{
+    font-family:'Playfair Display',serif;font-weight:500;font-size:42px;line-height:1;
+    margin-bottom:18px;color:var(--bone);
+  }
+  .svc-body h3 em{font-style:italic;color:var(--gold);font-weight:400}
+  .svc-body p{color:#b8b1a4;font-size:15px;margin-bottom:24px;line-height:1.8}
+  .svc-features{list-style:none;border-top:1px solid rgba(194,163,108,0.12);margin-bottom:28px}
+  .svc-features li{padding:12px 0;border-bottom:1px solid rgba(194,163,108,0.08);display:flex;justify-content:space-between;font-size:13px;color:var(--bone)}
+  .svc-features li span:last-child{color:var(--gold);font-family:'Playfair Display',serif;font-style:italic}
+  .svc-cta{display:inline-flex;align-items:center;gap:14px;color:var(--gold);text-decoration:none;font-size:11px;letter-spacing:0.32em;text-transform:uppercase;font-weight:500;border-bottom:1px solid var(--gold);padding-bottom:6px;transition:gap .3s}
+  .svc-cta:hover{gap:22px}
+
+  /* CINEMATIC GALLERY */
+  .gallery-head{padding:140px 56px 60px;display:grid;grid-template-columns:1fr auto;align-items:end;border-top:1px solid rgba(194,163,108,0.12)}
+  .gallery-head h2{font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(48px,7vw,108px);line-height:0.95;letter-spacing:-0.02em}
+  .gallery-head h2 em{font-style:italic;color:var(--gold);font-weight:400}
+  .gallery-head .meta{font-size:11px;letter-spacing:0.4em;text-transform:uppercase;color:var(--muted);text-align:right}
+
+  .cinema{
+    padding:0 56px 80px;display:grid;grid-template-columns:repeat(12,1fr);
+    grid-auto-rows:180px;gap:14px;
+  }
+  .c{background-size:cover;background-position:center;position:relative;overflow:hidden}
+  .c::after{
+    content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 70%,rgba(10,10,10,0.6));
+    transition:opacity .4s;
+  }
+  .c:hover::after{opacity:0;}
+  .c .label{position:absolute;bottom:18px;left:20px;font-size:10px;letter-spacing:0.4em;text-transform:uppercase;color:var(--bone);z-index:2}
+  .c1{grid-column:span 6;grid-row:span 3}
+  .c2{grid-column:span 3;grid-row:span 2}
+  .c3{grid-column:span 3;grid-row:span 2}
+  .c4{grid-column:span 3;grid-row:span 2}
+  .c5{grid-column:span 3;grid-row:span 2}
+  .c6{grid-column:span 4;grid-row:span 2}
+  .c7{grid-column:span 4;grid-row:span 2}
+  .c8{grid-column:span 4;grid-row:span 2}
+
+  /* MEET EMILY (split full-bleed) */
+  .meet{
+    display:grid;grid-template-columns:1fr 1.2fr;min-height:90vh;
+    border-top:1px solid rgba(194,163,108,0.12);
+  }
+  .meet-img{background:url('../public/placeholder/emily.jpeg') center/cover;position:relative}
+  .meet-img::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(110deg,rgba(10,10,10,0.4),transparent 40%);
+  }
+  .meet-text{padding:120px 80px;display:flex;flex-direction:column;justify-content:center;background:var(--black-2)}
+  .meet-text .small-caps{margin-bottom:24px;display:block}
+  .meet-text h2{
+    font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(48px,6vw,90px);
+    line-height:0.95;margin-bottom:32px;letter-spacing:-0.02em;
+  }
+  .meet-text h2 em{font-style:italic;color:var(--gold);font-weight:400}
+  .meet-text p{color:#b8b1a4;font-size:17px;line-height:1.85;margin-bottom:18px;max-width:520px}
+  .signature{font-family:'Playfair Display',serif;font-style:italic;font-size:34px;color:var(--gold);margin-top:32px}
+
+  /* TESTIMONIAL OVERLAY */
+  .test{
+    padding:160px 56px;background:url('../public/placeholder/hero-3.jpeg') center/cover;position:relative;text-align:center;
+  }
+  .test::before{content:"";position:absolute;inset:0;background:rgba(10,10,10,0.78)}
+  .test > *{position:relative;z-index:2}
+  .test .quote-mark{
+    font-family:'Playfair Display',serif;font-style:italic;font-size:140px;
+    color:var(--gold);line-height:0;margin-bottom:0;display:block;height:60px;
+  }
+  .test blockquote{
+    font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(28px,4vw,52px);
+    line-height:1.3;letter-spacing:-0.01em;max-width:1100px;margin:0 auto 36px;color:var(--bone);
+  }
+  .test blockquote em{font-style:italic;color:var(--gold);font-weight:400}
+  .test .who{font-size:11px;letter-spacing:0.4em;text-transform:uppercase;color:var(--muted)}
+
+  /* CTA */
+  .cta{
+    padding:140px 56px;text-align:center;background:var(--black-2);
+    border-top:1px solid rgba(194,163,108,0.12);border-bottom:1px solid rgba(194,163,108,0.12);
+  }
+  .cta .small-caps{margin-bottom:24px;display:block}
+  .cta h2{
+    font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(56px,7vw,128px);
+    line-height:0.95;letter-spacing:-0.02em;margin-bottom:32px;
+  }
+  .cta h2 em{font-style:italic;color:var(--gold);font-weight:400}
+  .cta p{color:#b8b1a4;font-size:17px;max-width:640px;margin:0 auto 40px;line-height:1.85}
+
+  /* FOOTER */
+  footer{padding:80px 56px 32px;background:var(--black)}
+  .foot-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;padding-bottom:60px;border-bottom:1px solid rgba(194,163,108,0.12)}
+  .foot-logo{font-family:'Playfair Display',serif;font-weight:500;font-size:32px;color:var(--bone);line-height:1}
+  .foot-logo small{display:block;font-family:'Manrope',sans-serif;font-size:9px;letter-spacing:0.5em;font-weight:400;margin-top:4px;color:var(--gold)}
+  .foot-top h4{font-size:11px;letter-spacing:0.36em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;font-weight:500}
+  .foot-top a{display:block;color:var(--bone);text-decoration:none;font-size:14px;margin-bottom:10px;transition:color .3s}
+  .foot-top a:hover{color:var(--gold)}
+  .foot-bottom{padding-top:28px;display:flex;justify-content:space-between;font-size:11px;letter-spacing:0.32em;text-transform:uppercase;color:var(--muted)}
+
+  @media (max-width:900px){
+    nav.main{grid-template-columns:1fr auto;padding:18px 24px}
+    nav.main .links{display:none}
+    .hero{height:auto;min-height:0;padding:140px 0 60px}
+    .hero-content{padding:0 24px}
+    .hero-meta{position:static;padding:48px 24px 0;justify-content:flex-start}
+    .gold-strip{padding:20px 24px}
+    .mission{padding:80px 24px}
+    .services{padding:0 24px 80px;grid-template-columns:1fr;gap:24px}
+    .gallery-head{padding:80px 24px 36px;grid-template-columns:1fr;gap:18px}
+    .gallery-head .meta{text-align:left}
+    .cinema{padding:0 24px 60px;grid-template-columns:repeat(6,1fr);grid-auto-rows:140px}
+    .meet{grid-template-columns:1fr;min-height:0}
+    .meet-img{height:60vh}
+    .meet-text{padding:60px 24px}
+    .test{padding:80px 24px}
+    .cta{padding:80px 24px}
+    footer{padding:60px 24px 24px}
+    .foot-top{grid-template-columns:1fr 1fr;gap:32px}
+    .foot-bottom{flex-direction:column;gap:8px;text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="main">
+  <div class="logo">
+    Emily Kathryn
+    <small>P H O T O G R A P H Y</small>
+  </div>
+  <div class="links">
+    <a href="#">Seniors</a>
+    <a href="#">Families</a>
+    <a href="#">Portfolio</a>
+    <a href="#">Investment</a>
+    <a href="#">Journal</a>
+  </div>
+  <a href="#" class="btn-gold">Inquire</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="small-caps"><span class="line"></span> Senior &amp; Family Portraits · Est. 2014</div>
+    <h1>Made for the<br/>ones who want<br/><em>more than</em><br/>ordinary.</h1>
+    <p>Editorial portrait photography for high school seniors and the families they love — based in Gretna, Virginia and serving Lynchburg, Danville, Smith Mountain Lake and beyond.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn-gold">Begin Your Inquiry</a>
+      <a href="#" class="btn-outline">View Portfolio</a>
+    </div>
+  </div>
+  <div class="hero-meta">
+    <div class="item"><div class="num">'26</div><div class="lbl">Now Booking</div></div>
+    <div class="item"><div class="num">12yr</div><div class="lbl">Behind The Lens</div></div>
+    <div class="item"><div class="num">600+</div><div class="lbl">Sessions</div></div>
+  </div>
+</section>
+
+<!-- Gold strip -->
+<div class="gold-strip">
+  <div class="item">As Seen In <span>— Senior Style Guide</span></div>
+  <div class="item">Featured <span>— The Knot Virginia</span></div>
+  <div class="item">Awarded <span>— Best of South-Central VA '24</span></div>
+  <div class="item">Member <span>— PPA · 2018–Present</span></div>
+</div>
+
+<!-- MISSION -->
+<section class="mission">
+  <span class="small-caps">A Note From The Studio</span>
+  <h2>
+    I make <em>quietly cinematic</em> portraits — for the seniors who want their year to feel like a cover shoot, and the families who want their walls to feel like home.
+  </h2>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <div class="svc-card">
+    <div class="svc-img" style="background-image:url('../public/placeholder/senior-2.jpeg')">
+      <div class="svc-tag">01 — Seniors</div>
+    </div>
+    <div class="svc-body">
+      <h3>Senior <em>Portraits</em></h3>
+      <p>Editorial senior sessions designed around your style, your locations, and your personality. Multiple looks, considered light, gallery-quality frames.</p>
+      <ul class="svc-features">
+        <li><span>Wardrobe consult</span><span>Included</span></li>
+        <li><span>Studio + on-location</span><span>3+ Looks</span></li>
+        <li><span>Delivered gallery</span><span>50+ Frames</span></li>
+        <li><span>Investment from</span><span>$650</span></li>
+      </ul>
+      <a class="svc-cta" href="#">Discover the Senior Experience →</a>
+    </div>
+  </div>
+
+  <div class="svc-card">
+    <div class="svc-img" style="background-image:url('../public/placeholder/family-2.jpeg')">
+      <div class="svc-tag">02 — Families</div>
+    </div>
+    <div class="svc-body">
+      <h3>Family <em>Sessions</em></h3>
+      <p>Heirloom portraits for the milestones worth slowing down for. Soft, warm, and intentional — made for the walls of your home, not a folder on your phone.</p>
+      <ul class="svc-features">
+        <li><span>Pre-session styling</span><span>Included</span></li>
+        <li><span>Studio or on-location</span><span>1–2 Hour</span></li>
+        <li><span>Delivered gallery</span><span>30+ Frames</span></li>
+        <li><span>Investment from</span><span>$450</span></li>
+      </ul>
+      <a class="svc-cta" href="#">Discover the Family Experience →</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<div class="gallery-head">
+  <h2>Selected <em>Work</em></h2>
+  <div class="meta">Spring/Summer 2026 · Vol. 12</div>
+</div>
+<section class="cinema">
+  <div class="c c1" style="background-image:url('../public/placeholder/senior-2.jpeg')"><div class="label">Cover · Senior</div></div>
+  <div class="c c2" style="background-image:url('../public/placeholder/senior-9.jpeg')"><div class="label">Spring</div></div>
+  <div class="c c3" style="background-image:url('../public/placeholder/senior-12.jpeg')"><div class="label">Editorial</div></div>
+  <div class="c c4" style="background-image:url('../public/placeholder/senior-7.jpeg')"><div class="label">Studio</div></div>
+  <div class="c c5" style="background-image:url('../public/placeholder/senior-5.jpeg')"><div class="label">Lifestyle</div></div>
+  <div class="c c6" style="background-image:url('../public/placeholder/family-3.jpeg')"><div class="label">Family</div></div>
+  <div class="c c7" style="background-image:url('../public/placeholder/senior-11.jpeg')"><div class="label">Bloom</div></div>
+  <div class="c c8" style="background-image:url('../public/placeholder/family-2.jpeg')"><div class="label">Legacy</div></div>
+</section>
+
+<!-- MEET -->
+<section class="meet">
+  <div class="meet-img"></div>
+  <div class="meet-text">
+    <span class="small-caps">Behind The Camera</span>
+    <h2>Hello, I'm<br/><em>Emily.</em></h2>
+    <p>I'm a senior &amp; family portrait photographer based in Gretna, Virginia — serving the corridor from Lynchburg to Danville to the Lake. I've spent more than a decade obsessing over light, posing, and the little details that turn a "nice photo" into a frame you'll still love in twenty years.</p>
+    <p>If you've ever flipped through a magazine and thought <em>I want photos like that</em> — that's exactly what I make.</p>
+    <div class="signature">— Emily K.</div>
+  </div>
+</section>
+
+<!-- TEST -->
+<section class="test">
+  <span class="quote-mark">"</span>
+  <blockquote>
+    Working with Emily was the best decision we made for our daughter's senior year. The images feel like a <em>spread out of Vogue</em> — and our family portraits will hang on our walls for the rest of our lives.
+  </blockquote>
+  <div class="who">— The Whitlow Family · Forest, VA</div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <span class="small-caps">Now Booking · Spring &amp; Summer 2026</span>
+  <h2>Let's <em>begin.</em></h2>
+  <p>Tell me a little about your senior, your family, or the look you've been imagining — and I'll send back a full pricing &amp; experience guide along with current availability.</p>
+  <a href="#" class="btn-gold">Begin Your Inquiry →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-top">
+    <div>
+      <div class="foot-logo">Emily Kathryn<small>P H O T O G R A P H Y</small></div>
+      <p style="color:var(--muted);font-size:14px;margin-top:18px;max-width:320px">Editorial senior &amp; family portrait photography. Gretna, VA · Serving South-Central Virginia.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <a href="#">Senior Portraits</a>
+      <a href="#">Family Portraits</a>
+      <a href="#">Investment</a>
+      <a href="#">Journal</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="#">hello@emilykathryn.com</a>
+      <a href="#">434.555.0193</a>
+      <a href="#">Inquire</a>
+    </div>
+    <div>
+      <h4>Follow</h4>
+      <a href="#">Instagram</a>
+      <a href="#">Pinterest</a>
+      <a href="#">Facebook</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Emily Kathryn Photography</span>
+    <span>Site by NXTLVL Digital</span>
+  </div>
+</footer>
+
+</body>
+</html>

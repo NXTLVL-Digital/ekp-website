@@ -14,57 +14,41 @@ export function MobileNav({ navigation, cta, isOpen, onClose }: MobileNavProps) 
   const overlayRef = useRef<HTMLDivElement>(null)
   const firstLinkRef = useRef<HTMLAnchorElement>(null)
 
-  // Body scroll lock
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
     } else {
       document.body.style.overflow = ''
     }
-    return () => {
-      document.body.style.overflow = ''
-    }
+    return () => { document.body.style.overflow = '' }
   }, [isOpen])
 
-  // Focus first link when overlay opens
   useEffect(() => {
     if (isOpen && firstLinkRef.current) {
       firstLinkRef.current.focus()
     }
   }, [isOpen])
 
-  // ESC key closes the menu
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
-      if (e.key === 'Escape' && isOpen) {
-        onClose()
-      }
+      if (e.key === 'Escape' && isOpen) onClose()
     }
     document.addEventListener('keydown', handleKeyDown)
     return () => document.removeEventListener('keydown', handleKeyDown)
   }, [isOpen, onClose])
 
-  // Focus trap
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
       if (e.key !== 'Tab' || !overlayRef.current) return
-
-      const focusableElements = overlayRef.current.querySelectorAll<HTMLElement>(
+      const focusable = overlayRef.current.querySelectorAll<HTMLElement>(
         'a[href], button, [tabindex]:not([tabindex="-1"])'
       )
-      const firstElement = focusableElements[0]
-      const lastElement = focusableElements[focusableElements.length - 1]
-
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
       if (e.shiftKey) {
-        if (document.activeElement === firstElement) {
-          e.preventDefault()
-          lastElement.focus()
-        }
+        if (document.activeElement === first) { e.preventDefault(); last.focus() }
       } else {
-        if (document.activeElement === lastElement) {
-          e.preventDefault()
-          firstElement.focus()
-        }
+        if (document.activeElement === last) { e.preventDefault(); first.focus() }
       }
     },
     []
@@ -76,58 +60,69 @@ export function MobileNav({ navigation, cta, isOpen, onClose }: MobileNavProps) 
       role="dialog"
       aria-modal="true"
       aria-label="Navigation menu"
-      className={`fixed inset-0 z-40 bg-white transition-opacity duration-300 lg:hidden ${
-        isOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
+      className={`fixed inset-0 z-40 transition-all duration-700 lg:hidden ${
+        isOpen
+          ? 'pointer-events-auto opacity-100'
+          : 'pointer-events-none opacity-0'
       }`}
       onKeyDown={handleKeyDown}
     >
-      {/* Close button */}
-      <div className="flex justify-end px-4 py-3">
-        <button
-          type="button"
-          className="flex min-h-11 min-w-11 items-center justify-center"
-          onClick={onClose}
-          aria-label="Close menu"
-        >
-          <svg
-            className="h-6 w-6 text-foreground"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
-      </div>
+      {/* Black overlay */}
+      <div className="absolute inset-0 bg-foreground" />
 
-      {/* Navigation links */}
-      <nav className="flex flex-col items-center gap-2 px-8 pt-8">
-        {navigation.map((item, index) => (
+      {/* Content — magazine table of contents style */}
+      <div className="relative flex h-full flex-col justify-center px-8">
+        {/* Gold accent rule */}
+        <div
+          className={`mb-10 h-px bg-brand-gold transition-all duration-700 delay-200 ${
+            isOpen ? 'w-12 opacity-100' : 'w-0 opacity-0'
+          }`}
+        />
+
+        <nav className="flex flex-col gap-1">
+          {navigation.map((item, i) => (
+            <Link
+              key={item.href}
+              ref={i === 0 ? firstLinkRef : undefined}
+              href={item.href}
+              onClick={onClose}
+              className={`group flex items-baseline gap-4 py-2 transition-all duration-500 ${
+                isOpen
+                  ? 'translate-y-0 opacity-100'
+                  : 'translate-y-4 opacity-0'
+              }`}
+              style={{ transitionDelay: isOpen ? `${300 + i * 70}ms` : '0ms' }}
+            >
+              <span className="font-body text-[0.625rem] tracking-[0.2em] text-brand-gold">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <span className="font-heading text-3xl font-light text-white transition-colors duration-300 group-hover:text-brand-gold sm:text-4xl">
+                {item.label}
+              </span>
+            </Link>
+          ))}
+        </nav>
+
+        {/* CTA at bottom */}
+        <div
+          className={`mt-12 transition-all duration-500 ${
+            isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+          }`}
+          style={{ transitionDelay: isOpen ? `${300 + navigation.length * 70 + 100}ms` : '0ms' }}
+        >
+          <div className="mb-6 h-px w-full bg-brand-gold/30" />
           <Link
-            key={item.href}
-            ref={index === 0 ? firstLinkRef : undefined}
-            href={item.href}
+            href={cta.href}
             onClick={onClose}
-            className="flex min-h-11 items-center font-heading text-2xl tracking-wide text-foreground transition-colors hover:text-foreground/70"
+            className="editorial-label inline-flex min-h-11 items-center gap-3 text-brand-gold transition-colors duration-300 hover:text-brand-gold-light"
           >
-            {item.label}
+            <span>{cta.label}</span>
+            <svg width="20" height="8" viewBox="0 0 20 8" fill="none" className="mt-px">
+              <path d="M0 4H18M18 4L14.5 0.5M18 4L14.5 7.5" stroke="currentColor" strokeWidth="0.75" />
+            </svg>
           </Link>
-        ))}
-
-        {/* CTA button */}
-        <Link
-          href={cta.href}
-          onClick={onClose}
-          className="mt-8 flex min-h-11 w-full items-center justify-center rounded bg-brand-gold px-8 py-4 text-lg tracking-wide text-white transition-colors hover:bg-brand-gold-dark"
-        >
-          {cta.label}
-        </Link>
-      </nav>
+        </div>
+      </div>
     </div>
   )
 }

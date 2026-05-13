@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Emily Kathryn Photography — Editorial Minimalist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#faf6f1;
+    --cream-2:#f1ebdf;
+    --cream-3:#e8e0d1;
+    --ink:#26241f;
+    --ink-soft:#4a4640;
+    --gold:#b89765;
+    --gold-soft:#d6c39c;
+    --pink:#dcb6ad;
+    --mint:#b3d4cd;
+    --rule:rgba(38,36,31,0.12);
+    --muted:#867f74;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Outfit',sans-serif;font-weight:300;
+    color:var(--ink);background:var(--cream);
+    line-height:1.7;-webkit-font-smoothing:antialiased;
+  }
+  .display{font-family:'Bodoni Moda',serif;font-weight:400;letter-spacing:-0.005em}
+  .serif{font-family:'Cormorant Garamond',serif;font-weight:400}
+  .italic{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400}
+  .small-caps{font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:0.42em;text-transform:uppercase;font-weight:400;color:var(--muted)}
+  .gold-rule{height:1px;background:var(--gold);width:48px;display:block}
+
+  /* Running head — top magazine bar */
+  .runhead{
+    display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+    padding:14px 56px;border-bottom:1px solid var(--rule);
+    font-size:10px;letter-spacing:0.42em;text-transform:uppercase;color:var(--muted);font-weight:400;
+    background:var(--cream);
+  }
+  .runhead .center{text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;text-transform:none;letter-spacing:0.04em;color:var(--ink-soft)}
+  .runhead .right{text-align:right}
+
+  /* Nav */
+  nav.main{
+    display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+    padding:28px 56px;background:var(--cream);
+    position:sticky;top:0;z-index:50;border-bottom:1px solid var(--rule);
+  }
+  nav.main .links{display:flex;gap:36px;font-size:11px;letter-spacing:0.32em;text-transform:uppercase;font-weight:400}
+  nav.main .links a{color:var(--ink);text-decoration:none;transition:color .3s}
+  nav.main .links a:hover{color:var(--gold)}
+  nav.main .logo{font-family:'Bodoni Moda',serif;font-weight:400;font-size:34px;text-align:center;letter-spacing:0.005em;line-height:1}
+  nav.main .logo small{display:block;font-family:'Outfit',sans-serif;font-size:9px;letter-spacing:0.5em;font-weight:400;margin-top:2px;color:var(--muted)}
+  nav.main .right{justify-self:end}
+  .btn-soft{
+    background:transparent;color:var(--ink);padding:13px 26px;
+    border:1px solid var(--ink);
+    font-size:10px;letter-spacing:0.36em;text-transform:uppercase;font-weight:400;
+    text-decoration:none;transition:all .3s;display:inline-block;
+  }
+  .btn-soft:hover{background:var(--ink);color:var(--cream)}
+
+  /* Hero — magazine cover feel, but soft */
+  .hero{
+    padding:88px 56px 72px;text-align:center;
+    border-bottom:1px solid var(--rule);position:relative;
+  }
+  .hero .vol{
+    display:inline-flex;align-items:center;gap:18px;margin-bottom:36px;
+    font-size:10px;letter-spacing:0.42em;text-transform:uppercase;color:var(--muted);
+  }
+  .hero .vol .line{width:36px;height:1px;background:var(--gold)}
+  .hero h1{
+    font-family:'Bodoni Moda',serif;font-weight:400;
+    font-size:clamp(72px,11vw,180px);line-height:0.94;letter-spacing:-0.015em;
+    margin-bottom:28px;
+  }
+  .hero h1 em{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);font-weight:300}
+  .hero .sub{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+    font-size:clamp(20px,2.4vw,28px);color:var(--ink-soft);
+    max-width:680px;margin:0 auto 56px;line-height:1.5;letter-spacing:0.005em;
+  }
+  .hero-image{
+    width:100%;max-width:1280px;margin:0 auto;height:64vh;min-height:520px;
+    background:url('../public/placeholder/hero-1.jpeg') center/cover;
+    border-radius:1px;position:relative;
+  }
+  .hero-caption{
+    display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:32px;
+    max-width:1280px;margin:24px auto 0;padding:0 4px;
+    font-size:11px;letter-spacing:0.36em;text-transform:uppercase;color:var(--muted);
+  }
+  .hero-caption .center{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;
+    font-size:15px;text-transform:none;letter-spacing:0.02em;color:var(--ink-soft);
+  }
+  .hero-caption .right{text-align:right}
+
+  /* Welcome — quiet mission statement */
+  .welcome{
+    padding:140px 56px;text-align:center;max-width:980px;margin:0 auto;
+  }
+  .welcome .small-caps{margin-bottom:24px;display:block}
+  .welcome p{
+    font-family:'Cormorant Garamond',serif;font-weight:300;
+    font-size:clamp(28px,3.6vw,46px);line-height:1.4;letter-spacing:-0.005em;
+    color:var(--ink);
+  }
+  .welcome p em{font-style:italic;color:var(--gold);font-weight:300}
+  .welcome .gold-rule{margin:48px auto 0}
+
+  /* SECTION HEADER (magazine style — small, italic) */
+  .sec-head{
+    display:grid;grid-template-columns:auto 1fr auto;align-items:end;gap:32px;
+    padding:0 56px 32px;border-bottom:1px solid var(--rule);max-width:1400px;margin:0 auto;
+  }
+  .sec-head .num{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+    font-size:48px;color:var(--gold);line-height:1;
+  }
+  .sec-head .title{text-align:center}
+  .sec-head .title h2{
+    font-family:'Bodoni Moda',serif;font-weight:400;
+    font-size:clamp(40px,5vw,72px);line-height:1;letter-spacing:-0.01em;
+  }
+  .sec-head .title h2 em{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);font-weight:300}
+  .sec-head .title .small-caps{margin-bottom:14px;display:block}
+  .sec-head .meta{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--muted);text-align:right;font-weight:300;
+  }
+
+  /* Services — magazine spread feel */
+  .services{
+    padding:80px 56px 140px;display:grid;grid-template-columns:1fr 1fr;gap:48px;
+    max-width:1400px;margin:0 auto;
+  }
+  .svc{position:relative}
+  .svc .frame{
+    width:100%;aspect-ratio:4/5;background-size:cover;background-position:center;
+    border-radius:1px;
+  }
+  .svc .meta{
+    display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:18px;
+    padding:24px 4px 0;border-top:1px solid var(--rule);margin-top:14px;
+  }
+  .svc .meta .ord{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+    font-size:18px;color:var(--gold);
+  }
+  .svc h3{
+    font-family:'Bodoni Moda',serif;font-weight:400;
+    font-size:34px;line-height:1.05;letter-spacing:-0.005em;text-align:center;
+  }
+  .svc h3 em{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);font-weight:300}
+  .svc .meta .place{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--muted);font-weight:300;text-align:right;
+  }
+  .svc .blurb{
+    margin-top:18px;text-align:center;color:var(--ink-soft);font-size:15px;
+    max-width:480px;margin-left:auto;margin-right:auto;line-height:1.85;
+  }
+  .svc .blurb a{
+    display:inline-block;margin-top:14px;color:var(--ink);text-decoration:none;
+    font-size:11px;letter-spacing:0.36em;text-transform:uppercase;font-weight:400;
+    border-bottom:1px solid var(--gold);padding-bottom:4px;transition:color .3s;
+  }
+  .svc .blurb a:hover{color:var(--gold)}
+
+  /* Meet Emily — asymmetric editorial spread */
+  .meet{
+    background:var(--cream-2);padding:140px 56px;
+  }
+  .meet-grid{
+    max-width:1400px;margin:0 auto;
+    display:grid;grid-template-columns:1fr 1.2fr;gap:96px;align-items:center;
+  }
+  .meet-img{
+    width:100%;aspect-ratio:3/4;background:url('../public/placeholder/emily.jpeg') center/cover;
+    border-radius:1px;position:relative;
+  }
+  .meet-img .caption{
+    position:absolute;bottom:-32px;left:0;right:0;
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+    font-size:13px;color:var(--muted);text-align:center;
+  }
+  .meet h2{
+    font-family:'Bodoni Moda',serif;font-weight:400;
+    font-size:clamp(56px,7vw,108px);line-height:0.95;letter-spacing:-0.015em;
+    margin-bottom:32px;
+  }
+  .meet h2 em{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);font-weight:300}
+  .meet p{font-size:16px;color:var(--ink-soft);line-height:1.85;margin-bottom:18px;max-width:540px;font-weight:300}
+  .meet .byline{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--muted);
+    margin-top:32px;padding-top:24px;border-top:1px solid var(--rule);max-width:540px;font-weight:300;
+  }
+  .meet .byline strong{font-weight:400;color:var(--ink)}
+
+  /* Spread — two-up magazine layout */
+  .spread{
+    padding:140px 56px;display:grid;grid-template-columns:1fr 1fr;gap:48px;
+    max-width:1400px;margin:0 auto;align-items:center;
+  }
+  .spread .left img,.spread .right img{
+    width:100%;aspect-ratio:3/4;object-fit:cover;display:block;border-radius:1px;
+  }
+  .spread .text{
+    padding:0 24px;
+  }
+  .spread .text .small-caps{display:block;margin-bottom:18px}
+  .spread .text h3{
+    font-family:'Bodoni Moda',serif;font-weight:400;
+    font-size:clamp(40px,5vw,72px);line-height:0.98;letter-spacing:-0.015em;margin-bottom:24px;
+  }
+  .spread .text h3 em{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);font-weight:300}
+  .spread .text p{
+    font-family:'Cormorant Garamond',serif;font-weight:300;
+    font-size:21px;line-height:1.55;color:var(--ink-soft);margin-bottom:18px;letter-spacing:0.005em;
+  }
+  .spread .text p em{font-style:italic;color:var(--gold)}
+  .spread .text .pull{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+    font-size:14px;color:var(--muted);margin-top:24px;
+  }
+
+  /* Experience — italic roman numerals, lots of space */
+  .experience{
+    padding:140px 56px;text-align:center;max-width:1400px;margin:0 auto;
+  }
+  .experience-head{margin-bottom:96px}
+  .experience-head .small-caps{margin-bottom:14px;display:block}
+  .experience-head h2{
+    font-family:'Bodoni Moda',serif;font-weight:400;
+    font-size:clamp(48px,6vw,96px);letter-spacing:-0.015em;line-height:1;
+  }
+  .experience-head h2 em{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);font-weight:300}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:48px}
+  .step{text-align:center;position:relative}
+  .step .roman{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+    font-size:64px;color:var(--gold);line-height:1;margin-bottom:24px;
+  }
+  .step h4{
+    font-family:'Bodoni Moda',serif;font-weight:400;
+    font-size:24px;margin-bottom:14px;letter-spacing:-0.005em;
+  }
+  .step p{font-size:14px;color:var(--ink-soft);line-height:1.8;font-weight:300}
+  .step:not(:last-child)::after{
+    content:"";position:absolute;top:32px;right:-26px;width:24px;height:1px;background:var(--gold-soft);
+  }
+
+  /* Pull quote — large italic, breathable */
+  .quote{
+    padding:160px 56px;text-align:center;background:var(--cream);
+    max-width:1100px;margin:0 auto;
+  }
+  .quote .mark{
+    font-family:'Bodoni Moda',serif;font-style:italic;
+    font-size:96px;color:var(--gold);line-height:0;display:block;height:48px;
+    margin-bottom:24px;
+  }
+  .quote blockquote{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+    font-size:clamp(32px,4.5vw,58px);line-height:1.32;letter-spacing:-0.005em;
+    color:var(--ink);margin-bottom:48px;
+  }
+  .quote blockquote em{color:var(--gold)}
+  .quote .who{
+    font-size:11px;letter-spacing:0.42em;text-transform:uppercase;color:var(--muted);
+  }
+  .quote .gold-rule{margin:32px auto 0}
+
+  /* Editorial gallery — fewer, bigger, breathing */
+  .gallery-head{
+    text-align:center;padding:80px 56px 48px;
+  }
+  .gallery-head .small-caps{margin-bottom:14px;display:block}
+  .gallery-head h2{
+    font-family:'Bodoni Moda',serif;font-weight:400;
+    font-size:clamp(48px,6vw,96px);line-height:1;letter-spacing:-0.015em;
+  }
+  .gallery-head h2 em{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);font-weight:300}
+
+  .editorial-grid{
+    padding:0 56px 80px;max-width:1400px;margin:0 auto;
+    display:grid;grid-template-columns:repeat(12,1fr);gap:18px;
+  }
+  .eg{position:relative}
+  .eg img{width:100%;height:100%;object-fit:cover;display:block}
+  .eg .cap{
+    position:absolute;bottom:-24px;left:0;
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+    font-size:13px;color:var(--muted);
+  }
+  .eg .cap span{color:var(--gold)}
+  .eg-1{grid-column:span 7;aspect-ratio:4/5}
+  .eg-2{grid-column:span 5;aspect-ratio:4/5}
+  .eg-3{grid-column:span 4;aspect-ratio:1/1;margin-top:80px}
+  .eg-4{grid-column:span 8;aspect-ratio:3/2;margin-top:80px}
+  .eg-5{grid-column:span 5;aspect-ratio:3/4;margin-top:96px}
+  .eg-6{grid-column:span 7;aspect-ratio:3/2;margin-top:96px}
+
+  .view-all{text-align:center;padding:0 56px 140px}
+
+  /* CTA — soft, framed */
+  .cta-wrap{
+    padding:140px 56px;background:var(--cream-2);
+  }
+  .cta{
+    max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr;
+    gap:64px;align-items:center;background:var(--cream);
+    padding:80px;border:1px solid var(--rule);
+  }
+  .cta .small-caps{display:block;margin-bottom:18px}
+  .cta h2{
+    font-family:'Bodoni Moda',serif;font-weight:400;
+    font-size:clamp(40px,5vw,68px);line-height:1;letter-spacing:-0.015em;margin-bottom:24px;
+  }
+  .cta h2 em{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);font-weight:300}
+  .cta p{
+    font-family:'Cormorant Garamond',serif;font-weight:300;font-size:19px;
+    color:var(--ink-soft);line-height:1.6;
+  }
+  .cta .actions{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+  .btn-ink{
+    background:var(--ink);color:var(--cream);padding:16px 36px;
+    font-size:11px;letter-spacing:0.36em;text-transform:uppercase;font-weight:400;
+    text-decoration:none;display:inline-block;transition:all .3s;border:1px solid var(--ink);
+  }
+  .btn-ink:hover{background:transparent;color:var(--ink)}
+  .cta .actions .small-caps{font-size:11px}
+  .cta .actions a.txt{font-size:13px;color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:3px}
+  .cta .actions a.txt:hover{color:var(--gold)}
+
+  /* Footer */
+  footer{padding:80px 56px 32px;background:var(--cream)}
+  .foot-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;padding-bottom:60px;border-bottom:1px solid var(--rule);max-width:1400px;margin:0 auto}
+  .foot-logo{font-family:'Bodoni Moda',serif;font-weight:400;font-size:38px;letter-spacing:-0.005em;line-height:1}
+  .foot-logo small{display:block;font-family:'Outfit',sans-serif;font-size:9px;letter-spacing:0.5em;font-weight:400;margin-top:4px;color:var(--muted)}
+  .foot-top h4{font-size:11px;letter-spacing:0.36em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;font-weight:400}
+  .foot-top a{display:block;color:var(--ink);text-decoration:none;font-size:14px;margin-bottom:10px;transition:color .3s}
+  .foot-top a:hover{color:var(--gold)}
+  .foot-bottom{
+    padding-top:28px;display:flex;justify-content:space-between;
+    font-size:11px;letter-spacing:0.32em;text-transform:uppercase;color:var(--muted);
+    max-width:1400px;margin:0 auto;
+  }
+
+  @media (max-width:900px){
+    .runhead,.runhead .right,.runhead .center{font-size:9px;padding:10px 18px}
+    .runhead .center{font-size:12px}
+    nav.main{grid-template-columns:1fr 1fr;padding:18px 24px}
+    nav.main .links{display:none}
+    .hero{padding:48px 24px 48px}
+    .hero-image{height:55vh;min-height:0}
+    .hero-caption{grid-template-columns:1fr;gap:8px;text-align:center}
+    .hero-caption .right{text-align:center}
+    .welcome{padding:80px 24px}
+    .sec-head{padding:0 24px 24px;grid-template-columns:1fr;gap:18px;text-align:center}
+    .sec-head .num,.sec-head .meta{text-align:center}
+    .services{padding:48px 24px 80px;grid-template-columns:1fr;gap:48px}
+    .meet{padding:80px 24px}
+    .meet-grid{grid-template-columns:1fr;gap:60px}
+    .spread{padding:80px 24px;grid-template-columns:1fr;gap:36px}
+    .spread .text{padding:0}
+    .experience{padding:80px 24px}
+    .steps{grid-template-columns:1fr 1fr;gap:48px}
+    .step:not(:last-child)::after{display:none}
+    .quote{padding:80px 24px}
+    .gallery-head{padding:48px 24px 24px}
+    .editorial-grid{padding:0 24px 48px;grid-template-columns:1fr;gap:14px}
+    .eg-1,.eg-2,.eg-3,.eg-4,.eg-5,.eg-6{grid-column:span 1;margin-top:0;aspect-ratio:4/5}
+    .view-all{padding:0 24px 80px}
+    .cta-wrap{padding:80px 24px}
+    .cta{grid-template-columns:1fr;padding:36px 28px;gap:32px}
+    footer{padding:60px 24px 24px}
+    .foot-top{grid-template-columns:1fr 1fr;gap:32px}
+    .foot-bottom{flex-direction:column;gap:8px;text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<!-- Running head (very subtle magazine cue) -->
+<div class="runhead">
+  <span>Vol. XII · Spring/Summer 2026</span>
+  <span class="center">— at home in Virginia —</span>
+  <span class="right">Booking Class of '26 &amp; '27</span>
+</div>
+
+<!-- Nav -->
+<nav class="main">
+  <div class="links">
+    <a href="#">Home</a>
+    <a href="#">Seniors</a>
+    <a href="#">Families</a>
+    <a href="#">About</a>
+  </div>
+  <div class="logo">
+    emily kathryn
+    <small>P H O T O G R A P H Y</small>
+  </div>
+  <div class="right">
+    <a href="#" class="btn-soft">Inquire</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="vol"><span class="line"></span> Cover Story · No. 12 <span class="line"></span></span>
+  <h1>Quietly <em>cinematic</em><br/>portraits.</h1>
+  <p class="sub">— Editorial senior &amp; family portraits, made slowly and with intention, in Gretna, Virginia.</p>
+  <div class="hero-image"></div>
+  <div class="hero-caption">
+    <span>Plate i.</span>
+    <span class="center">— photographed at the brick stairs, downtown Lynchburg —</span>
+    <span class="right">By Emily K.</span>
+  </div>
+</section>
+
+<!-- WELCOME -->
+<section class="welcome">
+  <span class="small-caps">A note from the studio</span>
+  <p>
+    Soft, considered, a little bit <em>romantic</em> — portraits made for the seniors and families of South-Central Virginia who want something quieter, slower, and more <em>beautiful</em> than the rest.
+  </p>
+  <span class="gold-rule"></span>
+</section>
+
+<!-- SECTION HEAD -->
+<div class="sec-head">
+  <div class="num"><em>i.</em></div>
+  <div class="title">
+    <span class="small-caps">The Sessions</span>
+    <h2>What we <em>make</em> together</h2>
+  </div>
+  <div class="meta">— two ways to work together —</div>
+</div>
+
+<!-- SERVICES -->
+<section class="services">
+  <div class="svc">
+    <div class="frame" style="background-image:url('../public/placeholder/senior-2.jpeg')"></div>
+    <div class="meta">
+      <span class="ord">i.</span>
+      <h3>Senior <em>Portraits</em></h3>
+      <span class="place">— Class of '26 / '27 —</span>
+    </div>
+    <div class="blurb">
+      <p>Editorial senior sessions — designed around your style, your locations, and the version of yourself you want to remember.</p>
+      <a href="#">Read more →</a>
+    </div>
+  </div>
+  <div class="svc">
+    <div class="frame" style="background-image:url('../public/placeholder/family-2.jpeg')"></div>
+    <div class="meta">
+      <span class="ord">ii.</span>
+      <h3>Family <em>Sessions</em></h3>
+      <span class="place">— Heirloom Portraits —</span>
+    </div>
+    <div class="blurb">
+      <p>Soft, warm, intentional family portraits made for the milestones — and for the walls of your home.</p>
+      <a href="#">Read more →</a>
+    </div>
+  </div>
+</section>
+
+<!-- MEET EMILY (asymmetric magazine spread) -->
+<section class="meet">
+  <div class="meet-grid">
+    <div>
+      <div class="meet-img">
+        <div class="caption">— at home in Gretna, Spring 2026 —</div>
+      </div>
+    </div>
+    <div>
+      <span class="small-caps">— Behind The Camera —</span>
+      <h2 style="margin-top:18px">Hi, I'm <em>Emily.</em></h2>
+      <p>I'm a senior &amp; family portrait photographer based in Gretna, Virginia. For more than a decade I've been making portraits I'd want to hang on my own wall — soft, slow, full of light, and made entirely for the wonderful person in front of the camera.</p>
+      <p>Whether you're a senior dreaming up your dream session, a parent wanting to mark a milestone, or a family ready to slow down for an afternoon — I'd love to make something beautiful with you.</p>
+      <div class="byline"><em>Words &amp; portraits</em> — by <strong>Emily Kathryn</strong> · Spring/Summer 2026</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION HEAD -->
+<div class="sec-head">
+  <div class="num"><em>ii.</em></div>
+  <div class="title">
+    <span class="small-caps">A Day in the Studio</span>
+    <h2>The senior <em>spread</em></h2>
+  </div>
+  <div class="meta">— select frames from a recent session —</div>
+</div>
+
+<!-- SPREAD -->
+<section class="spread">
+  <div class="left">
+    <img src="../public/placeholder/senior-9.jpeg" alt="">
+  </div>
+  <div class="text">
+    <span class="small-caps">No. ii — On Light</span>
+    <h3>Soft light, slow <em>posing</em>, gallery-quality frames.</h3>
+    <p>Every senior session is built around the kind of light, places, and personality that make <em>your</em> images feel like they could only ever be yours.</p>
+    <p style="font-size:15px;font-family:'Outfit',sans-serif;font-weight:300;color:var(--ink-soft);line-height:1.85">From the wardrobe consult to the final reveal, the experience is built to feel calm, considered, and a little bit cinematic — never rushed, never one-size-fits-all.</p>
+    <div class="pull">— photographed at the azaleas, Forest, Virginia —</div>
+  </div>
+</section>
+
+<!-- SECTION HEAD -->
+<div class="sec-head">
+  <div class="num"><em>iii.</em></div>
+  <div class="title">
+    <span class="small-caps">From Inquiry to Reveal</span>
+    <h2>The <em>experience</em></h2>
+  </div>
+  <div class="meta">— four unhurried steps —</div>
+</div>
+
+<!-- EXPERIENCE -->
+<section class="experience">
+  <div class="steps">
+    <div class="step">
+      <div class="roman">i.</div>
+      <h4>Inquire</h4>
+      <p>Send a quick note about your senior, family, or the look you've been imagining. I'll reply with a full pricing &amp; experience guide.</p>
+    </div>
+    <div class="step">
+      <div class="roman">ii.</div>
+      <h4>Plan</h4>
+      <p>We meet — in person or over Zoom — to talk wardrobe, locations, and the vision for your session. Every detail is intentional.</p>
+    </div>
+    <div class="step">
+      <div class="roman">iii.</div>
+      <h4>Shoot</h4>
+      <p>Your session day. Playlists, snacks, and a relaxed pace built around getting frames you'll truly love and want to print large.</p>
+    </div>
+    <div class="step">
+      <div class="roman">iv.</div>
+      <h4>Reveal</h4>
+      <p>An in-person reveal &amp; ordering session where you'll see your final gallery and choose the heirlooms for your home.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<section class="quote">
+  <span class="mark">"</span>
+  <blockquote>
+    There is no one I'd trust more with our family. Emily has the rare gift of making everyone — even the teenagers — feel <em>completely at ease.</em>
+  </blockquote>
+  <div class="who">— The Henderson Family · Lynchburg, VA</div>
+  <span class="gold-rule"></span>
+</section>
+
+<!-- SECTION HEAD -->
+<div class="sec-head">
+  <div class="num"><em>iv.</em></div>
+  <div class="title">
+    <span class="small-caps">Selected Work</span>
+    <h2>The <em>portfolio</em></h2>
+  </div>
+  <div class="meta">— Spring/Summer · 2026 —</div>
+</div>
+
+<!-- EDITORIAL GALLERY (asymmetric, breathing) -->
+<section class="editorial-grid">
+  <div class="eg eg-1">
+    <img src="../public/placeholder/senior-2.jpeg" alt="">
+    <div class="cap"><span>Plate i.</span> — at the brick stairs</div>
+  </div>
+  <div class="eg eg-2">
+    <img src="../public/placeholder/senior-9.jpeg" alt="">
+    <div class="cap"><span>Plate ii.</span> — among the azaleas</div>
+  </div>
+  <div class="eg eg-3">
+    <img src="../public/placeholder/senior-12.jpeg" alt="">
+    <div class="cap"><span>Plate iii.</span> — golden hour</div>
+  </div>
+  <div class="eg eg-4">
+    <img src="../public/placeholder/family-2.jpeg" alt="">
+    <div class="cap"><span>Plate iv.</span> — at home, the family room</div>
+  </div>
+  <div class="eg eg-5">
+    <img src="../public/placeholder/senior-7.jpeg" alt="">
+    <div class="cap"><span>Plate v.</span> — downtown</div>
+  </div>
+  <div class="eg eg-6">
+    <img src="../public/placeholder/family-3.jpeg" alt="">
+    <div class="cap"><span>Plate vi.</span> — studio</div>
+  </div>
+</section>
+
+<div class="view-all">
+  <a class="btn-soft" href="#">View Full Portfolio</a>
+</div>
+
+<!-- CTA -->
+<section class="cta-wrap">
+  <div class="cta">
+    <div>
+      <span class="small-caps">— Now Booking —</span>
+      <h2>Let's begin <em>yours.</em></h2>
+      <p>Spring &amp; Summer 2026 sessions are filling. Tell me a little about what you're imagining and I'll send back a full pricing guide and current availability.</p>
+    </div>
+    <div class="actions">
+      <a class="btn-ink" href="#">Begin Your Inquiry →</a>
+      <a class="txt" href="#">or — read the full experience guide</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-top">
+    <div>
+      <div class="foot-logo">emily kathryn<small>P H O T O G R A P H Y</small></div>
+      <p style="color:var(--muted);font-size:14px;margin-top:18px;max-width:320px;font-weight:300">Editorial senior &amp; family portrait photography. Gretna, VA · Serving South-Central Virginia.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <a href="#">Senior Portraits</a>
+      <a href="#">Family Portraits</a>
+      <a href="#">Investment</a>
+      <a href="#">About</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="#">hello@emilykathryn.com</a>
+      <a href="#">434.555.0193</a>
+      <a href="#">Inquire</a>
+    </div>
+    <div>
+      <h4>Follow</h4>
+      <a href="#">Instagram</a>
+      <a href="#">Pinterest</a>
+      <a href="#">Facebook</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Emily Kathryn Photography</span>
+    <span>Site by NXTLVL Digital</span>
+  </div>
+</footer>
+
+</body>
+</html>

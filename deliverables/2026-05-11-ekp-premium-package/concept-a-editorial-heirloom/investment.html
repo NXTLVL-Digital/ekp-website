@@ -1,0 +1,886 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Investment · Emily Kathryn Photography</title>
+<meta name="description" content="Editorial senior and family portraiture across South-Central Virginia. Emily Kathryn Photography — Danville, Lynchburg, Smith Mountain Lake.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Italiana&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --ink: #1A1A1A;
+    --paper: #FAF7F2;
+    --paper-warm: #F4EFE6;
+    --black: #000000;
+    --gold: #C2A36C;
+    --gold-soft: #D4BC8A;
+    --blush: #DCB6AD;
+    --aqua: #B3D4CD;
+    --gray: #D6D4D4;
+    --muted: #6B655C;
+    --rule: #E5DFD3;
+
+    --serif-display: 'Italiana', 'Cormorant Garamond', Georgia, serif;
+    --serif-body: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+    --max: 1280px;
+    --pad: clamp(1.25rem, 4vw, 3.5rem);
+    --section: clamp(4rem, 9vw, 8rem);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.65;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+a { color: inherit; text-decoration: none; }
+
+/* ---------- Layout ---------- */
+
+.shell { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+
+.section { padding: var(--section) 0; }
+
+.section-band-black {
+    background: var(--black);
+    color: var(--paper);
+    padding: var(--section) 0;
+}
+
+/* ---------- Typography ---------- */
+
+.eyebrow {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--gold);
+    margin: 0 0 1.25rem 0;
+}
+
+.display {
+    font-family: var(--serif-display);
+    font-weight: 400;
+    font-size: clamp(3.2rem, 8.5vw, 7.5rem);
+    line-height: 0.96;
+    letter-spacing: -0.01em;
+    margin: 0;
+    color: inherit;
+}
+
+.heading-1 {
+    font-family: var(--serif-body);
+    font-weight: 400;
+    font-size: clamp(2rem, 4.5vw, 3.4rem);
+    line-height: 1.08;
+    letter-spacing: -0.005em;
+    margin: 0 0 1rem 0;
+}
+
+.heading-2 {
+    font-family: var(--serif-body);
+    font-weight: 500;
+    font-size: clamp(1.4rem, 2.4vw, 2rem);
+    line-height: 1.2;
+    margin: 0 0 0.75rem 0;
+}
+
+.lead {
+    font-family: var(--serif-body);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.15rem, 1.8vw, 1.5rem);
+    line-height: 1.5;
+    color: #2A2A2A;
+    max-width: 32em;
+    margin: 0 0 1.5rem 0;
+}
+
+p { margin: 0 0 1rem 0; }
+
+.muted { color: var(--muted); }
+
+/* ---------- Buttons & links ---------- */
+
+.btn, .link-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 0.78rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    border: 1px solid var(--ink);
+    background: var(--ink);
+    color: var(--paper);
+    transition: all 250ms ease;
+    cursor: pointer;
+}
+.btn:hover { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+
+.btn-ghost {
+    background: transparent;
+    color: var(--ink);
+    border-color: var(--ink);
+}
+.btn-ghost:hover { background: var(--ink); color: var(--paper); }
+
+.btn-on-dark {
+    background: transparent;
+    color: var(--paper);
+    border-color: var(--paper);
+}
+.btn-on-dark:hover { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+
+.link-cta {
+    border: none;
+    background: transparent;
+    color: var(--ink);
+    padding: 0;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 4px;
+}
+.link-cta:hover { color: var(--gold); }
+
+.link-cta::after { content: " ⟶"; }
+
+/* ---------- Header ---------- */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250, 247, 242, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--rule);
+}
+
+.site-header.on-dark {
+    background: rgba(0, 0, 0, 0.65);
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+    color: var(--paper);
+}
+
+.nav-shell {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 1rem var(--pad);
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-shell .brand {
+    font-family: var(--serif-display);
+    font-size: 1.4rem;
+    letter-spacing: 0.01em;
+    text-align: center;
+    text-transform: lowercase;
+}
+
+.nav-shell .brand small {
+    display: block;
+    font-family: var(--sans);
+    font-size: 0.55rem;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    margin-top: 4px;
+    color: var(--muted);
+}
+
+.nav-primary, .nav-secondary {
+    display: flex;
+    gap: 1.8rem;
+    font-family: var(--sans);
+    font-size: 0.74rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.nav-primary a, .nav-secondary a {
+    position: relative;
+    padding-bottom: 2px;
+    transition: color 200ms ease;
+}
+
+.nav-primary a:hover, .nav-secondary a:hover { color: var(--gold); }
+.nav-primary a.is-active, .nav-secondary a.is-active { color: var(--gold); }
+.nav-primary a.is-active::after, .nav-secondary a.is-active::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -4px;
+    height: 1px; background: var(--gold);
+}
+
+.nav-secondary { justify-content: flex-end; }
+.nav-primary { justify-content: flex-start; }
+
+.nav-mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    width: 28px;
+    height: 18px;
+    position: relative;
+}
+.nav-mobile-toggle span {
+    position: absolute;
+    left: 0; right: 0;
+    height: 1px;
+    background: var(--ink);
+    transition: all 250ms ease;
+}
+.nav-mobile-toggle span:nth-child(1) { top: 0; }
+.nav-mobile-toggle span:nth-child(2) { top: 8px; }
+.nav-mobile-toggle span:nth-child(3) { top: 16px; }
+
+.nav-mobile-toggle[aria-expanded="true"] span:nth-child(1) { top: 8px; transform: rotate(45deg); }
+.nav-mobile-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-mobile-toggle[aria-expanded="true"] span:nth-child(3) { top: 8px; transform: rotate(-45deg); }
+
+.nav-mobile-panel {
+    display: none;
+    background: var(--paper);
+    border-top: 0.5px solid var(--rule);
+    padding: 1.5rem var(--pad);
+}
+.nav-mobile-panel.is-open { display: block; }
+.nav-mobile-panel ul { list-style: none; padding: 0; margin: 0; }
+.nav-mobile-panel li {
+    font-family: var(--serif-body);
+    font-size: 1.6rem;
+    padding: 0.6rem 0;
+    border-bottom: 0.5px solid var(--rule);
+}
+.nav-mobile-panel li:last-child { border-bottom: none; }
+.nav-mobile-panel li a:hover { color: var(--gold); }
+
+@media (max-width: 900px) {
+    .nav-shell { grid-template-columns: 1fr auto auto; gap: 1rem; }
+    .nav-primary { display: none; }
+    .nav-secondary { display: none; }
+    .nav-mobile-toggle { display: block; }
+    .nav-shell .brand { font-size: 1.15rem; text-align: left; }
+}
+
+/* ---------- HERO ---------- */
+
+.hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    align-items: flex-end;
+    padding: var(--pad);
+    color: var(--paper);
+    background: var(--black);
+    overflow: hidden;
+}
+
+.hero-image {
+    position: absolute; inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.78);
+}
+
+.hero-image::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.45) 80%);
+}
+
+.hero-content {
+    position: relative;
+    max-width: var(--max);
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 0 4rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+}
+
+.hero-content .issue {
+    font-family: var(--serif-display);
+    font-size: clamp(4rem, 10vw, 9rem);
+    line-height: 0.85;
+    margin: 0 0 1rem 0;
+    color: var(--paper);
+}
+
+.hero-content .issue-meta {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+}
+
+.hero-content .lead-block {
+    border-left: 1px solid rgba(255,255,255,0.4);
+    padding-left: 2rem;
+}
+
+.hero-content h1 {
+    font-family: var(--serif-display);
+    font-weight: 400;
+    font-size: clamp(2.6rem, 5.5vw, 4.6rem);
+    line-height: 1.0;
+    margin: 0 0 1.5rem 0;
+    color: var(--paper);
+}
+
+.hero-content p {
+    font-family: var(--serif-body);
+    font-style: italic;
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    line-height: 1.55;
+    max-width: 26em;
+    color: rgba(250, 247, 242, 0.92);
+}
+
+@media (max-width: 900px) {
+    .hero { min-height: 78vh; }
+    .hero-content { grid-template-columns: 1fr; gap: 2rem; padding-bottom: 2rem; }
+    .hero-content .lead-block { border-left: none; padding-left: 0; border-top: 1px solid rgba(255,255,255,0.3); padding-top: 1.5rem; }
+}
+
+/* ---------- Magazine numbering ---------- */
+
+.numbered-section { display: grid; grid-template-columns: 100px 1fr; gap: 3rem; align-items: start; }
+.numbered-section .num {
+    font-family: var(--serif-display);
+    font-size: 3.2rem;
+    line-height: 1;
+    color: var(--gold);
+}
+.numbered-section .body-col { max-width: 56ch; }
+
+@media (max-width: 700px) {
+    .numbered-section { grid-template-columns: 1fr; gap: 0.8rem; }
+    .numbered-section .num { font-size: 2.4rem; }
+}
+
+/* ---------- Service cards ---------- */
+
+.service-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
+}
+
+.service-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.service-card .img-frame {
+    overflow: hidden;
+    background: var(--gray);
+    aspect-ratio: 4 / 5;
+}
+
+.service-card .img-frame img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 800ms ease;
+}
+
+.service-card:hover .img-frame img { transform: scale(1.04); }
+
+.service-card .num {
+    font-family: var(--serif-display);
+    font-size: 1.4rem;
+    color: var(--gold);
+    line-height: 1;
+    margin-top: 0.5rem;
+}
+
+.service-card h3 {
+    font-family: var(--serif-display);
+    font-weight: 400;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    margin: 0 0 0.5rem 0;
+    line-height: 1.05;
+}
+
+.service-card p { color: #2A2A2A; }
+
+@media (max-width: 800px) {
+    .service-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- Portfolio grid ---------- */
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem;
+}
+
+.portfolio-grid .tile { overflow: hidden; background: var(--gray); }
+.portfolio-grid .tile img { width: 100%; height: 100%; object-fit: cover; transition: transform 800ms ease; }
+.portfolio-grid .tile:hover img { transform: scale(1.04); }
+
+.portfolio-grid .tile.t-3 { grid-column: span 3; aspect-ratio: 3 / 4; }
+.portfolio-grid .tile.t-4 { grid-column: span 4; aspect-ratio: 3 / 4; }
+.portfolio-grid .tile.t-5 { grid-column: span 5; aspect-ratio: 4 / 5; }
+.portfolio-grid .tile.t-6 { grid-column: span 6; aspect-ratio: 4 / 5; }
+.portfolio-grid .tile.t-7 { grid-column: span 7; aspect-ratio: 16 / 11; }
+.portfolio-grid .tile.t-8 { grid-column: span 8; aspect-ratio: 3 / 2; }
+.portfolio-grid .tile.t-12 { grid-column: span 12; aspect-ratio: 16 / 7; }
+
+@media (max-width: 800px) {
+    .portfolio-grid .tile { grid-column: span 12 !important; aspect-ratio: 4 / 5 !important; }
+}
+
+/* ---------- Pull quote ---------- */
+
+.pull-quote {
+    text-align: center;
+    max-width: 36ch;
+    margin: 0 auto;
+}
+
+.pull-quote q {
+    font-family: var(--serif-display);
+    font-size: clamp(1.8rem, 4vw, 3.2rem);
+    line-height: 1.15;
+    quotes: '“' '”';
+    font-weight: 400;
+    color: var(--paper);
+}
+
+.pull-quote q::before { content: open-quote; }
+.pull-quote q::after { content: close-quote; }
+
+.pull-quote .attribution {
+    margin-top: 2rem;
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+
+.gold-rule { display: block; width: 60px; height: 1px; background: var(--gold); margin: 2rem auto; }
+
+/* ---------- Investment cards ---------- */
+
+.invest-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+
+.invest-card {
+    background: var(--paper-warm);
+    padding: 3rem 2.2rem;
+    border: 1px solid var(--rule);
+    position: relative;
+    text-align: left;
+}
+
+.invest-card.featured {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+}
+
+.invest-card .label {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+}
+
+.invest-card h3 {
+    font-family: var(--serif-display);
+    font-weight: 400;
+    font-size: 2.2rem;
+    margin: 0 0 0.6rem 0;
+    line-height: 1;
+}
+
+.invest-card .price {
+    font-family: var(--serif-body);
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--muted);
+    margin-bottom: 1.8rem;
+}
+
+.invest-card.featured .price { color: var(--gold-soft); }
+
+.invest-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+}
+
+.invest-card li {
+    padding: 0.6rem 0;
+    border-bottom: 0.5px solid var(--rule);
+    font-size: 0.95rem;
+}
+.invest-card.featured li { border-bottom-color: rgba(255,255,255,0.12); }
+
+@media (max-width: 800px) { .invest-grid { grid-template-columns: 1fr; } }
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+    background: var(--black);
+    color: var(--paper);
+    padding: 6rem 0 3rem 0;
+}
+
+.footer-grid {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 var(--pad);
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.footer-brand .display {
+    font-size: 2.6rem;
+    margin: 0 0 0.8rem 0;
+    color: var(--paper);
+}
+
+.footer-brand p { max-width: 28ch; color: rgba(255,255,255,0.7); }
+
+.footer-col h4 {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 1.2rem 0;
+    font-weight: 500;
+}
+
+.footer-col ul { list-style: none; padding: 0; margin: 0; }
+.footer-col li { padding: 0.3rem 0; font-size: 0.95rem; color: rgba(255,255,255,0.85); }
+.footer-col li a:hover { color: var(--gold); }
+
+.footer-bottom {
+    max-width: var(--max);
+    margin: 4rem auto 0;
+    padding: 2rem var(--pad) 0;
+    border-top: 0.5px solid rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+@media (max-width: 800px) {
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-bottom { flex-direction: column; gap: 1rem; }
+}
+
+/* ---------- Forms ---------- */
+
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 720px; }
+.form-grid .full { grid-column: span 2; }
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.form-field label {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+}
+
+.form-field input,
+.form-field textarea,
+.form-field select {
+    border: none;
+    border-bottom: 1px solid var(--ink);
+    background: transparent;
+    padding: 0.5rem 0;
+    font-family: var(--sans);
+    font-size: 1rem;
+    color: var(--ink);
+    transition: border-color 200ms ease;
+}
+
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:focus { outline: none; border-bottom-color: var(--gold); }
+
+.form-field textarea { min-height: 140px; resize: vertical; }
+
+@media (max-width: 700px) { .form-grid { grid-template-columns: 1fr; } .form-grid .full { grid-column: span 1; } }
+
+/* ---------- Journal cards ---------- */
+
+.journal-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem; }
+.journal-card { display: flex; flex-direction: column; gap: 1rem; }
+.journal-card .img-frame { aspect-ratio: 4 / 5; overflow: hidden; background: var(--gray); }
+.journal-card .img-frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 800ms ease; }
+.journal-card:hover .img-frame img { transform: scale(1.04); }
+.journal-card .meta {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+.journal-card h3 {
+    font-family: var(--serif-display);
+    font-weight: 400;
+    font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+    margin: 0;
+    line-height: 1.1;
+}
+.journal-card p { color: #2A2A2A; }
+
+@media (max-width: 900px) { .journal-grid { grid-template-columns: 1fr; } }
+
+/* ---------- Two-column editorial split ---------- */
+
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
+.split img { aspect-ratio: 4 / 5; object-fit: cover; width: 100%; }
+.split.reverse > div:first-child { order: 2; }
+@media (max-width: 800px) { .split { grid-template-columns: 1fr; } .split.reverse > div:first-child { order: 0; } }
+
+/* ---------- Process steps ---------- */
+.process-step {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 2rem;
+    padding: 2.5rem 0;
+    border-top: 0.5px solid var(--rule);
+}
+.process-step:last-child { border-bottom: 0.5px solid var(--rule); }
+.process-step .step-num {
+    font-family: var(--serif-display);
+    font-size: 2.4rem;
+    color: var(--gold);
+    line-height: 1;
+}
+.process-step h3 { font-family: var(--serif-display); font-size: 1.8rem; font-weight: 400; margin: 0 0 0.5rem 0; line-height: 1.1; }
+.process-step p { max-width: 56ch; color: #2A2A2A; }
+
+@media (max-width: 700px) {
+    .process-step { grid-template-columns: 1fr; gap: 0.5rem; }
+}
+
+/* ---------- Accents ---------- */
+
+.gold-divider { display: block; width: 80px; height: 1px; background: var(--gold); margin: 1.5rem 0; }
+.center-gold-divider { margin-left: auto; margin-right: auto; }
+
+.section-heading-center { text-align: center; }
+.section-heading-center .gold-divider { margin-left: auto; margin-right: auto; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="nav-shell">
+        <nav class="nav-primary"><a href="senior.html" class="">Senior Portraits</a><a href="family.html" class="">Family Portraits</a><a href="portfolio.html" class="">Portfolio</a></nav>
+        <a href="index.html" class="brand">emily kathryn<small>Photography</small></a>
+        <nav class="nav-secondary"><a href="about.html" class="">About</a><a href="investment.html" class="is-active">Investment</a><a href="journal.html" class="">Journal</a><a href="contact.html" class="">Contact</a></nav>
+        <button class="nav-mobile-toggle" aria-expanded="false" aria-label="Open menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+    <div class="nav-mobile-panel">
+        <ul><li><a href="senior.html">Senior Portraits</a></li><li><a href="family.html">Family Portraits</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="about.html">About</a></li><li><a href="investment.html">Investment</a></li><li><a href="journal.html">Journal</a></li><li><a href="contact.html">Contact</a></li></ul>
+    </div>
+</header>
+
+
+<section class="section" style="padding-top: 5rem;">
+    <div class="shell">
+        <div style="text-align: center; max-width: 56ch; margin: 0 auto 5rem;">
+            <p class="eyebrow">Investment</p>
+            <h1 class="display" style="font-size: clamp(2.8rem, 6.5vw, 5.6rem);">Considered portraiture has a price — and a value.</h1>
+            <span class="gold-divider center-gold-divider"></span>
+            <p class="lead" style="margin: 0 auto;">The session is the beginning. The wall art, album, and prints are where the experience finishes — and where most of the lasting value lives.</p>
+        </div>
+
+        <div class="invest-grid">
+            <div class="invest-card">
+                <div class="label">Senior · The Session</div>
+                <h3>The Session Investment</h3>
+                <div class="price">begins at $799</div>
+                <ul>
+                    <li>Pre-session style call</li>
+                    <li>Custom outfit + location guide</li>
+                    <li>2-hour on-location session</li>
+                    <li>20+ professionally retouched images</li>
+                    <li>Private online gallery</li>
+                    <li>In-person ordering session</li>
+                </ul>
+                <a href="contact.html" class="link-cta">Inquire</a>
+            </div>
+            <div class="invest-card featured">
+                <div class="label">The Heirloom Collection</div>
+                <h3>Most-Selected Collection</h3>
+                <div class="price">avg. invest. $2,400</div>
+                <ul>
+                    <li>The Session (above)</li>
+                    <li>16×24 framed wall print</li>
+                    <li>10×10 leather senior album (20 pages)</li>
+                    <li>Set of 8 gift prints</li>
+                    <li>Full digital file release</li>
+                </ul>
+                <a href="contact.html" class="btn btn-on-dark" style="margin-top: 0.5rem;">Inquire</a>
+            </div>
+            <div class="invest-card">
+                <div class="label">Family · The Session</div>
+                <h3>Family Session Investment</h3>
+                <div class="price">begins at $899</div>
+                <ul>
+                    <li>Pre-session planning call</li>
+                    <li>Outfit + location guidance</li>
+                    <li>1.5-hour on-location session</li>
+                    <li>15+ retouched images</li>
+                    <li>Private gallery + ordering session</li>
+                    <li>Wall art & album à la carte</li>
+                </ul>
+                <a href="contact.html" class="link-cta">Inquire</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-band-black">
+    <div class="shell">
+        <div class="pull-quote">
+            <q>Most families invest between $1,800 and $3,500 across files, wall art, and an album.</q>
+            <span class="gold-rule"></span>
+            <div class="attribution">— EKP Studio average, 2025</div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="shell">
+        <div class="section-heading-center" style="margin-bottom: 4rem;">
+            <p class="eyebrow">Heirloom Products</p>
+            <h2 class="heading-1">What we make.</h2>
+            <span class="gold-divider center-gold-divider"></span>
+            <p class="lead" style="margin: 0 auto;">Every session ends with an ordering appointment. Wall art, albums, and prints are designed in person — sized for your home, finished to last.</p>
+        </div>
+        <div class="portfolio-grid">
+            <div class="tile t-4"><img src="https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?w=900&q=80&auto=format" alt="Heirloom album"></div>
+            <div class="tile t-4"><img src="https://images.unsplash.com/photo-1591084728795-1149f32d9866?w=900&q=80&auto=format" alt="Framed prints"></div>
+            <div class="tile t-4"><img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=900&q=80&auto=format" alt="Wall art"></div>
+        </div>
+    </div>
+</section>
+
+<section class="section-band-black" style="padding: 6rem 0;">
+    <div class="shell" style="text-align: center;">
+        <h2 class="display" style="color: var(--paper); max-width: 18ch; margin: 0 auto 2rem;">Receive the full investment guide.</h2>
+        <p style="max-width: 36ch; margin: 0 auto 2.5rem; color: rgba(250,247,242,0.85);">A PDF guide is sent before every consultation — full pricing, collection details, product samples.</p>
+        <a href="contact.html" class="btn btn-on-dark">Request the Guide</a>
+    </div>
+</section>
+
+
+<footer class="site-footer">
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <h2 class="display">emily kathryn</h2>
+            <p>Editorial senior and family portraiture, made on location across South-Central Virginia — from Chatham to Lynchburg to Smith Mountain Lake.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Studio</h4>
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="journal.html">Journal</a></li>
+                <li><a href="investment.html">Investment</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Services</h4>
+            <ul>
+                <li><a href="senior.html">Senior Portraits</a></li>
+                <li><a href="family.html">Family Portraits</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Connect</h4>
+            <ul>
+                <li>Gretna, Virginia</li>
+                <li>emily@emilykathryn.com</li>
+                <li>(434) 000-0000</li>
+                <li><a href="https://instagram.com">Instagram</a> · <a href="https://tiktok.com">TikTok</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2026 Emily Kathryn Photography</span>
+        <span>Design — NXTLVL Digital</span>
+    </div>
+</footer>
+
+<script>
+// Mobile menu toggle
+const toggle = document.querySelector('.nav-mobile-toggle');
+const panel = document.querySelector('.nav-mobile-panel');
+if (toggle && panel) {
+    toggle.addEventListener('click', () => {
+        const open = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', !open);
+        panel.classList.toggle('is-open');
+    });
+}
+
+// Contact form submit (demo only)
+const form = document.querySelector('form.inquiry-form');
+if (form) {
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const status = form.querySelector('.form-status');
+        if (status) {
+            status.textContent = 'Thank you. Emily will respond personally within 48 hours.';
+            status.style.color = 'var(--gold)';
+        }
+        form.reset();
+    });
+}
+</script>
+</body>
+</html>

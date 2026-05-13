@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Gallery — Emily Kathryn Photography</title>
+<meta name="description" content="Selected senior & family portrait work from Emily Kathryn Photography — serving South-Central Virginia." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+<style>
+  .filter-bar{
+    display:flex;gap:24px;justify-content:center;padding:32px var(--pad-x) 0;flex-wrap:wrap;
+    border-bottom:1px solid var(--rule);max-width:1320px;margin:0 auto;
+  }
+  .filter-bar a{
+    text-decoration:none;color:var(--muted);font-size:11px;letter-spacing:0.36em;text-transform:uppercase;
+    padding:14px 4px 18px;border-bottom:1px solid transparent;font-weight:400;transition:all .3s;
+    min-height:44px;display:inline-flex;align-items:center;
+  }
+  .filter-bar a.active,.filter-bar a:hover{color:var(--ink);border-bottom-color:var(--gold)}
+  .gallery-section{padding:48px var(--pad-x);max-width:1320px;margin:0 auto}
+  .gallery-section h2{
+    font-family:'Cormorant Garamond',serif;font-weight:300;
+    font-size:clamp(36px,5vw,72px);letter-spacing:-0.01em;text-align:center;margin-bottom:8px;
+  }
+  .gallery-section h2 em{font-style:italic;color:var(--gold)}
+  .gallery-section .small-caps{display:block;text-align:center;margin-bottom:32px}
+  .gallery-section .grid{
+    columns:3 240px;column-gap:14px;
+  }
+  .gallery-section .grid img{
+    width:100%;display:block;margin-bottom:14px;break-inside:avoid;border-radius:2px;
+    transition:opacity .3s;
+  }
+  .gallery-section .grid img:hover{opacity:.88}
+  @media (max-width:780px){
+    .gallery-section{padding:32px 20px}
+    .gallery-section .grid{columns:2 140px;column-gap:10px}
+    .gallery-section .grid img{margin-bottom:10px}
+    .filter-bar{padding:18px 20px 0;gap:14px}
+    .filter-bar a{padding:10px 0 14px;font-size:10px;letter-spacing:0.28em}
+  }
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Skip to content</a>
+
+<nav class="nav-bar" aria-label="Primary">
+  <div class="links">
+    <a href="meet-emily.html">Meet Emily</a>
+    <a href="experience.html">Experience</a>
+    <a href="gallery.html" class="active">Gallery</a>
+    <a href="raves.html">Raves</a>
+  </div>
+  <a class="logo" href="index.html">emily kathryn<small>P H O T O G R A P H Y</small></a>
+  <div class="right">
+    <a href="contact.html" class="btn-soft">Inquire</a>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span></button>
+  </div>
+</nav>
+
+<div class="scrim" aria-hidden="true"></div>
+<aside class="mobile-drawer" aria-label="Mobile menu">
+  <a href="index.html">Home</a>
+  <a href="meet-emily.html">Meet Emily</a>
+  <a href="experience.html">The Experience</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="raves.html">Raves</a>
+  <a href="blog.html">The Journal</a>
+  <a href="contact.html" class="italic">Inquire →</a>
+  <div class="meta"><span class="small-caps">Connect</span><a href="#">Instagram</a><a href="#">Pinterest</a><a href="#">Facebook</a></div>
+</aside>
+
+<main id="main">
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <span class="small-caps">— The Portfolio —</span>
+  <h1>The <em>Gallery.</em></h1>
+  <p class="lede">Selected work from senior &amp; family sessions across Lynchburg, Danville, Chatham, Altavista, Smith Mountain Lake and beyond.</p>
+</section>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <a href="#all" class="active">All</a>
+  <a href="#seniors">Seniors</a>
+  <a href="#families">Families</a>
+  <a href="#studio">Studio</a>
+  <a href="#outdoors">Outdoors</a>
+</div>
+
+<!-- ALL -->
+<section class="gallery-section" id="all">
+  <span class="small-caps">— Selected Work —</span>
+  <h2>A few <em>favorites</em></h2>
+  <div class="grid">
+    <img src="../../public/placeholder/senior-2.jpeg" alt="">
+    <img src="../../public/placeholder/senior-9.jpeg" alt="">
+    <img src="../../public/placeholder/family-3.jpeg" alt="">
+    <img src="../../public/placeholder/senior-12.jpeg" alt="">
+    <img src="../../public/placeholder/senior-5.jpeg" alt="">
+    <img src="../../public/placeholder/senior-11.jpeg" alt="">
+    <img src="../../public/placeholder/family-2.jpeg" alt="">
+    <img src="../../public/placeholder/senior-7.jpeg" alt="">
+    <img src="../../public/placeholder/family-1.jpeg" alt="">
+    <img src="../../public/placeholder/senior-1.jpeg" alt="">
+    <img src="../../public/placeholder/senior-3.jpeg" alt="">
+    <img src="../../public/placeholder/senior-4.jpeg" alt="">
+  </div>
+</section>
+
+<!-- SENIORS SECTION -->
+<section class="gallery-section section-cream-2" id="seniors" style="padding-top:80px;padding-bottom:80px;background:var(--cream-2);max-width:none">
+  <div style="max-width:1320px;margin:0 auto">
+    <span class="small-caps">— Class of '25 / '26 —</span>
+    <h2>Senior <em>Sessions</em></h2>
+    <div class="grid">
+      <img src="../../public/placeholder/senior-1.jpeg" alt="">
+      <img src="../../public/placeholder/senior-2.jpeg" alt="">
+      <img src="../../public/placeholder/senior-3.jpeg" alt="">
+      <img src="../../public/placeholder/senior-4.jpeg" alt="">
+      <img src="../../public/placeholder/senior-5.jpeg" alt="">
+      <img src="../../public/placeholder/senior-6.jpeg" alt="">
+      <img src="../../public/placeholder/senior-7.jpeg" alt="">
+      <img src="../../public/placeholder/senior-8.jpeg" alt="">
+      <img src="../../public/placeholder/senior-9.jpeg" alt="">
+      <img src="../../public/placeholder/senior-10.jpeg" alt="">
+      <img src="../../public/placeholder/senior-11.jpeg" alt="">
+      <img src="../../public/placeholder/senior-12.jpeg" alt="">
+    </div>
+  </div>
+</section>
+
+<!-- FAMILIES SECTION -->
+<section class="gallery-section" id="families">
+  <span class="small-caps">— For The Whole Family —</span>
+  <h2>Family <em>Portraits</em></h2>
+  <div class="grid">
+    <img src="../../public/placeholder/family-1.jpeg" alt="">
+    <img src="../../public/placeholder/family-2.jpeg" alt="">
+    <img src="../../public/placeholder/family-3.jpeg" alt="">
+    <img src="../../public/placeholder/family-4.jpeg" alt="">
+    <img src="../../public/placeholder/family-5.jpeg" alt="">
+    <img src="../../public/placeholder/family-6.jpeg" alt="">
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Sometimes you don't know the <em>value</em> of a moment<br/>until it becomes a memory.</h2>
+  <p>Inquire to receive my Senior Magazine — full of pricing, sample sessions, and what to expect from your EKP experience.</p>
+  <a class="btn-gold" href="contact.html">Begin Your Inquiry</a>
+</section>
+
+</main>
+
+<footer>
+  <div class="foot-top">
+    <div>
+      <a class="foot-logo" href="index.html">emily kathryn<small>P H O T O G R A P H Y</small></a>
+      <p style="color:var(--muted);font-size:14px;margin-top:18px;max-width:340px;font-weight:300">Editorial senior &amp; family portrait photography. Gretna, VA · Serving Danville, Chatham, Altavista, Lynchburg, Evington, Forest, Smith Mountain Lake &amp; surrounding South-Central Virginia.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <a href="meet-emily.html">Meet Emily</a>
+      <a href="experience.html">The Experience</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="raves.html">Raves</a>
+      <a href="blog.html">The Journal</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="contact.html">Inquire</a>
+      <a href="mailto:hello@emilykathryn.com">hello@emilykathryn.com</a>
+      <a href="#">8285 Chalk Level Rd<br/>Gretna, VA 24557</a>
+    </div>
+    <div>
+      <h4>Follow</h4>
+      <a href="#">Instagram</a>
+      <a href="#">Pinterest</a>
+      <a href="#">Facebook</a>
+      <a href="#">YouTube</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Emily Kathryn Photography</span>
+    <span>Site by NXTLVL Digital</span>
+  </div>
+</footer>
+
+<a class="sticky-inquire" href="contact.html"><span>Inquire for the Senior Magazine</span><span>→</span></a>
+<script src="js/site.js"></script>
+</body>
+</html>

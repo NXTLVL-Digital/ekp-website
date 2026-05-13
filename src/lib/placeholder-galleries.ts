@@ -46,6 +46,18 @@ export const familyGalleryImages: GalleryImageData[] = [
   img('f6', '/placeholder/family-6.jpeg', 'Family portrait — outdoor session', 1440, 1800),
 ]
 
+/** Curated mix of senior + family for city landing pages */
+export const cityGalleryImages: GalleryImageData[] = [
+  img('c1', '/placeholder/senior-1.jpeg', 'Senior portrait — editorial style', 411, 639),
+  img('c2', '/placeholder/family-1.jpeg', 'Family portrait session', 1440, 1795),
+  img('c3', '/placeholder/senior-3.jpeg', 'Senior portrait outdoors', 413, 639),
+  img('c4', '/placeholder/family-4.jpeg', 'Family portrait — golden hour', 1200, 1200),
+  img('c5', '/placeholder/senior-5.jpeg', 'Senior portrait — Halifax County', 330, 360),
+  img('c6', '/placeholder/family-5.jpeg', 'Family portrait — relaxed session', 1440, 1800),
+  img('c7', '/placeholder/senior-7.jpeg', 'Senior portrait — Gretna High School', 330, 360),
+  img('c8', '/placeholder/family-2.jpeg', 'Family portrait outdoors', 1440, 1440),
+]
+
 /** Curated mix of senior + family for homepage "best of" gallery */
 export const homepageGalleryImages: GalleryImageData[] = [
   img('h1', '/placeholder/senior-1.jpeg', 'Senior portrait — editorial style', 411, 639),

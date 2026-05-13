@@ -218,3 +218,77 @@ export const CITY_PAGE_QUERY = `*[_type == "cityPage" && slug.current == $slug][
  * Fetch all city page slugs for generateStaticParams and sitemap.
  */
 export const CITY_SLUGS_QUERY = `*[_type == "cityPage"]{ "slug": slug.current }`;
+
+// ---------------------------------------------------------------------------
+// About page queries
+// ---------------------------------------------------------------------------
+
+/**
+ * Fetch the singleton aboutPage document with full image metadata.
+ */
+export const ABOUT_PAGE_QUERY = `*[_type == "aboutPage"][0]{
+  headshot {
+    ${IMAGE_FIELDS},
+    alt
+  },
+  bio,
+  philosophyHeading,
+  philosophyPrinciples[] {
+    number,
+    title,
+    text
+  },
+  ctaHeading,
+  ctaBody,
+  metaDescription
+}`;
+
+// ---------------------------------------------------------------------------
+// Journal queries
+// ---------------------------------------------------------------------------
+
+/**
+ * Fetch all journal posts ordered by publishedAt descending.
+ * Featured posts are sorted first.
+ */
+export const JOURNAL_POSTS_QUERY = `*[_type == "journalPost"] | order(featured desc, publishedAt desc) {
+  _id,
+  title,
+  "slug": slug.current,
+  publishedAt,
+  category,
+  excerpt,
+  featured,
+  "coverImage": coverImage {
+    ${IMAGE_FIELDS},
+    alt
+  }
+}`;
+
+/**
+ * Fetch a single journal post by slug with full body content and image metadata.
+ */
+export const JOURNAL_POST_BY_SLUG_QUERY = `*[_type == "journalPost" && slug.current == $slug][0]{
+  title,
+  "slug": slug.current,
+  publishedAt,
+  category,
+  excerpt,
+  "coverImage": coverImage {
+    ${IMAGE_FIELDS},
+    alt
+  },
+  body[]{
+    ...,
+    _type == "image" => {
+      ${IMAGE_FIELDS},
+      alt,
+      caption
+    }
+  }
+}`;
+
+/**
+ * Fetch all journal post slugs for generateStaticParams.
+ */
+export const JOURNAL_SLUGS_QUERY = `*[_type == "journalPost"]{ "slug": slug.current }`;

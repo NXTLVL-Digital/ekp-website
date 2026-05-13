@@ -1,31 +1,35 @@
-import type { ReactNode } from 'react'
-
 interface SectionProps {
-  children: ReactNode
+  children: React.ReactNode
+  background?: 'white' | 'muted' | 'dark' | 'black'
+  spacing?: 'default' | 'tight' | 'wide' | 'none'
   className?: string
-  background?: 'white' | 'muted'
   id?: string
 }
 
-/**
- * Consistent section wrapper with premium vertical spacing, max-width constraint,
- * and optional muted background. This is the foundational wrapper every page
- * section uses for consistent layout across the site.
- */
 export function Section({
   children,
-  className = '',
   background = 'white',
+  spacing = 'default',
+  className = '',
   id,
 }: SectionProps) {
+  const bgClasses = {
+    white: 'bg-background text-foreground',
+    muted: 'bg-muted text-foreground',
+    dark: 'bg-foreground text-white',
+    black: 'bg-black text-white',
+  }[background]
+
+  const spacingClasses = {
+    default: 'py-[var(--spacing-section-sm)] md:py-[var(--spacing-section)]',
+    tight: 'py-10 md:py-14',
+    wide: 'py-24 md:py-36',
+    none: '',
+  }[spacing]
+
   return (
-    <section
-      id={id}
-      className={`py-section-sm md:py-section ${
-        background === 'muted' ? 'bg-muted' : 'bg-background'
-      } ${className}`}
-    >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id={id} className={`${bgClasses} ${spacingClasses} ${className}`}>
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         {children}
       </div>
     </section>

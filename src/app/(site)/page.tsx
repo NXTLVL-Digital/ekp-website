@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { sanityFetch } from '@/sanity/lib/fetch'
 import {
   TESTIMONIALS_QUERY,
@@ -13,6 +14,7 @@ import { TestimonialCarousel } from '@/components/home/TestimonialCarousel'
 import { HomeCTA } from '@/components/home/HomeCTA'
 import { GalleryClient } from '@/components/shared/GalleryClient'
 import { JsonLd } from '@/components/shared/JsonLd'
+import { RevealOnScroll } from '@/components/shared/RevealOnScroll'
 import { homepageGalleryImages } from '@/lib/placeholder-galleries'
 import type { TestimonialImage } from '@/components/testimonials/TestimonialCard'
 import { buildReviewSchemas, buildAggregateRatingSchema } from '@/lib/schemas/review'
@@ -77,7 +79,6 @@ export const metadata: Metadata = {
 // ---------------------------------------------------------------------------
 
 export default async function HomePage() {
-  // Fetch testimonials and scarcity cue in parallel from Sanity
   const [testimonials, scarcityCue] = await Promise.all([
     sanityFetch<TestimonialData[]>({
       query: TESTIMONIALS_QUERY,
@@ -90,7 +91,6 @@ export default async function HomePage() {
     }),
   ])
 
-  /* --- JSON-LD structured data: Review schemas when testimonials exist --- */
   const reviewTestimonialData: ReviewTestimonialData[] =
     testimonials && testimonials.length > 0
       ? testimonials.map((t) => ({ name: t.name, quote: t.quote, service: t.service }))
@@ -100,7 +100,7 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* JSON-LD: Review schemas (conditional on testimonials) */}
+      {/* JSON-LD */}
       {reviewSchemas.map((schema, i) => (
         <JsonLd key={i} data={schema} />
       ))}
@@ -109,129 +109,189 @@ export default async function HomePage() {
       )}
 
       {/* ----------------------------------------------------------------- */}
-      {/* 1. Hero — editorial first impression, gender-inclusive imagery     */}
+      {/* 1. Hero — full-viewport editorial impact                          */}
       {/* ----------------------------------------------------------------- */}
       <Hero
         heading="Your Story. Beautifully Told."
-        subheading="Senior and family portrait photography with an editorial edge — relaxed, authentic, and designed around you. Serving South-Central Virginia from Chatham to Lynchburg and everywhere in between."
+        subheading="Editorial portrait photography with a magazine edge — relaxed, authentic, and designed around you. Serving South-Central Virginia from Chatham to Lynchburg and everywhere in between."
         ctaLabel="Inquire for Detailed Pricing"
         ctaHref="/contact"
       />
 
       {/* ----------------------------------------------------------------- */}
-      {/* 2. Scarcity Cue — conditional render from CMS                     */}
+      {/* 2. Scarcity Cue — full-width dark bar                             */}
       {/* ----------------------------------------------------------------- */}
       {scarcityCue && (
-        <Section>
-          <ScarcityCue
-            message={scarcityCue.message}
-            isActive={scarcityCue.isActive}
-          />
-        </Section>
+        <ScarcityCue
+          message={scarcityCue.message}
+          isActive={scarcityCue.isActive}
+        />
       )}
 
       {/* ----------------------------------------------------------------- */}
-      {/* 3. Portfolio Preview — session type categories                     */}
+      {/* 3. Editorial Introduction                                         */}
       {/* ----------------------------------------------------------------- */}
       <Section>
-        <div className="mb-8 text-center">
-          <h2 className="font-heading text-3xl font-light md:text-4xl">
-            What We Create Together
-          </h2>
-          <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-            Whether you are celebrating a milestone or simply want to freeze
-            this chapter exactly as it is, every session is a collaborative
-            experience crafted around your story.
-          </p>
-        </div>
-        <PortfolioPreview
-          categories={[
-            {
-              title: 'Senior Portraits',
-              href: '/senior-portraits',
-              description:
-                'Magazine-worthy sessions for guys and girls — bold, authentic, and nothing like the school photo. Your personality, your way.',
-            },
-            {
-              title: 'Family Portraits',
-              href: '/family-portraits',
-              description:
-                'Natural, relaxed sessions that capture your family exactly as you are — the laughter, the connections, the moments that matter.',
-            },
-          ]}
-        />
-      </Section>
-
-      {/* ----------------------------------------------------------------- */}
-      {/* 3b. Featured Gallery — curated "best of" mix                      */}
-      {/* ----------------------------------------------------------------- */}
-      <Section background="muted">
-        <div className="mb-8 text-center">
-          <h2 className="font-heading text-3xl font-light md:text-4xl">
-            Recent Work
-          </h2>
-          <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-            A glimpse into what we create together — editorial senior portraits
-            and heartfelt family sessions across South-Central Virginia.
-          </p>
-        </div>
-        <GalleryClient
-          images={homepageGalleryImages}
-          displayStyle="masonry"
-          priorityCount={0}
-        />
-      </Section>
-
-      {/* ----------------------------------------------------------------- */}
-      {/* 4. Mid-page CTA — reinforce conversion action                     */}
-      {/* ----------------------------------------------------------------- */}
-      <Section background="muted">
-        <HomeCTA
-          heading="Ready to Book Your Session?"
-          body="Tell us a little about yourself and the session you have in mind. Emily will personally get back to you within 48 hours to start planning — no pressure, just a conversation."
-          ctaLabel="Get in Touch"
-          ctaHref="/contact"
-        />
-      </Section>
-
-      {/* ----------------------------------------------------------------- */}
-      {/* 5. Testimonials — client social proof from CMS                    */}
-      {/* ----------------------------------------------------------------- */}
-      {testimonials && testimonials.length > 0 && (
-        <Section>
-          <div className="mb-8 text-center">
-            <h2 className="font-heading text-3xl font-light md:text-4xl">
-              What Our Clients Are Saying
+        <RevealOnScroll variant="up">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="editorial-label text-brand-gold">The Experience</span>
+            <h2 className="mt-4 font-heading text-4xl font-light leading-tight md:text-5xl lg:text-6xl">
+              What We Create Together
             </h2>
-            <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-              Nothing means more than hearing how a session made someone feel.
-              Here is what a few of our families and seniors had to say.
+            <div className="mx-auto mt-5 h-px w-12 bg-brand-gold" />
+            <p className="mt-6 text-sm leading-relaxed text-muted-foreground md:text-base">
+              Whether you are celebrating a milestone or simply want to freeze
+              this chapter exactly as it is, every session is a collaborative
+              experience crafted around your story.
             </p>
           </div>
-          <TestimonialCarousel testimonials={testimonials} />
-        </Section>
+        </RevealOnScroll>
+      </Section>
+
+      {/* ----------------------------------------------------------------- */}
+      {/* 4. Portfolio Preview — editorial magazine spreads                  */}
+      {/* ----------------------------------------------------------------- */}
+      <Section spacing="none" className="pb-[var(--spacing-section)]">
+        <RevealOnScroll variant="up">
+          <PortfolioPreview
+            categories={[
+              {
+                title: 'Senior Portraits',
+                href: '/senior-portraits',
+                description:
+                  'Magazine-worthy sessions for guys and girls — bold, authentic, and nothing like the school photo. Your personality, your way.',
+              },
+              {
+                title: 'Family Portraits',
+                href: '/family-portraits',
+                description:
+                  'Natural, relaxed sessions that capture your family exactly as you are — the laughter, the connections, the moments that matter.',
+              },
+            ]}
+          />
+        </RevealOnScroll>
+      </Section>
+
+      {/* ----------------------------------------------------------------- */}
+      {/* 5. Editorial Pull Quote — dramatic dark section                   */}
+      {/* ----------------------------------------------------------------- */}
+      <section className="relative overflow-hidden bg-foreground py-24 md:py-32">
+        {/* Subtle hex pattern */}
+        <div className="pattern-hex absolute inset-0 opacity-30" />
+
+        <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
+          <RevealOnScroll variant="fade">
+            <div className="mx-auto max-w-4xl text-center">
+              <div className="mx-auto mb-8 h-px w-12 bg-brand-gold" />
+              <blockquote className="font-heading text-3xl font-light italic leading-snug text-white md:text-4xl lg:text-5xl">
+                &ldquo;Every session should feel like a magazine shoot &mdash;
+                not stiff, not rushed, not generic.&rdquo;
+              </blockquote>
+              <div className="mt-8 flex items-center justify-center gap-3">
+                <div className="h-px w-6 bg-brand-gold" />
+                <span className="editorial-label text-brand-gold">
+                  Emily Kathryn
+                </span>
+                <div className="h-px w-6 bg-brand-gold" />
+              </div>
+            </div>
+          </RevealOnScroll>
+        </div>
+      </section>
+
+      {/* ----------------------------------------------------------------- */}
+      {/* 6. Featured Gallery — curated "best of" mix                       */}
+      {/* ----------------------------------------------------------------- */}
+      <Section background="muted">
+        <RevealOnScroll variant="up">
+          <div className="mb-12 text-center">
+            <span className="editorial-label text-brand-gold">Portfolio</span>
+            <h2 className="mt-4 font-heading text-4xl font-light md:text-5xl">
+              Recent Work
+            </h2>
+            <div className="mx-auto mt-5 h-px w-12 bg-brand-gold" />
+            <p className="mt-5 text-sm text-muted-foreground md:text-base">
+              A glimpse into what we create together — editorial senior portraits
+              and heartfelt family sessions across South-Central Virginia.
+            </p>
+          </div>
+        </RevealOnScroll>
+        <RevealOnScroll variant="scale">
+          <GalleryClient
+            images={homepageGalleryImages}
+            displayStyle="masonry"
+            priorityCount={0}
+          />
+        </RevealOnScroll>
+      </Section>
+
+      {/* ----------------------------------------------------------------- */}
+      {/* 7. Mid-page CTA                                                   */}
+      {/* ----------------------------------------------------------------- */}
+      <Section>
+        <RevealOnScroll variant="up">
+          <HomeCTA
+            heading="Ready to Book Your Session?"
+            body="Tell us a little about yourself and the session you have in mind. Emily will personally get back to you within 48 hours to start planning — no pressure, just a conversation."
+            ctaLabel="Get in Touch"
+            ctaHref="/contact"
+          />
+        </RevealOnScroll>
+      </Section>
+
+      {/* ----------------------------------------------------------------- */}
+      {/* 8. Testimonials — editorial layout                                */}
+      {/* ----------------------------------------------------------------- */}
+      {testimonials && testimonials.length > 0 && (
+        <section className="border-t border-border bg-muted">
+          <div className="mx-auto max-w-[1400px] px-6 py-[var(--spacing-section-sm)] md:py-[var(--spacing-section)] lg:px-10">
+            <RevealOnScroll variant="up">
+              <div className="mb-12 text-center">
+                <span className="editorial-label text-brand-gold">Kind Words</span>
+                <h2 className="mt-4 font-heading text-4xl font-light md:text-5xl">
+                  What Our Clients Are Saying
+                </h2>
+                <div className="mx-auto mt-5 h-px w-12 bg-brand-gold" />
+              </div>
+            </RevealOnScroll>
+            <RevealOnScroll variant="stagger">
+              <TestimonialCarousel testimonials={testimonials} />
+            </RevealOnScroll>
+          </div>
+        </section>
       )}
 
       {/* ----------------------------------------------------------------- */}
-      {/* 6. Bottom CTA — final conversion nudge                            */}
+      {/* 9. Bottom CTA — elegant final conversion nudge                    */}
       {/* ----------------------------------------------------------------- */}
-      <Section background="muted">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-heading text-3xl font-light md:text-4xl">
-            Let&apos;s Create Something Beautiful
-          </h2>
-          <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-            Your story deserves to be told beautifully. Reach out and let us
-            start planning a session that feels like you.
-          </p>
-          <Link
-            href="/contact"
-            className="mt-8 inline-flex min-h-11 items-center text-sm tracking-wide text-brand-gold transition-colors hover:text-brand-gold-dark"
-          >
-            Get in Touch &rarr;
-          </Link>
+      <section className="relative overflow-hidden bg-foreground py-24 md:py-32">
+        <div className="pattern-hex absolute inset-0 opacity-20" />
+        <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
+          <RevealOnScroll variant="up">
+            <div className="mx-auto max-w-2xl text-center">
+              <div className="mx-auto mb-6 h-px w-12 bg-brand-gold" />
+              <h2 className="font-heading text-4xl font-light text-white md:text-5xl">
+                Let&apos;s Create Something Beautiful
+              </h2>
+              <p className="mt-5 text-sm leading-relaxed text-white/50 md:text-base">
+                Your story deserves to be told beautifully. Reach out and let us
+                start planning a session that feels like you.
+              </p>
+              <Link
+                href="/contact"
+                className="group mt-8 inline-flex items-center gap-3"
+              >
+                <span className="editorial-label text-white transition-colors duration-300 group-hover:text-brand-gold">
+                  Get in Touch
+                </span>
+                <svg width="24" height="8" viewBox="0 0 24 8" fill="none" className="transition-transform duration-300 group-hover:translate-x-1">
+                  <path d="M0 4H22M22 4L18.5 0.5M22 4L18.5 7.5" stroke="currentColor" strokeWidth="0.75" className="text-brand-gold" />
+                </svg>
+              </Link>
+            </div>
+          </RevealOnScroll>
         </div>
-      </Section>
+      </section>
     </>
   )
 }

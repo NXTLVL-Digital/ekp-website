@@ -1,0 +1,1186 @@
+{
+  "columns": {
+    "todo": {
+      "id": "todo",
+      "title": "To Do",
+      "taskIds": [
+        "req-FOUND-01",
+        "req-FOUND-02",
+        "req-FOUND-05",
+        "req-FOUND-06",
+        "req-FOUND-07",
+        "req-PERF-01",
+        "req-PERF-02",
+        "req-PERF-03",
+        "req-PAGE-01",
+        "req-PAGE-02",
+        "req-PAGE-03",
+        "req-PAGE-04",
+        "req-PAGE-05",
+        "req-PAGE-06",
+        "req-PAGE-07",
+        "req-PAGE-08",
+        "req-LOCAL-01",
+        "req-LOCAL-02",
+        "req-LOCAL-03",
+        "req-LOCAL-04",
+        "req-LOCAL-05",
+        "req-LOCAL-06",
+        "req-LOCAL-07",
+        "req-GALL-01",
+        "req-GALL-02",
+        "req-GALL-03",
+        "req-GALL-04",
+        "req-CONV-01",
+        "req-CONV-02",
+        "req-CONV-03",
+        "req-CONV-04",
+        "req-CONV-05",
+        "req-CONV-06",
+        "req-CONV-07",
+        "req-CONT-01",
+        "req-CONT-02",
+        "req-CONT-03",
+        "req-CONT-04",
+        "req-SEO-01",
+        "req-SEO-02",
+        "req-SEO-03",
+        "req-SEO-04",
+        "req-SEO-05",
+        "req-SEO-06",
+        "req-SEO-07",
+        "req-SEO-08",
+        "req-SEO-09",
+        "req-EXT-01",
+        "req-EXT-02",
+        "req-INFRA-01",
+        "req-INFRA-02",
+        "req-INFRA-03",
+        "phase-1",
+        "phase-2",
+        "phase-3",
+        "phase-4",
+        "phase-5",
+        "phase-6",
+        "plan-01-01-PLAN",
+        "plan-01-02-PLAN",
+        "plan-01-03-PLAN"
+      ]
+    },
+    "in-progress": {
+      "id": "in-progress",
+      "title": "In Progress",
+      "taskIds": []
+    },
+    "done": {
+      "id": "done",
+      "title": "Done",
+      "taskIds": [
+        "req-FOUND-03",
+        "req-FOUND-04",
+        "req-PERF-04"
+      ]
+    },
+    "action-required": {
+      "id": "action-required",
+      "title": "Action Required",
+      "taskIds": []
+    }
+  },
+  "tasks": {
+    "req-FOUND-01": {
+      "id": "req-FOUND-01",
+      "title": "FOUND-01: Site built on Next.js with App Router, deployed to Vercel",
+      "description": "Site built on Next.js with App Router, deployed to Vercel",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-FOUND-02": {
+      "id": "req-FOUND-02",
+      "title": "FOUND-02: Sanity v4 CMS with embedded Studio at /studio for client content management",
+      "description": "Sanity v4 CMS with embedded Studio at /studio for client content management",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-FOUND-03": {
+      "id": "req-FOUND-03",
+      "title": "FOUND-03: Next.js image pipeline with WebP/AVIF format selection, blur placeholders (Sanity LQIP), and lazy loading",
+      "description": "Next.js image pipeline with WebP/AVIF format selection, blur placeholders (Sanity LQIP), and lazy loading",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": true,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-FOUND-04": {
+      "id": "req-FOUND-04",
+      "title": "FOUND-04: ISR with tag-based revalidation via Sanity webhook for near-instant CMS updates",
+      "description": "ISR with tag-based revalidation via Sanity webhook for near-instant CMS updates",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": true,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-FOUND-05": {
+      "id": "req-FOUND-05",
+      "title": "FOUND-05: Mobile-first responsive design with gender-inclusive editorial aesthetic",
+      "description": "Mobile-first responsive design with gender-inclusive editorial aesthetic",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-FOUND-06": {
+      "id": "req-FOUND-06",
+      "title": "FOUND-06: 44x44px minimum tap targets on all interactive elements",
+      "description": "44x44px minimum tap targets on all interactive elements",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-FOUND-07": {
+      "id": "req-FOUND-07",
+      "title": "FOUND-07: DNS configured for emilykathryn.com on Vercel",
+      "description": "DNS configured for emilykathryn.com on Vercel",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-PERF-01": {
+      "id": "req-PERF-01",
+      "title": "PERF-01: LCP under 2.5 seconds on mobile",
+      "description": "LCP under 2.5 seconds on mobile",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-PERF-02": {
+      "id": "req-PERF-02",
+      "title": "PERF-02: CLS under 0.1",
+      "description": "CLS under 0.1",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-PERF-03": {
+      "id": "req-PERF-03",
+      "title": "PERF-03: 100/100 mobile performance score on Vercel Speed Insights",
+      "description": "100/100 mobile performance score on Vercel Speed Insights",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-PERF-04": {
+      "id": "req-PERF-04",
+      "title": "PERF-04: Hero images use `priority` loading with accurate `sizes` props",
+      "description": "Hero images use `priority` loading with accurate `sizes` props",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": true,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-PAGE-01": {
+      "id": "req-PAGE-01",
+      "title": "PAGE-01: Homepage — senior-focused hero (boys AND girls), portfolio preview grid, testimonials, scarcity cue, persistent CTA",
+      "description": "Homepage — senior-focused hero (boys AND girls), portfolio preview grid, testimonials, scarcity cue, persistent CTA",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-PAGE-02": {
+      "id": "req-PAGE-02",
+      "title": "PAGE-02: Senior Portraits service page — gallery, session description, Experience Storyboard, \"Starting At\" pricing, FAQ section, CTA",
+      "description": "Senior Portraits service page — gallery, session description, Experience Storyboard, \"Starting At\" pricing, FAQ section, CTA",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-PAGE-03": {
+      "id": "req-PAGE-03",
+      "title": "PAGE-03: Family Portraits service page — gallery, session description, \"Starting At\" pricing, FAQ section, CTA",
+      "description": "Family Portraits service page — gallery, session description, \"Starting At\" pricing, FAQ section, CTA",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-PAGE-04": {
+      "id": "req-PAGE-04",
+      "title": "PAGE-04: About page — Emily's professional photo, personal story, photography philosophy",
+      "description": "About page — Emily's professional photo, personal story, photography philosophy",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-PAGE-05": {
+      "id": "req-PAGE-05",
+      "title": "PAGE-05: Contact page — inquiry form as primary element, business info, service area",
+      "description": "Contact page — inquiry form as primary element, business info, service area",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-PAGE-06": {
+      "id": "req-PAGE-06",
+      "title": "PAGE-06: Investment/Pricing page — package overview with \"Starting At\" pricing for each service, what's included, CTA to inquire",
+      "description": "Investment/Pricing page — package overview with \"Starting At\" pricing for each service, what's included, CTA to inquire",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-PAGE-07": {
+      "id": "req-PAGE-07",
+      "title": "PAGE-07: Raves/Testimonials page — dedicated page with client reviews, photos where available",
+      "description": "Raves/Testimonials page — dedicated page with client reviews, photos where available",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-PAGE-08": {
+      "id": "req-PAGE-08",
+      "title": "PAGE-08: Senior Style/Wardrobe Guide page — outfit tips, color recommendations, seasonal advice, layering suggestions",
+      "description": "Senior Style/Wardrobe Guide page — outfit tips, color recommendations, seasonal advice, layering suggestions",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-LOCAL-01": {
+      "id": "req-LOCAL-01",
+      "title": "LOCAL-01: Chatham VA landing page — unique 250-500 word SEO copy, local testimonials, Google Maps embed, city-specific gallery, AEO answer block, JSON-LD with areaServed",
+      "description": "Chatham VA landing page — unique 250-500 word SEO copy, local testimonials, Google Maps embed, city-specific gallery, AEO answer block, JSON-LD with areaServed",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-LOCAL-02": {
+      "id": "req-LOCAL-02",
+      "title": "LOCAL-02: Danville VA landing page — unique 250-500 word SEO copy, local testimonials, Google Maps embed, city-specific gallery, AEO answer block, JSON-LD with areaServed",
+      "description": "Danville VA landing page — unique 250-500 word SEO copy, local testimonials, Google Maps embed, city-specific gallery, AEO answer block, JSON-LD with areaServed",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-LOCAL-03": {
+      "id": "req-LOCAL-03",
+      "title": "LOCAL-03: Lynchburg VA landing page — unique 250-500 word SEO copy, local testimonials, Google Maps embed, city-specific gallery, AEO answer block, JSON-LD with areaServed",
+      "description": "Lynchburg VA landing page — unique 250-500 word SEO copy, local testimonials, Google Maps embed, city-specific gallery, AEO answer block, JSON-LD with areaServed",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-LOCAL-04": {
+      "id": "req-LOCAL-04",
+      "title": "LOCAL-04: Smith Mountain Lake VA landing page — unique 250-500 word SEO copy, local testimonials, Google Maps embed, city-specific gallery, AEO answer block, JSON-LD with areaServed",
+      "description": "Smith Mountain Lake VA landing page — unique 250-500 word SEO copy, local testimonials, Google Maps embed, city-specific gallery, AEO answer block, JSON-LD with areaServed",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-LOCAL-05": {
+      "id": "req-LOCAL-05",
+      "title": "LOCAL-05: Forest VA landing page — unique 250-500 word SEO copy, local testimonials, Google Maps embed, city-specific gallery, AEO answer block, JSON-LD with areaServed",
+      "description": "Forest VA landing page — unique 250-500 word SEO copy, local testimonials, Google Maps embed, city-specific gallery, AEO answer block, JSON-LD with areaServed",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-LOCAL-06": {
+      "id": "req-LOCAL-06",
+      "title": "LOCAL-06: Altavista VA landing page — unique 250-500 word SEO copy, local testimonials, Google Maps embed, city-specific gallery, AEO answer block, JSON-LD with areaServed",
+      "description": "Altavista VA landing page — unique 250-500 word SEO copy, local testimonials, Google Maps embed, city-specific gallery, AEO answer block, JSON-LD with areaServed",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-LOCAL-07": {
+      "id": "req-LOCAL-07",
+      "title": "LOCAL-07: Evington VA landing page — unique 250-500 word SEO copy, local testimonials, Google Maps embed, city-specific gallery, AEO answer block, JSON-LD with areaServed",
+      "description": "Evington VA landing page — unique 250-500 word SEO copy, local testimonials, Google Maps embed, city-specific gallery, AEO answer block, JSON-LD with areaServed",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-GALL-01": {
+      "id": "req-GALL-01",
+      "title": "GALL-01: Senior Portraits gallery with masonry/grid layout, CMS-managed images",
+      "description": "Senior Portraits gallery with masonry/grid layout, CMS-managed images",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-GALL-02": {
+      "id": "req-GALL-02",
+      "title": "GALL-02: Family Portraits gallery with masonry/grid layout, CMS-managed images",
+      "description": "Family Portraits gallery with masonry/grid layout, CMS-managed images",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-GALL-03": {
+      "id": "req-GALL-03",
+      "title": "GALL-03: Location-based portfolio galleries (mirroring current site's geographic gallery structure)",
+      "description": "Location-based portfolio galleries (mirroring current site's geographic gallery structure)",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-GALL-04": {
+      "id": "req-GALL-04",
+      "title": "GALL-04: Responsive lightbox with keyboard nav, swipe gestures, image counter, escape-to-close",
+      "description": "Responsive lightbox with keyboard nav, swipe gestures, image counter, escape-to-close",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-CONV-01": {
+      "id": "req-CONV-01",
+      "title": "CONV-01: Inquiry form with fields: Name, Email, Phone (optional), Service Type dropdown, Grad Year (conditional on Senior), High School (conditional on Senior), \"Tell us about your dream session\" text area",
+      "description": "Inquiry form with fields: Name, Email, Phone (optional), Service Type dropdown, Grad Year (conditional on Senior), High School (conditional on Senior), \"Tell us about your dream session\" text area",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-CONV-02": {
+      "id": "req-CONV-02",
+      "title": "CONV-02: Inquiry form submissions send email notification to Emily",
+      "description": "Inquiry form submissions send email notification to Emily",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-CONV-03": {
+      "id": "req-CONV-03",
+      "title": "CONV-03: Auto-responder email sent ~10 minutes after inquiry submission",
+      "description": "Auto-responder email sent ~10 minutes after inquiry submission",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-CONV-04": {
+      "id": "req-CONV-04",
+      "title": "CONV-04: Persistent \"Inquire for Detailed Pricing\" CTA button in navigation bar and as high-contrast button on every page",
+      "description": "Persistent \"Inquire for Detailed Pricing\" CTA button in navigation bar and as high-contrast button on every page",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-CONV-05": {
+      "id": "req-CONV-05",
+      "title": "CONV-05: \"Starting At\" pricing displayed on Senior Portraits and Family Portraits service pages",
+      "description": "\"Starting At\" pricing displayed on Senior Portraits and Family Portraits service pages",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-CONV-06": {
+      "id": "req-CONV-06",
+      "title": "CONV-06: CMS-managed scarcity cues (\"Limited Spring 2026 Slots Remaining\") with visibility toggle",
+      "description": "CMS-managed scarcity cues (\"Limited Spring 2026 Slots Remaining\") with visibility toggle",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-CONV-07": {
+      "id": "req-CONV-07",
+      "title": "CONV-07: Client testimonials displayed on homepage, service pages, and city landing pages (CMS-managed)",
+      "description": "Client testimonials displayed on homepage, service pages, and city landing pages (CMS-managed)",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-CONT-01": {
+      "id": "req-CONT-01",
+      "title": "CONT-01: Experience Storyboards on Senior Portraits page showing session journey (Consultation > Wardrobe Planning > Session Day > Gallery Reveal > Product Delivery)",
+      "description": "Experience Storyboards on Senior Portraits page showing session journey (Consultation > Wardrobe Planning > Session Day > Gallery Reveal > Product Delivery)",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-CONT-02": {
+      "id": "req-CONT-02",
+      "title": "CONT-02: FAQ sections on service pages addressing: pricing, session length, outfit count, locations, turnaround time, digital vs prints",
+      "description": "FAQ sections on service pages addressing: pricing, session length, outfit count, locations, turnaround time, digital vs prints",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-CONT-03": {
+      "id": "req-CONT-03",
+      "title": "CONT-03: All page copy written in Emily's existing brand voice — warm, confident, editorial",
+      "description": "All page copy written in Emily's existing brand voice — warm, confident, editorial",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-CONT-04": {
+      "id": "req-CONT-04",
+      "title": "CONT-04: SEO copy generated for all 7 city landing pages (250-500 words each) with genuine local references (not template-swapped)",
+      "description": "SEO copy generated for all 7 city landing pages (250-500 words each) with genuine local references (not template-swapped)",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-SEO-01": {
+      "id": "req-SEO-01",
+      "title": "SEO-01: JSON-LD LocalBusiness schema (service area business — no physical address displayed) on all pages",
+      "description": "JSON-LD LocalBusiness schema (service area business — no physical address displayed) on all pages",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-SEO-02": {
+      "id": "req-SEO-02",
+      "title": "SEO-02: JSON-LD Service schema for Senior Portraits and Family Portraits",
+      "description": "JSON-LD Service schema for Senior Portraits and Family Portraits",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-SEO-03": {
+      "id": "req-SEO-03",
+      "title": "SEO-03: JSON-LD FAQPage schema on pages with FAQ sections",
+      "description": "JSON-LD FAQPage schema on pages with FAQ sections",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-SEO-04": {
+      "id": "req-SEO-04",
+      "title": "SEO-04: JSON-LD Review schema for testimonials",
+      "description": "JSON-LD Review schema for testimonials",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-SEO-05": {
+      "id": "req-SEO-05",
+      "title": "SEO-05: AEO answer blocks (40-60 words) on each city landing page targeting local queries",
+      "description": "AEO answer blocks (40-60 words) on each city landing page targeting local queries",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-SEO-06": {
+      "id": "req-SEO-06",
+      "title": "SEO-06: Google Maps embed centered on each target city on its landing page",
+      "description": "Google Maps embed centered on each target city on its landing page",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-SEO-07": {
+      "id": "req-SEO-07",
+      "title": "SEO-07: Canonical NAP+W (Name, Address, Phone, Website) consistency across all pages — single config source of truth",
+      "description": "Canonical NAP+W (Name, Address, Phone, Website) consistency across all pages — single config source of truth",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-SEO-08": {
+      "id": "req-SEO-08",
+      "title": "SEO-08: XML sitemap generation with all pages",
+      "description": "XML sitemap generation with all pages",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-SEO-09": {
+      "id": "req-SEO-09",
+      "title": "SEO-09: OG metadata and social sharing images per page",
+      "description": "OG metadata and social sharing images per page",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-EXT-01": {
+      "id": "req-EXT-01",
+      "title": "EXT-01: GBP setup as service area business — provide Gretna address to Google for verification/proximity ranking but hide from public display, list all 7 service area cities, link landing pages, step-by-step guide for manual portal steps",
+      "description": "GBP setup as service area business — provide Gretna address to Google for verification/proximity ranking but hide from public display, list all 7 service area cities, link landing pages, step-by-step guide for manual portal steps",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-EXT-02": {
+      "id": "req-EXT-02",
+      "title": "EXT-02: Apple Business Connect setup as service area business, step-by-step guide for manual portal steps",
+      "description": "Apple Business Connect setup as service area business, step-by-step guide for manual portal steps",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-INFRA-01": {
+      "id": "req-INFRA-01",
+      "title": "INFRA-01: Email delivery via Resend for inquiry notifications and auto-responder",
+      "description": "Email delivery via Resend for inquiry notifications and auto-responder",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-INFRA-02": {
+      "id": "req-INFRA-02",
+      "title": "INFRA-02: Sanity webhook to trigger ISR revalidation on content changes",
+      "description": "Sanity webhook to trigger ISR revalidation on content changes",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "req-INFRA-03": {
+      "id": "req-INFRA-03",
+      "title": "INFRA-03: Form spam protection (honeypot + rate limiting)",
+      "description": "Form spam protection (honeypot + rate limiting)",
+      "category": "requirement",
+      "isUserTask": false,
+      "completed": false,
+      "source": "REQUIREMENTS.md",
+      "createdAt": "2026-02-18T23:29:16.297Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.297Z",
+          "action": "imported",
+          "details": "Imported from REQUIREMENTS.md"
+        }
+      ]
+    },
+    "phase-1": {
+      "id": "phase-1",
+      "title": "Phase 1: Foundation",
+      "description": "Next.js + Sanity + Vercel scaffolding with image pipeline, ISR, NAP config, and pitfall prevention",
+      "category": "phase",
+      "isUserTask": false,
+      "completed": false,
+      "source": "ROADMAP.md",
+      "createdAt": "2026-02-18T23:29:16.298Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.298Z",
+          "action": "imported",
+          "details": "Imported from ROADMAP.md"
+        }
+      ]
+    },
+    "phase-2": {
+      "id": "phase-2",
+      "title": "Phase 2: Shared Components and Galleries",
+      "description": "Reusable gallery, lightbox, JSON-LD, and layout components with Core Web Vitals verification",
+      "category": "phase",
+      "isUserTask": false,
+      "completed": false,
+      "source": "ROADMAP.md",
+      "createdAt": "2026-02-18T23:29:16.298Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.298Z",
+          "action": "imported",
+          "details": "Imported from ROADMAP.md"
+        }
+      ]
+    },
+    "phase-3": {
+      "id": "phase-3",
+      "title": "Phase 3: Core Pages and Conversion",
+      "description": "All 8 core pages with inquiry funnel, email delivery, spam protection, and brand-voice copy — MVP launch candidate",
+      "category": "phase",
+      "isUserTask": false,
+      "completed": false,
+      "source": "ROADMAP.md",
+      "createdAt": "2026-02-18T23:29:16.298Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.298Z",
+          "action": "imported",
+          "details": "Imported from ROADMAP.md"
+        }
+      ]
+    },
+    "phase-4": {
+      "id": "phase-4",
+      "title": "Phase 4: SEO Infrastructure",
+      "description": "Site-wide JSON-LD schemas, XML sitemap, ISR webhook, and OG metadata",
+      "category": "phase",
+      "isUserTask": false,
+      "completed": false,
+      "source": "ROADMAP.md",
+      "createdAt": "2026-02-18T23:29:16.298Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.298Z",
+          "action": "imported",
+          "details": "Imported from ROADMAP.md"
+        }
+      ]
+    },
+    "phase-5": {
+      "id": "phase-5",
+      "title": "Phase 5: City Landing Pages",
+      "description": "7 hyper-local city pages with unique content, AEO answer blocks, Google Maps, and city-specific JSON-LD",
+      "category": "phase",
+      "isUserTask": false,
+      "completed": false,
+      "source": "ROADMAP.md",
+      "createdAt": "2026-02-18T23:29:16.298Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.298Z",
+          "action": "imported",
+          "details": "Imported from ROADMAP.md"
+        }
+      ]
+    },
+    "phase-6": {
+      "id": "phase-6",
+      "title": "Phase 6: External Platforms and Launch Polish",
+      "description": "GBP setup guide, Apple Business Connect setup guide, and final cross-site verification",
+      "category": "phase",
+      "isUserTask": false,
+      "completed": false,
+      "source": "ROADMAP.md",
+      "createdAt": "2026-02-18T23:29:16.298Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.298Z",
+          "action": "imported",
+          "details": "Imported from ROADMAP.md"
+        }
+      ]
+    },
+    "plan-01-01-PLAN": {
+      "id": "plan-01-01-PLAN",
+      "title": "Project scaffolding: Next.js 15.5 + Sanity v4 + Tailwind v4 brand theme + editorial fonts + Studio route + Vercel deployment",
+      "description": "Project scaffolding: Next.js 15.5 + Sanity v4 + Tailwind v4 brand theme + editorial fonts + Studio route + Vercel deployment",
+      "category": "plan",
+      "isUserTask": false,
+      "completed": false,
+      "source": "ROADMAP.md",
+      "createdAt": "2026-02-18T23:29:16.298Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.298Z",
+          "action": "imported",
+          "details": "Imported from ROADMAP.md (01-01-PLAN.md)"
+        }
+      ]
+    },
+    "plan-01-02-PLAN": {
+      "id": "plan-01-02-PLAN",
+      "title": "Image pipeline: SanityImage wrapper with custom CDN loader, LQIP blur placeholders, sanityFetch ISR wrapper, webhook revalidation endpoint",
+      "description": "Image pipeline: SanityImage wrapper with custom CDN loader, LQIP blur placeholders, sanityFetch ISR wrapper, webhook revalidation endpoint",
+      "category": "plan",
+      "isUserTask": false,
+      "completed": false,
+      "source": "ROADMAP.md",
+      "createdAt": "2026-02-18T23:29:16.298Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.298Z",
+          "action": "imported",
+          "details": "Imported from ROADMAP.md (01-02-PLAN.md)"
+        }
+      ]
+    },
+    "plan-01-03-PLAN": {
+      "id": "plan-01-03-PLAN",
+      "title": "NAP config + layout: siteConfig.ts single source of truth, scroll-aware Header, full-screen MobileNav, rich Footer, site layout integration",
+      "description": "NAP config + layout: siteConfig.ts single source of truth, scroll-aware Header, full-screen MobileNav, rich Footer, site layout integration",
+      "category": "plan",
+      "isUserTask": false,
+      "completed": false,
+      "source": "ROADMAP.md",
+      "createdAt": "2026-02-18T23:29:16.298Z",
+      "auditLog": [
+        {
+          "timestamp": "2026-02-18T23:29:16.298Z",
+          "action": "imported",
+          "details": "Imported from ROADMAP.md (01-03-PLAN.md)"
+        }
+      ]
+    }
+  },
+  "columnOrder": [
+    "todo",
+    "in-progress",
+    "done",
+    "action-required"
+  ]
+}

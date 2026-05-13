@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Emily Kathryn Photography — Design Variations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Playfair+Display:ital,wght@0,500;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f5f1ea;
+    --ink:#1a1a1a;
+    --gold:#c2a36c;
+    --muted:#6e6a64;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);
+    line-height:1.65;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1320px;margin:0 auto;padding:64px 48px}
+  header{text-align:center;margin-bottom:80px}
+  .eyebrow{font-size:11px;letter-spacing:0.36em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;display:flex;justify-content:center;align-items:center;gap:14px}
+  .eyebrow .dot{width:6px;height:6px;background:var(--gold);border-radius:50%;display:inline-block}
+  header h1{
+    font-family:'DM Serif Display',serif;font-weight:400;
+    font-size:clamp(48px,6vw,84px);line-height:1;letter-spacing:-0.02em;margin-bottom:24px;
+  }
+  header h1 em{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);font-weight:300}
+  header p{font-size:17px;color:var(--muted);max-width:680px;margin:0 auto;line-height:1.8}
+
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;margin-bottom:80px}
+  @media (min-width:1280px){.grid{grid-template-columns:repeat(4,1fr)}}
+  .card{
+    background:#fff;overflow:hidden;border:1px solid rgba(0,0,0,0.06);
+    transition:transform .35s, box-shadow .35s;display:flex;flex-direction:column;
+  }
+  .card:hover{transform:translateY(-6px);box-shadow:0 30px 60px rgba(0,0,0,0.08)}
+  .card .preview{aspect-ratio:16/11;background-size:cover;background-position:center top;position:relative}
+  .card .preview .badge{
+    position:absolute;top:18px;left:18px;background:#fff;
+    padding:8px 14px;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;font-weight:500;
+  }
+  .card .body{padding:32px 28px 28px;flex:1;display:flex;flex-direction:column}
+  .card .num{font-family:'DM Serif Display',serif;font-size:14px;color:var(--gold);letter-spacing:0.2em;margin-bottom:10px}
+  .card h2{font-family:'DM Serif Display',serif;font-size:32px;line-height:1.05;margin-bottom:14px}
+  .card .vibe{font-size:13px;color:var(--gold);text-transform:uppercase;letter-spacing:0.24em;margin-bottom:14px;font-weight:500}
+  .card p{color:#555;font-size:14px;line-height:1.7;margin-bottom:16px;flex:1}
+  .card .swatches{display:flex;gap:6px;margin-bottom:20px}
+  .card .swatches span{width:22px;height:22px;border-radius:50%;border:1px solid rgba(0,0,0,0.1)}
+  .card a.cta{
+    display:inline-flex;align-items:center;justify-content:space-between;
+    background:var(--ink);color:#fff;padding:14px 22px;
+    font-size:11px;letter-spacing:0.3em;text-transform:uppercase;font-weight:500;
+    text-decoration:none;transition:all .3s;
+  }
+  .card a.cta:hover{background:var(--gold);color:var(--ink)}
+  .card a.cta::after{content:"→";font-size:14px}
+
+  .compare{
+    background:#fff;padding:48px;border:1px solid rgba(0,0,0,0.06);
+  }
+  .compare h3{font-family:'DM Serif Display',serif;font-size:32px;margin-bottom:24px}
+  .compare table{width:100%;border-collapse:collapse}
+  .compare th,.compare td{text-align:left;padding:16px 12px;border-bottom:1px solid rgba(0,0,0,0.08);font-size:14px;vertical-align:top}
+  .compare th{font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  .compare td:first-child{font-weight:500;color:var(--ink);width:200px}
+  .compare td.highlight{color:var(--gold);font-style:italic;font-family:'Cormorant Garamond',serif;font-size:18px}
+
+  footer{text-align:center;padding:60px 48px 32px;color:var(--muted);font-size:12px;letter-spacing:0.28em;text-transform:uppercase}
+
+  /* Visual previews — recreate the look without iframe */
+  .p1{background-image:url('../public/placeholder/hero-1.jpeg');background-position:right center}
+  .p2{background-image:url('../public/placeholder/senior-2.jpeg');background-position:center}
+  .p3{background-image:url('../public/placeholder/hero-1.jpeg');background-position:center;filter:brightness(.55) saturate(1.05)}
+  .p4{background-image:url('../public/placeholder/senior-9.jpeg');background-position:center}
+
+  @media (max-width:900px){
+    .wrap{padding:48px 24px}
+    .grid{grid-template-columns:1fr;gap:24px}
+    .compare{padding:28px}
+    .compare table,.compare thead,.compare tbody,.compare tr,.compare td,.compare th{display:block;width:100%}
+    .compare tr{border-bottom:1px solid rgba(0,0,0,0.08);padding:12px 0}
+    .compare td{border:none;padding:6px 0}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow"><span class="dot"></span> Website Redesign · Round 02 <span class="dot"></span></div>
+    <h1>Four <em>directions</em><br/>for emilykathryn.com</h1>
+    <p>Three original directions plus a new <em>fourth direction (04)</em> built from Emily's reaction to round one — leaning into the calm of Direction 02 with subtle editorial flourishes from Direction 01. Click any card to open the full scrollable mockup.</p>
+  </header>
+
+  <div class="grid">
+
+    <!-- Card 1 -->
+    <article class="card">
+      <div class="preview p1">
+        <div class="badge" style="font-family:'DM Serif Display',serif;letter-spacing:0">Vol. 01 · Editorial</div>
+      </div>
+      <div class="body">
+        <div class="num">01</div>
+        <h2>Editorial Magazine</h2>
+        <div class="vibe">Vogue · Bold · Fashion</div>
+        <p>Bold oversized serif headlines, asymmetric magazine-style layouts, numbered sections, and a marquee of brand language. Reads like the cover of a fashion publication — leans hardest into the "editorial/Vogue" brief.</p>
+        <div class="swatches">
+          <span style="background:#0e0e0e"></span>
+          <span style="background:#f7f3ee"></span>
+          <span style="background:#c2a36c"></span>
+          <span style="background:#dcb6ad"></span>
+          <span style="background:#b3d4cd"></span>
+        </div>
+        <a class="cta" href="design-1-editorial.html" target="_blank">Open Design 01</a>
+      </div>
+    </article>
+
+    <!-- Card 2 -->
+    <article class="card">
+      <div class="preview p2">
+        <div class="badge" style="font-family:'Cormorant Garamond',serif;font-style:italic;letter-spacing:0.04em;text-transform:none;font-size:14px;padding:8px 16px">— Quietly Beautiful —</div>
+      </div>
+      <div class="body">
+        <div class="num">02</div>
+        <h2>Modern Minimalist</h2>
+        <div class="vibe">Soft · Refined · Approachable</div>
+        <p>Generous whitespace, an off-white cream palette, delicate italic serifs, and a Pinterest-style masonry gallery. Calmer and more romantic — appeals strongly to parents and seniors of every gender without feeling overly "girly."</p>
+        <div class="swatches">
+          <span style="background:#faf6f1;border-color:#bbb"></span>
+          <span style="background:#2a2826"></span>
+          <span style="background:#c2a36c"></span>
+          <span style="background:#dcb6ad"></span>
+          <span style="background:#b3d4cd"></span>
+        </div>
+        <a class="cta" href="design-2-minimalist.html" target="_blank">Open Design 02</a>
+      </div>
+    </article>
+
+    <!-- Card 3 -->
+    <article class="card">
+      <div class="preview p3">
+        <div class="badge" style="background:#0a0a0a;color:#c2a36c;border:1px solid #c2a36c">Boutique · Vol. 03</div>
+      </div>
+      <div class="body">
+        <div class="num">03</div>
+        <h2>Boutique Luxury</h2>
+        <div class="vibe">Moody · Cinematic · Premium</div>
+        <p>Black backgrounds, gold accents, full-bleed cinematic imagery and a sticky glass nav. Reads like a high-end fashion or hotel brand — most distinctive direction, and the strongest pull for senior boys and the "high-end" positioning.</p>
+        <div class="swatches">
+          <span style="background:#0a0a0a"></span>
+          <span style="background:#e9e2d6;border-color:#bbb"></span>
+          <span style="background:#c2a36c"></span>
+          <span style="background:#dcb6ad"></span>
+          <span style="background:#b3d4cd"></span>
+        </div>
+        <a class="cta" href="design-3-boutique.html" target="_blank">Open Design 03</a>
+      </div>
+    </article>
+
+    <!-- Card 4 — NEW HYBRID -->
+    <article class="card" style="border:2px solid #c2a36c;position:relative">
+      <div style="position:absolute;top:-12px;left:24px;background:#c2a36c;color:#1a1a1a;padding:5px 14px;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;font-weight:600;z-index:3">New · Round 02</div>
+      <div class="preview p4">
+        <div class="badge" style="font-family:'Cormorant Garamond',serif;font-style:italic;letter-spacing:0.04em;text-transform:none;font-size:14px;padding:8px 16px">— Vol. XII · Cover Story —</div>
+      </div>
+      <div class="body">
+        <div class="num">04</div>
+        <h2>Editorial Minimalist</h2>
+        <div class="vibe">Quiet · Considered · Magazine</div>
+        <p>The Minimalist's calm cream palette and breathable whitespace, with subtle editorial cues borrowed from 01: a "Vol. XII" running head, italic Roman-numeral sections, plate captions on imagery, and asymmetric magazine spreads — all without the heavy slabs or loud marquee.</p>
+        <div class="swatches">
+          <span style="background:#faf6f1;border-color:#bbb"></span>
+          <span style="background:#26241f"></span>
+          <span style="background:#b89765"></span>
+          <span style="background:#dcb6ad"></span>
+          <span style="background:#b3d4cd"></span>
+        </div>
+        <a class="cta" href="design-4-editorial-minimalist.html" target="_blank">Open Design 04</a>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- Compare -->
+  <section class="compare">
+    <h3>At a glance</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Direction</th>
+          <th>01 · Editorial</th>
+          <th>02 · Minimalist</th>
+          <th>03 · Boutique</th>
+          <th style="color:#c2a36c">04 · Editorial Minimalist ★</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Mood</td>
+          <td class="highlight">Bold &amp; magazine-y</td>
+          <td class="highlight">Soft &amp; romantic</td>
+          <td class="highlight">Moody &amp; cinematic</td>
+          <td class="highlight">Quiet &amp; considered, with a magazine sensibility</td>
+        </tr>
+        <tr>
+          <td>Background</td>
+          <td>Warm paper-cream</td>
+          <td>Off-white cream</td>
+          <td>Near-black</td>
+          <td>Off-white cream (same family as 02)</td>
+        </tr>
+        <tr>
+          <td>Typography</td>
+          <td>DM Serif Display + Inter</td>
+          <td>Cormorant + Outfit</td>
+          <td>Playfair + Manrope</td>
+          <td>Bodoni Moda + Cormorant Italic + Outfit</td>
+        </tr>
+        <tr>
+          <td>Editorial cues</td>
+          <td>Loud — marquee, slabs, big numerals</td>
+          <td>None</td>
+          <td>Cinematic — gold strip, glass nav</td>
+          <td>Subtle — running head, italic Roman numerals, plate captions, asymmetric spread</td>
+        </tr>
+        <tr>
+          <td>Best for</td>
+          <td>Senior girls + creative families</td>
+          <td>Parents + everyone equally</td>
+          <td>Senior boys, premium pricing</td>
+          <td>Both seniors &amp; parents — calm enough for moms, refined enough for fashion-leaning seniors</td>
+        </tr>
+        <tr>
+          <td>Risk</td>
+          <td>Could feel "fashion-only"</td>
+          <td>Could feel too quiet</td>
+          <td>Darker sites convert slightly slower</td>
+          <td>Lowest risk — quiet base + clear editorial signals</td>
+        </tr>
+        <tr>
+          <td>Recommendation</td>
+          <td colspan="4" style="color:var(--gold);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px">Direction 04 is built specifically from your reaction to round one — recommended path forward unless something in 01 or 03 still pulls.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</div>
+
+<footer>
+  Emily Kathryn Photography · Website Redesign · Prepared by NXTLVL Digital
+</footer>
+
+</body>
+</html>

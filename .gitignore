@@ -42,3 +42,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# large local design/research artifacts
+FireShot*.pdf
+
+# python
+__pycache__/
+*.pyc
+*.pyo

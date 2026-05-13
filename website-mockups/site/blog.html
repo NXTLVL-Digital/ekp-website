@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Journal — Emily Kathryn Photography</title>
+<meta name="description" content="Recent senior sessions, behind-the-scenes notes, and stories from the EKP studio." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+<style>
+  .feature-post{
+    max-width:1320px;margin:0 auto;padding:48px var(--pad-x);
+    display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:center;
+  }
+  .feature-post .img{width:100%;aspect-ratio:5/4;background-size:cover;background-position:center;border-radius:2px}
+  .feature-post .meta{font-size:11px;letter-spacing:0.32em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;display:flex;gap:14px;flex-wrap:wrap}
+  .feature-post .meta span:not(:last-child)::after{content:"·";margin-left:14px;color:var(--gold)}
+  .feature-post h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(36px,4.5vw,64px);line-height:1.05;letter-spacing:-0.005em;margin-bottom:20px}
+  .feature-post h2 em{font-style:italic;color:var(--gold)}
+  .feature-post p{font-size:16px;color:var(--ink-soft);line-height:1.85;margin-bottom:18px;font-weight:300}
+  .feature-post .read{display:inline-block;font-size:11px;letter-spacing:0.36em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:4px;font-weight:400}
+  @media (max-width:780px){
+    .feature-post{grid-template-columns:1fr;padding:32px 20px;gap:24px}
+  }
+  .categories{
+    text-align:center;padding:0 var(--pad-x) 24px;border-bottom:1px solid var(--rule);
+  }
+  .categories a{
+    display:inline-block;font-size:11px;letter-spacing:0.36em;text-transform:uppercase;
+    color:var(--muted);text-decoration:none;padding:14px 18px;border-bottom:1px solid transparent;
+    transition:all .3s;min-height:44px;
+  }
+  .categories a.active,.categories a:hover{color:var(--ink);border-bottom-color:var(--gold)}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Skip to content</a>
+
+<nav class="nav-bar" aria-label="Primary">
+  <div class="links">
+    <a href="meet-emily.html">Meet Emily</a>
+    <a href="experience.html">Experience</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="raves.html">Raves</a>
+  </div>
+  <a class="logo" href="index.html">emily kathryn<small>P H O T O G R A P H Y</small></a>
+  <div class="right">
+    <a href="contact.html" class="btn-soft">Inquire</a>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span></button>
+  </div>
+</nav>
+
+<div class="scrim" aria-hidden="true"></div>
+<aside class="mobile-drawer" aria-label="Mobile menu">
+  <a href="index.html">Home</a>
+  <a href="meet-emily.html">Meet Emily</a>
+  <a href="experience.html">The Experience</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="raves.html">Raves</a>
+  <a href="blog.html">The Journal</a>
+  <a href="contact.html" class="italic">Inquire →</a>
+  <div class="meta"><span class="small-caps">Connect</span><a href="#">Instagram</a><a href="#">Pinterest</a><a href="#">Facebook</a></div>
+</aside>
+
+<main id="main">
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <span class="small-caps">— Stories From the Studio —</span>
+  <h1>The <em>Journal.</em></h1>
+  <p class="lede">Recent senior sessions, behind-the-scenes notes, location guides, and the occasional thought on life behind the camera.</p>
+</section>
+
+<!-- CATEGORY FILTER -->
+<div class="categories">
+  <a href="#" class="active">All Posts</a>
+  <a href="#">Senior Sessions</a>
+  <a href="#">Family Sessions</a>
+  <a href="#">Behind The Scenes</a>
+  <a href="#">Location Guides</a>
+</div>
+
+<!-- FEATURED POST -->
+<article class="feature-post">
+  <div class="img" style="background-image:url('../../public/placeholder/senior-9.jpeg')"></div>
+  <div>
+    <div class="meta">
+      <span>Senior Sessions</span>
+      <span>April 2026</span>
+      <span>4 min read</span>
+    </div>
+    <h2>Faith — A Spring <em>Senior Session</em> Among the Azaleas</h2>
+    <p>Faith and I had been planning this one for months — soft pinks, downtown brick, and the very last of the spring azaleas in Forest. Here's a peek at how the day came together, and a few of my favorite frames from the gallery.</p>
+    <a class="read" href="#">Read the story →</a>
+  </div>
+</article>
+
+<!-- POST GRID -->
+<div class="blog-grid">
+
+  <a href="#" class="blog-card">
+    <div class="img" style="background-image:url('../../public/placeholder/senior-2.jpeg')"></div>
+    <div class="meta"><span>Senior Sessions</span><span>March 2026</span></div>
+    <h3>Ellery — A <em>Studio + Downtown</em> Senior Day</h3>
+    <p class="excerpt">A two-look senior session that started in our Gretna studio and ended on the brick stairs of downtown Lynchburg.</p>
+  </a>
+
+  <a href="#" class="blog-card">
+    <div class="img" style="background-image:url('../../public/placeholder/family-2.jpeg')"></div>
+    <div class="meta"><span>Family Sessions</span><span>March 2026</span></div>
+    <h3>The Henderson Family — <em>at home</em></h3>
+    <p class="excerpt">An at-home family session that captures the messy, beautiful, every-day-ness of life with three little ones.</p>
+  </a>
+
+  <a href="#" class="blog-card">
+    <div class="img" style="background-image:url('../../public/placeholder/senior-12.jpeg')"></div>
+    <div class="meta"><span>Senior Sessions</span><span>February 2026</span></div>
+    <h3>Raegan — A 2026 <em>Altavista Senior</em></h3>
+    <p class="excerpt">A late-winter session at the stone wall and through the wildflowers — and one of my favorite golden hour skies of the season.</p>
+  </a>
+
+  <a href="#" class="blog-card">
+    <div class="img" style="background-image:url('../../public/placeholder/senior-5.jpeg')"></div>
+    <div class="meta"><span>Behind The Scenes</span><span>February 2026</span></div>
+    <h3>The Best (and worst) Photos I Took in <em>2025</em></h3>
+    <p class="excerpt">My annual look back at the year behind the camera — the keepers, the misses, and the lessons I'm carrying into 2026.</p>
+  </a>
+
+  <a href="#" class="blog-card">
+    <div class="img" style="background-image:url('../../public/placeholder/senior-11.jpeg')"></div>
+    <div class="meta"><span>Senior Sessions</span><span>January 2026</span></div>
+    <h3>First Senior Shoot of <em>2026</em></h3>
+    <p class="excerpt">Kicking off the new year with a beautiful Class of '26 senior in cherry blossom season. Here's how the day unfolded.</p>
+  </a>
+
+  <a href="#" class="blog-card">
+    <div class="img" style="background-image:url('../../public/placeholder/family-3.jpeg')"></div>
+    <div class="meta"><span>Location Guides</span><span>January 2026</span></div>
+    <h3>My Favorite <em>Lynchburg</em> Senior Locations</h3>
+    <p class="excerpt">Six tried-and-true spots in and around Lynchburg that I keep coming back to — and a few new ones for 2026.</p>
+  </a>
+
+</div>
+
+<!-- LOAD MORE -->
+<div class="view-all">
+  <a class="btn-soft" href="#">More Stories</a>
+</div>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Ready for <em>your</em> story?</h2>
+  <p>Inquire to receive my Senior Magazine — packed with session details, sample images, and pricing — and let's start planning your EKP experience.</p>
+  <a class="btn-gold" href="contact.html">Begin Your Inquiry</a>
+</section>
+
+</main>
+
+<footer>
+  <div class="foot-top">
+    <div>
+      <a class="foot-logo" href="index.html">emily kathryn<small>P H O T O G R A P H Y</small></a>
+      <p style="color:var(--muted);font-size:14px;margin-top:18px;max-width:340px;font-weight:300">Editorial senior &amp; family portrait photography. Gretna, VA · Serving Danville, Chatham, Altavista, Lynchburg, Evington, Forest, Smith Mountain Lake &amp; surrounding South-Central Virginia.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <a href="meet-emily.html">Meet Emily</a>
+      <a href="experience.html">The Experience</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="raves.html">Raves</a>
+      <a href="blog.html">The Journal</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="contact.html">Inquire</a>
+      <a href="mailto:hello@emilykathryn.com">hello@emilykathryn.com</a>
+      <a href="#">8285 Chalk Level Rd<br/>Gretna, VA 24557</a>
+    </div>
+    <div>
+      <h4>Follow</h4>
+      <a href="#">Instagram</a>
+      <a href="#">Pinterest</a>
+      <a href="#">Facebook</a>
+      <a href="#">YouTube</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Emily Kathryn Photography</span>
+    <span>Site by NXTLVL Digital</span>
+  </div>
+</footer>
+
+<a class="sticky-inquire" href="contact.html"><span>Inquire for the Senior Magazine</span><span>→</span></a>
+<script src="js/site.js"></script>
+</body>
+</html>

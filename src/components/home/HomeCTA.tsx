@@ -7,25 +7,31 @@ interface HomeCTAProps {
   ctaHref: string
 }
 
-/**
- * Mid-page CTA section that breaks up the content scroll and reinforces
- * the conversion action. Centered layout with heading, body text, and
- * a gold CTA button meeting the 44px tap-target minimum.
- */
 export function HomeCTA({ heading, body, ctaLabel, ctaHref }: HomeCTAProps) {
   return (
     <div className="mx-auto max-w-2xl text-center">
-      <h2 className="font-heading text-3xl font-light md:text-4xl">
+      {/* Gold accent rule centered */}
+      <div className="mx-auto mb-6 h-px w-12 bg-brand-gold" />
+
+      <h2 className="font-heading text-4xl font-light md:text-5xl">
         {heading}
       </h2>
-      <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+
+      <p className="mt-5 text-sm leading-relaxed text-muted-foreground md:text-base">
         {body}
       </p>
+
+      {/* Editorial CTA — underline style */}
       <Link
         href={ctaHref}
-        className="mt-8 inline-flex min-h-11 items-center rounded bg-brand-gold px-6 py-3 text-sm tracking-wide text-white transition-colors hover:bg-brand-gold-dark"
+        className="group mt-8 inline-flex items-center gap-3"
       >
-        {ctaLabel}
+        <span className="editorial-label text-foreground transition-colors duration-300 group-hover:text-brand-gold">
+          {ctaLabel}
+        </span>
+        <svg width="24" height="8" viewBox="0 0 24 8" fill="none" className="transition-transform duration-300 group-hover:translate-x-1">
+          <path d="M0 4H22M22 4L18.5 0.5M22 4L18.5 7.5" stroke="currentColor" strokeWidth="0.75" className="text-brand-gold" />
+        </svg>
       </Link>
     </div>
   )

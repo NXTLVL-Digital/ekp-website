@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Section } from '@/components/shared/Section'
 import { InquiryForm } from '@/components/forms/InquiryForm'
+import { RevealOnScroll } from '@/components/shared/RevealOnScroll'
 import { siteConfig } from '@/lib/siteConfig'
 
 export const metadata: Metadata = {
@@ -13,22 +14,14 @@ export const metadata: Metadata = {
       'Ready to book your dream session? Reach out to Emily Kathryn Photography — serving Gretna, Lynchburg, Danville, and South-Central Virginia.',
     url: `${siteConfig.url}/contact`,
     siteName: 'Emily Kathryn Photography',
-    images: [
-      {
-        url: '/og/contact.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Contact Emily Kathryn Photography — book your senior or family portrait session',
-      },
-    ],
+    images: [{ url: '/og/contact.jpg', width: 1200, height: 630, alt: 'Contact Emily Kathryn Photography' }],
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Contact | Emily Kathryn Photography',
-    description:
-      'Ready to book your dream session? Reach out to Emily Kathryn Photography in South-Central Virginia.',
+    description: 'Ready to book your dream session? Reach out to Emily Kathryn Photography.',
     images: ['/og/contact.jpg'],
   },
 }
@@ -36,121 +29,120 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      {/* Heading */}
-      <Section>
-        <div className="mx-auto max-w-2xl text-center">
-          <h1 className="font-heading text-4xl font-light tracking-tight md:text-5xl">
-            Get in Touch
-          </h1>
-          <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-            I would love to hear from you. Whether you are ready to book your
-            session or just exploring your options, fill out the form below
-            and I will personally get back to you within 48 hours.
-          </p>
+      {/* Editorial page header */}
+      <section className="bg-foreground pt-32 pb-16 md:pt-40 md:pb-20">
+        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="editorial-label text-brand-gold">Contact</span>
+            <h1 className="mt-4 font-heading text-5xl font-light text-white md:text-6xl lg:text-7xl">
+              Get in Touch
+            </h1>
+            <div className="mx-auto mt-6 h-px w-12 bg-brand-gold" />
+            <p className="mt-6 text-sm leading-relaxed text-white/50 md:text-base">
+              I would love to hear from you. Whether you are ready to book your
+              session or just exploring your options, fill out the form below
+              and I will personally get back to you within 48 hours.
+            </p>
+          </div>
         </div>
-      </Section>
+      </section>
 
       {/* Form + Business Info */}
-      <Section background="muted">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-5 md:gap-12">
-          {/* Left column — Inquiry Form (primary) */}
-          <div className="md:col-span-3">
-            <div className="rounded-lg border border-border bg-white p-6 shadow-sm md:p-8">
-              <h2 className="mb-6 font-heading text-2xl font-medium">
-                Send Us a Message
-              </h2>
-              <InquiryForm />
+      <Section spacing="wide">
+        <RevealOnScroll variant="up">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-16">
+            {/* Left column — Inquiry Form */}
+            <div className="md:col-span-7">
+              <div className="border border-border p-8 md:p-10">
+                <span className="editorial-label text-brand-gold">Send a Message</span>
+                <div className="mt-1 mb-8 h-px w-8 bg-brand-gold" />
+                <InquiryForm />
+              </div>
             </div>
+
+            {/* Right column — Business Info */}
+            <aside className="md:col-span-4 md:col-start-9">
+              <div className="space-y-10">
+                {/* Contact Info */}
+                <div>
+                  <span className="editorial-label text-brand-gold">Contact Info</span>
+                  <div className="mt-4 space-y-3 text-sm text-muted-foreground">
+                    <p>
+                      <span className="editorial-label mr-2 text-foreground">Email</span>
+                      <a
+                        href={`mailto:${siteConfig.email}`}
+                        className="transition-colors hover:text-brand-gold"
+                      >
+                        {siteConfig.email}
+                      </a>
+                    </p>
+                    <p>
+                      <span className="editorial-label mr-2 text-foreground">Phone</span>
+                      <a
+                        href={`tel:${siteConfig.phone.replace(/\D/g, '')}`}
+                        className="transition-colors hover:text-brand-gold"
+                      >
+                        {siteConfig.phone}
+                      </a>
+                    </p>
+                  </div>
+                </div>
+
+                <div className="h-px w-full bg-border" />
+
+                {/* Service Area */}
+                <div>
+                  <span className="editorial-label text-brand-gold">Service Area</span>
+                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                    Based in {siteConfig.address.city}, {siteConfig.address.state},
+                    proudly serving families and seniors across South-Central
+                    Virginia — including Lynchburg, Danville, Chatham, Altavista,
+                    and surrounding communities.
+                  </p>
+                </div>
+
+                <div className="h-px w-full bg-border" />
+
+                {/* Follow Along */}
+                <div>
+                  <span className="editorial-label text-brand-gold">Follow Along</span>
+                  <div className="mt-4 flex gap-6">
+                    {[
+                      { label: 'Instagram', href: siteConfig.social.instagram },
+                      { label: 'Facebook', href: siteConfig.social.facebook },
+                      { label: 'TikTok', href: siteConfig.social.tiktok },
+                    ].map(({ label, href }) => (
+                      <a
+                        key={label}
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-muted-foreground transition-colors hover:text-brand-gold"
+                      >
+                        {label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="h-px w-full bg-border" />
+
+                {/* Response guarantee */}
+                <div className="border-l-2 border-brand-gold pl-5">
+                  <p className="text-sm leading-relaxed text-foreground">
+                    <span className="editorial-label text-brand-gold">Quick Response</span>
+                    <br />
+                    <span className="mt-2 block text-muted-foreground">
+                      Emily personally reads every inquiry and responds within 48
+                      hours. You&apos;ll also receive an automatic confirmation
+                      email right away.
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </aside>
           </div>
-
-          {/* Right column — Business Info */}
-          <aside className="md:col-span-2">
-            <div className="space-y-8">
-              {/* Contact Info */}
-              <div>
-                <h3 className="mb-3 font-heading text-lg font-medium">
-                  Contact Info
-                </h3>
-                <div className="space-y-2 text-sm text-muted-foreground">
-                  <p>
-                    <span className="font-medium text-foreground">Email: </span>
-                    <a
-                      href={`mailto:${siteConfig.email}`}
-                      className="transition-colors hover:text-brand-gold"
-                    >
-                      {siteConfig.email}
-                    </a>
-                  </p>
-                  <p>
-                    <span className="font-medium text-foreground">Phone: </span>
-                    <a
-                      href={`tel:${siteConfig.phone.replace(/\D/g, '')}`}
-                      className="transition-colors hover:text-brand-gold"
-                    >
-                      {siteConfig.phone}
-                    </a>
-                  </p>
-                </div>
-              </div>
-
-              {/* Service Area */}
-              <div>
-                <h3 className="mb-3 font-heading text-lg font-medium">
-                  Service Area
-                </h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  Based in {siteConfig.address.city}, {siteConfig.address.state},
-                  proudly serving families and seniors across South-Central
-                  Virginia — including Lynchburg, Danville, Chatham, Altavista,
-                  and surrounding communities.
-                </p>
-              </div>
-
-              {/* Follow Along */}
-              <div>
-                <h3 className="mb-3 font-heading text-lg font-medium">
-                  Follow Along
-                </h3>
-                <div className="flex gap-4">
-                  <a
-                    href={siteConfig.social.instagram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-muted-foreground transition-colors hover:text-brand-gold"
-                  >
-                    Instagram
-                  </a>
-                  <a
-                    href={siteConfig.social.facebook}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-muted-foreground transition-colors hover:text-brand-gold"
-                  >
-                    Facebook
-                  </a>
-                  <a
-                    href={siteConfig.social.tiktok}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-muted-foreground transition-colors hover:text-brand-gold"
-                  >
-                    TikTok
-                  </a>
-                </div>
-              </div>
-
-              {/* Response Time */}
-              <div className="rounded-lg border border-brand-gold/20 bg-brand-gold/5 p-4">
-                <p className="text-sm leading-relaxed text-foreground">
-                  <span className="font-medium">Quick response guarantee:</span>{' '}
-                  Emily personally reads every inquiry and responds within 48
-                  hours. You&apos;ll also receive an automatic confirmation
-                  email right away.
-                </p>
-              </div>
-            </div>
-          </aside>
-        </div>
+        </RevealOnScroll>
       </Section>
     </>
   )

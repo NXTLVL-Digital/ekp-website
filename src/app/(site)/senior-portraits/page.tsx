@@ -9,6 +9,7 @@ import { ScarcityCue } from '@/components/shared/ScarcityCue'
 import { TestimonialCarousel } from '@/components/home/TestimonialCarousel'
 import { GalleryClient } from '@/components/shared/GalleryClient'
 import { JsonLd } from '@/components/shared/JsonLd'
+import { RevealOnScroll } from '@/components/shared/RevealOnScroll'
 import { seniorGalleryImages } from '@/lib/placeholder-galleries'
 import { sanityFetch } from '@/sanity/lib/fetch'
 import {
@@ -21,10 +22,6 @@ import { buildFaqPageSchema } from '@/lib/schemas/faqPage'
 import { buildReviewSchemas, buildAggregateRatingSchema } from '@/lib/schemas/review'
 import type { TestimonialData } from '@/lib/schemas/review'
 
-/* -------------------------------------------------------------------------- */
-/*  Metadata                                                                   */
-/* -------------------------------------------------------------------------- */
-
 export const metadata: Metadata = {
   title: 'Senior Portraits',
   description:
@@ -35,29 +32,17 @@ export const metadata: Metadata = {
       'Editorial senior portrait photography for boys and girls in South-Central Virginia. A magazine-worthy experience with wardrobe planning, multiple outfits, and handpicked locations.',
     url: 'https://emilykathryn.com/senior-portraits',
     siteName: 'Emily Kathryn Photography',
-    images: [
-      {
-        url: '/og/senior-portraits.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Senior portrait by Emily Kathryn Photography — editorial-style session in South-Central Virginia',
-      },
-    ],
+    images: [{ url: '/og/senior-portraits.jpg', width: 1200, height: 630, alt: 'Senior portrait by Emily Kathryn Photography' }],
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Senior Portraits | Emily Kathryn Photography',
-    description:
-      'Editorial senior portrait photography for boys and girls in South-Central Virginia.',
+    description: 'Editorial senior portrait photography for boys and girls in South-Central Virginia.',
     images: ['/og/senior-portraits.jpg'],
   },
 }
-
-/* -------------------------------------------------------------------------- */
-/*  Types                                                                      */
-/* -------------------------------------------------------------------------- */
 
 interface PricingTier {
   _id: string
@@ -75,10 +60,6 @@ interface ScarcityCueData {
   isActive: boolean
   expiresAt?: string
 }
-
-/* -------------------------------------------------------------------------- */
-/*  Static Data                                                                */
-/* -------------------------------------------------------------------------- */
 
 const storyboardSteps = [
   {
@@ -146,12 +127,7 @@ const seniorFaqs = [
   },
 ]
 
-/* -------------------------------------------------------------------------- */
-/*  Page Component                                                             */
-/* -------------------------------------------------------------------------- */
-
 export default async function SeniorPortraitsPage() {
-  /* --- data fetching (parallel) --- */
   const [pricingTiers, testimonials, scarcityCue] = await Promise.all([
     sanityFetch<PricingTier[]>({
       query: PRICING_TIERS_QUERY,
@@ -168,12 +144,10 @@ export default async function SeniorPortraitsPage() {
     }),
   ])
 
-  /* Find a senior-specific pricing tier or fall back to placeholder */
   const seniorTier = pricingTiers?.find(
     (t) => t.name?.toLowerCase().includes('senior'),
   )
 
-  /* --- JSON-LD structured data --- */
   const testimonialData: TestimonialData[] = testimonials
     ? testimonials.map((t) => ({ name: t.name, quote: t.quote, service: t.service }))
     : []
@@ -181,10 +155,9 @@ export default async function SeniorPortraitsPage() {
 
   return (
     <>
-      {/* JSON-LD: Service, FAQPage, Review schemas */}
       <JsonLd data={buildServiceSchema({
         name: 'Senior Portrait Photography',
-        description: 'Editorial senior portrait photography for boys and girls in South-Central Virginia. A magazine-worthy experience with wardrobe planning, multiple outfits, and handpicked locations.',
+        description: 'Editorial senior portrait photography for boys and girls in South-Central Virginia.',
         url: 'https://emilykathryn.com/senior-portraits',
       })} />
       <JsonLd data={buildFaqPageSchema(seniorFaqs)} />
@@ -195,189 +168,216 @@ export default async function SeniorPortraitsPage() {
         <JsonLd data={buildAggregateRatingSchema(testimonialData)} />
       )}
 
-      {/* ------------------------------------------------------------------ */}
-      {/*  1. Hero Section                                                     */}
-      {/* ------------------------------------------------------------------ */}
-      <Section>
-        <div className="mx-auto max-w-3xl text-center">
-          <h1 className="font-heading text-4xl font-light md:text-5xl">
-            Senior Portraits
-          </h1>
-          <p className="mt-4 text-lg text-muted-foreground md:text-xl">
-            An editorial portrait experience for the bold, the creative, and the
-            unapologetically you. For guys and girls who want magazine-worthy
-            images that capture exactly who they are right now.
-          </p>
-        </div>
-
-        {/* Featured senior portrait image */}
-        <div className="relative mt-10 overflow-hidden rounded-lg">
-          <div className="relative h-64 sm:h-80 md:h-96">
-            <Image
-              src="/placeholder/senior-2.jpeg"
-              alt="Editorial senior portrait by Emily Kathryn Photography"
-              fill
-              className="object-cover"
-              sizes="100vw"
-              priority
-            />
+      {/* Editorial page header — dark */}
+      <section className="relative overflow-hidden bg-foreground pt-32 pb-16 md:pt-40 md:pb-20">
+        <div className="pattern-hex absolute inset-0 opacity-15" />
+        <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="editorial-label text-brand-gold">Services</span>
+            <h1 className="mt-4 font-heading text-5xl font-light text-white md:text-6xl lg:text-7xl">
+              Senior Portraits
+            </h1>
+            <div className="mx-auto mt-6 h-px w-12 bg-brand-gold" />
+            <p className="mt-6 text-sm leading-relaxed text-white/50 md:text-base">
+              An editorial portrait experience for the bold, the creative, and the
+              unapologetically you. For guys and girls who want magazine-worthy
+              images that capture exactly who they are right now.
+            </p>
           </div>
         </div>
-      </Section>
+      </section>
 
-      {/* ------------------------------------------------------------------ */}
-      {/*  1b. Senior Gallery                                                  */}
-      {/* ------------------------------------------------------------------ */}
-      <Section background="muted">
-        <div className="mb-8 text-center">
-          <h2 className="font-heading text-3xl font-light md:text-4xl">
-            Senior Portfolio
-          </h2>
-          <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-            Every session is as unique as the person in front of my camera.
-            Here is a look at some of my favorite senior moments.
-          </p>
-        </div>
-        <GalleryClient
-          images={seniorGalleryImages}
-          displayStyle="masonry"
-          priorityCount={0}
-        />
-      </Section>
-
-      {/* ------------------------------------------------------------------ */}
-      {/*  2. Scarcity Cue (conditional)                                       */}
-      {/* ------------------------------------------------------------------ */}
+      {/* Scarcity cue */}
       {scarcityCue && (
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <ScarcityCue
-            message={scarcityCue.message}
-            isActive={scarcityCue.isActive}
-          />
-        </div>
+        <ScarcityCue message={scarcityCue.message} isActive={scarcityCue.isActive} />
       )}
 
-      {/* ------------------------------------------------------------------ */}
-      {/*  3. Session Description                                              */}
-      {/* ------------------------------------------------------------------ */}
-      <Section background="muted">
-        <div className="mx-auto max-w-3xl">
-          <h2 className="font-heading text-3xl font-light md:text-4xl">
-            The Senior Experience
-          </h2>
-          <div className="mt-6 space-y-4 text-muted-foreground">
-            <p>
-              This isn&apos;t your average cap-and-gown photo. Your senior session
-              is a full editorial experience designed around you &mdash; your style,
-              your personality, your story. We start with a planning consultation
-              where I get to know you and we map out every detail together.
-            </p>
-            <p>
-              On session day, you&apos;ll bring 3&ndash;5 outfits and we&apos;ll
-              spend 1&ndash;2 hours at handpicked locations across South-Central
-              Virginia. I&apos;ll direct every pose so you can relax, have fun, and
-              just be yourself. No awkward stiffness &mdash; just natural, confident,
-              magazine-worthy images.
-            </p>
-            <p>
-              About 2&ndash;3 weeks later, we&apos;ll meet for your gallery reveal
-              where you and your family will see your stunning, professionally
-              retouched portraits for the first time. It&apos;s one of the best parts
-              of the entire experience.
-            </p>
-          </div>
-        </div>
-      </Section>
-
-      {/* ------------------------------------------------------------------ */}
-      {/*  4. Experience Storyboard                                            */}
-      {/* ------------------------------------------------------------------ */}
-      <Section>
-        <div className="mx-auto max-w-4xl">
-          <h2 className="mb-10 text-center font-heading text-3xl font-light md:text-4xl">
-            Your Experience, Step by Step
-          </h2>
-          <Storyboard steps={storyboardSteps} />
-        </div>
-      </Section>
-
-      {/* ------------------------------------------------------------------ */}
-      {/*  5. Pricing Section                                                  */}
-      {/* ------------------------------------------------------------------ */}
-      <Section background="muted">
-        <div className="mx-auto max-w-lg">
-          <h2 className="mb-8 text-center font-heading text-3xl font-light md:text-4xl">
-            Investment
-          </h2>
-          <PricingCard
-            name={seniorTier?.name ?? 'Senior Session'}
-            startingAt={seniorTier?.startingAt ?? 400}
-            description={
-              seniorTier?.description ??
-              'A fully guided editorial portrait experience designed around you.'
-            }
-            features={
-              seniorTier?.features ?? [
-                '1\u20132 hour session',
-                'Multiple outfit changes',
-                'Multiple locations',
-                'Professional retouching',
-                'Online gallery',
-              ]
-            }
-            highlight={seniorTier?.highlight ?? true}
-            ctaLabel="Inquire for Detailed Pricing"
-            ctaHref="/contact"
+      {/* Featured image — full-bleed editorial */}
+      <div className="editorial-image-hover relative">
+        <div className="relative h-72 sm:h-96 md:h-[500px]">
+          <Image
+            src="/placeholder/senior-2.jpeg"
+            alt="Editorial senior portrait by Emily Kathryn Photography"
+            fill
+            className="object-cover"
+            sizes="100vw"
+            priority
           />
         </div>
-      </Section>
+      </div>
 
-      {/* ------------------------------------------------------------------ */}
-      {/*  6. FAQ Section                                                      */}
-      {/* ------------------------------------------------------------------ */}
-      <Section>
-        <div className="mx-auto max-w-3xl">
-          <h2 className="mb-8 text-center font-heading text-3xl font-light md:text-4xl">
-            Frequently Asked Questions
-          </h2>
-          <AnswerBlock items={seniorFaqs} />
-        </div>
-      </Section>
-
-      {/* ------------------------------------------------------------------ */}
-      {/*  7. Testimonials                                                     */}
-      {/* ------------------------------------------------------------------ */}
-      {testimonials && testimonials.length > 0 && (
-        <Section background="muted">
-          <div className="mb-8 text-center">
-            <h2 className="font-heading text-3xl font-light md:text-4xl">
-              What Our Seniors Are Saying
-            </h2>
+      {/* Session description — asymmetric editorial layout */}
+      <Section spacing="wide">
+        <RevealOnScroll variant="up">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
+            <div className="md:col-span-4">
+              <span className="editorial-label text-brand-gold">The Experience</span>
+              <h2 className="mt-3 font-heading text-4xl font-light md:text-5xl">
+                The Senior Experience
+              </h2>
+              <div className="mt-5 h-px w-12 bg-brand-gold" />
+            </div>
+            <div className="md:col-span-7 md:col-start-6">
+              <div className="space-y-5 text-sm leading-relaxed text-muted-foreground md:text-base">
+                <p>
+                  This isn&apos;t your average cap-and-gown photo. Your senior session
+                  is a full editorial experience designed around you &mdash; your style,
+                  your personality, your story. We start with a planning consultation
+                  where I get to know you and we map out every detail together.
+                </p>
+                <p>
+                  On session day, you&apos;ll bring 3&ndash;5 outfits and we&apos;ll
+                  spend 1&ndash;2 hours at handpicked locations across South-Central
+                  Virginia. I&apos;ll direct every pose so you can relax, have fun, and
+                  just be yourself. No awkward stiffness &mdash; just natural, confident,
+                  magazine-worthy images.
+                </p>
+                <p>
+                  About 2&ndash;3 weeks later, we&apos;ll meet for your gallery reveal
+                  where you and your family will see your stunning, professionally
+                  retouched portraits for the first time.
+                </p>
+              </div>
+            </div>
           </div>
-          <TestimonialCarousel testimonials={testimonials} />
+        </RevealOnScroll>
+      </Section>
+
+      {/* Senior gallery */}
+      <Section spacing="wide" background="muted">
+        <RevealOnScroll variant="up">
+          <div className="mb-12 text-center">
+            <span className="editorial-label text-brand-gold">Portfolio</span>
+            <h2 className="mt-4 font-heading text-4xl font-light md:text-5xl">
+              Senior Portfolio
+            </h2>
+            <div className="mx-auto mt-5 h-px w-12 bg-brand-gold" />
+          </div>
+        </RevealOnScroll>
+        <RevealOnScroll variant="scale">
+          <GalleryClient
+            images={seniorGalleryImages}
+            displayStyle="masonry"
+            priorityCount={0}
+          />
+        </RevealOnScroll>
+      </Section>
+
+      {/* Experience Storyboard */}
+      <Section spacing="wide">
+        <RevealOnScroll variant="up">
+          <div className="mx-auto max-w-4xl">
+            <div className="mb-12 text-center">
+              <span className="editorial-label text-brand-gold">Your Journey</span>
+              <h2 className="mt-4 font-heading text-4xl font-light md:text-5xl">
+                Step by Step
+              </h2>
+              <div className="mx-auto mt-5 h-px w-12 bg-brand-gold" />
+            </div>
+            <Storyboard steps={storyboardSteps} />
+          </div>
+        </RevealOnScroll>
+      </Section>
+
+      {/* Pricing */}
+      <section className="relative overflow-hidden bg-foreground py-24 md:py-32">
+        <div className="pattern-hex absolute inset-0 opacity-15" />
+        <div className="relative mx-auto max-w-lg px-6 lg:px-10">
+          <RevealOnScroll variant="up">
+            <div className="mb-10 text-center">
+              <span className="editorial-label text-brand-gold">Investment</span>
+              <h2 className="mt-4 font-heading text-4xl font-light text-white md:text-5xl">
+                Your Investment
+              </h2>
+              <div className="mx-auto mt-5 h-px w-12 bg-brand-gold" />
+            </div>
+            <PricingCard
+              name={seniorTier?.name ?? 'Senior Session'}
+              startingAt={seniorTier?.startingAt ?? 400}
+              description={
+                seniorTier?.description ??
+                'A fully guided editorial portrait experience designed around you.'
+              }
+              features={
+                seniorTier?.features ?? [
+                  '1\u20132 hour session',
+                  'Multiple outfit changes',
+                  'Multiple locations',
+                  'Professional retouching',
+                  'Online gallery',
+                ]
+              }
+              highlight={seniorTier?.highlight ?? true}
+              ctaLabel="Inquire for Detailed Pricing"
+              ctaHref="/contact"
+            />
+          </RevealOnScroll>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <Section spacing="wide">
+        <RevealOnScroll variant="up">
+          <div className="mx-auto max-w-3xl">
+            <div className="mb-10 text-center">
+              <span className="editorial-label text-brand-gold">FAQ</span>
+              <h2 className="mt-4 font-heading text-4xl font-light md:text-5xl">
+                Common Questions
+              </h2>
+              <div className="mx-auto mt-5 h-px w-12 bg-brand-gold" />
+            </div>
+            <AnswerBlock items={seniorFaqs} />
+          </div>
+        </RevealOnScroll>
+      </Section>
+
+      {/* Testimonials */}
+      {testimonials && testimonials.length > 0 && (
+        <Section spacing="wide" background="muted">
+          <RevealOnScroll variant="up">
+            <div className="mb-12 text-center">
+              <span className="editorial-label text-brand-gold">Kind Words</span>
+              <h2 className="mt-4 font-heading text-4xl font-light md:text-5xl">
+                What Our Seniors Are Saying
+              </h2>
+              <div className="mx-auto mt-5 h-px w-12 bg-brand-gold" />
+            </div>
+          </RevealOnScroll>
+          <RevealOnScroll variant="stagger">
+            <TestimonialCarousel testimonials={testimonials} />
+          </RevealOnScroll>
         </Section>
       )}
 
-      {/* ------------------------------------------------------------------ */}
-      {/*  8. Bottom CTA                                                       */}
-      {/* ------------------------------------------------------------------ */}
-      <Section>
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-heading text-3xl font-light md:text-4xl">
-            Ready for Your Moment?
-          </h2>
-          <p className="mt-4 text-muted-foreground">
-            Let&apos;s start planning your senior portrait experience. I would love
-            to hear your vision and create something truly incredible together.
-          </p>
-          <Link
-            href="/contact"
-            className="mt-8 inline-flex min-h-11 items-center justify-center rounded bg-brand-gold px-8 py-3 text-sm font-medium tracking-wide text-white transition-colors hover:bg-brand-gold-dark"
-          >
-            Inquire Now
-          </Link>
+      {/* Bottom CTA */}
+      <section className="relative overflow-hidden bg-foreground py-24 md:py-32">
+        <div className="pattern-hex absolute inset-0 opacity-20" />
+        <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
+          <RevealOnScroll variant="up">
+            <div className="mx-auto max-w-2xl text-center">
+              <div className="mx-auto mb-6 h-px w-12 bg-brand-gold" />
+              <h2 className="font-heading text-4xl font-light text-white md:text-5xl">
+                Ready for Your Moment?
+              </h2>
+              <p className="mt-5 text-sm leading-relaxed text-white/50 md:text-base">
+                Let&apos;s start planning your senior portrait experience. I would love
+                to hear your vision and create something truly incredible together.
+              </p>
+              <Link
+                href="/contact"
+                className="group mt-8 inline-flex items-center gap-3"
+              >
+                <span className="editorial-label text-white transition-colors duration-300 group-hover:text-brand-gold">
+                  Inquire Now
+                </span>
+                <svg width="24" height="8" viewBox="0 0 24 8" fill="none" className="transition-transform duration-300 group-hover:translate-x-1">
+                  <path d="M0 4H22M22 4L18.5 0.5M22 4L18.5 7.5" stroke="currentColor" strokeWidth="0.75" className="text-brand-gold" />
+                </svg>
+              </Link>
+            </div>
+          </RevealOnScroll>
         </div>
-      </Section>
+      </section>
     </>
   )
 }

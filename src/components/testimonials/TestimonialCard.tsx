@@ -3,10 +3,6 @@ import type { SanityImageProps } from '@/components/shared/SanityImage'
 
 type SanityImageAsset = SanityImageProps['asset']
 
-/**
- * Shape of a testimonial image as returned from GROQ queries.
- * Matches the `image { asset->{ ... }, hotspot, crop, alt }` projection.
- */
 export interface TestimonialImage {
   asset: SanityImageAsset
   hotspot?: { x: number; y: number }
@@ -19,47 +15,85 @@ interface TestimonialCardProps {
   quote: string
   service?: string
   image?: TestimonialImage
+  variant?: 'default' | 'editorial'
 }
 
-/**
- * Reusable testimonial display card for homepage, service pages, and city pages.
- * Server Component — renders a blockquote with client name, optional service label,
- * and optional circular client photo via SanityImage.
- */
-export function TestimonialCard({ name, quote, service, image }: TestimonialCardProps) {
+export function TestimonialCard({ name, quote, service, image, variant = 'default' }: TestimonialCardProps) {
+  if (variant === 'editorial') {
+    return (
+      <div className="relative border-l border-brand-gold/30 pl-8 py-2">
+        {image?.asset && (
+          <div className="mb-5 h-12 w-12 overflow-hidden rounded-full">
+            <SanityImage
+              asset={image.asset}
+              alt={image.alt || name}
+              hotspot={image.hotspot}
+              crop={image.crop}
+              width={48}
+              height={48}
+              sizes="48px"
+              className="h-full w-full object-cover"
+            />
+          </div>
+        )}
+        <blockquote className="font-heading text-xl font-light italic leading-relaxed md:text-2xl">
+          &ldquo;{quote}&rdquo;
+        </blockquote>
+        <div className="mt-5 flex items-center gap-3">
+          <div className="h-px w-6 bg-brand-gold" />
+          <p className="editorial-label text-muted-foreground">
+            {name}
+            {service && (
+              <span className="text-brand-gold">
+                {' '}&bull;{' '}
+                {service === 'senior'
+                  ? 'Senior Session'
+                  : service === 'family'
+                    ? 'Family Session'
+                    : service}
+              </span>
+            )}
+          </p>
+        </div>
+      </div>
+    )
+  }
+
   return (
-    <div className="rounded-lg border border-border bg-white p-6">
+    <div className="border-t border-border pt-6">
       {image?.asset && (
-        <div className="mb-4 h-16 w-16 overflow-hidden rounded-full">
+        <div className="mb-4 h-12 w-12 overflow-hidden rounded-full">
           <SanityImage
             asset={image.asset}
             alt={image.alt || name}
             hotspot={image.hotspot}
             crop={image.crop}
-            width={64}
-            height={64}
-            sizes="64px"
+            width={48}
+            height={48}
+            sizes="48px"
             className="h-full w-full object-cover"
           />
         </div>
       )}
-      <blockquote className="text-muted-foreground italic">
+      <blockquote className="text-sm leading-relaxed text-muted-foreground italic">
         &ldquo;{quote}&rdquo;
       </blockquote>
-      <p className="mt-3 font-heading text-sm">
-        &mdash; {name}
-        {service && (
-          <span className="text-muted-foreground">
-            {' '}
-            &middot;{' '}
-            {service === 'senior'
-              ? 'Senior Session'
-              : service === 'family'
-                ? 'Family Session'
-                : service}
-          </span>
-        )}
-      </p>
+      <div className="mt-4 flex items-center gap-3">
+        <div className="h-px w-4 bg-brand-gold" />
+        <p className="editorial-label text-foreground">
+          {name}
+          {service && (
+            <span className="text-muted-foreground">
+              {' '}&bull;{' '}
+              {service === 'senior'
+                ? 'Senior Session'
+                : service === 'family'
+                  ? 'Family Session'
+                  : service}
+            </span>
+          )}
+        </p>
+      </div>
     </div>
   )
 }

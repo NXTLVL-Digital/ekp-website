@@ -11,11 +11,14 @@
  *   Small (~250-300 words): Forest, Altavista, Evington
  */
 
+import type { FaqItem } from '@/lib/schemas/faqPage'
+
 export interface CityContent {
   headline: string
   aeoBlock: string
   metaDescription: string
   bodyHtml: string
+  faqs: FaqItem[]
 }
 
 export const CITY_CONTENT: Record<string, CityContent> = {
@@ -34,6 +37,33 @@ export const CITY_CONTENT: Record<string, CityContent> = {
 <p><strong>Family portraits</strong> in Chatham are an opportunity to pause and hold onto the way things are right now. Children grow faster than anyone warns you they will, and the connections you have built in this community deserve to be seen and preserved. Whether it is the way your toddler reaches for your hand or the knowing glance between siblings, those fleeting details matter.</p>
 <p>Emily Kathryn Photography brings an editorial eye to every session, blending the unhurried character of Chatham with a polished, magazine-worthy aesthetic. The result is portraiture that feels both timeless and deeply personal, images that belong on your walls and in your family's story for generations to come.</p>
 <p>Whether you are celebrating your senior year or gathering the whole family, Emily Kathryn Photography brings a thoughtful, detail-oriented approach to every session in Chatham. If you are ready to create portraits that truly reflect who you are and the place that shaped you, let's start the conversation.</p>`,
+    faqs: [
+      {
+        question: 'How much does a portrait session cost in Chatham?',
+        answer:
+          'Senior portrait collections in Chatham start at $350 and family sessions begin at $300. Every collection includes professional styling guidance, a fully directed session, and a curated online gallery. Reach out for a detailed pricing guide tailored to exactly what you are looking for.',
+      },
+      {
+        question: 'When is the best time to schedule a portrait session in Chatham?',
+        answer:
+          'The golden hour light in Chatham is stunning year-round, but the most popular seasons are late spring and early fall when the foliage and temperatures are ideal. For seniors, booking in the summer before your senior year gives you images ready for announcements and social media right when school starts.',
+      },
+      {
+        question: 'What should we wear for our portrait session?',
+        answer:
+          'You will receive a full wardrobe guide after booking that covers colors, textures, and layering tips. The general rule is to choose outfits that make you feel confident and avoid large logos or busy patterns. Most clients bring two to three outfit changes to add variety to their gallery.',
+      },
+      {
+        question: 'Where are the best portrait locations in Chatham?',
+        answer:
+          'Chatham offers beautiful small-town backdrops around the Pittsylvania County Courthouse area and tree-lined residential streets with gorgeous natural light. The surrounding countryside provides open fields and rustic settings. Emily scouts each location in advance to match the setting with your personal style.',
+      },
+      {
+        question: 'Do you photograph Chatham High School seniors?',
+        answer:
+          'Absolutely. Emily has worked with seniors from Chatham High School and surrounding Pittsylvania County schools for years. She understands the local traditions, the tight-knit community spirit, and the pride that comes with graduating from a school where everybody knows your name.',
+      },
+    ],
   },
 
   /* ------------------------------------------------------------------------ */
@@ -52,6 +82,33 @@ export const CITY_CONTENT: Record<string, CityContent> = {
 <p><strong>Family portrait sessions</strong> are designed to feel natural and unhurried. The goal is never a perfectly posed lineup but rather a collection of images that show how your family actually connects, the laughter, the inside jokes, the quiet tenderness that exists between people who truly know each other. Every family brings its own rhythm, and the session is built around discovering and celebrating that rhythm.</p>
 <p>Emily Kathryn Photography brings an editorial sensibility that aligns with Danville's own creative evolution. Every session is approached with the same intentionality that defines the best of what this city is becoming: thoughtful, elevated, and unapologetically original. The final collection is not just a set of photographs. It is a curated body of work that reflects your story with the artistry it deserves.</p>
 <p>Whether you are celebrating your senior year or gathering the whole family, Emily Kathryn Photography brings a refined, artistic vision to every session in Danville. If you have been looking for portraiture that rises to the standard this city is setting, reach out and let's create something extraordinary together.</p>`,
+    faqs: [
+      {
+        question: 'How much does a portrait session cost in Danville?',
+        answer:
+          'Senior portrait collections in Danville start at $350 and family sessions begin at $300. Every collection includes professional styling guidance, a fully directed session, and a curated online gallery. Reach out for a detailed pricing guide tailored to exactly what you are looking for.',
+      },
+      {
+        question: 'When is the best time to schedule a portrait session in Danville?',
+        answer:
+          'The golden hour light in Danville is stunning year-round, but the most popular seasons are late spring and early fall when the foliage and temperatures are ideal. For seniors, booking in the summer before your senior year gives you images ready for announcements and social media right when school starts.',
+      },
+      {
+        question: 'What should we wear for our portrait session?',
+        answer:
+          'You will receive a full wardrobe guide after booking that covers colors, textures, and layering tips. The general rule is to choose outfits that make you feel confident and avoid large logos or busy patterns. Most clients bring two to three outfit changes to add variety to their gallery.',
+      },
+      {
+        question: 'Can we use the River District for our portrait session?',
+        answer:
+          'The River District is one of the most requested session locations in Danville. The revitalized warehouse facades, colorful murals, and industrial textures create a backdrop with genuine editorial character. Emily knows the best spots for golden-hour light along the Dan River and throughout downtown.',
+      },
+      {
+        question: 'Do you work with Danville Public Schools seniors?',
+        answer:
+          'Yes. Emily has photographed seniors from George Washington High School and across the Danville area. She loves capturing the creative confidence that defines Danville students — young people who have grown up watching their city reinvent itself and carry that same bold energy into their own story.',
+      },
+    ],
   },
 
   /* ------------------------------------------------------------------------ */
@@ -70,6 +127,33 @@ export const CITY_CONTENT: Record<string, CityContent> = {
 <p>Even for families who are newer to the area, Lynchburg has a way of making people feel like they belong. The rolling terrain, the walkable downtown, the sense that both mountain adventure and refined culture are never more than a few minutes away, it all contributes to a lifestyle that people are genuinely proud of. Portraits should reflect that pride and that sense of home.</p>
 <p>Emily Kathryn Photography approaches every Lynchburg session with the belief that editorial quality and genuine warmth are not mutually exclusive. The images are polished, intentional, and magazine-worthy, but they also carry the real emotion of the moment. The Blue Ridge foothills provide the drama. Your story provides the heart. Together, they create something that neither could produce alone.</p>
 <p>Whether you are celebrating your senior year or gathering the whole family, Emily Kathryn Photography brings a distinctive editorial perspective to every portrait session in Lynchburg. Ready to see your story through a new lens? Let's connect and start planning something beautiful.</p>`,
+    faqs: [
+      {
+        question: 'How much does a portrait session cost in Lynchburg?',
+        answer:
+          'Senior portrait collections in Lynchburg start at $350 and family sessions begin at $300. Every collection includes professional styling guidance, a fully directed session, and a curated online gallery. Reach out for a detailed pricing guide tailored to exactly what you are looking for.',
+      },
+      {
+        question: 'When is the best time to schedule a portrait session in Lynchburg?',
+        answer:
+          'The golden hour light in the Blue Ridge foothills is stunning year-round, but the most popular seasons are late spring and early fall when the mountain foliage and temperatures are ideal. For seniors, booking in the summer before your senior year gives you images ready for announcements and social media right when school starts.',
+      },
+      {
+        question: 'What should we wear for our portrait session?',
+        answer:
+          'You will receive a full wardrobe guide after booking that covers colors, textures, and layering tips. The general rule is to choose outfits that make you feel confident and avoid large logos or busy patterns. Most clients bring two to three outfit changes to add variety to their gallery.',
+      },
+      {
+        question: 'What are the best portrait locations in Lynchburg?',
+        answer:
+          'Lynchburg is blessed with incredible variety — from the historic brick facades of downtown and Monument Terrace to the Blue Ridge Parkway overlooks and Peaks of Otter views. Emily selects locations based on your personal style and the look you are going for, scouting each spot to ensure the best light and privacy.',
+      },
+      {
+        question: 'Do you photograph seniors from Liberty University and local high schools?',
+        answer:
+          'Yes. Emily works with seniors from E.C. Glass, Heritage, Brookville, and Liberty University. Whether you are celebrating a high school milestone or a college graduation in the foothills, your session is tailored to capture who you are at this exact moment in your Lynchburg story.',
+      },
+    ],
   },
 
   /* ------------------------------------------------------------------------ */
@@ -87,6 +171,33 @@ export const CITY_CONTENT: Record<string, CityContent> = {
 <p><strong>Family sessions</strong> along the lake capture something that is difficult to find elsewhere: the feeling of being truly present. Whether your family has been gathering here for decades or you are building new traditions in this community, a portrait session at Smith Mountain Lake is an opportunity to document the connection you share in a place that already holds your best memories. The lake has a way of drawing families closer, and the camera reveals that closeness in every frame.</p>
 <p>Emily Kathryn Photography brings a polished editorial style to the relaxed beauty of lake country. Every session balances the sophistication of magazine-quality imagery with the natural, easygoing spirit that defines life here. The result is a portrait collection that feels as warm and genuine as the place you call home.</p>
 <p>Whether you are celebrating your senior year or gathering the whole family, Emily Kathryn Photography brings an elevated artistic approach to every session at Smith Mountain Lake. If you are ready for portraits that capture the beauty of your story against one of Virginia's most stunning landscapes, let's start planning.</p>`,
+    faqs: [
+      {
+        question: 'How much does a portrait session cost at Smith Mountain Lake?',
+        answer:
+          'Senior portrait collections at Smith Mountain Lake start at $350 and family sessions begin at $300. Every collection includes professional styling guidance, a fully directed session, and a curated online gallery. Reach out for a detailed pricing guide tailored to exactly what you are looking for.',
+      },
+      {
+        question: 'When is the best time to schedule a portrait session at Smith Mountain Lake?',
+        answer:
+          'The golden hour light reflecting off the lake is stunning year-round, but late spring through early fall is the most popular window — warm enough for waterfront settings and perfect for that signature lake-country glow. For seniors, booking in the summer before your senior year gives you images ready for announcements right when school starts.',
+      },
+      {
+        question: 'What should we wear for our portrait session?',
+        answer:
+          'You will receive a full wardrobe guide after booking that covers colors, textures, and layering tips. The general rule is to choose outfits that make you feel confident and avoid large logos or busy patterns. Most clients bring two to three outfit changes to add variety to their gallery.',
+      },
+      {
+        question: 'Can we include the lake or a dock in our session?',
+        answer:
+          'Absolutely — waterfront settings are one of the most requested backdrops at Smith Mountain Lake. Private docks, shoreline coves, and lakeside fields all make stunning settings. Emily coordinates location access in advance so your session feels relaxed and unhurried, with the water and golden light doing what they do best.',
+      },
+      {
+        question: 'Do you photograph multigenerational family reunions at the lake?',
+        answer:
+          'Yes, and they are some of the most meaningful sessions Emily shoots. Smith Mountain Lake is where families gather from all over, and a multigenerational portrait session captures everyone together in the place that holds your best memories. Emily guides large groups with ease so the experience is fun, not stressful.',
+      },
+    ],
   },
 
   /* ------------------------------------------------------------------------ */
@@ -102,6 +213,33 @@ export const CITY_CONTENT: Record<string, CityContent> = {
 <p>That intentional way of living is what makes portrait photography in Forest so rewarding. The families here are thoughtful about the milestones they celebrate and the memories they preserve. <strong>Senior portraits</strong> become more than a graduation requirement. They become a declaration of who a young person has become in this community that helped shape them. It is a chance to step into the spotlight and own the moment before the next chapter begins.</p>
 <p><strong>Family sessions</strong> in Forest are about togetherness, plain and simple. These are families who chose a quieter pace on purpose, and the portraits should honor that decision by capturing the warmth and closeness that define daily life here. The small moments between family members, a shared laugh or a protective hand on a shoulder, those are the images that matter most years from now.</p>
 <p>Emily Kathryn Photography brings a refined editorial approach to every session, creating images that are polished and intentional while still feeling genuinely warm. Whether you are celebrating your senior year or gathering the whole family, Emily Kathryn Photography crafts portraits in Forest that honor the life you have built. Reach out and let's create something meaningful together.</p>`,
+    faqs: [
+      {
+        question: 'How much does a portrait session cost in Forest?',
+        answer:
+          'Senior portrait collections in Forest start at $350 and family sessions begin at $300. Every collection includes professional styling guidance, a fully directed session, and a curated online gallery. Reach out for a detailed pricing guide tailored to exactly what you are looking for.',
+      },
+      {
+        question: 'When is the best time to schedule a portrait session in Forest?',
+        answer:
+          'The golden hour light in Forest is stunning year-round, but the most popular seasons are late spring and early fall when the foliage and temperatures are ideal. For seniors, booking in the summer before your senior year gives you images ready for announcements and social media right when school starts.',
+      },
+      {
+        question: 'What should we wear for our portrait session?',
+        answer:
+          'You will receive a full wardrobe guide after booking that covers colors, textures, and layering tips. The general rule is to choose outfits that make you feel confident and avoid large logos or busy patterns. Most clients bring two to three outfit changes to add variety to their gallery.',
+      },
+      {
+        question: 'Do you photograph Jefferson Forest High School seniors?',
+        answer:
+          'Yes. Emily has photographed many Jefferson Forest seniors and loves working with students from this community. She understands the pride JFHS families carry and creates portraits that match the intentional, rooted way of life that drew your family to Forest in the first place.',
+      },
+      {
+        question: 'Are there good portrait locations in Forest even though it is a smaller community?',
+        answer:
+          'Forest has beautiful settings that most people drive right past — open meadows, wooded trails, and quiet neighborhoods with gorgeous tree canopy light. Being minutes from Lynchburg also means access to the Blue Ridge Parkway, historic downtown, and the Peaks of Otter. Emily always finds the perfect spot to match your vision.',
+      },
+    ],
   },
 
   /* ------------------------------------------------------------------------ */
@@ -117,6 +255,33 @@ export const CITY_CONTENT: Record<string, CityContent> = {
 <p>That sense of pride is exactly what makes portrait photography in Altavista meaningful. People here do not take milestones lightly. When a senior reaches their final year, the whole community feels it. When a family gathers for a portrait, it is an act of celebration rooted in gratitude for the life they have built in a town that gave them everything they needed to thrive.</p>
 <p><strong>Senior portraits</strong> in Altavista capture young people who carry themselves with the quiet strength of a community that taught them to show up and do the work. These are seniors who understand that where you come from shapes who you become. <strong>Family photography</strong> here tells the story of connection, of people who chose this town because its values aligned with their own and whose bond grows stronger with each passing year.</p>
 <p>Emily Kathryn Photography brings a polished, editorial sensibility to every session, elevating Altavista's small-town heart with magazine-quality artistry. Whether you are celebrating your senior year or gathering the whole family, Emily Kathryn Photography delivers portraits in Altavista that match the pride this community carries. Let's create something beautiful that does your story justice.</p>`,
+    faqs: [
+      {
+        question: 'How much does a portrait session cost in Altavista?',
+        answer:
+          'Senior portrait collections in Altavista start at $350 and family sessions begin at $300. Every collection includes professional styling guidance, a fully directed session, and a curated online gallery. Reach out for a detailed pricing guide tailored to exactly what you are looking for.',
+      },
+      {
+        question: 'When is the best time to schedule a portrait session in Altavista?',
+        answer:
+          'The golden hour light in Altavista is stunning year-round, but the most popular seasons are late spring and early fall when the foliage and temperatures are ideal. For seniors, booking in the summer before your senior year gives you images ready for announcements and social media right when school starts.',
+      },
+      {
+        question: 'What should we wear for our portrait session?',
+        answer:
+          'You will receive a full wardrobe guide after booking that covers colors, textures, and layering tips. The general rule is to choose outfits that make you feel confident and avoid large logos or busy patterns. Most clients bring two to three outfit changes to add variety to their gallery.',
+      },
+      {
+        question: 'Can we use the Staunton River area for our portraits?',
+        answer:
+          'The Staunton River corridor near Altavista offers some of the most beautiful natural light and scenery in the region. Riverbanks, open fields, and the surrounding countryside all create a timeless, editorial feel. Emily scouts locations before every session so you get the best backdrop for your style.',
+      },
+      {
+        question: 'Do you work with Altavista Combined School seniors?',
+        answer:
+          'Yes. Emily loves working with seniors from Altavista Combined School and the surrounding Campbell County area. She understands the close-knit pride of this community and creates portraits that honor the resilience and character Altavista instills in every generation.',
+      },
+    ],
   },
 
   /* ------------------------------------------------------------------------ */
@@ -132,5 +297,32 @@ export const CITY_CONTENT: Record<string, CityContent> = {
 <p>Portrait photography in Evington carries a different weight than it does in busier places. Here, milestones are not just acknowledged but genuinely honored. <strong>A senior portrait session</strong> becomes a celebration of growing up in a place where character is built slowly and intentionally, where patience and perseverance are woven into everyday life. <strong>Family portraits</strong> tell the story of roots that run deep into Virginia soil, of legacies being written in real time by people who understand the value of staying connected.</p>
 <p>The natural beauty of this area provides an effortless canvas. The light across the Bedford County landscape is extraordinary, soft and golden in a way that brings warmth to every frame without ever feeling overproduced. It is the kind of backdrop that does not compete with its subjects but complements them in the most honest way.</p>
 <p>Emily Kathryn Photography pairs that natural beauty with a refined editorial approach, creating images that are sophisticated yet grounded. Whether you are celebrating your senior year or gathering the whole family, Emily Kathryn Photography brings an artful perspective to every portrait session in Evington. If you are ready to preserve this chapter of your story, let's talk about bringing your vision to life.</p>`,
+    faqs: [
+      {
+        question: 'How much does a portrait session cost in Evington?',
+        answer:
+          'Senior portrait collections in Evington start at $350 and family sessions begin at $300. Every collection includes professional styling guidance, a fully directed session, and a curated online gallery. Reach out for a detailed pricing guide tailored to exactly what you are looking for.',
+      },
+      {
+        question: 'When is the best time to schedule a portrait session in Evington?',
+        answer:
+          'The golden hour light across Bedford County is stunning year-round, but the most popular seasons are late spring and early fall when the rolling countryside and temperatures are ideal. For seniors, booking in the summer before your senior year gives you images ready for announcements and social media right when school starts.',
+      },
+      {
+        question: 'What should we wear for our portrait session?',
+        answer:
+          'You will receive a full wardrobe guide after booking that covers colors, textures, and layering tips. The general rule is to choose outfits that make you feel confident and avoid large logos or busy patterns. Most clients bring two to three outfit changes to add variety to their gallery.',
+      },
+      {
+        question: 'What makes Evington a great setting for portraits?',
+        answer:
+          'Evington sits in the heart of Bedford County where the rolling farmland, uninterrupted horizons, and extraordinary natural light create an effortless canvas for editorial portraiture. The countryside here does not compete with its subjects — it complements them in the most honest, beautiful way.',
+      },
+      {
+        question: 'Do you photograph seniors from the Bedford County school district?',
+        answer:
+          'Yes. Emily works with seniors across the Bedford County school district, including students from Jefferson Forest and surrounding schools. She understands the character and tradition that defines growing up in this part of Virginia and creates portraits that reflect those deep roots.',
+      },
+    ],
   },
 }

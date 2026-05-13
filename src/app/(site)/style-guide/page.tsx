@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Section } from '@/components/shared/Section'
+import { RevealOnScroll } from '@/components/shared/RevealOnScroll'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -35,22 +36,24 @@ export const metadata: Metadata = {
 export default function StyleGuidePage() {
   return (
     <>
-      {/* 1. Intro section */}
-      <Section>
-        <div className="mx-auto max-w-3xl text-center">
-          <h1 className="font-heading text-4xl font-light md:text-5xl">
-            Senior Style Guide
-          </h1>
-          <p className="mt-6 text-muted-foreground leading-relaxed">
-            One of the most common questions I get is, &quot;What should I
-            wear?&quot; And honestly, it is one of my favorite conversations
-            to have. Your wardrobe is not just about looking great in photos
-            — it is about feeling like the most confident version of
-            <em> you</em>. I put this guide together so you will feel
-            completely prepared and excited for session day.
-          </p>
+      {/* Editorial page header */}
+      <section className="bg-foreground pt-32 pb-16 md:pt-40 md:pb-20">
+        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="editorial-label text-brand-gold">Wardrobe</span>
+            <h1 className="mt-4 font-heading text-5xl font-light text-white md:text-6xl lg:text-7xl">
+              Senior Style Guide
+            </h1>
+            <div className="mx-auto mt-6 h-px w-12 bg-brand-gold" />
+            <p className="mt-6 text-sm leading-relaxed text-white/50 md:text-base">
+              One of the most common questions I get is, &quot;What should I
+              wear?&quot; Your wardrobe is not just about looking great in photos
+              — it is about feeling like the most confident version of
+              <em> you</em>.
+            </p>
+          </div>
         </div>
-      </Section>
+      </section>
 
       {/* 2. How Many Outfits */}
       <Section background="muted">
@@ -117,7 +120,7 @@ export default function StyleGuidePage() {
             </p>
 
             <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-3">
-              <div className="rounded-lg border border-border bg-white p-5">
+              <div className="border border-border bg-white p-5">
                 <h3 className="font-heading text-lg">Earth Tones</h3>
                 <p className="mt-2 text-sm">
                   Cream, tan, camel, olive, rust, and chocolate brown. These are
@@ -125,7 +128,7 @@ export default function StyleGuidePage() {
                   natural landscapes — golden fields, red barns, and winding trails.
                 </p>
               </div>
-              <div className="rounded-lg border border-border bg-white p-5">
+              <div className="border border-border bg-white p-5">
                 <h3 className="font-heading text-lg">Jewel Tones</h3>
                 <p className="mt-2 text-sm">
                   Emerald, burgundy, navy, mauve, and deep plum. Rich and saturated,
@@ -133,7 +136,7 @@ export default function StyleGuidePage() {
                   green forests and moody fall backdrops.
                 </p>
               </div>
-              <div className="rounded-lg border border-border bg-white p-5">
+              <div className="border border-border bg-white p-5">
                 <h3 className="font-heading text-lg">Muted Pastels</h3>
                 <p className="mt-2 text-sm">
                   Dusty rose, sage, lavender, and soft blue. These delicate tones
@@ -169,7 +172,7 @@ export default function StyleGuidePage() {
           </p>
 
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
-            <div className="rounded-lg border border-border bg-white p-6">
+            <div className="border border-border bg-white p-6">
               <h3 className="font-heading text-xl">
                 <span className="text-brand-sage">&#9679;</span> Spring
               </h3>
@@ -183,7 +186,7 @@ export default function StyleGuidePage() {
               </p>
             </div>
 
-            <div className="rounded-lg border border-border bg-white p-6">
+            <div className="border border-border bg-white p-6">
               <h3 className="font-heading text-xl">
                 <span className="text-brand-gold">&#9679;</span> Summer
               </h3>
@@ -197,7 +200,7 @@ export default function StyleGuidePage() {
               </p>
             </div>
 
-            <div className="rounded-lg border border-border bg-white p-6">
+            <div className="border border-border bg-white p-6">
               <h3 className="font-heading text-xl">
                 <span className="text-brand-gold">&#9679;</span> Fall
                 <span className="ml-2 text-xs font-medium text-brand-gold">
@@ -215,7 +218,7 @@ export default function StyleGuidePage() {
               </p>
             </div>
 
-            <div className="rounded-lg border border-border bg-white p-6">
+            <div className="border border-border bg-white p-6">
               <h3 className="font-heading text-xl">
                 <span className="text-muted-foreground">&#9679;</span> Winter
               </h3>
@@ -291,7 +294,7 @@ export default function StyleGuidePage() {
             </p>
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <div className="rounded-lg border border-border bg-white p-5">
+              <div className="border border-border bg-white p-5">
                 <h3 className="font-heading text-lg">Jewelry</h3>
                 <p className="mt-2 text-sm">
                   Delicate, simple pieces photograph best. Layered necklaces, small
@@ -300,7 +303,7 @@ export default function StyleGuidePage() {
                   gemstones and statement pieces can catch light in unexpected ways.
                 </p>
               </div>
-              <div className="rounded-lg border border-border bg-white p-5">
+              <div className="border border-border bg-white p-5">
                 <h3 className="font-heading text-lg">Shoes</h3>
                 <p className="mt-2 text-sm">
                   Yes, shoes matter — they are in more shots than you think! Boots
@@ -309,7 +312,7 @@ export default function StyleGuidePage() {
                   will match them to the location and outfit.
                 </p>
               </div>
-              <div className="rounded-lg border border-border bg-white p-5">
+              <div className="border border-border bg-white p-5">
                 <h3 className="font-heading text-lg">Sunglasses</h3>
                 <p className="mt-2 text-sm">
                   A great pair of sunglasses adds instant cool-factor. They are
@@ -318,7 +321,7 @@ export default function StyleGuidePage() {
                   classic shapes that complement your face.
                 </p>
               </div>
-              <div className="rounded-lg border border-border bg-white p-5">
+              <div className="border border-border bg-white p-5">
                 <h3 className="font-heading text-lg">Meaningful Items</h3>
                 <p className="mt-2 text-sm">
                   This is where it gets personal. Your letterman jacket, a
@@ -380,7 +383,7 @@ export default function StyleGuidePage() {
             ].map((avoid) => (
               <div
                 key={avoid.item}
-                className="flex items-start gap-3 rounded-lg border border-border p-4"
+                className="flex items-start gap-3 border border-border p-4"
               >
                 <span className="mt-0.5 text-brand-rose" aria-hidden="true">
                   &#10007;
@@ -587,24 +590,34 @@ export default function StyleGuidePage() {
       </Section>
 
       {/* CTA section */}
-      <Section background="muted">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-heading text-3xl font-light md:text-4xl">
-            Ready to Plan Your Session?
-          </h2>
-          <p className="mt-4 text-muted-foreground leading-relaxed">
-            Now that you have the style inspiration, let&apos;s talk about
-            bringing your vision to life. I would love to hear about you, your
-            style, and what kind of session you are dreaming of.
-          </p>
-          <Link
-            href="/contact"
-            className="mt-8 inline-flex min-h-11 items-center rounded bg-brand-gold px-8 py-3 text-sm font-medium tracking-wide text-white transition-colors hover:bg-brand-gold-dark"
-          >
-            Let&apos;s Get Started
-          </Link>
+      <section className="relative overflow-hidden bg-foreground py-24 md:py-32">
+        <div className="pattern-hex absolute inset-0 opacity-20" />
+        <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
+          <RevealOnScroll variant="up">
+            <div className="mx-auto max-w-2xl text-center">
+              <div className="mx-auto mb-6 h-px w-12 bg-brand-gold" />
+              <h2 className="font-heading text-4xl font-light text-white md:text-5xl">
+                Ready to Plan Your Session?
+              </h2>
+              <p className="mt-5 text-sm leading-relaxed text-white/50 md:text-base">
+                Now that you have the style inspiration, let&apos;s talk about
+                bringing your vision to life.
+              </p>
+              <Link
+                href="/contact"
+                className="group mt-8 inline-flex items-center gap-3"
+              >
+                <span className="editorial-label text-white transition-colors duration-300 group-hover:text-brand-gold">
+                  Let&apos;s Get Started
+                </span>
+                <svg width="24" height="8" viewBox="0 0 24 8" fill="none" className="transition-transform duration-300 group-hover:translate-x-1">
+                  <path d="M0 4H22M22 4L18.5 0.5M22 4L18.5 7.5" stroke="currentColor" strokeWidth="0.75" className="text-brand-gold" />
+                </svg>
+              </Link>
+            </div>
+          </RevealOnScroll>
         </div>
-      </Section>
+      </section>
     </>
   )
 }

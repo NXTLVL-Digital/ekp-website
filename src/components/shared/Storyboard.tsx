@@ -11,43 +11,35 @@ interface StoryboardProps {
   steps: StoryboardStep[]
 }
 
-/**
- * Visual timeline showing the session experience journey. A key conversion element
- * that communicates the premium, guided experience of working with Emily.
- *
- * Renders numbered steps connected by a gold line. On mobile, steps stack vertically.
- * On desktop, steps flow horizontally.
- *
- * Example steps: "1. Planning Call" -> "2. Wardrobe Consult" -> "3. Your Session" -> "4. Reveal & Order"
- */
 export function Storyboard({ steps }: StoryboardProps) {
   return (
     <div className="relative">
-      {/* Mobile: vertical layout */}
+      {/* Mobile: vertical editorial timeline */}
       <div className="md:hidden">
         {steps.map((step, index) => (
-          <div key={step.number} className="relative flex gap-4 pb-10 last:pb-0">
+          <div key={step.number} className="relative flex gap-6 pb-12 last:pb-0">
             {/* Vertical connecting line */}
             {index < steps.length - 1 && (
               <div
-                className="absolute left-5 top-10 bottom-0 w-px bg-brand-gold/30"
+                className="absolute left-[0.4375rem] top-8 bottom-0 w-px bg-brand-gold/20"
                 aria-hidden="true"
               />
             )}
 
-            {/* Numbered circle */}
-            <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-gold font-heading text-lg text-white">
-              {step.number}
-            </div>
+            {/* Gold dot */}
+            <div className="relative z-10 mt-1.5 h-[0.9375rem] w-[0.9375rem] shrink-0 rounded-full border border-brand-gold bg-background" />
 
             {/* Content */}
-            <div className="pt-1">
-              <h3 className="font-heading text-lg">{step.title}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">
+            <div>
+              <span className="editorial-label text-brand-gold">
+                Step {String(step.number).padStart(2, '0')}
+              </span>
+              <h3 className="mt-1 font-heading text-xl">{step.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 {step.description}
               </p>
               {step.image && (
-                <div className="mt-3 overflow-hidden rounded-lg">
+                <div className="mt-3 overflow-hidden">
                   <SanityImage
                     asset={step.image}
                     alt={step.title}
@@ -61,37 +53,38 @@ export function Storyboard({ steps }: StoryboardProps) {
         ))}
       </div>
 
-      {/* Desktop: horizontal layout */}
+      {/* Desktop: horizontal editorial timeline */}
       <div className="hidden md:block">
-        <div className="relative flex items-start justify-between">
-          {/* Horizontal connecting line spanning between first and last circle centers */}
-          <div
-            className="absolute top-5 left-5 right-5 h-px bg-brand-gold/30"
-            aria-hidden="true"
-          />
-
-          {steps.map((step) => (
+        {/* Horizontal connecting line */}
+        <div className="relative mb-10 h-px bg-brand-gold/20">
+          {steps.map((step, index) => (
             <div
               key={step.number}
-              className="relative flex flex-1 flex-col items-center text-center"
+              className="absolute top-1/2 -translate-y-1/2"
+              style={{ left: `${(index / (steps.length - 1)) * 100}%` }}
             >
-              {/* Numbered circle */}
-              <div className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full bg-brand-gold font-heading text-lg text-white">
-                {step.number}
-              </div>
+              <div className="h-2.5 w-2.5 -translate-x-1/2 rounded-full border border-brand-gold bg-background" />
+            </div>
+          ))}
+        </div>
 
-              {/* Content */}
-              <h3 className="mt-4 font-heading text-lg">{step.title}</h3>
-              <p className="mt-1 max-w-48 text-sm text-muted-foreground">
+        <div className="grid" style={{ gridTemplateColumns: `repeat(${steps.length}, 1fr)` }}>
+          {steps.map((step) => (
+            <div key={step.number} className="pr-6 last:pr-0">
+              <span className="editorial-label text-brand-gold">
+                Step {String(step.number).padStart(2, '0')}
+              </span>
+              <h3 className="mt-2 font-heading text-lg">{step.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 {step.description}
               </p>
               {step.image && (
-                <div className="mt-3 overflow-hidden rounded-lg">
+                <div className="mt-3 overflow-hidden">
                   <SanityImage
                     asset={step.image}
                     alt={step.title}
                     sizes="20vw"
-                    className="w-full max-w-48"
+                    className="w-full"
                   />
                 </div>
               )}

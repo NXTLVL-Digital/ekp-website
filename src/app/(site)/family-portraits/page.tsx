@@ -8,6 +8,7 @@ import { ScarcityCue } from '@/components/shared/ScarcityCue'
 import { TestimonialCarousel } from '@/components/home/TestimonialCarousel'
 import { GalleryClient } from '@/components/shared/GalleryClient'
 import { JsonLd } from '@/components/shared/JsonLd'
+import { RevealOnScroll } from '@/components/shared/RevealOnScroll'
 import { familyGalleryImages } from '@/lib/placeholder-galleries'
 import { sanityFetch } from '@/sanity/lib/fetch'
 import {
@@ -20,10 +21,6 @@ import { buildFaqPageSchema } from '@/lib/schemas/faqPage'
 import { buildReviewSchemas, buildAggregateRatingSchema } from '@/lib/schemas/review'
 import type { TestimonialData } from '@/lib/schemas/review'
 
-/* -------------------------------------------------------------------------- */
-/*  Metadata                                                                   */
-/* -------------------------------------------------------------------------- */
-
 export const metadata: Metadata = {
   title: 'Family Portraits',
   description:
@@ -31,32 +28,20 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Family Portraits | Emily Kathryn Photography',
     description:
-      'Relaxed, joyful family portrait photography in South-Central Virginia. Sessions for all ages — from newborns to grandparents — capturing the connections that matter most.',
+      'Relaxed, joyful family portrait photography in South-Central Virginia. Sessions for all ages — from newborns to grandparents.',
     url: 'https://emilykathryn.com/family-portraits',
     siteName: 'Emily Kathryn Photography',
-    images: [
-      {
-        url: '/og/family-portraits.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Family portrait session by Emily Kathryn Photography in South-Central Virginia',
-      },
-    ],
+    images: [{ url: '/og/family-portraits.jpg', width: 1200, height: 630, alt: 'Family portrait session by Emily Kathryn Photography' }],
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Family Portraits | Emily Kathryn Photography',
-    description:
-      'Relaxed, joyful family portrait photography in South-Central Virginia. All ages welcome.',
+    description: 'Relaxed, joyful family portrait photography in South-Central Virginia.',
     images: ['/og/family-portraits.jpg'],
   },
 }
-
-/* -------------------------------------------------------------------------- */
-/*  Types                                                                      */
-/* -------------------------------------------------------------------------- */
 
 interface PricingTier {
   _id: string
@@ -74,10 +59,6 @@ interface ScarcityCueData {
   isActive: boolean
   expiresAt?: string
 }
-
-/* -------------------------------------------------------------------------- */
-/*  Static Data                                                                */
-/* -------------------------------------------------------------------------- */
 
 const familyFaqs = [
   {
@@ -112,12 +93,7 @@ const familyFaqs = [
   },
 ]
 
-/* -------------------------------------------------------------------------- */
-/*  Page Component                                                             */
-/* -------------------------------------------------------------------------- */
-
 export default async function FamilyPortraitsPage() {
-  /* --- data fetching (parallel) --- */
   const [pricingTiers, testimonials, scarcityCue] = await Promise.all([
     sanityFetch<PricingTier[]>({
       query: PRICING_TIERS_QUERY,
@@ -134,12 +110,10 @@ export default async function FamilyPortraitsPage() {
     }),
   ])
 
-  /* Find a family-specific pricing tier or fall back to placeholder */
   const familyTier = pricingTiers?.find(
     (t) => t.name?.toLowerCase().includes('family'),
   )
 
-  /* --- JSON-LD structured data --- */
   const testimonialData: TestimonialData[] = testimonials
     ? testimonials.map((t) => ({ name: t.name, quote: t.quote, service: t.service }))
     : []
@@ -147,10 +121,9 @@ export default async function FamilyPortraitsPage() {
 
   return (
     <>
-      {/* JSON-LD: Service, FAQPage, Review schemas */}
       <JsonLd data={buildServiceSchema({
         name: 'Family Portrait Photography',
-        description: 'Relaxed, joyful family portrait photography in South-Central Virginia. Sessions for all ages — from newborns to grandparents — capturing the connections that matter most.',
+        description: 'Relaxed, joyful family portrait photography in South-Central Virginia.',
         url: 'https://emilykathryn.com/family-portraits',
       })} />
       <JsonLd data={buildFaqPageSchema(familyFaqs)} />
@@ -161,184 +134,201 @@ export default async function FamilyPortraitsPage() {
         <JsonLd data={buildAggregateRatingSchema(testimonialData)} />
       )}
 
-      {/* ------------------------------------------------------------------ */}
-      {/*  1. Hero Section                                                     */}
-      {/* ------------------------------------------------------------------ */}
-      <Section>
-        <div className="mx-auto max-w-3xl text-center">
-          <h1 className="font-heading text-4xl font-light md:text-5xl">
-            Family Portraits
-          </h1>
-          <p className="mt-4 text-lg text-muted-foreground md:text-xl">
-            Warm, relaxed sessions that capture the real connections between
-            the people who matter most. No stiff posing, no forced smiles &mdash;
-            just your family being beautifully, perfectly you.
-          </p>
-        </div>
-
-        {/* Featured family portrait image */}
-        <div className="relative mt-10 overflow-hidden rounded-lg">
-          <div className="relative h-64 sm:h-80 md:h-96">
-            <Image
-              src="/placeholder/family-2.jpeg"
-              alt="Family portrait session by Emily Kathryn Photography"
-              fill
-              className="object-cover"
-              sizes="100vw"
-              priority
-            />
+      {/* Editorial page header */}
+      <section className="relative overflow-hidden bg-foreground pt-32 pb-16 md:pt-40 md:pb-20">
+        <div className="pattern-hex absolute inset-0 opacity-15" />
+        <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="editorial-label text-brand-gold">Services</span>
+            <h1 className="mt-4 font-heading text-5xl font-light text-white md:text-6xl lg:text-7xl">
+              Family Portraits
+            </h1>
+            <div className="mx-auto mt-6 h-px w-12 bg-brand-gold" />
+            <p className="mt-6 text-sm leading-relaxed text-white/50 md:text-base">
+              Warm, relaxed sessions that capture the real connections between
+              the people who matter most. No stiff posing, no forced smiles &mdash;
+              just your family being beautifully, perfectly you.
+            </p>
           </div>
         </div>
-      </Section>
+      </section>
 
-      {/* ------------------------------------------------------------------ */}
-      {/*  1b. Family Gallery                                                  */}
-      {/* ------------------------------------------------------------------ */}
-      <Section background="muted">
-        <div className="mb-8 text-center">
-          <h2 className="font-heading text-3xl font-light md:text-4xl">
-            Family Portfolio
-          </h2>
-          <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-            The laughter, the cuddles, the way your kids look at each other
-            when they think no one is watching — those are the moments I live
-            to capture.
-          </p>
-        </div>
-        <GalleryClient
-          images={familyGalleryImages}
-          displayStyle="masonry"
-          priorityCount={0}
-        />
-      </Section>
-
-      {/* ------------------------------------------------------------------ */}
-      {/*  2. Scarcity Cue (conditional)                                       */}
-      {/* ------------------------------------------------------------------ */}
+      {/* Scarcity cue */}
       {scarcityCue && (
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <ScarcityCue
-            message={scarcityCue.message}
-            isActive={scarcityCue.isActive}
-          />
-        </div>
+        <ScarcityCue message={scarcityCue.message} isActive={scarcityCue.isActive} />
       )}
 
-      {/* ------------------------------------------------------------------ */}
-      {/*  3. Session Description                                              */}
-      {/* ------------------------------------------------------------------ */}
-      <Section background="muted">
-        <div className="mx-auto max-w-3xl">
-          <h2 className="font-heading text-3xl font-light md:text-4xl">
-            The Family Session Experience
-          </h2>
-          <div className="mt-6 space-y-4 text-muted-foreground">
-            <p>
-              Family sessions are all about connection. I want to capture the way
-              your toddler reaches for your hand, the look your kids give each
-              other when they think nobody&apos;s watching, and the way your whole
-              family lights up when you&apos;re together.
-            </p>
-            <p>
-              We&apos;ll meet at a beautiful outdoor location during golden hour
-              &mdash; that warm, glowing light right before sunset that makes
-              everyone look incredible. Sessions run 45&ndash;60 minutes, which
-              is the perfect amount of time to get stunning variety without anyone
-              hitting a meltdown. Kids of all ages welcome, including the
-              four-legged ones.
-            </p>
-            <p>
-              I&apos;ll guide you through relaxed poses and natural interactions,
-              mixing structured family groupings with candid, playful moments.
-              The result is a collection of portraits that feel authentic and warm
-              &mdash; images you&apos;ll treasure for generations.
-            </p>
-          </div>
-        </div>
-      </Section>
-
-      {/* ------------------------------------------------------------------ */}
-      {/*  4. NO Storyboard — Experience Storyboard is Senior-only (CONT-01)   */}
-      {/* ------------------------------------------------------------------ */}
-
-      {/* ------------------------------------------------------------------ */}
-      {/*  5. Pricing Section                                                  */}
-      {/* ------------------------------------------------------------------ */}
-      <Section>
-        <div className="mx-auto max-w-lg">
-          <h2 className="mb-8 text-center font-heading text-3xl font-light md:text-4xl">
-            Investment
-          </h2>
-          <PricingCard
-            name={familyTier?.name ?? 'Family Session'}
-            startingAt={familyTier?.startingAt ?? 400}
-            description={
-              familyTier?.description ??
-              'A relaxed, joyful portrait session for your whole family.'
-            }
-            features={
-              familyTier?.features ?? [
-                '45\u201360 minute session',
-                'Outdoor location',
-                'Up to 6 family members',
-                'Professional retouching',
-                'Online gallery',
-              ]
-            }
-            highlight={familyTier?.highlight ?? true}
-            ctaLabel="Inquire for Detailed Pricing"
-            ctaHref="/contact"
+      {/* Featured image */}
+      <div className="editorial-image-hover relative">
+        <div className="relative h-72 sm:h-96 md:h-[500px]">
+          <Image
+            src="/placeholder/family-2.jpeg"
+            alt="Family portrait session by Emily Kathryn Photography"
+            fill
+            className="object-cover"
+            sizes="100vw"
+            priority
           />
         </div>
-      </Section>
+      </div>
 
-      {/* ------------------------------------------------------------------ */}
-      {/*  6. FAQ Section                                                      */}
-      {/* ------------------------------------------------------------------ */}
-      <Section background="muted">
-        <div className="mx-auto max-w-3xl">
-          <h2 className="mb-8 text-center font-heading text-3xl font-light md:text-4xl">
-            Frequently Asked Questions
-          </h2>
-          <AnswerBlock items={familyFaqs} />
-        </div>
-      </Section>
-
-      {/* ------------------------------------------------------------------ */}
-      {/*  7. Testimonials                                                     */}
-      {/* ------------------------------------------------------------------ */}
-      {testimonials && testimonials.length > 0 && (
-        <Section>
-          <div className="mb-8 text-center">
-            <h2 className="font-heading text-3xl font-light md:text-4xl">
-              What Our Families Are Saying
-            </h2>
+      {/* Session description */}
+      <Section spacing="wide">
+        <RevealOnScroll variant="up">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
+            <div className="md:col-span-4">
+              <span className="editorial-label text-brand-gold">The Experience</span>
+              <h2 className="mt-3 font-heading text-4xl font-light md:text-5xl">
+                The Family Session
+              </h2>
+              <div className="mt-5 h-px w-12 bg-brand-gold" />
+            </div>
+            <div className="md:col-span-7 md:col-start-6">
+              <div className="space-y-5 text-sm leading-relaxed text-muted-foreground md:text-base">
+                <p>
+                  Family sessions are all about connection. I want to capture the way
+                  your toddler reaches for your hand, the look your kids give each
+                  other when they think nobody&apos;s watching, and the way your whole
+                  family lights up when you&apos;re together.
+                </p>
+                <p>
+                  We&apos;ll meet at a beautiful outdoor location during golden hour
+                  &mdash; that warm, glowing light right before sunset that makes
+                  everyone look incredible. Sessions run 45&ndash;60 minutes, which
+                  is the perfect amount of time to get stunning variety without anyone
+                  hitting a meltdown.
+                </p>
+                <p>
+                  I&apos;ll guide you through relaxed poses and natural interactions,
+                  mixing structured family groupings with candid, playful moments.
+                  The result is a collection of portraits that feel authentic and warm
+                  &mdash; images you&apos;ll treasure for generations.
+                </p>
+              </div>
+            </div>
           </div>
-          <TestimonialCarousel testimonials={testimonials} />
+        </RevealOnScroll>
+      </Section>
+
+      {/* Family gallery */}
+      <Section spacing="wide" background="muted">
+        <RevealOnScroll variant="up">
+          <div className="mb-12 text-center">
+            <span className="editorial-label text-brand-gold">Portfolio</span>
+            <h2 className="mt-4 font-heading text-4xl font-light md:text-5xl">
+              Family Portfolio
+            </h2>
+            <div className="mx-auto mt-5 h-px w-12 bg-brand-gold" />
+          </div>
+        </RevealOnScroll>
+        <RevealOnScroll variant="scale">
+          <GalleryClient
+            images={familyGalleryImages}
+            displayStyle="masonry"
+            priorityCount={0}
+          />
+        </RevealOnScroll>
+      </Section>
+
+      {/* Pricing */}
+      <Section spacing="wide">
+        <RevealOnScroll variant="up">
+          <div className="mx-auto max-w-lg">
+            <div className="mb-10 text-center">
+              <span className="editorial-label text-brand-gold">Investment</span>
+              <h2 className="mt-4 font-heading text-4xl font-light md:text-5xl">
+                Your Investment
+              </h2>
+              <div className="mx-auto mt-5 h-px w-12 bg-brand-gold" />
+            </div>
+            <PricingCard
+              name={familyTier?.name ?? 'Family Session'}
+              startingAt={familyTier?.startingAt ?? 400}
+              description={
+                familyTier?.description ??
+                'A relaxed, joyful portrait session for your whole family.'
+              }
+              features={
+                familyTier?.features ?? [
+                  '45\u201360 minute session',
+                  'Outdoor location',
+                  'Up to 6 family members',
+                  'Professional retouching',
+                  'Online gallery',
+                ]
+              }
+              highlight={familyTier?.highlight ?? true}
+              ctaLabel="Inquire for Detailed Pricing"
+              ctaHref="/contact"
+            />
+          </div>
+        </RevealOnScroll>
+      </Section>
+
+      {/* FAQ */}
+      <Section spacing="wide" background="muted">
+        <RevealOnScroll variant="up">
+          <div className="mx-auto max-w-3xl">
+            <div className="mb-10 text-center">
+              <span className="editorial-label text-brand-gold">FAQ</span>
+              <h2 className="mt-4 font-heading text-4xl font-light md:text-5xl">
+                Common Questions
+              </h2>
+              <div className="mx-auto mt-5 h-px w-12 bg-brand-gold" />
+            </div>
+            <AnswerBlock items={familyFaqs} />
+          </div>
+        </RevealOnScroll>
+      </Section>
+
+      {/* Testimonials */}
+      {testimonials && testimonials.length > 0 && (
+        <Section spacing="wide">
+          <RevealOnScroll variant="up">
+            <div className="mb-12 text-center">
+              <span className="editorial-label text-brand-gold">Kind Words</span>
+              <h2 className="mt-4 font-heading text-4xl font-light md:text-5xl">
+                What Our Families Are Saying
+              </h2>
+              <div className="mx-auto mt-5 h-px w-12 bg-brand-gold" />
+            </div>
+          </RevealOnScroll>
+          <RevealOnScroll variant="stagger">
+            <TestimonialCarousel testimonials={testimonials} />
+          </RevealOnScroll>
         </Section>
       )}
 
-      {/* ------------------------------------------------------------------ */}
-      {/*  8. Bottom CTA                                                       */}
-      {/* ------------------------------------------------------------------ */}
-      <Section background="muted">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-heading text-3xl font-light md:text-4xl">
-            Let&apos;s Capture Your Family
-          </h2>
-          <p className="mt-4 text-muted-foreground">
-            Every family has a story worth telling beautifully. I would love to
-            hear yours and create portraits that celebrate the wonderful,
-            messy, perfectly imperfect people you love most.
-          </p>
-          <Link
-            href="/contact"
-            className="mt-8 inline-flex min-h-11 items-center justify-center rounded bg-brand-gold px-8 py-3 text-sm font-medium tracking-wide text-white transition-colors hover:bg-brand-gold-dark"
-          >
-            Inquire Now
-          </Link>
+      {/* Bottom CTA */}
+      <section className="relative overflow-hidden bg-foreground py-24 md:py-32">
+        <div className="pattern-hex absolute inset-0 opacity-20" />
+        <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
+          <RevealOnScroll variant="up">
+            <div className="mx-auto max-w-2xl text-center">
+              <div className="mx-auto mb-6 h-px w-12 bg-brand-gold" />
+              <h2 className="font-heading text-4xl font-light text-white md:text-5xl">
+                Let&apos;s Capture Your Family
+              </h2>
+              <p className="mt-5 text-sm leading-relaxed text-white/50 md:text-base">
+                Every family has a story worth telling beautifully. I would love to
+                hear yours and create portraits that celebrate the wonderful,
+                messy, perfectly imperfect people you love most.
+              </p>
+              <Link
+                href="/contact"
+                className="group mt-8 inline-flex items-center gap-3"
+              >
+                <span className="editorial-label text-white transition-colors duration-300 group-hover:text-brand-gold">
+                  Inquire Now
+                </span>
+                <svg width="24" height="8" viewBox="0 0 24 8" fill="none" className="transition-transform duration-300 group-hover:translate-x-1">
+                  <path d="M0 4H22M22 4L18.5 0.5M22 4L18.5 7.5" stroke="currentColor" strokeWidth="0.75" className="text-brand-gold" />
+                </svg>
+              </Link>
+            </div>
+          </RevealOnScroll>
         </div>
-      </Section>
+      </section>
     </>
   )
 }
