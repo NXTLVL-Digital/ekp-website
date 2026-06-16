@@ -2,88 +2,97 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 interface HeroProps {
+  issueLabel: string
   heading: string
   subheading: string
   ctaLabel: string
   ctaHref: string
 }
 
-export function Hero({ heading, subheading, ctaLabel, ctaHref }: HeroProps) {
+export function Hero({ issueLabel, heading, subheading, ctaLabel, ctaHref }: HeroProps) {
   return (
-    <section className="relative h-screen min-h-[600px] overflow-hidden bg-black">
-      {/* Hero background image — full bleed */}
-      <Image
-        src="/placeholder/hero-1.jpeg"
-        alt="Senior portrait session by Emily Kathryn Photography"
-        fill
-        priority
-        className="object-cover opacity-70"
-        sizes="100vw"
-      />
+    <section className="relative grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] auto-rows-[auto] min-h-[90vh] overflow-hidden bg-background group">
+      {/* Left side - content */}
+      <div className="relative z-10 flex flex-col justify-between p-8 pb-16 md:p-12 md:pb-24 lg:px-10 lg:pt-16">
+        {/* Issue badge */}
+        <div className="inline-flex items-center gap-3">
+          <div className="h-px w-10 bg-gray-400" />
+          <span className="editorial-label text-muted-foreground">{issueLabel}</span>
+        </div>
 
-      {/* Gradient overlay — editorial dark-to-transparent */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
-
-      {/* Content — bottom-left editorial positioning */}
-      <div className="relative flex h-full items-end">
-        <div className="mx-auto w-full max-w-[1400px] px-6 pb-16 md:pb-24 lg:px-10">
-          {/* Gold accent rule */}
-          <div
-            className="mb-6 h-px w-12 bg-brand-gold"
-            style={{ animation: 'growWidth 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both' }}
-          />
-
-          {/* Editorial label */}
-          <p
-            className="editorial-label mb-4 text-brand-gold"
-            style={{ animation: 'fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both' }}
-          >
-            Senior Portraits &bull; Family Photography
-          </p>
-
-          {/* Massive editorial headline */}
-          <h1
-            className="max-w-4xl font-heading text-5xl font-light leading-[0.95] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl"
-            style={{ animation: 'heroTextReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.9s both' }}
-          >
+        {/* Headline */}
+        <div className="mt-12 md:mt-16">
+          <h1 className="font-heading text-5xl font-light leading-[0.95] tracking-tight md:text-7xl lg:text-8xl">
             {heading}
           </h1>
-
-          {/* Subheading */}
-          <p
-            className="mt-6 max-w-lg text-sm leading-relaxed text-white/60 md:text-base"
-            style={{ animation: 'fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.2s both' }}
-          >
+          <p className="mt-6 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base lg:text-lg">
             {subheading}
           </p>
+        </div>
 
-          {/* CTA — editorial link style */}
-          <div style={{ animation: 'fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.5s both' }}>
-            <Link
-              href={ctaHref}
-              className="group mt-8 inline-flex items-center gap-3"
-            >
-              <span className="editorial-label text-white transition-colors duration-300 group-hover:text-brand-gold">
-                {ctaLabel}
-              </span>
-              <svg width="24" height="8" viewBox="0 0 24 8" fill="none" className="transition-transform duration-300 group-hover:translate-x-1">
-                <path d="M0 4H22M22 4L18.5 0.5M22 4L18.5 7.5" stroke="currentColor" strokeWidth="0.75" className="text-brand-gold" />
-              </svg>
-            </Link>
+        {/* Hero metadata */}
+        <div className="mt-12 border-t border-border pt-8">
+          <div className="grid grid-cols-3 gap-8">
+            <div>
+              <span className="editorial-label text-sm text-muted-foreground">Specialty</span>
+              <div className="mt-2 font-heading text-2xl">Senior + Family</div>
+            </div>
+            <div>
+              <span className="editorial-label text-sm text-muted-foreground">Service</span>
+              <div className="mt-2 font-heading text-2xl">South-Central VA</div>
+            </div>
+            <div>
+              <span className="editorial-label text-sm text-muted-foreground">Artwork</span>
+              <div className="mt-2 font-heading text-2xl">Albums + Wall Art</div>
+            </div>
           </div>
+        </div>
+
+        {/* CTA */}
+        <div className="mt-8">
+          <Link
+            href={ctaHref}
+            className="inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-brand-gold"
+          >
+            <span className="editorial-label">{ctaLabel}</span>
+            <svg width="20" height="8" viewBox="0 0 20 8" fill="none" className="transition-transform duration-300 group-hover:translate-x-1">
+              <path d="M0 4H18M18 4L14.5 0.5M18 4L14.5 7.5" stroke="currentColor" strokeWidth="0.75" className="text-brand-gold" />
+            </svg>
+          </Link>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 md:bottom-8"
-        style={{ animation: 'fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 2s both' }}
-      >
-        <div className="flex flex-col items-center gap-2">
-          <span className="text-[0.5625rem] uppercase tracking-[0.25em] text-white/40">Scroll</span>
-          <div className="h-8 w-px bg-gradient-to-b from-white/40 to-transparent" />
+      {/* Right side - image */}
+      <div className="relative hidden lg:block h-[60vh] lg:h-auto">
+        <Image
+          src="/placeholder/hero-1.jpeg"
+          alt="Senior portrait session by Emily Kathryn Photography"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-black/20" />
+        <div className="absolute top-8 right-8 bg-background px-6 py-3 text-xs font-medium uppercase tracking-widest shadow-sm">
+          Cover Shot <span className="text-brand-gold">·</span> SS &lsquo;26
         </div>
+      </div>
+
+      {/* Mobile image (below content on small screens) */}
+      <div className="relative order-first h-64 lg:hidden">
+        <Image
+          src="/placeholder/hero-1.jpeg"
+          alt="Senior portrait session by Emily Kathryn Photography"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-black/30" />
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
+        <span className="editorial-label text-sm">Scroll</span>
+        <div className="h-12 w-px bg-gradient-to-b from-gray-400 to-transparent" />
       </div>
     </section>
   )
