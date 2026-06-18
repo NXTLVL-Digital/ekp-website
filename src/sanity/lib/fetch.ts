@@ -1,4 +1,5 @@
 import { client } from "./client";
+import { projectId } from "../env";
 import type { QueryParams } from "next-sanity";
 
 /**
@@ -29,6 +30,20 @@ import type { QueryParams } from "next-sanity";
  * });
  * ```
  */
+function emptyResultForQuery<T>(query: string): T {
+  const trimmedQuery = query.trim();
+
+  if (trimmedQuery.startsWith("{")) {
+    return {} as T;
+  }
+
+  if (/^\*\[[\s\S]*?\]\s*\[\s*0\s*\]/.test(trimmedQuery)) {
+    return null as T;
+  }
+
+  return [] as T;
+}
+
 export async function sanityFetch<T>({
   query,
   params = {},
@@ -40,6 +55,10 @@ export async function sanityFetch<T>({
   tags?: string[];
   revalidate?: number | false;
 }): Promise<T> {
+  if (!projectId) {
+    return emptyResultForQuery<T>(query);
+  }
+
   return client.fetch<T>(query, params, {
     // CRITICAL: Next.js 15 defaults to no-store. Must opt in for ISR.
     cache: "force-cache",
