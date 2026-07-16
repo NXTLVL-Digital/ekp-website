@@ -1,0 +1,39 @@
+EMILY KATHRYN PHOTOGRAPHY - LOCAL SITE
+
+This folder is the complete portable website. Keep every file and folder together.
+
+QUICK VIEW
+
+Open index.html in a web browser.
+
+RECOMMENDED LOCAL HOSTING
+
+1. Open Terminal or Command Prompt in this folder.
+2. Start a local web server:
+
+   macOS / Linux:
+   python3 -m http.server 3001
+
+   Windows:
+   py -m http.server 3001
+
+3. Open http://localhost:3001 in a browser.
+4. Stop the server with Control+C when finished.
+
+CONTENTS
+
+- index.html - Home
+- about.html - About Emily
+- senior.html - Senior portraits
+- family.html - Family portraits
+- portfolio.html - Portfolio
+- investment.html - Investment
+- journal.html - Journal
+- contact.html - Contact
+- assets/images - All website photography
+
+NOTES
+
+- An internet connection is used to load the approved Google Fonts.
+- The local contact form demonstrates the interaction but does not send email.
+- Do not rename or move the assets folder unless the HTML image paths are updated.

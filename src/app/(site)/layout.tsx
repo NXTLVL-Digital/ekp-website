@@ -1,8 +1,7 @@
 import { Cormorant_Garamond } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
+import { SiteChrome } from "@/components/layout/SiteChrome";
 import { JsonLd } from "@/components/shared/JsonLd";
 import { buildLocalBusinessSchema } from "@/lib/schemas/localBusiness";
 
@@ -21,11 +20,7 @@ export default function SiteLayout({
   return (
     <div className={`${cormorant.variable} font-body`}>
       <JsonLd data={buildLocalBusinessSchema()} />
-      <Header />
-
-      <main>{children}</main>
-
-      <Footer />
+      <SiteChrome>{children}</SiteChrome>
 
       <Analytics />
       <SpeedInsights />
