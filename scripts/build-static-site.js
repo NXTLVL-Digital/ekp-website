@@ -36,11 +36,13 @@ for (const [file, route] of Object.entries(pageMap)) {
 }
 
 function rewriteHtml(html, nested = false) {
+  const assetPrefix = nested ? '/assets/' : 'assets/';
+
   return html
     .replace(/href="index\.html"/g, 'href="/"')
     .replace(/href="(about|contact|journal|family|senior|investment|portfolio)\.html"/g, 'href="/$1"')
-    .replace(/src="assets\//g, nested ? 'src="/assets/' : 'src="assets/')
-    .replace(/url\(['"]?assets\//g, nested ? 'url(/assets/' : 'url(assets/');
+    .replace(/src="assets\//g, `src="${assetPrefix}`)
+    .replace(/url\((['"]?)assets\//g, `url($1${assetPrefix}`);
 }
 
 for (const file of ['index.html', ...Object.keys(pageMap)]) {
