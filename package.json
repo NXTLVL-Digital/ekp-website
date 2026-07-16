@@ -4,10 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/build-static-site.js",
-    "validate": "npm run build && node scripts/validate-static-site.js",
-    "start": "npx serve dist",
-    "lint": "eslint"
+    "build": "next build",
+    "start": "next start",
+    "lint": "tsc --noEmit"
   },
   "dependencies": {
     "@react-email/components": "^1.0.8",
