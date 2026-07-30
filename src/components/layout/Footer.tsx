@@ -106,12 +106,14 @@ export function Footer() {
               <p className="text-sm text-white/60">
                 {siteConfig.address.formatted}
               </p>
-              <a
-                href={`tel:${siteConfig.phone.replace(/[^+\d]/g, '')}`}
-                className="flex min-h-11 items-center text-sm text-white/60 transition-colors duration-300 hover:text-white"
-              >
-                {siteConfig.phone}
-              </a>
+              {siteConfig.phone ? (
+                <a
+                  href={`tel:${siteConfig.phone.replace(/[^+\d]/g, '')}`}
+                  className="flex min-h-11 items-center text-sm text-white/60 transition-colors duration-300 hover:text-white"
+                >
+                  {siteConfig.phone}
+                </a>
+              ) : null}
               <a
                 href={`mailto:${siteConfig.email}`}
                 className="flex min-h-11 items-center text-sm text-white/60 transition-colors duration-300 hover:text-white"
@@ -127,12 +129,20 @@ export function Footer() {
           <p className="text-xs text-white/30">
             &copy; {currentYear} {siteConfig.name}. All rights reserved.
           </p>
-          <Link
-            href="/contact"
-            className="editorial-label text-white/30 transition-colors duration-300 hover:text-brand-gold"
-          >
-            Book a Session
-          </Link>
+          <div className="flex items-center gap-8">
+            <Link
+              href="/privacy"
+              className="editorial-label text-white/30 transition-colors duration-300 hover:text-brand-gold"
+            >
+              Privacy
+            </Link>
+            <Link
+              href="/contact"
+              className="editorial-label text-white/30 transition-colors duration-300 hover:text-brand-gold"
+            >
+              Book a Session
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

@@ -76,15 +76,17 @@ export default function ContactPage() {
                         {siteConfig.email}
                       </a>
                     </p>
-                    <p>
-                      <span className="editorial-label mr-2 text-foreground">Phone</span>
-                      <a
-                        href={`tel:${siteConfig.phone.replace(/\D/g, '')}`}
-                        className="transition-colors hover:text-brand-gold"
-                      >
-                        {siteConfig.phone}
-                      </a>
-                    </p>
+                    {siteConfig.phone ? (
+                      <p>
+                        <span className="editorial-label mr-2 text-foreground">Phone</span>
+                        <a
+                          href={`tel:${siteConfig.phone.replace(/\D/g, '')}`}
+                          className="transition-colors hover:text-brand-gold"
+                        >
+                          {siteConfig.phone}
+                        </a>
+                      </p>
+                    ) : null}
                   </div>
                 </div>
 

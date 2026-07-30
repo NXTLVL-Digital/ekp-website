@@ -15,8 +15,9 @@ export const BUSINESS_ID = `${siteConfig.url}/#business`
  * Rendered site-wide via the root layout so every page carries the
  * LocalBusiness structured data required by SEO-01.
  *
- * NOTE: The address is included for GBP verification and proximity ranking
- * per SAB guidelines — it is NOT displayed in the UI.
+ * NOTE: Service-area business — the street address is intentionally omitted
+ * everywhere (schema and UI). It is provided to Google privately during GBP
+ * verification only. Locality/region/zip are published for local relevance.
  */
 export function buildLocalBusinessSchema(): WithContext<LocalBusiness> {
   return {
@@ -25,11 +26,10 @@ export function buildLocalBusinessSchema(): WithContext<LocalBusiness> {
     '@id': BUSINESS_ID,
     name: siteConfig.name,
     url: siteConfig.url,
-    telephone: siteConfig.phone,
+    ...(siteConfig.phone ? { telephone: siteConfig.phone } : {}),
     email: siteConfig.email,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: siteConfig.address.street,
       addressLocality: siteConfig.address.city,
       addressRegion: siteConfig.address.state,
       postalCode: siteConfig.address.zip,
@@ -93,11 +93,10 @@ export function buildCityLocalBusinessSchema(
     '@id': `${siteConfig.url}/${city.slug}/#business`,
     name: siteConfig.name,
     url: `${siteConfig.url}/${city.slug}`,
-    telephone: siteConfig.phone,
+    ...(siteConfig.phone ? { telephone: siteConfig.phone } : {}),
     email: siteConfig.email,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: siteConfig.address.street,
       addressLocality: siteConfig.address.city,
       addressRegion: siteConfig.address.state,
       postalCode: siteConfig.address.zip,

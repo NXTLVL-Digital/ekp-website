@@ -2,14 +2,17 @@ export const siteConfig = {
   name: 'Emily Kathryn Photography',
   tagline: 'Senior Portrait & Family Photographer',
   url: 'https://emilykathryn.com',
-  phone: '(434) XXX-XXXX', // TODO: Get exact phone from Emily, must match GBP
+  // TODO(Jeff): real phone from Emily before launch — must exactly match GBP.
+  // While empty, the phone is omitted from the footer, contact page, and JSON-LD.
+  phone: '' as string,
   email: 'emily@emilykathryn.com', // TODO: Verify exact email
   address: {
-    street: '123 Main Street', // TODO: Get exact address from Emily
+    // Service-area business: the street address goes to Google privately for
+    // GBP verification only. It is never published on the site or in schema.
     city: 'Gretna',
     state: 'VA',
     zip: '24557',
-    formatted: '123 Main Street, Gretna, VA 24557',
+    formatted: 'Gretna, VA 24557',
   },
   social: {
     instagram: 'https://www.instagram.com/emilykathrynphotography/',
