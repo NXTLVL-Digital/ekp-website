@@ -35,7 +35,7 @@ interface GalleryGridProps {
 
 /**
  * Detect whether an image URL is from the Sanity CDN.
- * If not (e.g., picsum.photos for testing), we use next/image directly.
+ * If not (for example, local portfolio images), we use next/image directly.
  */
 function isSanityUrl(url?: string): boolean {
   return !!url && url.includes("cdn.sanity.io");

@@ -163,10 +163,10 @@ export default async function AboutPage() {
                   />
                 ) : (
                   <Image
-                    src="/placeholder/emily.jpeg"
-                    alt="Emily Kathryn — portrait photographer in South-Central Virginia"
+                    src="/images/brand/emily-walker.jpg"
+                    alt="Emily Walker, the photographer behind Emily Kathryn Photography"
                     fill
-                    className="object-cover"
+                    className="object-cover object-center"
                     sizes="(max-width: 768px) 100vw, 42vw"
                   />
                 )}

@@ -3,11 +3,11 @@ import Link from 'next/link'
 
 const categoryImages: Record<string, { src: string; alt: string }> = {
   '/senior-portraits': {
-    src: '/placeholder/senior-1.jpeg',
+    src: '/images/seniors/EKP_2401.jpg',
     alt: 'Senior portrait by Emily Kathryn Photography',
   },
   '/family-portraits': {
-    src: '/placeholder/family-1.jpeg',
+    src: '/images/families/EKP_1211.jpg',
     alt: 'Family portrait by Emily Kathryn Photography',
   },
 }

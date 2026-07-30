@@ -13,11 +13,11 @@ export function Hero({ heading, subheading, ctaLabel, ctaHref }: HeroProps) {
     <section className="relative h-screen min-h-[600px] overflow-hidden bg-black">
       {/* Hero background image — full bleed */}
       <Image
-        src="/placeholder/hero-1.jpeg"
+        src="/images/seniors/EKP_1337.jpg"
         alt="Senior portrait session by Emily Kathryn Photography"
         fill
         priority
-        className="object-cover opacity-70"
+        className="object-cover object-[60%_center] opacity-70"
         sizes="100vw"
       />
 

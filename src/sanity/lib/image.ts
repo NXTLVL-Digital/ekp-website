@@ -1,10 +1,9 @@
-import imageUrlBuilder from "@sanity/image-url";
-import type { SanityImageSource } from "@sanity/image-url";
+import { createImageUrlBuilder, type SanityImageSource } from "@sanity/image-url";
 import { client } from "./client";
 
 export type { SanityImageSource };
 
-const builder = imageUrlBuilder(client);
+const builder = createImageUrlBuilder(client);
 
 /**
  * Build a Sanity image URL with chaining support.

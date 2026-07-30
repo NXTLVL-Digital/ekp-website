@@ -99,6 +99,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.5,
       images: [`${BASE_URL}/og/style-guide.jpg`],
     },
+    {
+      url: `${BASE_URL}/journal`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.6,
+      images: [`${BASE_URL}/og/journal.jpg`],
+    },
+    {
+      url: `${BASE_URL}/privacy`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
   ];
 
   return [...staticPages, ...cityPages];

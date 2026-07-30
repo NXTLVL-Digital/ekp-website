@@ -16,7 +16,7 @@ export function CityHero({ cityName, headline }: CityHeroProps) {
     <section className="relative h-[60vh] min-h-[450px] overflow-hidden">
       {/* Hero background image */}
       <Image
-        src="/placeholder/hero-2.jpeg"
+        src="/images/seniors/EKP_0913.jpg"
         alt={`Portrait photography in ${cityName}, Virginia`}
         fill
         priority

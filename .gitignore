@@ -50,3 +50,9 @@ FireShot*.pdf
 __pycache__/
 *.pyc
 *.pyo
+
+# Internal — never publish
+/deliverables/
+/CLAUDE.md
+website-mockups/
+*.tsbuildinfo
