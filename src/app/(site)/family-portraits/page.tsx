@@ -162,7 +162,7 @@ export default async function FamilyPortraitsPage() {
       <div className="editorial-image-hover relative">
         <div className="relative h-72 sm:h-96 md:h-[500px]">
           <Image
-            src="/placeholder/family-2.jpeg"
+            src="/images/families/EKP_1145.jpg"
             alt="Family portrait session by Emily Kathryn Photography"
             fill
             className="object-cover"

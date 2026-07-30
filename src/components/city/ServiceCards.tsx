@@ -10,7 +10,7 @@ const services = [
     title: 'Senior Portraits',
     href: '/senior-portraits',
     image: {
-      src: '/placeholder/senior-1.jpeg',
+      src: '/images/seniors/EKP_2401.jpg',
       alt: 'Senior portrait session by Emily Kathryn Photography',
     },
     description: (city: string) =>
@@ -21,7 +21,7 @@ const services = [
     title: 'Family Portraits',
     href: '/family-portraits',
     image: {
-      src: '/placeholder/family-1.jpeg',
+      src: '/images/families/EKP_1211.jpg',
       alt: 'Family portrait session by Emily Kathryn Photography',
     },
     description: (city: string) =>

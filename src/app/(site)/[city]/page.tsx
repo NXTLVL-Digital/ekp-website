@@ -85,8 +85,6 @@ export async function generateMetadata({
   const seedContent = CITY_CONTENT[city]
 
   // Use CMS data first, then seed content, then generic fallback
-  const headline =
-    data?.headline || seedContent?.headline || `${cityName} Portrait Photographer`
   const metaDesc =
     data?.metaDescription ||
     seedContent?.metaDescription ||
@@ -233,7 +231,7 @@ export default async function CityPage({
               </div>
               <div className="relative aspect-[3/4] overflow-hidden rounded-lg">
                 <Image
-                  src="/placeholder/senior-1.jpeg"
+                  src="/images/seniors/EKP_2401.jpg"
                   alt={`Senior portrait in ${cityName}, Virginia`}
                   fill
                   className="object-cover"
@@ -247,7 +245,7 @@ export default async function CityPage({
           <div className="grid grid-cols-3 gap-1">
             <div className="relative aspect-[3/4] overflow-hidden">
               <Image
-                src="/placeholder/senior-2.jpeg"
+                src="/images/seniors/EKP_5960.jpg"
                 alt={`Portrait photography in ${cityName}`}
                 fill
                 className="object-cover"
@@ -256,7 +254,7 @@ export default async function CityPage({
             </div>
             <div className="relative aspect-[3/4] overflow-hidden">
               <Image
-                src="/placeholder/family-5.jpeg"
+                src="/images/families/EKP_1186.jpg"
                 alt={`Family portraits in ${cityName}`}
                 fill
                 className="object-cover"
@@ -265,7 +263,7 @@ export default async function CityPage({
             </div>
             <div className="relative aspect-[3/4] overflow-hidden">
               <Image
-                src="/placeholder/gallery-1.jpeg"
+                src="/images/seniors/EKP_5436-Edit.jpg"
                 alt="Editorial portraits by Emily Kathryn Photography"
                 fill
                 className="object-cover"
@@ -280,7 +278,7 @@ export default async function CityPage({
               <div className="grid items-start gap-8 md:grid-cols-2 md:gap-16">
                 <div className="relative aspect-[4/5] overflow-hidden rounded-lg">
                   <Image
-                    src="/placeholder/family-1.jpeg"
+                    src="/images/families/EKP_1477.jpg"
                     alt={`Family portrait session in ${cityName}, Virginia`}
                     fill
                     className="object-cover"
@@ -431,7 +429,7 @@ export default async function CityPage({
       {/* ------------------------------------------------------------------ */}
       <section className="relative overflow-hidden py-section-sm md:py-section">
         <Image
-          src="/placeholder/hero-3.jpeg"
+          src="/images/families/EKP_1145.jpg"
           alt="Emily Kathryn Photography session"
           fill
           className="object-cover"

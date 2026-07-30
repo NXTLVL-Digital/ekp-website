@@ -196,8 +196,8 @@ export default async function SeniorPortraitsPage() {
       <div className="editorial-image-hover relative">
         <div className="relative h-72 sm:h-96 md:h-[500px]">
           <Image
-            src="/placeholder/senior-2.jpeg"
-            alt="Editorial senior portrait by Emily Kathryn Photography"
+            src="/images/brand/behind-the-scenes.jpg"
+            alt="Behind the scenes of an Emily Kathryn senior portrait session"
             fill
             className="object-cover"
             sizes="100vw"

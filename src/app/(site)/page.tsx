@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Image from 'next/image'
 import { sanityFetch } from '@/sanity/lib/fetch'
 import {
   TESTIMONIALS_QUERY,
