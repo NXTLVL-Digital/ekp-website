@@ -72,7 +72,7 @@ export const CITY_CONTENT: Record<string, CityContent> = {
   danville: {
     headline: 'Senior Portraits in Danville, VA',
     aeoBlock:
-      'Emily Kathryn Photography brings an elevated editorial approach to portrait photography in Danville, Virginia. Offering both senior sessions and family portraiture, the studio creates bold, intentional imagery that matches the creative energy of this revitalized city. Each collection is designed to honor milestone moments with artistry and confidence — a boutique experience that ends in printed artwork, not just files.',
+      'Emily Kathryn Photography brings an elevated editorial approach to portrait photography in Danville, Virginia. Offering both senior sessions and family portraiture, the studio creates bold, intentional imagery that matches the creative energy of this revitalized city. Each collection honors milestone moments with artistry and confidence. The experience is boutique and ends in printed artwork, not just files.',
     metaDescription:
       'Editorial senior portraits and family photography in Danville, VA. Emily Kathryn Photography creates magazine-worthy portraits for your milestone.',
     bodyHtml: `<p>Danville is in the middle of a creative renaissance, and anyone paying attention can feel it. The River District that once anchored the tobacco industry has been reimagined as a hub for artists, entrepreneurs, and makers. Murals line the warehouse walls, storefronts glow with new energy, and the Dan River itself continues to carve through the heart of the city the way it always has. This is a place that knows how to honor its history while building something entirely new, and the pride that comes from that transformation is visible everywhere you look.</p>
@@ -106,7 +106,7 @@ export const CITY_CONTENT: Record<string, CityContent> = {
       {
         question: 'Do you work with Danville Public Schools seniors?',
         answer:
-          'Yes. Emily has photographed seniors from George Washington High School and across the Danville area. She loves bringing out the creative confidence that defines Danville students — young people who have grown up watching their city reinvent itself and carry that same bold energy into their own story.',
+          'Yes. Emily has photographed seniors from George Washington High School and across the Danville area. She loves bringing out the creative confidence that defines Danville students. They have grown up watching their city reinvent itself, and they carry that same bold energy into their own story.',
       },
     ],
   },
@@ -146,7 +146,7 @@ export const CITY_CONTENT: Record<string, CityContent> = {
       {
         question: 'Which portrait locations in Lynchburg does Emily recommend?',
         answer:
-          'Lynchburg is blessed with remarkable variety — from the historic brick facades of downtown and Monument Terrace to the Blue Ridge Parkway overlooks and Peaks of Otter views. Emily selects locations based on your personal style and the look you are going for, scouting each spot to ensure the right light and privacy.',
+          'Lynchburg is blessed with remarkable variety, from the historic brick facades of downtown and Monument Terrace to the Blue Ridge Parkway overlooks and Peaks of Otter views. Emily selects locations based on your personal style and the look you are going for, scouting each spot to ensure the right light and privacy.',
       },
       {
         question: 'Do you photograph seniors from Liberty University and local high schools?',
@@ -180,7 +180,7 @@ export const CITY_CONTENT: Record<string, CityContent> = {
       {
         question: 'When should we schedule a portrait session at Smith Mountain Lake?',
         answer:
-          'The golden hour light reflecting off the lake is generous year-round, but late spring through early fall is the most popular window — warm enough for waterfront settings and perfect for that signature lake-country glow. For seniors, booking in the summer before your senior year gives you images ready for announcements right when school starts.',
+          'The golden hour light reflecting off the lake is generous year-round, but late spring through early fall is the most popular window. It is warm enough for waterfront settings and perfect for that signature lake-country glow. For seniors, booking in the summer before your senior year gives you images ready for announcements right when school starts.',
       },
       {
         question: 'What should we wear for our portrait session?',
@@ -190,7 +190,7 @@ export const CITY_CONTENT: Record<string, CityContent> = {
       {
         question: 'Can we include the lake or a dock in our session?',
         answer:
-          'Absolutely — waterfront settings are one of the most requested backdrops at Smith Mountain Lake. Private docks, shoreline coves, and lakeside fields all make striking settings. Emily coordinates location access in advance so your session feels relaxed and unhurried, with the water and golden light carrying the frame.',
+          'Absolutely. Waterfront settings are one of the most requested backdrops at Smith Mountain Lake. Private docks, shoreline coves, and lakeside fields all make striking settings. Emily coordinates location access in advance so your session feels relaxed and unhurried, with the water and golden light carrying the frame.',
       },
       {
         question: 'Do you photograph multigenerational family reunions at the lake?',
@@ -206,7 +206,7 @@ export const CITY_CONTENT: Record<string, CityContent> = {
   forest: {
     headline: 'Senior Portraits in Forest, VA',
     aeoBlock:
-      'Emily Kathryn Photography is the go-to portrait photographer for families and seniors in Forest, Virginia. Known for a refined editorial aesthetic that feels both elevated and genuine, the studio creates gallery-worthy images celebrating life in this welcoming community. Each session is designed to showcase real spirit and connection — a boutique experience that ends in printed artwork, not just files.',
+      'Emily Kathryn Photography is the go-to portrait photographer for families and seniors in Forest, Virginia. Known for a refined editorial aesthetic that feels both elevated and genuine, the studio creates gallery-worthy images celebrating life in this welcoming community. Each session showcases real spirit and connection. It is a boutique experience that ends in printed artwork, not just files.',
     metaDescription:
       'Senior portraits and family photography in Forest, VA. Emily Kathryn Photography delivers editorial-style portraits celebrating your milestone moments.',
     bodyHtml: `<p>Forest is the kind of community people choose deliberately. Just minutes from Lynchburg but with a pace entirely its own, it is a place where families put down roots because they want their children to grow up surrounded by both opportunity and breathing room. The neighborhoods are growing, the schools are strong, and there is a collective pride in having found the balance between access and tranquility.</p>
@@ -237,7 +237,7 @@ export const CITY_CONTENT: Record<string, CityContent> = {
       {
         question: 'Are there good portrait locations in Forest even though it is a smaller community?',
         answer:
-          'Forest has beautiful settings that most people drive right past — open meadows, wooded trails, and quiet neighborhoods with gorgeous tree canopy light. Being minutes from Lynchburg also means access to the Blue Ridge Parkway, historic downtown, and the Peaks of Otter. Emily always finds the perfect spot to match your vision.',
+          'Forest has beautiful settings that most people drive right past, like open meadows, wooded trails, and quiet neighborhoods with gorgeous tree canopy light. Being minutes from Lynchburg also means access to the Blue Ridge Parkway, historic downtown, and the Peaks of Otter. Emily always finds the perfect spot to match your vision.',
       },
     ],
   },
@@ -248,7 +248,7 @@ export const CITY_CONTENT: Record<string, CityContent> = {
   altavista: {
     headline: 'Senior Portraits in Altavista, VA',
     aeoBlock:
-      'Emily Kathryn Photography serves the Altavista, Virginia community with editorial-quality senior portraits and expressive family sessions. Dedicated to authentic connection and individual personality, the studio brings magazine-level artistry to this proud small town. Clients receive a curated collection that reflects their values — a boutique experience ending in printed artwork, not just files.',
+      'Emily Kathryn Photography serves the Altavista, Virginia community with editorial-quality senior portraits and expressive family sessions. Dedicated to authentic connection and individual personality, the studio brings magazine-level artistry to this proud small town. Clients receive a curated collection that reflects their values. The boutique experience ends in printed artwork, not just files.',
     metaDescription:
       'Editorial senior portraits and family photography in Altavista, VA. Emily Kathryn Photography creates authentic portraits your family will treasure.',
     bodyHtml: `<p>Altavista has always been a town that punches above its weight. With a heritage rooted in industry and civic ambition, this small community along the Staunton River has consistently shown that size has nothing to do with character. The downtown is tidy and proud, the neighbors are genuine, and there is a resilience woven into the fabric of this place that reveals itself in every generation that calls it home.</p>
@@ -290,7 +290,7 @@ export const CITY_CONTENT: Record<string, CityContent> = {
   evington: {
     headline: 'Senior Portraits in Evington, VA',
     aeoBlock:
-      'Emily Kathryn Photography creates considered portrait experiences for seniors and families across the Evington, Virginia area. With a signature editorial style shaped by Bedford County\'s natural beauty, every session celebrates individuality and legacy. The result is a boutique experience ending in printed artwork — sophisticated, deeply personal images made to become heirlooms for generations.',
+      'Emily Kathryn Photography creates considered portrait experiences for seniors and families across the Evington, Virginia area. With a signature editorial style shaped by Bedford County\'s natural beauty, every session celebrates individuality and legacy. The result is a boutique experience ending in printed artwork. These are sophisticated, deeply personal images made to become heirlooms for generations.',
     metaDescription:
       'Senior and family portrait photography in Evington, VA. Emily Kathryn Photography creates editorial portraits surrounded by Bedford County beauty.',
     bodyHtml: `<p>Evington is where the rolling countryside of Bedford County opens up and everything slows to the rhythm it was always meant to keep. This is a place shaped by tradition, by seasons, and by families who have chosen a life measured not in convenience but in meaning. The farmland stretches wide, the horizons are uninterrupted, and the community is bound together by the kind of trust that only comes from truly knowing your neighbors.</p>
@@ -316,7 +316,7 @@ export const CITY_CONTENT: Record<string, CityContent> = {
       {
         question: 'What makes Evington a great setting for portraits?',
         answer:
-          'Evington sits in the heart of Bedford County where the rolling farmland, uninterrupted horizons, and extraordinary natural light create an effortless canvas for editorial portraiture. The countryside here does not compete with its subjects — it complements them in the most honest, beautiful way.',
+          'Evington sits in the heart of Bedford County where the rolling farmland, uninterrupted horizons, and extraordinary natural light create an effortless canvas for editorial portraiture. The countryside here does not compete with its subjects. It complements them in the most honest, beautiful way.',
       },
       {
         question: 'Do you photograph seniors from the Bedford County school district?',

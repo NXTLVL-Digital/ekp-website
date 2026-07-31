@@ -11,7 +11,7 @@ export const journalPost = defineType({
   title: "Journal Post",
   type: "document",
   description:
-    "A blog post for your journal — session recaps, style tips, announcements, or behind-the-scenes content.",
+    "A blog post for your journal. Use it for session recaps, style tips, announcements, or behind-the-scenes content.",
   fields: [
     defineField({
       name: "title",
@@ -66,7 +66,7 @@ export const journalPost = defineType({
       name: "coverImage",
       title: "Cover Photo",
       type: "image",
-      description: "The main photo for this post — shown at the top of the post and in listing cards.",
+      description: "The main photo for this post. It shows at the top of the post and in listing cards.",
       options: { hotspot: true },
       fields: [
         defineField({

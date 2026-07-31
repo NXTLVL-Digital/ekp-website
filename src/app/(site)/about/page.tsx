@@ -31,18 +31,18 @@ interface AboutPageData {
 const FALLBACK_PRINCIPLES = [
   {
     num: '01',
-    title: 'You, Just Elevated',
-    text: 'Every family has a rhythm. Every senior has a spark. My job is not to turn you into someone else — it is to direct you until the photograph looks like you on your most confident day.',
+    title: 'You, On Your Best Day',
+    text: "Every family has a rhythm. Every senior has a spark. My job isn't to turn you into someone else. It's to direct you until the photograph is unmistakably you.",
   },
   {
     num: '02',
     title: 'The Experience Shows',
-    text: 'How a session feels shows up in the finished portraits. Mine are guided and unhurried — you will never be left wondering what to do with your hands — so you leave feeling confident and celebrated.',
+    text: 'How a session feels shows up in the finished portraits. Mine run calm, guided, and unhurried, so you leave the day feeling better about yourself than when you arrived.',
   },
   {
     num: '03',
     title: 'Made for the Wall',
-    text: 'Trends fade. A framed portrait in the hallway does not. I photograph with the finished piece in mind — wall art, albums, prints for the grandparents — so what we make together still means something in twenty years.',
+    text: "Trends fade. A framed portrait in the hallway doesn't. Albums, prints, artwork for the grandparents: what we make together should still mean something in twenty years.",
   },
 ]
 
@@ -71,7 +71,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   const description =
     data?.metaDescription ??
-    'Meet Emily Kathryn — a South-Central Virginia photographer who believes portraits belong on the wall, not just the phone. Serving Chatham, Danville, and Lynchburg.'
+    'Meet Emily Kathryn, a portrait photographer with more than a decade behind the camera in South-Central Virginia. Serving Chatham, Danville, and Lynchburg.'
 
   return {
     title: 'About',
@@ -86,7 +86,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: '/og/about.jpg',
           width: 1200,
           height: 630,
-          alt: 'Emily Kathryn — portrait photographer based in South-Central Virginia',
+          alt: 'Emily Kathryn, portrait photographer based in South-Central Virginia',
         },
       ],
       locale: 'en_US',
@@ -115,10 +115,10 @@ export default async function AboutPage() {
     })) ?? FALLBACK_PRINCIPLES
 
   const philosophyHeading = data?.philosophyHeading ?? 'What I Believe'
-  const ctaHeading = data?.ctaHeading ?? "Let's Make Something Worth Framing"
+  const ctaHeading = data?.ctaHeading ?? 'Introduce Yourself'
   const ctaBody =
     data?.ctaBody ??
-    'Tell me about your senior, your family, or the wall you have been meaning to fill. I would love to hear what you are picturing — and help you plan it.'
+    "Tell me about your senior, your family, or the session you keep putting off. I'd love to hear what you're picturing."
 
   return (
     <>
@@ -128,7 +128,7 @@ export default async function AboutPage() {
           <div className="mx-auto max-w-3xl text-center">
             <span className="editorial-label text-brand-gold">About</span>
             <h1 className="mt-4 font-heading text-5xl font-light text-white md:text-6xl lg:text-7xl">
-              Hey, I&apos;m Emily
+              Meet Emily
             </h1>
             <div className="mx-auto mt-6 h-px w-12 bg-brand-gold" />
           </div>
@@ -146,7 +146,7 @@ export default async function AboutPage() {
                   <Image
                     loader={sanityLoader}
                     src={data.headshot.asset.url}
-                    alt={data.headshot.alt ?? 'Emily Kathryn — portrait photographer in South-Central Virginia'}
+                    alt={data.headshot.alt ?? 'Emily Kathryn, portrait photographer in South-Central Virginia'}
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 42vw"
@@ -183,44 +183,38 @@ export default async function AboutPage() {
                 ) : (
                   <div className="space-y-5 text-sm leading-relaxed text-muted-foreground md:text-base">
                     <p>
-                      There is a difference between a photograph you scroll past
-                      and one you walk past. The one in the hallway. The one over
-                      the stairs that quietly says, <em>this is us</em>. Most of
-                      us grew up with portraits like that — and somewhere along
-                      the way, they turned into files on a phone. I make the kind
-                      you walk past.
+                      Emily Kathryn has photographed seniors and families across
+                      South-Central Virginia for more than a decade. Long enough
+                      to know the right photograph doesn&apos;t happen by
+                      accident.
                     </p>
                     <p>
-                      My own path into photography started the way most great
-                      loves do — unexpectedly. What began as a creative outlet
-                      became a calling the first time I watched a senior see
-                      herself photographed well: not turned into someone else,
-                      just herself, elevated. The quiet confidence in that moment
-                      is still the reason I pick up the camera.
+                      For me, it clicked the first time I watched a senior see
+                      themselves photographed well. Not turned into somebody
+                      else. Just themselves, at their most confident.
+                      That&apos;s still the reason I pick up the camera.
                     </p>
                     <p>
-                      Based in the heart of South-Central Virginia, I have built
-                      my work on one belief: every session should feel like a
-                      magazine shoot. Not stiff. Not rushed. Not generic.
-                      Relaxed, editorial, and directed — so when you see the
-                      finished images you think, <em>&quot;That is actually
+                      I&apos;ve built my work on one belief: a session should
+                      feel like a magazine shoot. Relaxed, directed, never
+                      rushed. When you see the finished images, the reaction I
+                      want is simple. <em>&quot;That&apos;s actually
                       me.&quot;</em>
                     </p>
                     <p>
-                      And I believe the work is not finished when the gallery is
-                      delivered. Files get scrolled past; a framed portrait gets
-                      looked at every day for twenty years. So I photograph with
-                      the wall in mind — how the light will print, where the
-                      piece might hang, which image anchors the album — because
-                      these are not photographs for this week. They are for the
-                      people you will be a decade from now.
+                      And the work isn&apos;t done when the gallery is
+                      delivered. I photograph with the final print in mind: how
+                      the light holds up on paper, which image anchors the
+                      album, which one earns the big frame. These aren&apos;t
+                      photographs for this week. They&apos;re for the people
+                      you&apos;ll be a decade from now.
                     </p>
                     <p>
-                      From golden-hour fields in Chatham to the brick
-                      streetscapes of Danville, the foothills near Lynchburg,
-                      and the docks of Smith Mountain Lake, I am honored to make
-                      portraits for families across this corner of Virginia. I
-                      would love to make yours.
+                      From golden-hour fields in Chatham to the brick streets
+                      of downtown Danville, the foothills near Lynchburg, and
+                      the docks of Smith Mountain Lake, this corner of Virginia
+                      is home. If your people are here, I hope we get to work
+                      together.
                     </p>
                   </div>
                 )}

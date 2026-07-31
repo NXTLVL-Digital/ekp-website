@@ -18,14 +18,14 @@ export const metadata: Metadata = {
       'Senior sessions begin at $799, family sessions at $899 in South-Central Virginia. Collections of digital files, wall art, and albums, guided by a personal ordering appointment.',
     url: 'https://emilykathryn.com/investment',
     siteName: 'Emily Kathryn Photography',
-    images: [{ url: '/og/investment.jpg', width: 1200, height: 630, alt: 'Investment and pricing — Emily Kathryn Photography' }],
+    images: [{ url: '/og/investment.jpg', width: 1200, height: 630, alt: 'Investment and pricing at Emily Kathryn Photography' }],
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Investment | Emily Kathryn Photography',
-    description: 'Senior sessions begin at $799, family sessions at $899. Wall art, albums, and digital files — guided by a personal ordering appointment.',
+    description: 'Senior sessions begin at $799, family sessions at $899. Wall art, albums, and digital files, all guided by a personal ordering appointment.',
     images: ['/og/investment.jpg'],
   },
 }
@@ -46,7 +46,7 @@ const PLACEHOLDER_TIERS: PricingTier[] = [
     name: 'Senior Portraits',
     startingAt: 799,
     description:
-      'An editorial portrait experience for the last big chapter — directed so you look like yourself, just elevated.',
+      'An editorial portrait experience for the last big chapter, directed so you look like yourself, just elevated.',
     features: [
       '1-2 hour session',
       'Multiple outfit changes',
@@ -62,7 +62,7 @@ const PLACEHOLDER_TIERS: PricingTier[] = [
     name: 'Family Portraits',
     startingAt: 899,
     description:
-      'A relaxed, guided session for the whole family — photographed as you really are, and finished as artwork made for the wall.',
+      'A relaxed, guided session for the whole family, photographed as you really are, and finished as artwork made for the wall.',
     features: [
       '45-60 minute session',
       'Outdoor location',
@@ -105,10 +105,10 @@ export default async function InvestmentPage() {
             <div className="space-y-4 text-sm leading-relaxed text-muted-foreground md:text-base">
               <p>
                 Senior sessions begin at $799. Family sessions begin at $899.
-                Your session fee covers the experience itself — the planning,
-                the wardrobe and location direction, the guided session, and
-                your personal reveal — so every decision after that is simply
-                about what you will keep.
+                Your session fee covers the whole experience. That means the
+                planning, the wardrobe and location direction, the guided
+                session, and your personal reveal. Every decision after that
+                is simply about what you will keep.
               </p>
               <p>
                 Finished artwork is offered in considered collections rather
@@ -160,7 +160,7 @@ export default async function InvestmentPage() {
                 },
                 {
                   title: 'Location Scouting',
-                  desc: 'I handpick settings that suit your style and the season — from Chatham fields to Danville brick.',
+                  desc: 'I handpick settings that suit your style and the season, from Chatham fields to Danville brick.',
                 },
                 {
                   title: 'Professional Retouching',
@@ -172,11 +172,11 @@ export default async function InvestmentPage() {
                 },
                 {
                   title: 'Reveal & Ordering Appointment',
-                  desc: 'We meet in person to see your images for the first time and choose what they become — no guesswork, no pressure.',
+                  desc: 'We meet in person to see your images for the first time and choose what they become. No guesswork, no pressure.',
                 },
                 {
                   title: 'Heirloom Printing',
-                  desc: 'Prints, wall art, and albums are produced through my professional lab — made to be handed down, not replaced.',
+                  desc: 'Prints, wall art, and albums are produced through my professional lab. They are made to be handed down, not replaced.',
                 },
               ].map((item) => (
                 <div key={item.title} className="flex items-start gap-4 border-t border-border pt-5">
@@ -207,8 +207,8 @@ export default async function InvestmentPage() {
               <p className="mt-5 text-sm leading-relaxed text-white/50 md:text-base">
                 Once your images are ready, we sit down together for your
                 ordering appointment. You will see the finished portraits for
-                the first time, and we will design what they become — the
-                digital files you will share, wall art sized for your rooms, an
+                the first time, and we will design what they become. Digital
+                files you will share. Wall art sized for your rooms. An
                 album that holds the whole story. Then everything arrives
                 finished: printed, framed, and ready to hang.
               </p>
@@ -231,7 +231,7 @@ export default async function InvestmentPage() {
             <p className="mt-5 text-sm leading-relaxed text-muted-foreground md:text-base">
               Fifteen minutes, no obligation. Tell Emily about your senior or
               your family, ask anything about sessions and collections, and
-              leave with a clear picture of the experience — and the
+              leave with a clear picture of the experience and the
               investment.
             </p>
             <Link

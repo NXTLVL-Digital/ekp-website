@@ -269,7 +269,7 @@ export default async function JournalPostPage({
               Ready to Create Something Beautiful?
             </h2>
             <p className="mt-5 text-sm leading-relaxed text-white/50 md:text-base">
-              Let&apos;s talk about your vision — senior portraits, family sessions,
+              Let&apos;s talk about your vision. Senior portraits, family sessions,
               or something entirely your own.
             </p>
             <Link href="/contact" className="group mt-8 inline-flex items-center gap-3">

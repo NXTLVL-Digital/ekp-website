@@ -62,8 +62,8 @@ export default function PrivacyPage() {
               <div className="mt-4 h-px w-12 bg-brand-gold" />
               <p className="mt-6 leading-relaxed text-muted-foreground">
                 When you submit the inquiry form, we collect the information you
-                provide — your name, email address, phone number if you share
-                it, and the details of the session you are interested in. That
+                provide. That is your name, email address, phone number if you
+                share it, and the details of the session you are interested in. That
                 is the only personal information this website asks for. We do
                 not run advertising trackers, and we do not sell or rent your
                 information to anyone.
@@ -107,7 +107,8 @@ export default function PrivacyPage() {
               <p className="mt-6 leading-relaxed text-muted-foreground">
                 Many of the portraits on this site feature high school seniors.
                 Client images are published only with the prior consent of the
-                client — and for minors, the consent of a parent or guardian.
+                client. For minors, that means the consent of a parent or
+                guardian.
                 All published images have identifying camera metadata removed.
                 If you would like an image of you or your child removed from
                 the site, email us and it will be taken down promptly.

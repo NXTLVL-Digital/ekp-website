@@ -10,14 +10,14 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Journal',
   description:
-    'Style tips, session recaps, and behind-the-scenes stories from Emily Kathryn Photography — serving seniors and families across South-Central Virginia.',
+    'Style tips, session recaps, and behind-the-scenes stories from Emily Kathryn Photography, serving seniors and families across South-Central Virginia.',
   openGraph: {
     title: 'Journal | Emily Kathryn Photography',
     description:
       'Style tips, session recaps, and behind-the-scenes stories from Emily Kathryn Photography.',
     url: 'https://emilykathryn.com/journal',
     siteName: 'Emily Kathryn Photography',
-    images: [{ url: '/og/journal.jpg', width: 1200, height: 630, alt: 'Journal — Emily Kathryn Photography' }],
+    images: [{ url: '/og/journal.jpg', width: 1200, height: 630, alt: 'The Emily Kathryn Photography journal' }],
     locale: 'en_US',
     type: 'website',
   },
