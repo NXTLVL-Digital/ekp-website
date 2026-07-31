@@ -128,7 +128,7 @@ export function GalleryGrid({
           <button
             key={image._key}
             type="button"
-            className="group relative aspect-[3/4] w-full overflow-hidden rounded"
+            className="group relative aspect-[3/4] w-full overflow-hidden"
             onClick={() => onImageClick?.(index)}
             aria-label={`View ${image.alt || "gallery image"} in lightbox`}
           >
@@ -151,7 +151,7 @@ export function GalleryGrid({
         <div key={image._key} className="mb-3 break-inside-avoid md:mb-4">
           <button
             type="button"
-            className="group relative w-full overflow-hidden rounded"
+            className="group relative w-full overflow-hidden"
             onClick={() => onImageClick?.(index)}
             aria-label={`View ${image.alt || "gallery image"} in lightbox`}
           >

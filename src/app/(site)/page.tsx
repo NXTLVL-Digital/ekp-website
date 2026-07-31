@@ -10,6 +10,8 @@ import { ScarcityCue } from '@/components/shared/ScarcityCue'
 import { Hero } from '@/components/home/Hero'
 import { PortfolioPreview } from '@/components/home/PortfolioPreview'
 import { TestimonialCarousel } from '@/components/home/TestimonialCarousel'
+import { FEATURED_TESTIMONIALS } from '@/lib/testimonialContent'
+import { siteConfig } from '@/lib/siteConfig'
 import { HomeCTA } from '@/components/home/HomeCTA'
 import { GalleryClient } from '@/components/shared/GalleryClient'
 import { JsonLd } from '@/components/shared/JsonLd'
@@ -247,24 +249,91 @@ export default async function HomePage() {
       {/* ----------------------------------------------------------------- */}
       {/* 8. Testimonials — editorial layout                                */}
       {/* ----------------------------------------------------------------- */}
-      {testimonials && testimonials.length > 0 && (
-        <section className="border-t border-border bg-muted">
-          <div className="mx-auto max-w-[1400px] px-6 py-[var(--spacing-section-sm)] md:py-[var(--spacing-section)] lg:px-10">
-            <RevealOnScroll variant="up">
-              <div className="mb-12 text-center">
-                <span className="editorial-label text-brand-gold">In Their Words</span>
-                <h2 className="mt-4 font-heading text-4xl font-light md:text-5xl">
-                  What Families Say Afterward
-                </h2>
-                <div className="mx-auto mt-5 h-px w-12 bg-brand-gold" />
-              </div>
-            </RevealOnScroll>
+      <section className="border-t border-border bg-muted">
+        <div className="mx-auto max-w-[1400px] px-6 py-[var(--spacing-section-sm)] md:py-[var(--spacing-section)] lg:px-10">
+          <RevealOnScroll variant="up">
+            <div className="mb-12 text-center">
+              <span className="editorial-label text-brand-gold">In Their Words</span>
+              <h2 className="mt-4 font-heading text-4xl font-light md:text-5xl">
+                What Families Say Afterward
+              </h2>
+              <div className="mx-auto mt-5 h-px w-12 bg-brand-gold" />
+            </div>
+          </RevealOnScroll>
+
+          {testimonials && testimonials.length > 0 ? (
             <RevealOnScroll variant="stagger">
               <TestimonialCarousel testimonials={testimonials} />
             </RevealOnScroll>
-          </div>
-        </section>
-      )}
+          ) : (
+            <>
+              {/* Real client testimonials carried over from the previous site.
+                  Deliberately not fed into Review JSON-LD: these were written
+                  testimonials with no star rating attached, and the schema
+                  builder asserts five stars. Marking up ratings nobody gave
+                  would be fabricating review data. */}
+              <RevealOnScroll variant="stagger">
+                <div className="grid grid-cols-1 gap-x-12 gap-y-14 md:grid-cols-2">
+                  {FEATURED_TESTIMONIALS.map((item, i) => (
+                    <figure
+                      key={item.id}
+                      className={i % 2 === 1 ? 'md:mt-16' : undefined}
+                    >
+                      <div className="h-px w-12 bg-brand-gold" />
+                      <blockquote className="mt-6 font-heading text-xl font-light leading-relaxed text-foreground md:text-2xl">
+                        {item.quote}
+                      </blockquote>
+                      <figcaption className="mt-6">
+                        <span className="editorial-label text-foreground">
+                          {item.name}
+                        </span>
+                        <span className="mt-1 block text-xs tracking-wide text-muted-foreground">
+                          {item.context}
+                        </span>
+                      </figcaption>
+                    </figure>
+                  ))}
+                </div>
+              </RevealOnScroll>
+
+              <RevealOnScroll variant="up">
+                <div className="mt-16 flex flex-col items-center gap-6 border-t border-border pt-10 sm:flex-row sm:justify-center sm:gap-12">
+                  <Link
+                    href="/raves"
+                    className="group inline-flex min-h-11 items-center gap-3"
+                  >
+                    <span className="editorial-label text-foreground transition-colors duration-300 group-hover:text-brand-gold">
+                      Read More Reviews
+                    </span>
+                    <svg
+                      width="24"
+                      height="8"
+                      viewBox="0 0 24 8"
+                      fill="none"
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    >
+                      <path
+                        d="M0 4H22M22 4L18.5 0.5M22 4L18.5 7.5"
+                        stroke="currentColor"
+                        strokeWidth="0.75"
+                        className="text-brand-gold"
+                      />
+                    </svg>
+                  </Link>
+                  <a
+                    href={siteConfig.social.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="editorial-label inline-flex min-h-11 items-center text-muted-foreground transition-colors duration-300 hover:text-brand-gold"
+                  >
+                    Reviews on Facebook
+                  </a>
+                </div>
+              </RevealOnScroll>
+            </>
+          )}
+        </div>
+      </section>
 
       {/* ----------------------------------------------------------------- */}
       {/* 9. Bottom CTA — elegant final conversion nudge                    */}

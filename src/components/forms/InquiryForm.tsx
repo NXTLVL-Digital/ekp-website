@@ -5,7 +5,7 @@ import { submitInquiry, type InquiryState } from '@/app/actions/inquiry'
 import { SubmitButton } from './SubmitButton'
 
 const inputStyles =
-  'min-h-11 w-full rounded border border-border bg-white px-3 text-sm focus:border-brand-gold focus:outline-none focus:ring-1 focus:ring-brand-gold'
+  'min-h-11 w-full border border-border bg-white px-3 text-sm transition-colors focus:border-brand-gold focus:outline-none focus:ring-1 focus:ring-brand-gold'
 
 function FieldError({ errors }: { errors?: string[] }) {
   if (!errors || errors.length === 0) return null
@@ -23,7 +23,7 @@ export function InquiryForm() {
 
   if (state.success && state.message) {
     return (
-      <div className="rounded-lg border border-green-200 bg-green-50 p-8 text-center">
+      <div className="border-l-2 border-brand-gold bg-muted p-8 text-center">
         <div className="mb-3 text-4xl" aria-hidden="true">
           &#10003;
         </div>

@@ -46,6 +46,58 @@ const FALLBACK_PRINCIPLES = [
   },
 ]
 
+/**
+ * Fallback bio, split into two groups so the page can breathe between them.
+ * The brand guide asks for photograph, type, breath, photograph rather than
+ * one unbroken column of text. Used until Emily populates Sanity, at which
+ * point her CMS bio renders in the first position instead.
+ */
+const FALLBACK_BIO_OPENING = [
+  "Emily Kathryn has photographed seniors and families across South-Central Virginia for more than a decade. Long enough to know the right photograph doesn't happen by accident.",
+  "For me, it clicked the first time I watched a senior see themselves photographed well. Not turned into somebody else. Just themselves, at their most confident. That's still the reason I pick up the camera.",
+  "I've built my work on one belief: a session should feel like a magazine shoot. Relaxed, directed, never rushed. When you see the finished images, the reaction I want is simple. That's actually me.",
+]
+
+const FALLBACK_BIO_CLOSING = [
+  "The work isn't done when the gallery is delivered. I photograph with the final print in mind: how the light holds up on paper, which image anchors the album, which one earns the big frame.",
+  'From golden hour fields in Chatham to the brick streets of downtown Danville, the foothills near Lynchburg, and the docks at Smith Mountain Lake, this corner of Virginia is home. If your people are here, I hope we get to work together.',
+]
+
+/** Truthful, already-published proof points. No invented numbers. */
+const CREDENTIALS = [
+  {
+    figure: 'A decade +',
+    label: 'Behind the camera',
+    text: 'Photographing seniors and families across this corner of Virginia since long before it was a trend.',
+  },
+  {
+    figure: 'Seven',
+    label: 'Communities served',
+    text: 'Chatham, Danville, Lynchburg, Smith Mountain Lake, Forest, Altavista, and Evington.',
+  },
+  {
+    figure: 'Every frame',
+    label: 'Made for the wall',
+    text: 'Sessions are planned around the finished piece, so the work ends in albums and artwork rather than a folder.',
+  },
+]
+
+/** Portfolio taste, kept to three so the strip reads as a spread. */
+const PORTFOLIO_STRIP = [
+  {
+    src: '/images/seniors/EKP_5436-Edit.jpg',
+    alt: 'Editorial senior portrait among spring blossoms',
+  },
+  {
+    src: '/images/families/EKP_1211.jpg',
+    alt: 'Family portrait in warm evening light',
+  },
+  {
+    src: '/images/seniors/EKP_8368.jpg',
+    alt: 'Graduation portrait in a wildflower field',
+  },
+]
+
 const bioComponents = {
   block: {
     normal: ({ children }: { children?: React.ReactNode }) => (
@@ -123,7 +175,7 @@ export default async function AboutPage() {
   return (
     <>
       {/* Editorial page header */}
-      <section className="bg-foreground pt-32 pb-16 md:pt-40 md:pb-20">
+      <section className="bg-foreground pt-52 pb-20 md:pt-56 md:pb-24">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="mx-auto max-w-3xl text-center">
             <span className="editorial-label text-brand-gold">About</span>
@@ -182,44 +234,89 @@ export default async function AboutPage() {
                   </div>
                 ) : (
                   <div className="space-y-5 text-sm leading-relaxed text-muted-foreground md:text-base">
-                    <p>
-                      Emily Kathryn has photographed seniors and families across
-                      South-Central Virginia for more than a decade. Long enough
-                      to know the right photograph doesn&apos;t happen by
-                      accident.
-                    </p>
-                    <p>
-                      For me, it clicked the first time I watched a senior see
-                      themselves photographed well. Not turned into somebody
-                      else. Just themselves, at their most confident.
-                      That&apos;s still the reason I pick up the camera.
-                    </p>
-                    <p>
-                      I&apos;ve built my work on one belief: a session should
-                      feel like a magazine shoot. Relaxed, directed, never
-                      rushed. When you see the finished images, the reaction I
-                      want is simple. <em>&quot;That&apos;s actually
-                      me.&quot;</em>
-                    </p>
-                    <p>
-                      And the work isn&apos;t done when the gallery is
-                      delivered. I photograph with the final print in mind: how
-                      the light holds up on paper, which image anchors the
-                      album, which one earns the big frame. These aren&apos;t
-                      photographs for this week. They&apos;re for the people
-                      you&apos;ll be a decade from now.
-                    </p>
-                    <p>
-                      From golden-hour fields in Chatham to the brick streets
-                      of downtown Danville, the foothills near Lynchburg, and
-                      the docks of Smith Mountain Lake, this corner of Virginia
-                      is home. If your people are here, I hope we get to work
-                      together.
-                    </p>
+                    {FALLBACK_BIO_OPENING.map((paragraph) => (
+                      <p key={paragraph.slice(0, 24)}>{paragraph}</p>
+                    ))}
                   </div>
                 )}
               </div>
             </div>
+          </div>
+        </RevealOnScroll>
+      </Section>
+
+      {/* Pull quote — the breath between the two halves of the story */}
+      <section className="relative overflow-hidden bg-foreground py-20 md:py-28">
+        <div className="pattern-hex absolute inset-0 opacity-20" />
+        <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
+          <RevealOnScroll variant="up">
+            <figure className="mx-auto max-w-3xl text-center">
+              <div className="mx-auto mb-8 h-px w-12 bg-brand-gold" />
+              <blockquote className="font-heading text-3xl font-light leading-tight text-white md:text-4xl lg:text-5xl">
+                These aren&apos;t photographs for this week. They&apos;re for
+                the people you&apos;ll be a decade from now.
+              </blockquote>
+              <figcaption className="editorial-label mt-8 text-white/40">
+                Emily Kathryn
+              </figcaption>
+            </figure>
+          </RevealOnScroll>
+        </div>
+      </section>
+
+      {/* Behind the scenes — image right, text left, mirroring the opening */}
+      {!data?.bio && (
+        <Section spacing="wide">
+          <RevealOnScroll variant="up">
+            <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-12 md:gap-0">
+              {/* Text */}
+              <div className="order-2 md:order-1 md:col-span-6 md:pr-12">
+                <span className="editorial-label text-brand-gold">
+                  How I Work
+                </span>
+                <div className="mt-5 h-px w-12 bg-brand-gold" />
+                <div className="mt-8 space-y-5 text-sm leading-relaxed text-muted-foreground md:text-base">
+                  {FALLBACK_BIO_CLOSING.map((paragraph) => (
+                    <p key={paragraph.slice(0, 24)}>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+
+              {/* Image */}
+              <div className="editorial-image-hover relative order-1 md:order-2 md:col-span-7 md:col-start-6">
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src="/images/brand/behind-the-scenes.jpg"
+                    alt="Emily Kathryn directing a portrait session on location"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 58vw"
+                  />
+                </div>
+              </div>
+            </div>
+          </RevealOnScroll>
+        </Section>
+      )}
+
+      {/* Credentials — editorial figures, no invented numbers */}
+      <Section spacing="tight">
+        <RevealOnScroll variant="stagger">
+          <div className="grid grid-cols-1 gap-12 border-t border-border pt-16 md:grid-cols-3 md:gap-10">
+            {CREDENTIALS.map((item) => (
+              <div key={item.label}>
+                <p className="font-heading text-3xl font-light text-foreground md:text-4xl">
+                  {item.figure}
+                </p>
+                <span className="editorial-label mt-3 block text-brand-gold">
+                  {item.label}
+                </span>
+                <div className="mt-4 h-px w-8 bg-brand-gold/40" />
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                  {item.text}
+                </p>
+              </div>
+            ))}
           </div>
         </RevealOnScroll>
       </Section>
@@ -254,6 +351,66 @@ export default async function AboutPage() {
           </RevealOnScroll>
         </div>
       </section>
+
+      {/* Recent work — a taste of the portfolio, so the page ends on pictures */}
+      <Section spacing="wide">
+        <RevealOnScroll variant="up">
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <span className="editorial-label text-brand-gold">
+                Recent Work
+              </span>
+              <h2 className="mt-3 font-heading text-3xl font-light md:text-4xl">
+                A Look at the Work
+              </h2>
+              <div className="mt-5 h-px w-12 bg-brand-gold" />
+            </div>
+            <Link
+              href="/senior-portraits"
+              className="group inline-flex items-center gap-3 sm:pb-2"
+            >
+              <span className="editorial-label text-foreground transition-colors duration-300 group-hover:text-brand-gold">
+                View Senior Portraits
+              </span>
+              <svg
+                width="24"
+                height="8"
+                viewBox="0 0 24 8"
+                fill="none"
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              >
+                <path
+                  d="M0 4H22M22 4L18.5 0.5M22 4L18.5 7.5"
+                  stroke="currentColor"
+                  strokeWidth="0.75"
+                  className="text-brand-gold"
+                />
+              </svg>
+            </Link>
+          </div>
+        </RevealOnScroll>
+
+        <RevealOnScroll variant="stagger" className="mt-12">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6">
+            {PORTFOLIO_STRIP.map((image, i) => (
+              <div
+                key={image.src}
+                className={`editorial-image-hover relative aspect-[4/5] overflow-hidden ${
+                  i === 1 ? 'sm:mt-10' : ''
+                }`}
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 100vw, 33vw"
+                />
+              </div>
+            ))}
+          </div>
+        </RevealOnScroll>
+      </Section>
 
       {/* CTA section */}
       <Section spacing="wide">

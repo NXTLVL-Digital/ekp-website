@@ -11,6 +11,17 @@ const resend = process.env.RESEND_API_KEY
   ? new Resend(process.env.RESEND_API_KEY)
   : null
 
+/**
+ * The domain verified in Resend, which is what Resend allows us to send from.
+ * The root domain is verified, so inquiry mail comes from @emilykathryn.com.
+ * Override with RESEND_SENDING_DOMAIN in Vercel if that ever changes.
+ */
+const SENDING_DOMAIN = process.env.RESEND_SENDING_DOMAIN ?? 'emilykathryn.com'
+
+/** Where inquiry notifications land, and where client replies should go. */
+const NOTIFICATION_ADDRESS =
+  process.env.NOTIFICATION_EMAIL ?? 'emily@emilykathryn.com'
+
 export type InquiryState = {
   success: boolean
   message: string
@@ -94,8 +105,8 @@ export async function submitInquiry(
     }
 
     await resend.emails.send({
-      from: 'Emily Kathryn Photography <noreply@emilykathryn.com>',
-      to: [process.env.NOTIFICATION_EMAIL ?? 'emily@emilykathryn.com'],
+      from: `Emily Kathryn Photography <noreply@${SENDING_DOMAIN}>`,
+      to: [NOTIFICATION_ADDRESS],
       replyTo: validated.email,
       subject: `New ${serviceLabel} inquiry from ${validated.name}`,
       react: InquiryNotification({
@@ -113,7 +124,10 @@ export async function submitInquiry(
     //    Auto-responder is nice-to-have; notification to Emily is critical.
     try {
       await resend.emails.send({
-        from: 'Emily Kathryn Photography <hello@emilykathryn.com>',
+        from: `Emily Kathryn Photography <emily@${SENDING_DOMAIN}>`,
+        // So a client replying to the auto-responder reaches Emily's real
+        // inbox rather than the unmonitored sending subdomain.
+        replyTo: NOTIFICATION_ADDRESS,
         to: [validated.email],
         subject: `Thank you for your inquiry, ${validated.name}!`,
         scheduledAt: 'in 10 min',

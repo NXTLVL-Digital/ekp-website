@@ -30,7 +30,7 @@ export default function PrivacyPage() {
   return (
     <>
       {/* Editorial page header */}
-      <section className="bg-foreground pt-32 pb-16 md:pt-40 md:pb-20">
+      <section className="bg-foreground pt-52 pb-20 md:pt-56 md:pb-24">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="mx-auto max-w-3xl text-center">
             <span className="editorial-label text-brand-gold">Legal</span>
