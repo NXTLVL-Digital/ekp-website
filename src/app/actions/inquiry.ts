@@ -4,8 +4,10 @@ import { Resend } from 'resend'
 import { headers } from 'next/headers'
 import { checkRateLimit } from '@/lib/rate-limit'
 import { inquirySchema } from '@/lib/inquiry-schema'
-import InquiryNotification from '@/emails/InquiryNotification'
-import InquiryAutoResponder from '@/emails/InquiryAutoResponder'
+import {
+  renderInquiryNotification,
+  renderInquiryAutoResponder,
+} from '@/emails/templates'
 
 const resend = process.env.RESEND_API_KEY
   ? new Resend(process.env.RESEND_API_KEY)
@@ -109,7 +111,7 @@ export async function submitInquiry(
       to: [NOTIFICATION_ADDRESS],
       replyTo: validated.email,
       subject: `New ${serviceLabel} inquiry from ${validated.name}`,
-      react: InquiryNotification({
+      ...renderInquiryNotification({
         name: validated.name,
         email: validated.email,
         phone: validated.phone || undefined,
@@ -131,7 +133,7 @@ export async function submitInquiry(
         to: [validated.email],
         subject: `Thank you for your inquiry, ${validated.name}!`,
         scheduledAt: 'in 10 min',
-        react: InquiryAutoResponder({
+        ...renderInquiryAutoResponder({
           name: validated.name,
           serviceType: validated.serviceType,
         }),
