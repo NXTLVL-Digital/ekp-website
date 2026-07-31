@@ -5,12 +5,16 @@ import { JOURNAL_POSTS_QUERY } from '@/sanity/lib/queries'
 import { sanityLoader } from '@/sanity/lib/image'
 import { Section } from '@/components/shared/Section'
 import { RevealOnScroll } from '@/components/shared/RevealOnScroll'
+import { JOURNAL_CONTENT } from '@/lib/journalContent'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Journal',
   description:
     'Style tips, session recaps, and behind-the-scenes stories from Emily Kathryn Photography, serving seniors and families across South-Central Virginia.',
+  alternates: {
+    canonical: '/journal',
+  },
   openGraph: {
     title: 'Journal | Emily Kathryn Photography',
     description:
@@ -61,6 +65,26 @@ interface JournalPost {
   }
 }
 
+/**
+ * Normalized shape rendered by the card grid. Sanity images go through
+ * `sanityLoader`; seed images are plain files under /public and must not.
+ */
+type CardCover =
+  | { kind: 'sanity'; url: string; alt: string; lqip?: string }
+  | { kind: 'local'; src: string; alt: string }
+  | null
+
+interface CardPost {
+  key: string
+  slug: string
+  title: string
+  publishedAt: string
+  category: string
+  excerpt: string
+  featured: boolean
+  cover: CardCover
+}
+
 function formatDate(dateStr: string) {
   return new Date(dateStr).toLocaleDateString('en-US', {
     month: 'long',
@@ -70,10 +94,46 @@ function formatDate(dateStr: string) {
 }
 
 export default async function JournalPage() {
-  const posts = await sanityFetch<JournalPost[]>({
+  const cmsPosts = await sanityFetch<JournalPost[]>({
     query: JOURNAL_POSTS_QUERY,
     tags: ['journalPost'],
   })
+
+  // CMS takes priority. Seed content in src/lib/journalContent.ts is the
+  // fallback until Sanity is populated, mirroring the city pages.
+  const posts: CardPost[] =
+    cmsPosts && cmsPosts.length > 0
+      ? cmsPosts.map((post) => ({
+          key: post._id,
+          slug: post.slug,
+          title: post.title,
+          publishedAt: post.publishedAt,
+          category: post.category,
+          excerpt: post.excerpt,
+          featured: Boolean(post.featured),
+          cover: post.coverImage?.asset
+            ? {
+                kind: 'sanity',
+                url: post.coverImage.asset.url,
+                alt: post.coverImage.alt || post.title,
+                lqip: post.coverImage.asset.metadata?.lqip,
+              }
+            : null,
+        }))
+      : JOURNAL_CONTENT.map((post) => ({
+          key: post.slug,
+          slug: post.slug,
+          title: post.title,
+          publishedAt: post.publishedAt,
+          category: post.category,
+          excerpt: post.excerpt,
+          featured: Boolean(post.featured),
+          cover: {
+            kind: 'local',
+            src: post.coverImage.src,
+            alt: post.coverImage.alt,
+          },
+        }))
 
   return (
     <>
@@ -101,22 +161,30 @@ export default async function JournalPage() {
             <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
               {posts.map((post) => (
                 <Link
-                  key={post._id}
+                  key={post.key}
                   href={`/journal/${post.slug}`}
                   className="group block"
                 >
                   {/* Cover image */}
                   <div className="editorial-image-hover relative aspect-[4/3] overflow-hidden">
-                    {post.coverImage?.asset ? (
+                    {post.cover?.kind === 'sanity' ? (
                       <Image
                         loader={sanityLoader}
-                        src={post.coverImage.asset.url}
-                        alt={post.coverImage.alt || post.title}
+                        src={post.cover.url}
+                        alt={post.cover.alt}
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        placeholder={post.coverImage.asset.metadata?.lqip ? 'blur' : 'empty'}
-                        blurDataURL={post.coverImage.asset.metadata?.lqip}
+                        placeholder={post.cover.lqip ? 'blur' : 'empty'}
+                        blurDataURL={post.cover.lqip}
+                      />
+                    ) : post.cover?.kind === 'local' ? (
+                      <Image
+                        src={post.cover.src}
+                        alt={post.cover.alt}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                     ) : (
                       <div className="h-full w-full bg-muted" />
@@ -183,15 +251,15 @@ export default async function JournalPage() {
             <div className="mx-auto max-w-2xl text-center">
               <div className="mx-auto mb-6 h-px w-12 bg-brand-gold" />
               <h2 className="font-heading text-4xl font-light text-white md:text-5xl">
-                Ready for Your Own Story?
+                Your Turn
               </h2>
               <p className="mt-5 text-sm leading-relaxed text-white/50 md:text-base">
-                Every session becomes a story worth telling. Let&apos;s create
-                yours together.
+                Every one of these started with somebody sending a note. Tell me
+                who you are and what you have in mind.
               </p>
               <Link href="/contact" className="group mt-8 inline-flex items-center gap-3">
                 <span className="editorial-label text-white transition-colors duration-300 group-hover:text-brand-gold">
-                  Book Your Session
+                  Start a Conversation
                 </span>
                 <svg width="24" height="8" viewBox="0 0 24 8" fill="none" className="transition-transform duration-300 group-hover:translate-x-1">
                   <path d="M0 4H22M22 4L18.5 0.5M22 4L18.5 7.5" stroke="currentColor" strokeWidth="0.75" className="text-brand-gold" />

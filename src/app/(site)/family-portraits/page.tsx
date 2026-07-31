@@ -21,6 +21,15 @@ import { buildFaqPageSchema } from '@/lib/schemas/faqPage'
 import { buildReviewSchemas, buildAggregateRatingSchema } from '@/lib/schemas/review'
 import type { TestimonialData } from '@/lib/schemas/review'
 
+/**
+ * This photo runs full width higher up the page as the featured image, so it
+ * is filtered out of the gallery below to avoid showing it twice on one page.
+ */
+const FEATURED_IMAGE = '/images/families/EKP_1145.jpg'
+const galleryImages = familyGalleryImages.filter(
+  (image) => image.asset.url !== FEATURED_IMAGE
+)
+
 export const metadata: Metadata = {
   title: 'Family Portraits',
   description:
@@ -236,7 +245,7 @@ export default async function FamilyPortraitsPage() {
         </RevealOnScroll>
         <RevealOnScroll variant="scale">
           <GalleryClient
-            images={familyGalleryImages}
+            images={galleryImages}
             displayStyle="masonry"
             priorityCount={0}
           />

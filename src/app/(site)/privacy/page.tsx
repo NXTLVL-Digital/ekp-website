@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
 }
 
-const EFFECTIVE_DATE = 'July 30, 2026'
+const EFFECTIVE_DATE = 'July 31, 2026'
 
 export default function PrivacyPage() {
   return (
@@ -64,9 +64,10 @@ export default function PrivacyPage() {
                 When you submit the inquiry form, we collect the information you
                 provide. That is your name, email address, phone number if you
                 share it, and the details of the session you are interested in. That
-                is the only personal information this website asks for. We do
-                not run advertising trackers, and we do not sell or rent your
-                information to anyone.
+                is the only personal information this website asks for. We also
+                use analytics tools to understand how visitors use the site, as
+                described below. We do not run advertising trackers, and we do
+                not sell or rent your information to anyone.
               </p>
             </div>
 
@@ -96,6 +97,38 @@ export default function PrivacyPage() {
                 reliability. These logs are managed under Vercel&apos;s privacy
                 practices. This site does not set advertising or cross-site
                 tracking cookies.
+              </p>
+            </div>
+
+            <div>
+              <span className="editorial-label text-brand-gold">
+                Analytics
+              </span>
+              <div className="mt-4 h-px w-12 bg-brand-gold" />
+              <p className="mt-6 leading-relaxed text-muted-foreground">
+                We use two analytics services to understand how people find and
+                use this site, so we can make it better. Google Analytics tells
+                us which pages get visited and how people arrive. Microsoft
+                Clarity records anonymized session activity such as clicks,
+                scrolling, and mouse movement, which shows us where visitors get
+                stuck. Both services set their own cookies and both may record
+                your IP address. Neither is used for advertising, and we never
+                connect what they collect to the details you send through the
+                inquiry form.
+              </p>
+              <p className="mt-4 leading-relaxed text-muted-foreground">
+                If you would rather not be included, most browsers offer a
+                &ldquo;Do Not Track&rdquo; setting, and Google publishes an
+                opt-out add-on for Analytics at{' '}
+                <a
+                  href="https://tools.google.com/dlpage/gaoptout"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground underline decoration-brand-gold underline-offset-4 transition-colors hover:text-brand-gold"
+                >
+                  tools.google.com/dlpage/gaoptout
+                </a>
+                .
               </p>
             </div>
 

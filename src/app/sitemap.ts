@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/siteConfig";
 import { sanityFetch } from "@/sanity/lib/fetch";
-import { CITY_SLUGS_QUERY } from "@/sanity/lib/queries";
+import { CITY_SLUGS_QUERY, JOURNAL_SLUGS_QUERY } from "@/sanity/lib/queries";
 import { CITY_SLUGS } from "@/lib/cityData";
+import { JOURNAL_CONTENT } from "@/lib/journalContent";
 
 /**
  * XML sitemap for all core pages and city landing pages.
@@ -41,6 +42,36 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     changeFrequency: "monthly",
     priority: 0.8,
   }));
+
+  // Journal posts: seed content always ships (those routes are pre-rendered),
+  // plus any additional slugs Sanity has once the CMS is populated.
+  let sanityJournalSlugs: Array<{ slug: string }> = [];
+  try {
+    sanityJournalSlugs = await sanityFetch<Array<{ slug: string }>>({
+      query: JOURNAL_SLUGS_QUERY,
+      tags: ["journalPost"],
+    });
+  } catch {
+    // Sanity not configured; seed slugs still make the sitemap
+  }
+
+  const journalSlugs = Array.from(
+    new Set([
+      ...JOURNAL_CONTENT.map((post) => post.slug),
+      ...(sanityJournalSlugs ?? []).map((post) => post.slug).filter(Boolean),
+    ]),
+  );
+
+  const journalPages: MetadataRoute.Sitemap = journalSlugs.map((slug) => {
+    const seed = JOURNAL_CONTENT.find((post) => post.slug === slug);
+    return {
+      url: `${BASE_URL}/journal/${slug}`,
+      lastModified: seed ? new Date(seed.publishedAt) : new Date(),
+      changeFrequency: "yearly",
+      priority: 0.5,
+      ...(seed ? { images: [`${BASE_URL}${seed.coverImage.src}`] } : {}),
+    };
+  });
 
   const staticPages: MetadataRoute.Sitemap = [
     {
@@ -115,5 +146,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  return [...staticPages, ...cityPages];
+  return [...staticPages, ...cityPages, ...journalPages];
 }
