@@ -48,10 +48,10 @@ export function HeaderClient({ navigation, cta, logoText }: HeaderClientProps) {
       >
         <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-5 lg:px-10">
           {/* Logo */}
-          <Link href="/" className="relative z-10 flex items-center" aria-label={logoText}>
+          <Link href="/" className="relative z-10 flex shrink-0 items-center" aria-label={logoText}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/placeholder/logo.png"
+              src="/brand/logo-stacked.png"
               alt={logoText}
               className={`w-auto transition-all duration-500 ${
                 isScrolled ? 'h-20' : 'h-36 brightness-0 invert'

@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   },
   description:
     "Senior portrait and family photographer serving South-Central Virginia. Editorial-style photography in Chatham, Danville, Lynchburg, and beyond.",
+  alternates: {
+    canonical: "./",
+  },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
