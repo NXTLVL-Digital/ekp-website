@@ -18,7 +18,7 @@ export const metadata: Metadata = {
         url: '/og/style-guide.jpg',
         width: 1200,
         height: 630,
-        alt: 'Senior Style Guide — wardrobe tips from Emily Kathryn Photography',
+        alt: 'Senior Style Guide with wardrobe tips from Emily Kathryn Photography',
       },
     ],
     locale: 'en_US',
@@ -47,8 +47,8 @@ export default function StyleGuidePage() {
             <div className="mx-auto mt-6 h-px w-12 bg-brand-gold" />
             <p className="mt-6 text-sm leading-relaxed text-white/50 md:text-base">
               One of the most common questions I get is, &quot;What should I
-              wear?&quot; Your wardrobe is not just about looking great in photos
-              — it is about feeling like the most confident version of
+              wear?&quot; Your wardrobe is not just about looking great in photos.
+              It is about feeling like the most confident version of
               <em> you</em>.
             </p>
           </div>
@@ -85,14 +85,14 @@ export default function StyleGuidePage() {
               </li>
               <li>
                 <strong>School Spirit or Hobby-Related:</strong> Letterman jacket,
-                cheer uniform, band gear, your jersey — whatever represents a
-                piece of your high school story. These images are the ones your
+                cheer uniform, band gear, your jersey. Bring whatever represents
+                a piece of your high school story. These images are the ones your
                 parents will absolutely treasure.
               </li>
               <li>
                 <strong>Bonus: Something Bold:</strong> A statement piece you
-                would not normally wear every day — a leather jacket, a tulle
-                skirt, a hat. These create the most unexpected and striking
+                would not normally wear every day. Maybe a leather jacket, a
+                tulle skirt, a hat. These create the most unexpected and striking
                 images.
               </li>
             </ul>
@@ -125,7 +125,7 @@ export default function StyleGuidePage() {
                 <p className="mt-2 text-sm">
                   Cream, tan, camel, olive, rust, and chocolate brown. These are
                   universally flattering and blend effortlessly with Virginia&apos;s
-                  natural landscapes — golden fields, red barns, and winding trails.
+                  natural landscapes, like golden fields, red barns, and winding trails.
                 </p>
               </div>
               <div className="border border-border bg-white p-5">
@@ -152,7 +152,7 @@ export default function StyleGuidePage() {
                 Neon or fluorescent colors cast unflattering reflections onto skin.
                 Bright white can be overpowering in outdoor light. All-black can
                 lose detail in shadows. Busy prints, large logos, and graphic text
-                on shirts draw the eye away from your face — and that is the last
+                on shirts draw the eye away from your face, and that is the last
                 thing we want.
               </p>
             </div>
@@ -179,7 +179,7 @@ export default function StyleGuidePage() {
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
                 Light layers are your friend. Think flowy dresses, pastel
                 blouses, and soft cardigans. Floral prints work if they are
-                subtle — small, ditsy patterns rather than bold tropical
+                subtle. Go for small, ditsy patterns rather than bold tropical
                 prints. The blooming dogwoods and fresh green backdrops pair
                 beautifully with light, airy outfits. Avoid heavy fabrics that
                 look out of season.
@@ -194,7 +194,7 @@ export default function StyleGuidePage() {
                 Breezy fabrics like linen and cotton keep you comfortable and
                 photograph with beautiful movement. Sundresses, rompers, and
                 light denim are all great choices. Keep makeup minimal and
-                natural — Virginia humidity is real, and less is more when the
+                natural. Virginia humidity is real, and less is more when the
                 temperature climbs. Golden hour sessions in summer give us
                 rich, warm light, so lean into warm tones.
               </p>
@@ -210,8 +210,9 @@ export default function StyleGuidePage() {
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
                 This is our busiest (and most magical) season, and for good
                 reason. The warm tones of changing leaves create an
-                unbelievable backdrop. Embrace layers — flannel shirts, cozy
-                knits, scarves, ankle boots, and denim jackets. Rich colors
+                unbelievable backdrop. Embrace layers. Flannel shirts, cozy
+                knits, scarves, ankle boots, and denim jackets are all fair
+                game. Rich colors
                 like burgundy, mustard, forest green, and rust pair
                 beautifully with autumn landscapes. This is the season to go
                 all-in on texture and warmth.
@@ -224,7 +225,7 @@ export default function StyleGuidePage() {
               </h3>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
                 Winter sessions are underrated and quietly dramatic. Think
-                rich textures — chunky knits, faux fur, wool coats, and
+                rich textures, like chunky knits, faux fur, wool coats, and
                 leather. Jewel tones like deep red, emerald, and navy
                 contrast beautifully against bare trees and moody skies. Cozy
                 accessories (beanies, gloves, scarves) add visual interest
@@ -289,8 +290,8 @@ export default function StyleGuidePage() {
           <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed">
             <p>
               The right accessories take an outfit from good to
-              magazine-worthy. But the key word is <em>right</em> —
-              accessories should complement, not compete.
+              magazine-worthy. But the key word is <em>right</em>.
+              Accessories should complement, not compete.
             </p>
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -299,14 +300,14 @@ export default function StyleGuidePage() {
                 <p className="mt-2 text-sm">
                   Delicate, simple pieces photograph well. Layered necklaces, small
                   hoops, thin bracelets, and dainty rings add subtle sparkle without
-                  distraction. Avoid anything overly chunky or reflective — large
+                  distraction. Avoid anything overly chunky or reflective. Large
                   gemstones and statement pieces can catch light in unexpected ways.
                 </p>
               </div>
               <div className="border border-border bg-white p-5">
                 <h3 className="font-heading text-lg">Shoes</h3>
                 <p className="mt-2 text-sm">
-                  Yes, shoes matter — they are in more shots than you think! Boots
+                  Yes, shoes matter. They are in more shots than you think! Boots
                   (ankle or knee-high), clean sneakers, heels for dressy looks, and
                   sandals for summer are all great options. Bring a variety and we
                   will match them to the location and outfit.
@@ -316,8 +317,8 @@ export default function StyleGuidePage() {
                 <h3 className="font-heading text-lg">Sunglasses</h3>
                 <p className="mt-2 text-sm">
                   A great pair of sunglasses adds instant cool-factor. They are
-                  perfect for candid, editorial shots — holding them, pushing
-                  them up on your head, or wearing them mid-laugh. Stick to
+                  perfect for candid, editorial shots. Hold them, push
+                  them up on your head, or wear them mid-laugh. Stick to
                   classic shapes that complement your face.
                 </p>
               </div>
@@ -326,7 +327,7 @@ export default function StyleGuidePage() {
                 <p className="mt-2 text-sm">
                   This is where it gets personal. Your letterman jacket, a
                   musical instrument, your favorite book, sports equipment,
-                  your pet — these are the details that make your session
+                  your pet. These are the details that make your session
                   uniquely yours. These items tell your story in a way that
                   clothes alone cannot.
                 </p>
@@ -363,7 +364,7 @@ export default function StyleGuidePage() {
               {
                 item: 'Overly trendy items',
                 reason:
-                  'Ultra-current micro-trends date quickly. Choose pieces with staying power — your future self will thank you.',
+                  'Ultra-current micro-trends fade fast. Choose pieces with staying power. Your future self will thank you.',
               },
               {
                 item: 'Brand-new shoes',
@@ -410,7 +411,7 @@ export default function StyleGuidePage() {
           </h2>
           <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed">
             <p>
-              Guys — senior portraits are absolutely for you too. And no, they
+              Guys, senior portraits are absolutely for you too. And no, they
               do not have to feel awkward or forced. Some of my favorite
               sessions have been with guys who came in a little skeptical and
               left saying, &quot;That was actually really fun.&quot; Here is
@@ -422,7 +423,7 @@ export default function StyleGuidePage() {
             </h3>
             <ul className="ml-6 list-disc space-y-2">
               <li>
-                <strong>Well-fitted jeans:</strong> Dark wash or medium wash — not
+                <strong>Well-fitted jeans:</strong> Dark wash or medium wash, not
                 ripped or overly distressed. A proper fit makes all the
                 difference.
               </li>
@@ -471,7 +472,7 @@ export default function StyleGuidePage() {
               Grooming Tips
             </h3>
             <p>
-              Get a haircut about a week before your session — not the day
+              Get a haircut about a week before your session, not the day
               before. You want it to look natural, not fresh-out-of-the-chair.
               If you have facial hair, make sure it is trimmed and neat. Clean
               nails, moisturized skin, and a chapstick in your pocket go a long
@@ -483,7 +484,7 @@ export default function StyleGuidePage() {
             </h3>
             <p>
               This is where you get to show off who you are. Bring your guitar,
-              football, skateboard, fishing rod, truck, dirt bike — whatever
+              football, skateboard, fishing rod, truck, dirt bike, whatever
               represents you. Some of the most impactful senior portraits I
               have taken feature something meaningful that tells the person&apos;s
               story. Do not be afraid to bring it.
@@ -524,8 +525,8 @@ export default function StyleGuidePage() {
                 <div>
                   <h3 className="font-heading text-base">Try Everything On</h3>
                   <p className="mt-1 text-sm">
-                    Put together your complete outfits — shoes, accessories, and
-                    all — and try them on. Check the mirror from different
+                    Put together your complete outfits, shoes and accessories
+                    included, and try them on. Check the mirror from different
                     angles. Sit down, walk around. Make sure you feel
                     comfortable and confident in every look.
                   </p>
@@ -550,8 +551,8 @@ export default function StyleGuidePage() {
                 <div>
                   <h3 className="font-heading text-base">Hair and Makeup</h3>
                   <p className="mt-1 text-sm">
-                    Arrive with hair and makeup done (or book a professional —
-                    I am happy to recommend local artists). Keep makeup a touch
+                    Arrive with hair and makeup done, or book a professional.
+                    I am happy to recommend local artists. Keep makeup a touch
                     more polished than everyday and skip the heavy shimmer. If
                     you want your nails visible in shots, a fresh manicure goes
                     a long way.
@@ -579,7 +580,7 @@ export default function StyleGuidePage() {
                   <p className="mt-1 text-sm">
                     This is the most important tip. I will guide you through
                     every movement, every expression, and every angle. All you have
-                    to do is show up, be yourself, and have fun. I promise — you
+                    to do is show up, be yourself, and have fun. I promise you
                     are going to love the result.
                   </p>
                 </div>

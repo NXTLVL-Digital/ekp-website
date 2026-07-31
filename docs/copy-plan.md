@@ -89,7 +89,21 @@ CTAs are inquiry-anchored, not "book now." Reference lines:
 - Closing CTA: "Let's plan something worth keeping."
 - Investment anchor: "Sessions begin at $799. Most families invest between $1,800 and $3,500 across digital files, wall art, and a senior album."
 
-## 4. Emotional hooks bank (voice-of-customer, use nearly verbatim)
+## 3b. Rhythm and humanity (binding — added 2026-07-31 after Jeff's review)
+
+These outrank everything below when they conflict:
+
+1. **Zero em dashes (—) and en dashes (–) in copy.** They read as AI writing. Restructure into short sentences, commas, or periods.
+2. **Human and natural above all.** Contractions on. Everyday vocabulary. No words or phrases people don't use in normal conversation. No defensive sales phrases ("no pressure, no obligation").
+3. **State the theme once per page, twice at most.** The wall-not-phone position is a thesis, not a chorus. Repetition reads as a sales script; an editorial voice says it once and lets the photographs argue.
+4. **The hooks bank below is research language for inspiration, NOT slogans to repeat verbatim.** One near-verbatim use per hook across the whole site is plenty.
+5. **Short declarative rhythm** per the guide's samples: "One subject. One afternoon. A magazine you'll still want to open in twenty years." Vary sentence length; avoid long compound sentences.
+6. **Proof over adjectives.** Tenure ("more than a decade"), real places, real process beats. The site should never assert "editorial" more than twice per page.
+7. **Vary CTAs across pages.** Never four variants of the same closer.
+8. **Boys-inclusive pronouns** on About/process copy; don't default seniors to "she".
+9. **Specificity bank needed from Emily:** school names, favorite landmarks, identity props (truck, jersey, instrument, FFA jacket, family farm). Until she supplies it, use only real geography already on the site; never invent specifics.
+
+## 4. Emotional hooks bank (voice-of-customer — inspiration, not slogans; see 3b.4)
 
 - "I want photos I can hang up — not just files on my phone." (Rachel — the core thread)
 - "This is the last big chapter of her childhood. I want to do this right."

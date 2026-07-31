@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description: 'Hear what clients are saying about their portrait experience with Emily Kathryn Photography.',
     url: 'https://emilykathryn.com/raves',
     siteName: 'Emily Kathryn Photography',
-    images: [{ url: '/og/raves.jpg', width: 1200, height: 630, alt: 'Client testimonials — Emily Kathryn Photography' }],
+    images: [{ url: '/og/raves.jpg', width: 1200, height: 630, alt: 'Client testimonials for Emily Kathryn Photography' }],
     locale: 'en_US',
     type: 'website',
   },
@@ -74,7 +74,7 @@ export default async function RavesPage() {
             <div className="mx-auto mt-6 h-px w-12 bg-brand-gold" />
             <p className="mt-6 text-sm leading-relaxed text-white/50 md:text-base">
               Nothing means more to me than knowing my clients walk away from
-              their session feeling confident and celebrated — and that the
+              their session feeling confident and celebrated, and that the
               portraits we made together now hang on their walls. These are
               their words, not mine.
             </p>

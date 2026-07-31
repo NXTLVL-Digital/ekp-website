@@ -12,7 +12,7 @@ export const aboutPage = defineType({
   title: "About Page",
   type: "document",
   description:
-    "Edit your About page — headshot, bio, and philosophy. Only one of these exists.",
+    "Edit your About page, including your headshot, bio, and philosophy. Only one of these exists.",
   fields: [
     defineField({
       name: "headshot",
@@ -28,7 +28,7 @@ export const aboutPage = defineType({
           type: "string",
           description:
             'Describe the photo for accessibility (e.g., "Emily Kathryn, portrait photographer in South-Central Virginia")',
-          initialValue: "Emily Kathryn — portrait photographer in South-Central Virginia",
+          initialValue: "Emily Kathryn, portrait photographer in South-Central Virginia",
         }),
       ],
     }),
@@ -37,7 +37,7 @@ export const aboutPage = defineType({
       title: "Your Story",
       type: "array",
       description:
-        "The main paragraphs on your About page. Write naturally — this is where clients get to know you.",
+        "The main paragraphs on your About page. Write naturally. This is where clients get to know you.",
       of: [defineArrayMember({ type: "block" })],
       validation: (rule) => rule.required().min(1).error("Bio is required"),
     }),
@@ -86,7 +86,7 @@ export const aboutPage = defineType({
           preview: {
             select: { number: "number", title: "title" },
             prepare({ number, title }) {
-              return { title: `${number} — ${title}` };
+              return { title: `${number}. ${title}` };
             },
           },
         }),
@@ -108,7 +108,7 @@ export const aboutPage = defineType({
       rows: 3,
       description: "1-2 sentences inviting visitors to get in touch.",
       initialValue:
-        "I would love to hear about your vision — whether it is a milestone senior session or timeless family portraits. Let's start the conversation.",
+        "I would love to hear about your vision, whether it is a milestone senior session or timeless family portraits. Let's start the conversation.",
     }),
     defineField({
       name: "metaDescription",
@@ -117,7 +117,7 @@ export const aboutPage = defineType({
       description:
         "What shows up in Google search results for this page (150-160 characters).",
       initialValue:
-        "Meet Emily Kathryn — a portrait photographer in South-Central Virginia who believes every session should feel like a magazine shoot.",
+        "Meet Emily Kathryn, a portrait photographer in South-Central Virginia who believes every session should feel like a magazine shoot.",
       validation: (rule) => rule.max(160),
     }),
   ],

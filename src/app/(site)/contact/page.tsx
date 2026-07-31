@@ -7,11 +7,11 @@ import { siteConfig } from '@/lib/siteConfig'
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Get in touch with Emily Kathryn Photography to book your senior portrait or family photography session in South-Central Virginia. Response within 48 hours.',
+    'Inquire about senior and family portrait sessions across South-Central Virginia. Emily reads every message and replies personally within 48 hours.',
   openGraph: {
     title: 'Contact | Emily Kathryn Photography',
     description:
-      'Ready to book your dream session? Reach out to Emily Kathryn Photography — serving Gretna, Lynchburg, Danville, and South-Central Virginia.',
+      'Inquire for senior and family portrait availability across South-Central Virginia. Personal response within 48 hours.',
     url: `${siteConfig.url}/contact`,
     siteName: 'Emily Kathryn Photography',
     images: [{ url: '/og/contact.jpg', width: 1200, height: 630, alt: 'Contact Emily Kathryn Photography' }],
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Contact | Emily Kathryn Photography',
-    description: 'Ready to book your dream session? Reach out to Emily Kathryn Photography.',
+    description: 'Inquire for senior and family portrait availability across South-Central Virginia. Personal response within 48 hours.',
     images: ['/og/contact.jpg'],
   },
 }
@@ -39,9 +39,9 @@ export default function ContactPage() {
             </h1>
             <div className="mx-auto mt-6 h-px w-12 bg-brand-gold" />
             <p className="mt-6 text-sm leading-relaxed text-white/50 md:text-base">
-              I would love to hear from you. Whether you are ready to book your
-              session or just exploring your options, fill out the form below
-              and I will personally get back to you within 48 hours.
+              I&apos;d love to hear from you. Whether you&apos;re ready to plan
+              your session or just have questions, fill out the form below and
+              I&apos;ll personally get back to you within 48 hours.
             </p>
           </div>
         </div>
@@ -96,10 +96,9 @@ export default function ContactPage() {
                 <div>
                   <span className="editorial-label text-brand-gold">Service Area</span>
                   <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                    Based in {siteConfig.address.city}, {siteConfig.address.state},
-                    proudly serving families and seniors across South-Central
-                    Virginia — including Lynchburg, Danville, Chatham, Altavista,
-                    and surrounding communities.
+                    Based in {siteConfig.address.city}, {siteConfig.address.state}.
+                    Sessions run all over South-Central Virginia: Lynchburg,
+                    Danville, Chatham, Altavista, and the towns in between.
                   </p>
                 </div>
 
@@ -141,9 +140,9 @@ export default function ContactPage() {
                     </span>
                   </p>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    From there, everything is guided: your session, then an
-                    ordering appointment to design your wall art and album, then
-                    your finished heirlooms delivered ready to hang.
+                    From there, everything is guided: your session, an ordering
+                    appointment to design your artwork and album, and finished
+                    pieces delivered ready to hang.
                   </p>
                 </div>
               </div>
