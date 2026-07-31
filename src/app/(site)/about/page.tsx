@@ -31,18 +31,18 @@ interface AboutPageData {
 const FALLBACK_PRINCIPLES = [
   {
     num: '01',
-    title: 'Your Story Matters',
-    text: 'Every family has a rhythm. Every senior has a spark. My job is not to pose you into someone else — it is to reveal who you already are, beautifully and authentically.',
+    title: 'You, Just Elevated',
+    text: 'Every family has a rhythm. Every senior has a spark. My job is not to turn you into someone else — it is to direct you until the photograph looks like you on your most confident day.',
   },
   {
     num: '02',
-    title: 'Experience Over Everything',
-    text: 'Your session is not just about the final images — it is about how you feel while we create them. I want you to leave feeling confident, celebrated, and genuinely excited to see the results.',
+    title: 'The Experience Shows',
+    text: 'How a session feels shows up in the finished portraits. Mine are guided and unhurried — you will never be left wondering what to do with your hands — so you leave feeling confident and celebrated.',
   },
   {
     num: '03',
-    title: 'Art That Lasts Generations',
-    text: 'Trends come and go, but timeless portraits endure. I create images with an editorial, magazine-quality finish that you will be proud to display in your home for decades to come.',
+    title: 'Made for the Wall',
+    text: 'Trends fade. A framed portrait in the hallway does not. I photograph with the finished piece in mind — wall art, albums, prints for the grandparents — so what we make together still means something in twenty years.',
   },
 ]
 
@@ -71,7 +71,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   const description =
     data?.metaDescription ??
-    'Meet Emily Kathryn — a portrait photographer in South-Central Virginia who believes every session should feel like a magazine shoot. Serving Chatham, Danville, Lynchburg, and beyond.'
+    'Meet Emily Kathryn — a South-Central Virginia photographer who believes portraits belong on the wall, not just the phone. Serving Chatham, Danville, and Lynchburg.'
 
   return {
     title: 'About',
@@ -115,10 +115,10 @@ export default async function AboutPage() {
     })) ?? FALLBACK_PRINCIPLES
 
   const philosophyHeading = data?.philosophyHeading ?? 'What I Believe'
-  const ctaHeading = data?.ctaHeading ?? "Let's Create Something Beautiful Together"
+  const ctaHeading = data?.ctaHeading ?? "Let's Make Something Worth Framing"
   const ctaBody =
     data?.ctaBody ??
-    "I would love to hear about your vision — whether it is a milestone senior session or timeless family portraits. Let's start the conversation."
+    'Tell me about your senior, your family, or the wall you have been meaning to fill. I would love to hear what you are picturing — and help you plan it.'
 
   return (
     <>
@@ -183,43 +183,44 @@ export default async function AboutPage() {
                 ) : (
                   <div className="space-y-5 text-sm leading-relaxed text-muted-foreground md:text-base">
                     <p>
-                      There is something extraordinary about a photograph that makes
-                      you stop and truly <em>feel</em> something. That single frame
-                      where light, expression, and emotion align in a way that is
-                      completely, unmistakably you. That is what I chase in every
-                      session I shoot.
+                      There is a difference between a photograph you scroll past
+                      and one you walk past. The one in the hallway. The one over
+                      the stairs that quietly says, <em>this is us</em>. Most of
+                      us grew up with portraits like that — and somewhere along
+                      the way, they turned into files on a phone. I make the kind
+                      you walk past.
                     </p>
                     <p>
-                      My journey into photography started the way most great loves
-                      do — unexpectedly. What began as a creative outlet quickly
-                      became a calling. I realized I was not just taking pictures; I
-                      was capturing the quiet confidence of a senior stepping into
-                      who they are becoming, the unscripted laughter between a
-                      parent and their child, and the simple magic of a family just
-                      being together.
+                      My own path into photography started the way most great
+                      loves do — unexpectedly. What began as a creative outlet
+                      became a calling the first time I watched a senior see
+                      herself photographed well: not turned into someone else,
+                      just herself, elevated. The quiet confidence in that moment
+                      is still the reason I pick up the camera.
                     </p>
                     <p>
-                      Based in the heart of South-Central Virginia, I have built my
-                      reputation on one belief: every session should feel like a
-                      magazine shoot. Not stiff. Not rushed. Not generic. I am
-                      talking about that relaxed, editorial quality where you look
-                      at the final images and think, <em>&quot;That is actually
+                      Based in the heart of South-Central Virginia, I have built
+                      my work on one belief: every session should feel like a
+                      magazine shoot. Not stiff. Not rushed. Not generic.
+                      Relaxed, editorial, and directed — so when you see the
+                      finished images you think, <em>&quot;That is actually
                       me.&quot;</em>
                     </p>
                     <p>
-                      What makes my approach different is that I take the time to
-                      know you before I ever pick up the camera. Whether we are
-                      talking about your senior&apos;s personality and style or the
-                      way your family naturally connects, I want every frame to
-                      reflect something real. The result is not just a portrait — it
-                      is art that tells your story.
+                      And I believe the work is not finished when the gallery is
+                      delivered. Files get scrolled past; a framed portrait gets
+                      looked at every day for twenty years. So I photograph with
+                      the wall in mind — how the light will print, where the
+                      piece might hang, which image anchors the album — because
+                      these are not photographs for this week. They are for the
+                      people you will be a decade from now.
                     </p>
                     <p>
-                      From golden-hour fields in Chatham to the charming streetscapes
-                      of Danville, the rolling foothills near Lynchburg, and
-                      everywhere in between, I am honored to serve families and
-                      seniors across this beautiful corner of Virginia. And I truly
-                      cannot wait to create something beautiful with you.
+                      From golden-hour fields in Chatham to the brick
+                      streetscapes of Danville, the foothills near Lynchburg,
+                      and the docks of Smith Mountain Lake, I am honored to make
+                      portraits for families across this corner of Virginia. I
+                      would love to make yours.
                     </p>
                   </div>
                 )}

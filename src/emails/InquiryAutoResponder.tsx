@@ -43,14 +43,14 @@ export default function InquiryAutoResponder({
           </Heading>
 
           <Text style={paragraph}>
-            We received your {description} inquiry and are so excited to hear
-            from you!
+            Your {description} inquiry has arrived safely, and we are so glad
+            you reached out.
           </Text>
 
           <Text style={paragraph}>
-            Emily will personally review your message and get back to you within
-            48 hours. She can&apos;t wait to start planning something beautiful
-            together.
+            Emily personally reads every message and will get back to you within
+            48 hours. From there, you and Emily can start planning something
+            worth keeping.
           </Text>
 
           <Text style={paragraph}>

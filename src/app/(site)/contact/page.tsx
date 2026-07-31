@@ -132,13 +132,18 @@ export default function ContactPage() {
                 {/* Response guarantee */}
                 <div className="border-l-2 border-brand-gold pl-5">
                   <p className="text-sm leading-relaxed text-foreground">
-                    <span className="editorial-label text-brand-gold">Quick Response</span>
+                    <span className="editorial-label text-brand-gold">Personal Response</span>
                     <br />
                     <span className="mt-2 block text-muted-foreground">
                       Emily personally reads every inquiry and responds within 48
                       hours. You&apos;ll also receive an automatic confirmation
                       email right away.
                     </span>
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    From there, everything is guided: your session, then an
+                    ordering appointment to design your wall art and album, then
+                    your finished heirlooms delivered ready to hang.
                   </p>
                 </div>
               </div>
