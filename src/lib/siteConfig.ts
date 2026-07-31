@@ -22,7 +22,8 @@ export const siteConfig = {
   navigation: [
     { label: 'Senior Portraits', href: '/senior-portraits' },
     { label: 'Family Portraits', href: '/family-portraits' },
-    { label: 'Investment', href: '/investment' },
+    // Investment page hidden until Emily confirms pricing — restore by uncommenting:
+    // { label: 'Investment', href: '/investment' },
     { label: 'About', href: '/about' },
     { label: 'Raves', href: '/raves' },
     { label: 'Journal', href: '/journal' },

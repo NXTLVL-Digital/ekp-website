@@ -8,6 +8,8 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Investment',
+  // Hidden until Emily confirms pricing — remove robots block to relaunch
+  robots: { index: false, follow: false },
   description:
     'Senior sessions begin at $799, family sessions at $899. See what every session includes and how the ordering appointment turns your images into wall art and albums.',
   openGraph: {
