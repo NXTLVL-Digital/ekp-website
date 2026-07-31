@@ -26,12 +26,18 @@ export const siteConfig = {
     // { label: 'Investment', href: '/investment' },
     { label: 'About', href: '/about' },
     { label: 'Raves', href: '/raves' },
-    { label: 'Journal', href: '/journal' },
+    // Journal removed from navigation: the archive posts are no longer
+    // relevant to what Emily sells. The /journal index itself stays live
+    // and indexable, just unlinked. Restore this line to bring it back.
+    // { label: 'Journal', href: '/journal' },
     { label: 'Style Guide', href: '/style-guide' },
     { label: 'Contact', href: '/contact' },
   ],
   cta: {
-    label: 'Inquire for Detailed Pricing',
+    // Kept free of pricing language while the Investment page is hidden, so
+    // the site never promises detail it cannot show. Restore a pricing-led
+    // label when Emily confirms pricing and Investment goes back up.
+    label: 'Inquire About a Session',
     href: '/contact',
   },
 } as const

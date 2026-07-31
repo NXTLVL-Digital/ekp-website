@@ -6,20 +6,25 @@ interface AeoBlockProps {
 /**
  * Always-visible AEO (Answer Engine Optimization) answer snippet.
  *
- * Styled as a prominent callout box with a subtle gold-tinted background
- * and left gold border accent. Targets local portrait photography queries
- * for AI answer extraction.
+ * The text is a fixed 40 to 60 word asset written for answer extraction, so it
+ * is rendered verbatim. Presentation is editorial: an asymmetric split with a
+ * labelled narrow column and the answer set in large light display type.
  *
- * NOT the collapsible AnswerBlock FAQ accordion — this is always visible.
+ * NOT the collapsible AnswerBlock FAQ accordion. This is always visible.
  */
 export function AeoBlock({ text, cityName }: AeoBlockProps) {
   return (
     <div
-      className="rounded-r-lg border-l-4 border-brand-gold bg-brand-gold/5 px-6 py-5"
+      className="grid grid-cols-1 gap-8 border-t border-border pt-10 md:grid-cols-12 md:gap-10 md:pt-12"
       role="region"
       aria-label={`About portrait photography in ${cityName}`}
     >
-      <p className="text-base leading-relaxed text-foreground md:text-lg">
+      <div className="md:col-span-4 lg:col-span-3">
+        <span className="editorial-label text-brand-gold">The Short Answer</span>
+        <div className="mt-5 h-px w-12 bg-brand-gold" />
+      </div>
+
+      <p className="font-heading text-xl font-light leading-[1.6] text-foreground md:col-span-8 md:text-2xl lg:col-span-9 lg:text-[1.75rem]">
         {text}
       </p>
     </div>

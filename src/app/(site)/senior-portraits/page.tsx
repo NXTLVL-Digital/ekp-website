@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Section } from '@/components/shared/Section'
-import { Storyboard } from '@/components/shared/Storyboard'
 import { PricingCard } from '@/components/shared/PricingCard'
 import { AnswerBlock } from '@/components/shared/AnswerBlock'
 import { ScarcityCue } from '@/components/shared/ScarcityCue'
@@ -21,6 +20,34 @@ import { buildServiceSchema } from '@/lib/schemas/service'
 import { buildFaqPageSchema } from '@/lib/schemas/faqPage'
 import { buildReviewSchemas, buildAggregateRatingSchema } from '@/lib/schemas/review'
 import type { TestimonialData } from '@/lib/schemas/review'
+
+/**
+ * These frames run as standalone editorial moments between the text sections,
+ * so they are filtered out of the portfolio grid below. No photograph should
+ * appear twice on the same page.
+ */
+const EDITORIAL_MOMENTS = {
+  experience: {
+    src: '/images/seniors/EKP_5407.jpg',
+    alt: 'Senior fashion portrait beneath an architectural bridge',
+  },
+  keepsake: {
+    src: '/images/seniors/EKP_8081.jpg',
+    alt: 'Senior boy portrait with a vintage truck',
+  },
+  journey: {
+    src: '/images/seniors/EKP_2401.jpg',
+    alt: 'Graduate in cap and gown at golden hour',
+  },
+}
+
+const featuredElsewhere = new Set<string>(
+  Object.values(EDITORIAL_MOMENTS).map((image) => image.src),
+)
+
+const galleryImages = seniorGalleryImages.filter(
+  (image) => !featuredElsewhere.has(image.asset.url ?? ''),
+)
 
 export const metadata: Metadata = {
   title: 'Senior Portraits',
@@ -183,8 +210,8 @@ export default async function SeniorPortraitsPage() {
         <JsonLd data={buildAggregateRatingSchema(testimonialData)} />
       )}
 
-      {/* Editorial page header — dark */}
-      <section className="relative overflow-hidden bg-foreground pt-32 pb-16 md:pt-40 md:pb-20">
+      {/* Editorial page header, dark */}
+      <section className="relative overflow-hidden bg-foreground pt-52 pb-20 md:pt-56 md:pb-24">
         <div className="pattern-hex absolute inset-0 opacity-15" />
         <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="mx-auto max-w-3xl text-center">
@@ -208,7 +235,7 @@ export default async function SeniorPortraitsPage() {
         <ScarcityCue message={scarcityCue.message} isActive={scarcityCue.isActive} />
       )}
 
-      {/* Featured image — full-bleed editorial */}
+      {/* Featured image, full-bleed editorial */}
       <div className="editorial-image-hover relative">
         <div className="relative h-72 sm:h-96 md:h-[500px]">
           <Image
@@ -222,25 +249,21 @@ export default async function SeniorPortraitsPage() {
         </div>
       </div>
 
-      {/* Session description — asymmetric editorial layout */}
+      {/* Session description: text left, tall editorial frame right */}
       <Section spacing="wide">
         <RevealOnScroll variant="up">
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
-            <div className="md:col-span-4">
+          <div className="grid grid-cols-1 items-start gap-12 md:grid-cols-12 md:gap-0">
+            <div className="md:col-span-5 md:pr-12 md:pt-10">
               <span className="editorial-label text-brand-gold">The Experience</span>
               <h2 className="mt-3 font-heading text-4xl font-light md:text-5xl">
                 The Senior Experience
               </h2>
               <div className="mt-5 h-px w-12 bg-brand-gold" />
-            </div>
-            <div className="md:col-span-7 md:col-start-6">
-              <div className="space-y-5 text-sm leading-relaxed text-muted-foreground md:text-base">
+              <div className="mt-8 space-y-5 text-sm leading-relaxed text-muted-foreground md:text-base">
                 <p>
-                  This isn&apos;t school picture day with better lighting.
-                  It&apos;s an editorial session built around you: your style,
-                  your personality, your year. We start with a planning
-                  conversation where I get to know you, and together we map out
-                  locations, outfits, and the feel you want.
+                  We start with a planning conversation where I get to know
+                  you, and together we map out locations, outfits, and the feel
+                  you want.
                 </p>
                 <p>
                   On session day you&apos;ll bring three to five outfits, and
@@ -249,11 +272,80 @@ export default async function SeniorPortraitsPage() {
                   there&apos;s never a moment where you&apos;re stuck wondering
                   what comes next.
                 </p>
+              </div>
+            </div>
+
+            <div className="editorial-image-hover relative md:col-span-6 md:col-start-7 md:-mt-14">
+              <div className="relative aspect-[4/5] overflow-hidden">
+                <Image
+                  src={EDITORIAL_MOMENTS.experience.src}
+                  alt={EDITORIAL_MOMENTS.experience.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+            </div>
+          </div>
+        </RevealOnScroll>
+      </Section>
+
+      {/* Pull quote: the breath between the session and what comes after */}
+      <section className="relative overflow-hidden bg-foreground py-20 md:py-28">
+        <div className="pattern-hex absolute inset-0 opacity-20" />
+        <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
+          <RevealOnScroll variant="up">
+            <figure className="mx-auto max-w-3xl text-center">
+              <div className="mx-auto mb-8 h-px w-12 bg-brand-gold" />
+              <blockquote className="font-heading text-3xl font-light leading-tight text-white md:text-4xl lg:text-5xl">
+                This isn&apos;t school picture day with better lighting.
+                It&apos;s an editorial session built around you: your style,
+                your personality, your year.
+              </blockquote>
+              <figcaption className="editorial-label mt-8 text-white/40">
+                Emily Kathryn
+              </figcaption>
+            </figure>
+          </RevealOnScroll>
+        </div>
+      </section>
+
+      {/* After the session: image left, text right, reversed from above */}
+      <Section spacing="wide">
+        <RevealOnScroll variant="up">
+          <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-12 md:gap-0">
+            <div className="editorial-image-hover relative order-1 md:col-span-6">
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src={EDITORIAL_MOMENTS.keepsake.src}
+                  alt={EDITORIAL_MOMENTS.keepsake.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+            </div>
+
+            <div className="order-2 md:col-span-5 md:col-start-8">
+              <span className="editorial-label text-brand-gold">
+                For You and Your Parents
+              </span>
+              <h2 className="mt-3 font-heading text-4xl font-light md:text-5xl">
+                What You Take Home
+              </h2>
+              <div className="mt-5 h-px w-12 bg-brand-gold" />
+              <div className="mt-8 space-y-5 text-sm leading-relaxed text-muted-foreground md:text-base">
                 <p>
                   Two or three weeks later, you and your family come back to
                   see the finished gallery, and we turn it into real things:
                   framed artwork, an album, your digital files. Portraits you
                   can hold, not just files on your phone.
+                </p>
+                <p>
+                  Sessions begin at $799. What a family adds beyond that comes
+                  down to what they want to keep, and every one of those
+                  decisions happens after the portraits are on the screen,
+                  never before.
                 </p>
               </div>
             </div>
@@ -274,27 +366,68 @@ export default async function SeniorPortraitsPage() {
         </RevealOnScroll>
         <RevealOnScroll variant="scale">
           <GalleryClient
-            images={seniorGalleryImages}
+            images={galleryImages}
             displayStyle="masonry"
             priorityCount={0}
           />
         </RevealOnScroll>
       </Section>
 
-      {/* Experience Storyboard */}
+      {/* Experience storyboard: sticky editorial rail, numbered spread */}
       <Section spacing="wide">
-        <RevealOnScroll variant="up">
-          <div className="mx-auto max-w-4xl">
-            <div className="mb-12 text-center">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-10">
+          <RevealOnScroll variant="up" className="md:col-span-4">
+            <div className="md:sticky md:top-32">
               <span className="editorial-label text-brand-gold">Your Journey</span>
-              <h2 className="mt-4 font-heading text-4xl font-light md:text-5xl">
+              <h2 className="mt-3 font-heading text-4xl font-light md:text-5xl">
                 Step by Step
               </h2>
-              <div className="mx-auto mt-5 h-px w-12 bg-brand-gold" />
+              <div className="mt-5 h-px w-12 bg-brand-gold" />
+              <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
+                Five steps from the first conversation to the finished album,
+                so you and your parents always know what comes next.
+              </p>
+              <div className="editorial-image-hover relative mt-10 hidden md:block">
+                <div className="relative aspect-[3/4] overflow-hidden">
+                  <Image
+                    src={EDITORIAL_MOMENTS.journey.src}
+                    alt={EDITORIAL_MOMENTS.journey.alt}
+                    fill
+                    className="object-cover"
+                    sizes="33vw"
+                  />
+                </div>
+              </div>
             </div>
-            <Storyboard steps={storyboardSteps} />
-          </div>
-        </RevealOnScroll>
+          </RevealOnScroll>
+
+          <RevealOnScroll
+            variant="stagger"
+            className="border-t border-border md:col-span-7 md:col-start-6"
+          >
+            {storyboardSteps.map((step) => (
+              <div
+                key={step.number}
+                className="grid grid-cols-1 gap-3 border-b border-border py-8 sm:grid-cols-12 sm:gap-6 md:py-10"
+              >
+                <div className="sm:col-span-2">
+                  <span className="font-heading text-3xl font-light text-brand-gold/40 md:text-4xl">
+                    {String(step.number).padStart(2, '0')}
+                  </span>
+                </div>
+                <div className="sm:col-span-10">
+                  <h3 className="font-heading text-xl font-light md:text-2xl">
+                    {step.title}
+                  </h3>
+                  <div className="mt-3 h-px w-8 bg-brand-gold/40" />
+                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                    {step.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </RevealOnScroll>
+        </div>
       </Section>
 
       {/* Pricing */}
@@ -333,20 +466,38 @@ export default async function SeniorPortraitsPage() {
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* FAQ: editorial rail left, answers right */}
       <Section spacing="wide">
-        <RevealOnScroll variant="up">
-          <div className="mx-auto max-w-3xl">
-            <div className="mb-10 text-center">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-10">
+          <RevealOnScroll variant="up" className="md:col-span-4">
+            <div className="md:sticky md:top-32">
               <span className="editorial-label text-brand-gold">FAQ</span>
-              <h2 className="mt-4 font-heading text-4xl font-light md:text-5xl">
+              <h2 className="mt-3 font-heading text-4xl font-light md:text-5xl">
                 Common Questions
               </h2>
-              <div className="mx-auto mt-5 h-px w-12 bg-brand-gold" />
+              <div className="mt-5 h-px w-12 bg-brand-gold" />
+              <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
+                Timing, outfits, locations, and what parents can expect at the
+                ordering appointment.
+              </p>
+              <Link
+                href="/contact"
+                className="group mt-8 inline-flex min-h-11 items-center gap-3"
+              >
+                <span className="editorial-label text-foreground transition-colors duration-300 group-hover:text-brand-gold">
+                  Ask Me Anything Else
+                </span>
+                <svg width="24" height="8" viewBox="0 0 24 8" fill="none" className="transition-transform duration-300 group-hover:translate-x-1">
+                  <path d="M0 4H22M22 4L18.5 0.5M22 4L18.5 7.5" stroke="currentColor" strokeWidth="0.75" className="text-brand-gold" />
+                </svg>
+              </Link>
             </div>
+          </RevealOnScroll>
+
+          <RevealOnScroll variant="up" className="md:col-span-7 md:col-start-6">
             <AnswerBlock items={seniorFaqs} />
-          </div>
-        </RevealOnScroll>
+          </RevealOnScroll>
+        </div>
       </Section>
 
       {/* Testimonials */}
@@ -385,7 +536,7 @@ export default async function SeniorPortraitsPage() {
               </p>
               <Link
                 href="/contact"
-                className="group mt-8 inline-flex items-center gap-3"
+                className="group mt-8 inline-flex min-h-11 items-center gap-3"
               >
                 <span className="editorial-label text-white transition-colors duration-300 group-hover:text-brand-gold">
                   Inquire Now

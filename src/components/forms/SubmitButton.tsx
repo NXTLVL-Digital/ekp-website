@@ -10,7 +10,7 @@ export function SubmitButton() {
       type="submit"
       disabled={pending}
       aria-disabled={pending}
-      className="min-h-11 w-full rounded bg-brand-gold px-6 py-3 text-sm font-medium tracking-wide text-white transition-colors hover:bg-brand-gold-dark disabled:cursor-not-allowed disabled:opacity-60"
+      className="editorial-label min-h-11 w-full border border-foreground bg-foreground px-6 py-4 text-white transition-colors duration-300 hover:border-brand-gold hover:bg-brand-gold disabled:cursor-not-allowed disabled:opacity-60"
     >
       {pending ? 'Sending...' : 'Send Inquiry'}
     </button>
