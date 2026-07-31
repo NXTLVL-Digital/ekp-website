@@ -24,11 +24,11 @@ import type { TestimonialData } from '@/lib/schemas/review'
 export const metadata: Metadata = {
   title: 'Family Portraits',
   description:
-    'Relaxed, joyful family portrait photography in South-Central Virginia. Sessions for all ages — from newborns to grandparents — capturing the connections that matter most.',
+    'Relaxed, editorial family portraits in South-Central Virginia. Sessions for every generation — newborns to grandparents — finished as framed wall art and heirloom albums.',
   openGraph: {
     title: 'Family Portraits | Emily Kathryn Photography',
     description:
-      'Relaxed, joyful family portrait photography in South-Central Virginia. Sessions for all ages — from newborns to grandparents.',
+      'Relaxed, editorial family portraits in South-Central Virginia. Sessions for every generation — newborns to grandparents — finished as wall art and albums.',
     url: 'https://emilykathryn.com/family-portraits',
     siteName: 'Emily Kathryn Photography',
     images: [{ url: '/og/family-portraits.jpg', width: 1200, height: 630, alt: 'Family portrait session by Emily Kathryn Photography' }],
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Family Portraits | Emily Kathryn Photography',
-    description: 'Relaxed, joyful family portrait photography in South-Central Virginia.',
+    description: 'Relaxed, editorial family portraits in South-Central Virginia, finished as wall art and albums.',
     images: ['/og/family-portraits.jpg'],
   },
 }
@@ -62,34 +62,44 @@ interface ScarcityCueData {
 
 const familyFaqs = [
   {
-    question: 'What ages work best for family photos?',
+    question: 'When is the right age for family portraits?',
     answer:
-      "Every age is the best age. I photograph families with brand-new babies, energetic toddlers, moody teenagers, and adoring grandparents \u2014 sometimes all in the same session. There\u2019s no perfect stage to wait for, because every stage is worth capturing.",
+      "There\u2019s no stage worth waiting for \u2014 every one of them is worth photographing. I work with brand-new babies, energetic toddlers, moody teenagers, and adoring grandparents, sometimes all in the same session. The right time is whenever you can get everyone together.",
   },
   {
     question: 'Can we bring our pets?',
     answer:
-      "Absolutely! Pets are family, and they\u2019re always welcome. Whether it\u2019s a golden retriever who steals the show or a cat who tolerates exactly one photo, we\u2019ll make it work. I just recommend having a helper on hand in case your furry friend needs a break.",
+      "Yes \u2014 pets are family, and they\u2019re always welcome. Whether it\u2019s a golden retriever who steals the show or a cat who tolerates exactly one photo, we\u2019ll make it work. I just recommend having a helper on hand in case your furry friend needs a break.",
   },
   {
     question: 'What should we wear?',
     answer:
-      "The best approach is to coordinate, not match. Pick a color palette of 2\u20133 complementary tones and let everyone express their own style within that range. Think soft neutrals, earthy tones, or muted jewel colors. Avoid large logos and neon brights. I\u2019m always happy to review outfit photos before your session.",
+      "Coordinate, don\u2019t match. Pick a color palette of 2\u20133 complementary tones and let everyone express their own style within that range \u2014 soft neutrals, earthy tones, or muted jewel colors. Skip large logos and neon brights; they argue with a portrait once it\u2019s printed and framed. I\u2019m always happy to review outfit photos before your session.",
   },
   {
     question: "What if my kids won\u2019t cooperate?",
     answer:
-      "This is the number-one worry parents have, and I promise \u2014 it\u2019s completely normal. I\u2019ve photographed hundreds of families, and I know how to work with kids of every temperament. We\u2019ll keep things playful, take breaks when needed, and capture those genuine giggly moments that happen between the posed ones. Those end up being the favorites.",
+      "This is the number-one worry parents bring me, and I promise \u2014 it\u2019s completely normal. I\u2019ve photographed hundreds of families, and I know how to work with kids of every temperament. We\u2019ll keep things playful, take breaks when needed, and let the genuine giggly moments happen between the composed ones \u2014 those usually end up being the portraits families frame.",
   },
   {
     question: 'How long is a family session?',
     answer:
-      "Most family sessions run 45\u201360 minutes, which is the sweet spot for getting beautiful variety without anyone burning out \u2014 especially little ones. If you have a larger family or want to include extended family groupings, we can plan for a bit more time.",
+      "Most family sessions run 45\u201360 minutes \u2014 enough time for real variety without anyone burning out, especially little ones. If you have a larger family or want to include extended family groupings, we can plan for a bit more time.",
   },
   {
-    question: 'When is the best time of year for family photos?',
+    question: 'When is the right time of year for family photos?',
     answer:
-      "Virginia is gorgeous year-round, but the most popular seasons are early fall (September\u2013October) for golden foliage and spring (April\u2013May) for blossoms and soft green. I always schedule sessions during golden hour \u2014 the hour before sunset \u2014 when the light is warm, flattering, and absolutely magical.",
+      "Virginia gives you something in every season, but early fall (September\u2013October) and spring (April\u2013May) book heaviest \u2014 golden foliage in one, blossoms and soft green in the other. I schedule sessions during the hour before sunset, when the light is warm, flattering, and made for large prints. Fall weekends fill months ahead, so reach out early.",
+  },
+  {
+    question: 'Do you help us choose wall art sizes and framing?',
+    answer:
+      "Yes \u2014 that happens at your ordering appointment, so nothing is left to guesswork. We view your finished gallery together, talk through the room the portraits are headed for \u2014 above the mantel, along the stairway, the big wall at the lake house \u2014 and I recommend sizes, framing, and groupings to fit the space. Bring a photo of the wall and I\u2019ll show you exactly what works.",
+  },
+  {
+    question: 'What does a family session cost?',
+    answer:
+      "Family sessions begin at $899. Wall art, albums, and digital collections are chosen afterward at your ordering appointment, once you\u2019ve seen the finished portraits \u2014 so your investment reflects what you actually want on your walls.",
   },
 ]
 
@@ -145,9 +155,9 @@ export default async function FamilyPortraitsPage() {
             </h1>
             <div className="mx-auto mt-6 h-px w-12 bg-brand-gold" />
             <p className="mt-6 text-sm leading-relaxed text-white/50 md:text-base">
-              Warm, relaxed sessions that capture the real connections between
-              the people who matter most. No stiff posing, no forced smiles &mdash;
-              just your family being beautifully, perfectly you.
+              Warm, guided sessions for every generation of your family. No stiff
+              rows, no forced smiles &mdash; portraits made to hang above the
+              mantel, not sit forgotten in a folder on someone&apos;s phone.
             </p>
           </div>
         </div>
@@ -186,23 +196,25 @@ export default async function FamilyPortraitsPage() {
             <div className="md:col-span-7 md:col-start-6">
               <div className="space-y-5 text-sm leading-relaxed text-muted-foreground md:text-base">
                 <p>
-                  Family sessions are all about connection. I want to capture the way
-                  your toddler reaches for your hand, the look your kids give each
-                  other when they think nobody&apos;s watching, and the way your whole
-                  family lights up when you&apos;re together.
+                  Family sessions are all about connection. I photograph the way
+                  your toddler reaches for your hand, the look your kids trade when
+                  they think nobody&apos;s watching, and the way the whole group
+                  softens on the rare day everyone is actually together.
                 </p>
                 <p>
-                  We&apos;ll meet at a beautiful outdoor location during golden hour
-                  &mdash; that warm, glowing light right before sunset that makes
-                  everyone look incredible. Sessions run 45&ndash;60 minutes, which
-                  is the perfect amount of time to get stunning variety without anyone
-                  hitting a meltdown.
+                  We&apos;ll meet in the hour before sunset &mdash; warm, forgiving
+                  light &mdash; at a place that means something to you: the
+                  countryside, a garden, the dock at the lake, your own backyard.
+                  Sessions run 45&ndash;60 minutes, enough time for real variety
+                  without anyone hitting a meltdown.
                 </p>
                 <p>
-                  I&apos;ll guide you through relaxed poses and natural interactions,
-                  mixing structured family groupings with candid, playful moments.
-                  The result is a collection of portraits that feel authentic and warm
-                  &mdash; images you&apos;ll treasure for generations.
+                  I&apos;ll direct the whole session gently, mixing composed family
+                  groupings with the in-between moments where everyone forgets the
+                  camera. Afterward, at your ordering appointment, we design what
+                  the gallery becomes: the framed piece for above the mantel, an
+                  heirloom album, one portrait for each of the kids to take home
+                  someday &mdash; and the digital files come home with you too.
                 </p>
               </div>
             </div>
@@ -243,18 +255,18 @@ export default async function FamilyPortraitsPage() {
             </div>
             <PricingCard
               name={familyTier?.name ?? 'Family Session'}
-              startingAt={familyTier?.startingAt ?? 400}
+              startingAt={familyTier?.startingAt ?? 899}
               description={
                 familyTier?.description ??
-                'A relaxed, joyful portrait session for your whole family.'
+                'A guided family session finished the way it deserves \u2014 framed wall art, an heirloom album, and your digital files.'
               }
               features={
                 familyTier?.features ?? [
-                  '45\u201360 minute session',
+                  '45\u201360 minute guided session',
                   'Outdoor location',
                   'Up to 6 family members',
-                  'Professional retouching',
-                  'Online gallery',
+                  'Professional retouching & online gallery',
+                  'In-person ordering appointment',
                 ]
               }
               highlight={familyTier?.highlight ?? true}
@@ -307,12 +319,13 @@ export default async function FamilyPortraitsPage() {
             <div className="mx-auto max-w-2xl text-center">
               <div className="mx-auto mb-6 h-px w-12 bg-brand-gold" />
               <h2 className="font-heading text-4xl font-light text-white md:text-5xl">
-                Let&apos;s Capture Your Family
+                Let&apos;s Plan Something Worth Framing
               </h2>
               <p className="mt-5 text-sm leading-relaxed text-white/50 md:text-base">
-                Every family has a story worth telling beautifully. I would love to
-                hear yours and create portraits that celebrate the wonderful,
-                messy, perfectly imperfect people you love most.
+                Whole-family days are rare &mdash; and when yours comes, it deserves
+                more than a phone photo no one ever prints. Tell me about your
+                people and the wall you have in mind, and I&apos;ll design a
+                session that ends in a frame.
               </p>
               <Link
                 href="/contact"

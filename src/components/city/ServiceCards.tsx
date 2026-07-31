@@ -14,7 +14,7 @@ const services = [
       alt: 'Senior portrait session by Emily Kathryn Photography',
     },
     description: (city: string) =>
-      `Celebrate your milestone with editorial portraits that capture exactly who you are right now. Every session in ${city} is styled, guided, and designed to make you feel like the main character.`,
+      `Celebrate your milestone with editorial portraits that bring out exactly who you are right now. Every session in ${city} is styled, guided, and designed to make you feel like the main character.`,
     cta: 'Explore Senior Portraits',
   },
   {

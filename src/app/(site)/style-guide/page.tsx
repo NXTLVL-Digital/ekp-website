@@ -92,7 +92,7 @@ export default function StyleGuidePage() {
               <li>
                 <strong>Bonus: Something Bold:</strong> A statement piece you
                 would not normally wear every day — a leather jacket, a tulle
-                skirt, a hat. These create the most unexpected and stunning
+                skirt, a hat. These create the most unexpected and striking
                 images.
               </li>
             </ul>
@@ -116,7 +116,7 @@ export default function StyleGuidePage() {
               Color can make or break a portrait. The right tones complement
               your skin, enhance the natural surroundings, and create a timeless
               feel. The wrong tones can distract from your face and compete with
-              the environment. Here is what works best:
+              the environment. Here is what works:
             </p>
 
             <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-3">
@@ -177,7 +177,7 @@ export default function StyleGuidePage() {
                 <span className="text-brand-sage">&#9679;</span> Spring
               </h3>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                Light layers are your best friend. Think flowy dresses, pastel
+                Light layers are your friend. Think flowy dresses, pastel
                 blouses, and soft cardigans. Floral prints work if they are
                 subtle — small, ditsy patterns rather than bold tropical
                 prints. The blooming dogwoods and fresh green backdrops pair
@@ -196,7 +196,7 @@ export default function StyleGuidePage() {
                 light denim are all great choices. Keep makeup minimal and
                 natural — Virginia humidity is real, and less is more when the
                 temperature climbs. Golden hour sessions in summer give us
-                stunning warm light, so lean into warm tones.
+                rich, warm light, so lean into warm tones.
               </p>
             </div>
 
@@ -223,7 +223,7 @@ export default function StyleGuidePage() {
                 <span className="text-muted-foreground">&#9679;</span> Winter
               </h3>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                Winter sessions are underrated and absolutely stunning. Think
+                Winter sessions are underrated and quietly dramatic. Think
                 rich textures — chunky knits, faux fur, wool coats, and
                 leather. Jewel tones like deep red, emerald, and navy
                 contrast beautifully against bare trees and moody skies. Cozy
@@ -297,7 +297,7 @@ export default function StyleGuidePage() {
               <div className="border border-border bg-white p-5">
                 <h3 className="font-heading text-lg">Jewelry</h3>
                 <p className="mt-2 text-sm">
-                  Delicate, simple pieces photograph best. Layered necklaces, small
+                  Delicate, simple pieces photograph well. Layered necklaces, small
                   hoops, thin bracelets, and dainty rings add subtle sparkle without
                   distraction. Avoid anything overly chunky or reflective — large
                   gemstones and statement pieces can catch light in unexpected ways.
@@ -428,8 +428,8 @@ export default function StyleGuidePage() {
               </li>
               <li>
                 <strong>Button-down shirts:</strong> Rolled sleeves, top button
-                undone. A classic look that photographs incredibly well. Solid
-                colors or subtle patterns work best.
+                undone. A classic look that photographs remarkably well. Stick
+                to solid colors or subtle patterns.
               </li>
               <li>
                 <strong>Solid tees:</strong> A simple, well-fitted crew neck or
@@ -578,7 +578,7 @@ export default function StyleGuidePage() {
                   <h3 className="font-heading text-base">Trust the Process</h3>
                   <p className="mt-1 text-sm">
                     This is the most important tip. I will guide you through
-                    every pose, every expression, and every angle. All you have
+                    every movement, every expression, and every angle. All you have
                     to do is show up, be yourself, and have fun. I promise — you
                     are going to love the result.
                   </p>

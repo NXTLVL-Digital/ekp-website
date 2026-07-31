@@ -74,8 +74,9 @@ export default async function RavesPage() {
             <div className="mx-auto mt-6 h-px w-12 bg-brand-gold" />
             <p className="mt-6 text-sm leading-relaxed text-white/50 md:text-base">
               Nothing means more to me than knowing my clients walk away from
-              their session feeling confident, celebrated, and genuinely thrilled
-              with their images. These are their words, not mine.
+              their session feeling confident and celebrated — and that the
+              portraits we made together now hang on their walls. These are
+              their words, not mine.
             </p>
           </div>
         </div>
@@ -103,7 +104,7 @@ export default async function RavesPage() {
               Testimonials coming soon
             </p>
             <p className="mt-2 text-sm text-muted-foreground">
-              We are collecting kind words from our amazing clients. Check back soon!
+              We are gathering kind words from recent seniors and families. Check back soon.
             </p>
           </div>
         )}

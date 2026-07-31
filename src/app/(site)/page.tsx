@@ -44,13 +44,17 @@ interface ScarcityCueData {
 // ---------------------------------------------------------------------------
 
 export const metadata: Metadata = {
-  title: 'Emily Kathryn Photography | Senior & Family Portraits',
+  // Absolute title: opts out of the root layout's "%s | Emily Kathryn Photography"
+  // template so the brand appears exactly once on the homepage.
+  title: {
+    absolute: 'Emily Kathryn Photography | Senior & Family Portraits',
+  },
   description:
-    'Editorial-style senior portrait and family photography in South-Central Virginia. Serving Chatham, Danville, Lynchburg, Smith Mountain Lake, and beyond.',
+    'Editorial senior and family portraits made for the wall, not just the phone — serving Chatham, Danville, Lynchburg, and Smith Mountain Lake, Virginia.',
   openGraph: {
     title: 'Emily Kathryn Photography | Senior & Family Portraits',
     description:
-      'Editorial-style senior portrait and family photography in South-Central Virginia. Serving Chatham, Danville, Lynchburg, Smith Mountain Lake, and beyond.',
+      'Editorial senior and family portraits made for the wall, not just the phone — serving Chatham, Danville, Lynchburg, and Smith Mountain Lake, Virginia.',
     url: 'https://emilykathryn.com',
     siteName: 'Emily Kathryn Photography',
     images: [
@@ -68,7 +72,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Emily Kathryn Photography | Senior & Family Portraits',
     description:
-      'Editorial-style senior portrait and family photography in South-Central Virginia.',
+      'Editorial senior and family portraits made for the wall, not just the phone. South-Central Virginia.',
     images: ['/og/default.jpg'],
   },
 }
@@ -111,9 +115,9 @@ export default async function HomePage() {
       {/* 1. Hero — full-viewport editorial impact                          */}
       {/* ----------------------------------------------------------------- */}
       <Hero
-        heading="Your Story. Beautifully Told."
-        subheading="Editorial portrait photography with a magazine edge — relaxed, authentic, and designed around you. Serving South-Central Virginia from Chatham to Lynchburg and everywhere in between."
-        ctaLabel="Inquire for Detailed Pricing"
+        heading="Portraits made for the wall, not the phone."
+        subheading="A guided, editorial portrait experience for seniors and families across South-Central Virginia — planned with you, photographed from Chatham to Smith Mountain Lake, and finished as wall art and albums made to last a generation."
+        ctaLabel="Inquire About Your Session"
         ctaHref="/contact"
       />
 
@@ -135,13 +139,15 @@ export default async function HomePage() {
           <div className="mx-auto max-w-3xl text-center">
             <span className="editorial-label text-brand-gold">The Experience</span>
             <h2 className="mt-4 font-heading text-4xl font-light leading-tight md:text-5xl lg:text-6xl">
-              What We Create Together
+              Photos You Can Hang Up
             </h2>
             <div className="mx-auto mt-5 h-px w-12 bg-brand-gold" />
             <p className="mt-6 text-sm leading-relaxed text-muted-foreground md:text-base">
-              Whether you are celebrating a milestone or simply want to freeze
-              this chapter exactly as it is, every session is a collaborative
-              experience crafted around your story.
+              Not just files on your phone. Every session is guided from the
+              first planning conversation to the final frame — designed around
+              your people, your places, and the walls the finished portraits
+              will live on. The files, the framed artwork, the album:
+              considered together from the start.
             </p>
           </div>
         </RevealOnScroll>
@@ -158,13 +164,13 @@ export default async function HomePage() {
                 title: 'Senior Portraits',
                 href: '/senior-portraits',
                 description:
-                  'Magazine-worthy sessions for guys and girls — bold, authentic, and nothing like the school photo. Your personality, your way.',
+                  'Editorial sessions for guys and girls — a magazine spread, not a yearbook page. Directed so you look like yourself, just elevated, in portraits made to be framed.',
               },
               {
                 title: 'Family Portraits',
                 href: '/family-portraits',
                 description:
-                  'Natural, relaxed sessions that capture your family exactly as you are — the laughter, the connections, the moments that matter.',
+                  'Relaxed, guided sessions that photograph your family as you really are — the laughter, the leaning-in, the in-between moments — finished as artwork worth hanging above the mantel.',
               },
             ]}
           />
@@ -183,8 +189,8 @@ export default async function HomePage() {
             <div className="mx-auto max-w-4xl text-center">
               <div className="mx-auto mb-8 h-px w-12 bg-brand-gold" />
               <blockquote className="font-heading text-3xl font-light italic leading-snug text-white md:text-4xl lg:text-5xl">
-                &ldquo;Every session should feel like a magazine shoot &mdash;
-                not stiff, not rushed, not generic.&rdquo;
+                &ldquo;A portrait isn&apos;t finished until it&apos;s hanging
+                on your wall.&rdquo;
               </blockquote>
               <div className="mt-8 flex items-center justify-center gap-3">
                 <div className="h-px w-6 bg-brand-gold" />
@@ -199,7 +205,7 @@ export default async function HomePage() {
       </section>
 
       {/* ----------------------------------------------------------------- */}
-      {/* 6. Featured Gallery — curated "best of" mix                       */}
+      {/* 6. Featured Gallery — curated recent-work mix                     */}
       {/* ----------------------------------------------------------------- */}
       <Section background="muted">
         <RevealOnScroll variant="up">
@@ -210,8 +216,9 @@ export default async function HomePage() {
             </h2>
             <div className="mx-auto mt-5 h-px w-12 bg-brand-gold" />
             <p className="mt-5 text-sm text-muted-foreground md:text-base">
-              A glimpse into what we create together — editorial senior portraits
-              and heartfelt family sessions across South-Central Virginia.
+              Recent sessions from across South-Central Virginia — senior
+              portraits and family artwork made to hold up in a frame, not just
+              on a feed.
             </p>
           </div>
         </RevealOnScroll>
@@ -230,8 +237,8 @@ export default async function HomePage() {
       <Section>
         <RevealOnScroll variant="up">
           <HomeCTA
-            heading="Ready to Book Your Session?"
-            body="Tell us a little about yourself and the session you have in mind. Emily will personally get back to you within 48 hours to start planning — no pressure, just a conversation."
+            heading="Start With a Conversation"
+            body="Tell Emily about your senior, your family, and the session you have in mind. She will personally get back to you within 48 hours to begin planning — no pressure, no obligation, just a conversation about what belongs on your walls."
             ctaLabel="Get in Touch"
             ctaHref="/contact"
           />
@@ -270,11 +277,13 @@ export default async function HomePage() {
             <div className="mx-auto max-w-2xl text-center">
               <div className="mx-auto mb-6 h-px w-12 bg-brand-gold" />
               <h2 className="font-heading text-4xl font-light text-white md:text-5xl">
-                Let&apos;s Create Something Beautiful
+                Let&apos;s Plan Something Worth Keeping
               </h2>
               <p className="mt-5 text-sm leading-relaxed text-white/50 md:text-base">
-                Your story deserves to be told beautifully. Reach out and let us
-                start planning a session that feels like you.
+                You don&apos;t do this every day. Senior year is the last big
+                chapter, and family seasons move even faster. Tell Emily what
+                you&apos;re picturing, and plan a session that ends on your
+                walls — not lost in a camera roll.
               </p>
               <Link
                 href="/contact"

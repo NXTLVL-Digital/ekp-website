@@ -441,8 +441,8 @@ export default async function CityPage({
             Start Planning Your {cityName} Session
           </h2>
           <p className="mt-4 text-white/80">
-            Ready to create stunning portraits in {cityName}? I would love to
-            hear about your vision and make it happen.
+            Ready to plan portraits worth framing in {cityName}? I would love
+            to hear about your vision and make it happen.
           </p>
           <Link
             href="/contact"
