@@ -71,13 +71,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
       images: [`${BASE_URL}/og/contact.jpg`],
     },
-    {
-      url: `${BASE_URL}/investment`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-      images: [`${BASE_URL}/og/investment.jpg`],
-    },
+    // Investment page hidden until Emily confirms pricing — restore by uncommenting:
+    // {
+    //   url: `${BASE_URL}/investment`,
+    //   lastModified: new Date(),
+    //   changeFrequency: "monthly",
+    //   priority: 0.8,
+    //   images: [`${BASE_URL}/og/investment.jpg`],
+    // },
     {
       url: `${BASE_URL}/about`,
       lastModified: new Date(),
