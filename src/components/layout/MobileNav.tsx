@@ -70,14 +70,19 @@ export function MobileNav({ navigation, cta, isOpen, onClose }: MobileNavProps) 
       {/* Black overlay */}
       <div className="absolute inset-0 bg-foreground" />
 
-      {/* Content — magazine table of contents style */}
-      <div className="relative flex h-full flex-col justify-center px-8">
-        {/* Gold accent rule */}
-        <div
-          className={`mb-10 h-px bg-brand-gold transition-all duration-700 delay-200 ${
-            isOpen ? 'w-12 opacity-100' : 'w-0 opacity-0'
-          }`}
-        />
+      {/* Content — magazine table of contents style.
+          Top padding clears the fixed header (logo + padding is ~180px tall
+          when unscrolled) so the first entry never sits under the top bar.
+          my-auto centers the block when there is room and lets it scroll when
+          there is not, which justify-center alone would clip on short phones. */}
+      <div className="relative flex h-full flex-col overflow-y-auto px-8 pt-44 pb-12 lg:pt-32">
+        <div className="my-auto w-full">
+          {/* Gold accent rule */}
+          <div
+            className={`mb-10 h-px bg-brand-gold transition-all duration-700 delay-200 ${
+              isOpen ? 'w-12 opacity-100' : 'w-0 opacity-0'
+            }`}
+          />
 
         <nav className="flex flex-col gap-1">
           {navigation.map((item, i) => (
@@ -121,6 +126,7 @@ export function MobileNav({ navigation, cta, isOpen, onClose }: MobileNavProps) 
               <path d="M0 4H18M18 4L14.5 0.5M18 4L14.5 7.5" stroke="currentColor" strokeWidth="0.75" />
             </svg>
           </Link>
+          </div>
         </div>
       </div>
     </div>

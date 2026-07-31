@@ -36,15 +36,15 @@ export function Footer() {
 
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         {/* Main content */}
-        <div className="grid gap-12 py-20 md:grid-cols-12 md:gap-8 md:py-24">
-          {/* Brand column — spans 4 */}
-          <div className="md:col-span-4">
+        <div className="grid gap-10 py-14 md:grid-cols-12 md:gap-8 md:py-24">
+          {/* Brand column — centered on mobile, left-aligned from md up */}
+          <div className="text-center md:col-span-4 md:text-left">
             <Link href="/" className="inline-block text-white">
               <svg
                 viewBox="0 0 200 200"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-48 w-48"
+                className="h-36 w-36 md:h-48 md:w-48"
               >
                 <circle cx="100" cy="100" r="92" stroke="currentColor" strokeWidth="1.5" fill="none"/>
                 <text x="100" y="108" textAnchor="middle" fontFamily="Georgia, 'Cormorant Garamond', serif" fontSize="72" fontWeight="400" fill="currentColor">ek.</text>
@@ -54,13 +54,13 @@ export function Footer() {
                 </text>
               </svg>
             </Link>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/50">
+            <p className="mx-auto mt-4 max-w-xs text-sm leading-relaxed text-white/50 md:mx-0">
               Editorial-style portrait photography for seniors and families across
               South-Central Virginia.
             </p>
 
             {/* Social links */}
-            <div className="mt-8 flex gap-1">
+            <div className="mt-6 flex justify-center gap-1 md:mt-8 md:justify-start">
               {[
                 { href: siteConfig.social.instagram, Icon: InstagramIcon, label: 'Instagram' },
                 { href: siteConfig.social.facebook, Icon: FacebookIcon, label: 'Facebook' },
@@ -80,9 +80,13 @@ export function Footer() {
             </div>
           </div>
 
+          {/* Explore + Service Areas sit side by side on mobile so the footer
+              does not run on for two screen lengths. md:contents dissolves this
+              wrapper from md up, leaving the original 12-column layout intact. */}
+          <div className="grid grid-cols-2 gap-x-6 md:contents">
           {/* Navigation column — spans 2 */}
           <div className="md:col-span-2 md:col-start-6">
-            <h3 className="editorial-label mb-6 text-white/30">
+            <h3 className="editorial-label mb-3 text-white/30 md:mb-6">
               Explore
             </h3>
             <nav className="flex flex-col">
@@ -100,7 +104,7 @@ export function Footer() {
 
           {/* Service areas column — spans 2 */}
           <div className="md:col-span-2">
-            <h3 className="editorial-label mb-6 text-white/30">
+            <h3 className="editorial-label mb-3 text-white/30 md:mb-6">
               Service Areas
             </h3>
             <nav className="flex flex-col">
@@ -115,10 +119,11 @@ export function Footer() {
               ))}
             </nav>
           </div>
+          </div>
 
           {/* Contact column — spans 3 */}
           <div className="md:col-span-3">
-            <h3 className="editorial-label mb-6 text-white/30">
+            <h3 className="editorial-label mb-3 text-white/30 md:mb-6">
               Contact
             </h3>
             <address className="flex flex-col gap-1 not-italic">
