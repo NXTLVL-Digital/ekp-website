@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { siteConfig } from '@/lib/siteConfig'
+import { CITY_DATA } from '@/lib/cityData'
 
 function InstagramIcon() {
   return (
@@ -79,8 +80,8 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Navigation column — spans 3 */}
-          <div className="md:col-span-3 md:col-start-6">
+          {/* Navigation column — spans 2 */}
+          <div className="md:col-span-2 md:col-start-6">
             <h3 className="editorial-label mb-6 text-white/30">
               Explore
             </h3>
@@ -92,6 +93,24 @@ export function Footer() {
                   className="flex min-h-11 items-center text-sm text-white/60 transition-colors duration-300 hover:text-white"
                 >
                   {item.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Service areas column — spans 2 */}
+          <div className="md:col-span-2">
+            <h3 className="editorial-label mb-6 text-white/30">
+              Service Areas
+            </h3>
+            <nav className="flex flex-col">
+              {Object.values(CITY_DATA).map((city) => (
+                <Link
+                  key={city.slug}
+                  href={`/${city.slug}`}
+                  className="flex min-h-11 items-center text-sm text-white/60 transition-colors duration-300 hover:text-white"
+                >
+                  {city.name}
                 </Link>
               ))}
             </nav>
