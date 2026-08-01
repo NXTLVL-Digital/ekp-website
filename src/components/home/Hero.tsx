@@ -58,8 +58,9 @@ export function Hero({ heading, subheading, ctaLabel, ctaHref }: HeroProps) {
             {heading}
           </h1>
 
-          {/* Subheading */}
+          {/* Subheading. The id anchors the homepage Speakable selector. */}
           <p
+            id="hero-summary"
             className="mt-6 max-w-lg text-sm leading-relaxed text-white/60 md:text-base"
             style={{ animation: 'fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both' }}
           >

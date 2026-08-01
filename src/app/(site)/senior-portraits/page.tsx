@@ -19,6 +19,7 @@ import {
 import { buildServiceSchema } from '@/lib/schemas/service'
 import { buildFaqPageSchema } from '@/lib/schemas/faqPage'
 import { buildBreadcrumbSchema } from '@/lib/schemas/breadcrumb'
+import { buildWebPageSchema } from '@/lib/schemas/webPage'
 
 /**
  * These frames run as standalone editorial moments between the text sections,
@@ -198,6 +199,15 @@ export default async function SeniorPortraitsPage() {
         url: 'https://emilykathryn.com/senior-portraits',
       })} />
       <JsonLd data={buildFaqPageSchema(seniorFaqs)} />
+      <JsonLd
+        data={buildWebPageSchema({
+          url: 'https://emilykathryn.com/senior-portraits',
+          name: 'Senior Portraits | Emily Kathryn Photography',
+          datePublished: '2026-07-31',
+          dateModified: '2026-08-01',
+          speakableSelectors: ['h1'],
+        })}
+      />
       <JsonLd
         data={buildBreadcrumbSchema([
           { name: 'Home', url: 'https://emilykathryn.com' },
@@ -493,6 +503,44 @@ export default async function SeniorPortraitsPage() {
 
           <RevealOnScroll variant="up" className="md:col-span-7 md:col-start-6">
             <AnswerBlock items={seniorFaqs} />
+
+            {/* Longer answers live in the guides (plan 5.4): service pages
+                cite them so search and AI engines see the cluster. */}
+            <div className="mt-12 border-t border-border pt-8">
+              <span className="editorial-label text-brand-gold">
+                Worth Reading Before You Book
+              </span>
+              <ul className="mt-5 space-y-3">
+                {[
+                  {
+                    href: '/journal/when-to-book-senior-photos-virginia',
+                    label: 'When should you book senior photos in Virginia?',
+                  },
+                  {
+                    href: '/journal/what-to-wear-senior-pictures',
+                    label: 'What to wear for senior pictures',
+                  },
+                  {
+                    href: '/journal/how-to-choose-senior-photographer',
+                    label: 'How to choose a senior photographer',
+                  },
+                ].map((guide) => (
+                  <li key={guide.href}>
+                    <Link
+                      href={guide.href}
+                      className="group inline-flex min-h-11 items-center gap-3"
+                    >
+                      <span className="text-sm text-muted-foreground transition-colors duration-300 group-hover:text-brand-gold md:text-base">
+                        {guide.label}
+                      </span>
+                      <svg width="24" height="8" viewBox="0 0 24 8" fill="none" className="shrink-0 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">
+                        <path d="M0 4H22M22 4L18.5 0.5M22 4L18.5 7.5" stroke="currentColor" strokeWidth="0.75" className="text-brand-gold" />
+                      </svg>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </RevealOnScroll>
         </div>
       </Section>

@@ -11,6 +11,9 @@ import { Hero } from '@/components/home/Hero'
 import { PortfolioPreview } from '@/components/home/PortfolioPreview'
 import { TestimonialCarousel } from '@/components/home/TestimonialCarousel'
 import { FEATURED_TESTIMONIALS } from '@/lib/testimonialContent'
+import { HOME_FAQS } from '@/lib/homeFaqs'
+import { buildFaqPageSchema } from '@/lib/schemas/faqPage'
+import { buildWebPageSchema } from '@/lib/schemas/webPage'
 import { siteConfig } from '@/lib/siteConfig'
 import { HomeCTA } from '@/components/home/HomeCTA'
 import { GalleryClient } from '@/components/shared/GalleryClient'
@@ -99,6 +102,21 @@ export default async function HomePage() {
       {/* Review JSON-LD deliberately lives on /raves only (quote-only, SD-06).
           The testimonial carousel below is visible social proof; duplicating
           the same quotes as schema entities here would split the entity. */}
+
+      {/* JSON-LD: homepage FAQ (AEO-04) + page freshness dates and the
+          Speakable regions (AEO-02, 5.6) */}
+      <JsonLd data={buildFaqPageSchema(HOME_FAQS)} />
+      <JsonLd
+        data={buildWebPageSchema({
+          url: siteConfig.url,
+          name: 'Emily Kathryn Photography | Senior & Family Portraits',
+          description:
+            'Editorial senior and family portraits across South-Central Virginia.',
+          datePublished: '2026-07-31',
+          dateModified: '2026-08-01',
+          speakableSelectors: ['h1', '#hero-summary'],
+        })}
+      />
 
       {/* ----------------------------------------------------------------- */}
       {/* 1. Hero — full-viewport editorial impact                          */}
@@ -321,6 +339,41 @@ export default async function HomePage() {
           )}
         </div>
       </section>
+
+      {/* ----------------------------------------------------------------- */}
+      {/* 8b. Questions, answered — visible twin of the FAQPage JSON-LD     */}
+      {/* ----------------------------------------------------------------- */}
+      <Section spacing="wide">
+        <RevealOnScroll variant="up">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="editorial-label text-brand-gold">
+              Before You Ask
+            </span>
+            <h2 className="mt-3 font-heading text-3xl font-light md:text-4xl">
+              Questions, Answered
+            </h2>
+            <div className="mx-auto mt-5 h-px w-12 bg-brand-gold" />
+          </div>
+        </RevealOnScroll>
+
+        <RevealOnScroll variant="up" className="mt-12 md:mt-16">
+          <dl className="mx-auto max-w-3xl">
+            {HOME_FAQS.map((faq) => (
+              <div
+                key={faq.question}
+                className="border-t border-border py-8 first:border-t-0 md:py-10"
+              >
+                <dt className="font-heading text-xl font-light md:text-2xl">
+                  {faq.question}
+                </dt>
+                <dd className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
+                  {faq.answer}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </RevealOnScroll>
+      </Section>
 
       {/* ----------------------------------------------------------------- */}
       {/* 9. Bottom CTA — elegant final conversion nudge                    */}

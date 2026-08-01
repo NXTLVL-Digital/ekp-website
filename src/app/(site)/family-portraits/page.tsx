@@ -19,6 +19,7 @@ import {
 import { buildServiceSchema } from '@/lib/schemas/service'
 import { buildFaqPageSchema } from '@/lib/schemas/faqPage'
 import { buildBreadcrumbSchema } from '@/lib/schemas/breadcrumb'
+import { buildWebPageSchema } from '@/lib/schemas/webPage'
 
 /**
  * This photo runs full width higher up the page as the featured image, so it
@@ -162,6 +163,15 @@ export default async function FamilyPortraitsPage() {
         url: 'https://emilykathryn.com/family-portraits',
       })} />
       <JsonLd data={buildFaqPageSchema(familyFaqs)} />
+      <JsonLd
+        data={buildWebPageSchema({
+          url: 'https://emilykathryn.com/family-portraits',
+          name: 'Family Portraits | Emily Kathryn Photography',
+          datePublished: '2026-07-31',
+          dateModified: '2026-07-31',
+          speakableSelectors: ['h1'],
+        })}
+      />
       <JsonLd
         data={buildBreadcrumbSchema([
           { name: 'Home', url: 'https://emilykathryn.com' },

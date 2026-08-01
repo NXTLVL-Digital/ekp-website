@@ -1,6 +1,7 @@
 import type { BlogPosting, WithContext } from 'schema-dts'
 import { siteConfig } from '@/lib/siteConfig'
 import { BUSINESS_ID } from '@/lib/schemas/localBusiness'
+import { PERSON_ID } from '@/lib/schemas/person'
 
 interface BlogPostingInput {
   /** Journal slug, without the /journal/ prefix. */
@@ -42,7 +43,10 @@ export function buildBlogPostingSchema(
     ...(image ? { image } : {}),
     datePublished: post.datePublished,
     dateModified: post.dateModified ?? post.datePublished,
-    author: { '@id': BUSINESS_ID },
+    // Author is Emily the Person, publisher is the business. Person schema
+    // shipped with Phase 1.5; a named human author is a stronger E-E-A-T
+    // signal than a business byline.
+    author: { '@id': PERSON_ID },
     publisher: { '@id': BUSINESS_ID },
     inLanguage: 'en-US',
   }
