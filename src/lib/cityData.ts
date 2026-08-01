@@ -16,6 +16,15 @@ export interface CityGeoData {
 }
 
 export const CITY_DATA: Record<string, CityGeoData> = {
+  gretna: {
+    // Home base: the town the business operates from (SAB, city-level only).
+    name: 'Gretna',
+    slug: 'gretna',
+    latitude: 36.954,
+    longitude: -79.3661,
+    mapQuery: 'Gretna, Virginia',
+    marketTier: 'mid',
+  },
   chatham: {
     name: 'Chatham',
     slug: 'chatham',

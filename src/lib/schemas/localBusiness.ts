@@ -35,6 +35,7 @@ export function buildLocalBusinessSchema(): WithContext<LocalBusiness> {
       addressCountry: 'US',
     },
     areaServed: [
+      { '@type': 'City', name: 'Gretna', containedInPlace: { '@type': 'State', name: 'Virginia' } },
       { '@type': 'City', name: 'Chatham', containedInPlace: { '@type': 'State', name: 'Virginia' } },
       { '@type': 'City', name: 'Danville', containedInPlace: { '@type': 'State', name: 'Virginia' } },
       { '@type': 'City', name: 'Lynchburg', containedInPlace: { '@type': 'State', name: 'Virginia' } },

@@ -246,6 +246,11 @@ export async function generateMetadata({
 
   const title = fitsSerp ? fullTitle : shortTitle
 
+  // Every city has its own OG card in /public/og/cities (v3 audit I-04),
+  // generated from a real session photo. Fallback covers a future city
+  // added to Sanity before its card exists.
+  const ogImage = cityGeo ? `/og/cities/${cityGeo.slug}.jpg` : '/og/default.jpg'
+
   return {
     title: fitsSerp ? pageTitle : { absolute: shortTitle },
     description: metaDesc,
@@ -256,7 +261,7 @@ export async function generateMetadata({
       siteName: siteConfig.name,
       images: [
         {
-          url: '/og/default.jpg',
+          url: ogImage,
           width: 1200,
           height: 630,
           alt: `Portrait photographer serving ${cityName}, Virginia`,
@@ -269,7 +274,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title,
       description: metaDesc,
-      images: ['/og/default.jpg'],
+      images: [ogImage],
     },
   }
 }

@@ -152,6 +152,8 @@ Shipped and verified live: 3.3 entity merge (city pages now emit exactly **one**
 
 The step-by-step guides already exist: `docs/google-business-profile-setup.md` + `docs/apple-business-connect-setup.md`.
 
+**On-site half ✅ SHIPPED 2026-08-01:** 4.4 `/gretna` live (deepest city page: home-base story, Gretna High continuity, 5 FAQs, **no pricing** since the page is new content and pricing is unconfirmed; auto-joined sitemap/footer/llms.txt; Gretna added to business `areaServed`) · 4.5 the four templated city closers rewritten, each anchored to one real location (courthouse streets, River District, foothills/brick, the docks) · 4.9 all 8 city pages now have unique OG cards generated from real session photos (`/og/cities/*.jpg`). **Remaining rows below are the off-site half and need Jeff/Emily.**
+
 | # | Task | Acceptance |
 |---|------|-----------|
 | 4.1 | **L-02a** Create/claim GBP as **service-area business** (street private, service area = the 7 cities), categories: Photographer / Portrait Studio | GBP live & verified |

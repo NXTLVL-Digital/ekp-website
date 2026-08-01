@@ -36,7 +36,7 @@ export const CITY_CONTENT: Record<string, CityContent> = {
 <p><strong>Senior portraits</strong> in Chatham mark a chapter that truly matters. The final year in a place this tight-knit carries a weight that deserves to be documented with intention. These are not just yearbook headshots. This is about bringing out the confidence, the personality, and the quiet excitement of someone standing on the edge of what comes next. Every session is tailored to showcase the individual, from wardrobe guidance to finding the perfect light that matches their energy.</p>
 <p><strong>Family portraits</strong> in Chatham are an opportunity to pause and hold onto the way things are right now. Children grow faster than anyone warns you they will, and the connections you have built in this community deserve to be seen and preserved. Whether it is the way your toddler reaches for your hand or the knowing glance between siblings, those fleeting details matter.</p>
 <p>Emily Kathryn Photography brings an editorial eye to every session, blending the unhurried character of Chatham with a polished, magazine-worthy aesthetic. The result is portraiture that feels both timeless and deeply personal, images that belong on your walls and in your family's story for generations to come.</p>
-<p>Whether you are celebrating your senior year or gathering the whole family, Emily Kathryn Photography brings a thoughtful, detail-oriented approach to every session in Chatham. If you are ready to create portraits that truly reflect who you are and the place that shaped you, let's start the conversation.</p>`,
+<p>If your senior walks past the courthouse every morning or your family's Saturdays run through those tree-lined streets, those places belong in the photographs. Tell Emily which corner of Chatham is yours, and the session gets planned around it.</p>`,
     faqs: [
       {
         question: 'How much does a portrait session cost in Chatham?',
@@ -81,7 +81,7 @@ export const CITY_CONTENT: Record<string, CityContent> = {
 <p>The arts renaissance happening downtown has also cultivated a community that values creativity and craftsmanship. Families in Danville appreciate work that goes beyond the expected, portraits built around relationships and personalities rather than just faces. There is an understanding here that great photography is an investment in permanence, a way to hold onto the moments that define a family's chapter in a city that is writing a remarkable new one of its own.</p>
 <p><strong>Family portrait sessions</strong> are designed to feel natural and unhurried. The goal is never a perfectly arranged lineup but rather a collection of images that show how your family actually connects, the laughter, the inside jokes, the quiet tenderness that exists between people who truly know each other. Every family brings its own rhythm, and the session is built around discovering and celebrating that rhythm.</p>
 <p>Emily Kathryn Photography brings an editorial sensibility that aligns with Danville's own creative evolution. Every session is approached with the same intentionality that defines what this city is becoming: thoughtful, elevated, and unapologetically original. The final collection is not just a set of photographs. It is a curated body of work that reflects your story with the artistry it deserves.</p>
-<p>Whether you are celebrating your senior year or gathering the whole family, Emily Kathryn Photography brings a refined, artistic vision to every session in Danville. If you have been looking for portraiture that rises to the standard this city is setting, reach out and let's create something extraordinary together.</p>`,
+<p>A senior session against the River District's mural walls, a family evening along the Dan, or something quieter on the edge of the city: Danville gives a session more to work with every year. Bring the idea, and Emily will bring the plan.</p>`,
     faqs: [
       {
         question: 'How much does a portrait session cost in Danville?',
@@ -126,7 +126,7 @@ export const CITY_CONTENT: Record<string, CityContent> = {
 <p>There is also a deep appreciation for family legacy in Lynchburg. Many families have been here for generations, connected to the hills and the history in ways that run deeper than a mailing address. <strong>A family portrait session</strong> becomes a way to honor that connection, to show the world who you are as a unit and preserve the dynamics that make your family uniquely yours. These images become heirlooms, artifacts of a specific season in your family's story.</p>
 <p>Even for families who are newer to the area, Lynchburg has a way of making people feel like they belong. The rolling terrain, the walkable downtown, the sense that both mountain adventure and refined culture are never more than a few minutes away, it all contributes to a lifestyle that people are genuinely proud of. Portraits should reflect that pride and that sense of home.</p>
 <p>Emily Kathryn Photography approaches every Lynchburg session with the belief that editorial quality and genuine warmth are not mutually exclusive. The images are polished, intentional, and magazine-worthy, but they also carry the real emotion of the moment. The Blue Ridge foothills provide the drama. Your story provides the heart. Together, they create something that neither could produce alone.</p>
-<p>Whether you are celebrating your senior year or gathering the whole family, Emily Kathryn Photography brings a distinctive editorial perspective to every portrait session in Lynchburg. Ready to see your story through a new lens? Let's connect and start planning something beautiful.</p>`,
+<p>From the brick and ivy in the old neighborhoods to the foothills that ring the city, Lynchburg offers more session settings than one afternoon can hold. Choosing the right two or three is the fun part, and that conversation is where every session here begins.</p>`,
     faqs: [
       {
         question: 'How much does a portrait session cost in Lynchburg?',
@@ -170,7 +170,7 @@ export const CITY_CONTENT: Record<string, CityContent> = {
 <p><strong>Senior portraits at Smith Mountain Lake</strong> have a quality all their own. The golden-hour light reflecting off the water, the sense of possibility that comes with being surrounded by open landscape, it all contributes to images that feel expansive and alive. Seniors here carry a confidence that comes from growing up in a place where nature and community are equally valued. Their portraits should carry that same effortless assurance.</p>
 <p><strong>Family sessions</strong> along the lake preserve something that is difficult to find elsewhere: the feeling of being truly present. Whether your family has been gathering here for decades or you are building new traditions in this community, a portrait session at Smith Mountain Lake is an opportunity to document the connection you share in a place that already holds so much of your family's story. The lake has a way of drawing families closer, and the camera reveals that closeness in every frame.</p>
 <p>Emily Kathryn Photography brings a polished editorial style to the relaxed beauty of lake country. Every session balances the sophistication of magazine-quality imagery with the natural, laid-back spirit that defines life here. The result is a portrait collection that feels as warm and genuine as the place you call home.</p>
-<p>Whether you are celebrating your senior year or gathering the whole family, Emily Kathryn Photography brings an elevated artistic approach to every session at Smith Mountain Lake. If you are ready for portraits that honor your story against one of Virginia's most striking landscapes, let's start planning.</p>`,
+<p>Evening light on the docks is the signature Smith Mountain Lake frame, and it only lasts about an hour. Sessions here get planned around the water first: which shoreline, which golden window, which dock belongs to your family's summers. Reach out and claim your evening.</p>`,
     faqs: [
       {
         question: 'How much does a portrait session cost at Smith Mountain Lake?',
@@ -322,6 +322,53 @@ export const CITY_CONTENT: Record<string, CityContent> = {
         question: 'Do you photograph seniors from the Bedford County school district?',
         answer:
           'Yes. Emily works with seniors across the Bedford County school district, including students from Jefferson Forest and surrounding schools. She understands the character and tradition that defines growing up in this part of Virginia and creates portraits that reflect those deep roots.',
+      },
+    ],
+  },
+
+  /* ------------------------------------------------------------------------ */
+  /*  GRETNA — Home Base (deepest content of the set; plan item 4.4)           */
+  /*  No pricing anywhere here: this page is new content and pricing is not    */
+  /*  confirmed. The other cities' pricing FAQs predate that constraint.       */
+  /* ------------------------------------------------------------------------ */
+  gretna: {
+    headline: 'Senior Portraits in Gretna, VA',
+    aeoBlock:
+      'Emily Kathryn Photography is based in Gretna, Virginia, and photographs editorial senior portraits and family sessions in the town it calls home. Sessions are guided from the first planning conversation through a fully directed shoot, often ending on the family farm outside town, and finish as printed artwork rather than files alone.',
+    metaDescription:
+      'Senior portraits and family photography in Gretna, VA, the home town of Emily Kathryn Photography. Editorial sessions finished as printed artwork.',
+    bodyHtml: `<p>Every town on this site gets photographed like it matters. Gretna is different in one way only: this one is home. Emily Kathryn Photography is based here, which means the light on these fields, the fence lines outside town, and the quiet streets around the crossroads are not scouting notes. They are the backdrop of daily life, learned across more than a decade of shooting them in every season.</p>
+<p>That familiarity changes what a session here can be. There is no guessing where the sun drops in late June or which pasture goes gold first in October. When a Gretna senior asks where their session should happen, the answer comes with options most visitors would drive right past: a farm lane that glows an hour before sunset, a stand of hardwoods that holds soft light on a bright afternoon, a stretch of open field that turns to amber at the right week of fall.</p>
+<p><strong>Senior portraits in Gretna</strong> tend to end up somewhere personal. Some seniors want the family land in the frame. Some want the town itself, unpolished and familiar. Others bring the things that mark their years here, a jersey, an instrument, the truck they learned to drive on these roads. The session is directed the whole way through, so the person in front of the camera never has to perform. They just have to show up as themselves, and the light around here does a lot of the rest.</p>
+<p><strong>Family sessions in Gretna</strong> carry a particular weight when the photographer lives where you live. The same fields your kids cut through, the porches and pastures that hold your everyday, become the setting for portraits that will outlast the season. These sessions run relaxed and unhurried, with everyone guided into frames that feel like your family on a good evening, not a lineup.</p>
+<p>Gretna High School seniors have sat for this camera since the early years of the business, and their portraits have hung in homes around town ever since. That continuity is the quiet advantage of a photographer who stayed: the same eye that photographed older siblings, cousins, and neighbors is the one directing your session now.</p>
+<p>Sessions here finish the way all Emily Kathryn Photography work finishes, in print. Framed portraits, albums, artwork for the grandparents down the road. The gallery matters, but the wall is the point.</p>
+<p>If your senior year is coming, or your family is due for photographs that feel like this place, the conversation starts whenever you are ready.</p>`,
+    faqs: [
+      {
+        question: 'Is Emily Kathryn Photography actually based in Gretna?',
+        answer:
+          'Yes. Gretna is the home base. Sessions happen across South-Central Virginia, from Chatham and Danville to Lynchburg and Smith Mountain Lake, but this is the town the business operates from and the countryside Emily knows at every hour of light.',
+      },
+      {
+        question: 'Where do portrait sessions happen in Gretna?',
+        answer:
+          'Most Gretna sessions use the countryside just outside town: farm lanes, fence lines, open fields, and wooded edges that hold soft light. Seniors and families who want their own land in the photographs can have that too. Location planning is part of every session.',
+      },
+      {
+        question: 'Do you photograph Gretna High School seniors?',
+        answer:
+          'Yes, and have for years. Gretna High seniors were among the earliest sessions in the business, and their portraits still hang in homes around town. Sessions are planned around school schedules, sports seasons, and yearbook deadlines.',
+      },
+      {
+        question: 'What time of day works for photos around Gretna?',
+        answer:
+          'The last two hours before sunset. The fields around town hold warm, low light in the evening, and sessions are scheduled around that window through spring, summer, and fall.',
+      },
+      {
+        question: 'Do families need to live in Gretna to book a session here?',
+        answer:
+          'Not at all. Plenty of families from Chatham, Altavista, and the surrounding area choose the Gretna countryside for its fields and farm settings. If the look fits your family, the drive is short.',
       },
     ],
   },
