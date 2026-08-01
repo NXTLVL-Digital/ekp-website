@@ -42,21 +42,29 @@
 
 ---
 
-## Phase 1 — Technical & polish sprint (one PR, ~half day)
+## Phase 1 — Technical & polish sprint ✅ BUILT 2026-08-01 (branch `feat/phase1-technical-polish`)
 
 Everything mechanical that gets Technical/Security/A11y/Performance/Mobile to 10.
 
-| # | Task | File(s) | Acceptance |
-|---|------|---------|-----------|
-| 1.1 | **S-01** Security headers: X-Content-Type-Options nosniff, X-Frame-Options DENY, Referrer-Policy strict-origin-when-cross-origin, Permissions-Policy camera=(), microphone=(), geolocation=(self) (Maps embed later) | `next.config.ts` `headers()` | Observatory ≥ B+ (CSP comes in 1.8) |
-| 1.2 | **T-05/M-03** Branded 404: hero-style layout, header/footer, links to /senior-portraits, /family-portraits, /contact; own metadata (kills double-title) | `src/app/not-found.tsx` (root, replaces default; keep `(site)/not-found.tsx` in sync) | 404 shows brand page, single title tag |
-| 1.3 | **T-08** Apple touch icon 180×180 from `logo-submark.png` (white bg) | `src/app/apple-icon.png` | `/apple-icon.png` 200 |
-| 1.4 | **A-01** Footer contrast: raise muted footer text/links to ≥ 4.5:1 (one token: `text-white/50` → `text-white/70`-ish; verify each flagged element) | `Footer.tsx` | Lighthouse a11y 100, zero contrast fails |
-| 1.5 | **A-02** Footer "ek." link: `aria-label="Emily Kathryn Photography — home"` on the SVG Link | `Footer.tsx` | Lighthouse link-name passes |
-| 1.6 | **PERF-01** Hero LCP: `priority` + accurate `sizes` on homepage hero image; `quality={60–65}` | `(site)/page.tsx` hero component | Lab mobile LCP ≤ 2.5s, perf ≥ 95 |
-| 1.7 | **M-04** Trim /smith-mountain-lake title to ≤ 60c ("Smith Mountain Lake Portrait Photographer \| Emily Kathryn") | city data source | Title ≤ 60c |
-| 1.8 | **S-01b** CSP in Report-Only first (script-src 'self' 'unsafe-inline' + Vercel/Sanity origins; inventory from console), flip to enforcing after a clean week | `next.config.ts` | No CSP violations in report-only; grade A- when enforced |
-| 1.9 | **PERF-02** Explicit dimensions/aspect-ratio wrappers on gallery grid images (CLS insurance) | gallery components | unsized-images audit passes |
+| # | Task | File(s) | Acceptance | Status |
+|---|------|---------|-----------|--------|
+| 1.1 | **S-01** Security headers: X-Content-Type-Options nosniff, X-Frame-Options DENY, Referrer-Policy strict-origin-when-cross-origin, Permissions-Policy camera=(), microphone=(), geolocation=(self) | `next.config.ts` `headers()` | Observatory ≥ B+ | ✅ all 4 verified on the wire |
+| 1.2 | **T-05/M-03** Branded 404: hero-style layout, header/footer, links to /senior-portraits, /family-portraits, /contact | `src/app/not-found.tsx` (new root) + `NotFoundContent.tsx` shared with `(site)/not-found.tsx` | 404 shows brand page, single title tag | ✅ 404 status, exactly 1 `<title>` |
+| 1.3 | **T-08** Apple touch icon 180×180 from `logo-submark.png` (white bg) | `src/app/apple-icon.png` | `/apple-icon.png` 200 | ✅ 200 image/png, `sizes="180x180"` link emitted |
+| 1.4 | **A-01** Footer contrast ≥ 4.5:1 | `Footer.tsx` | Lighthouse a11y 100, zero contrast fails | ✅ a11y **100**; `/30`→`/60`, `/40`→`/60`, `/50`→`/70` |
+| 1.5 | **A-02** Footer "ek." link needs an accessible name | `Footer.tsx` | Lighthouse link-name passes | ✅ `aria-label` on link, `aria-hidden` on SVG |
+| 1.6 | **PERF-01** Hero LCP: `priority` + accurate `sizes`; `quality={60–65}` | `components/home/Hero.tsx` | Lab mobile LCP ≤ 2.5s, perf ≥ 95 | ⏳ `quality={65}` + `fetchPriority="high"` added; **LCP must be measured on production** |
+| 1.7 | **M-04** Trim /smith-mountain-lake title to ≤ 60c | `(site)/[city]/page.tsx` `generateMetadata` | Title ≤ 60c | ✅ SML now 57c; all 7 cities ≤ 59c |
+| 1.8 | **S-01b** CSP in Report-Only first, flip to enforcing after a clean week | `next.config.ts` | No CSP violations in report-only | ⏳ shipped Report-Only, **zero violations locally**; needs a prod week before enforcing |
+| 1.9 | **PERF-02** Explicit dimensions/aspect-ratio wrappers on gallery images | `GalleryGrid.tsx` | unsized-images audit passes | ✅ wrapper `aspect-ratio` from real metadata + non-undefined fallback |
+
+**Verified locally** (prod build on :3100): Lighthouse **accessibility 100 · SEO 100 · best-practices 96**, canonicals intact on `/`, `/about`, `/danville`, `/senior-portraits`, all 21 gallery images laid out at correct ratios.
+
+**Still to verify after deploy:**
+- Mobile LCP ≤ 2.5s and perf ≥ 95 against production (localhost numbers are not representative)
+- Mozilla Observatory grade (expect B+ → A- once CSP enforces)
+- One clean week of CSP report-only before flipping the header name to `Content-Security-Policy` and re-adding `upgrade-insecure-requests` (it is inert and console-noisy in report-only, so it was deliberately left out)
+- The CSP allowlist has not been exercised by GA4 or Clarity yet — both are dormant until Jeff supplies IDs. Re-read the console after they go live.
 
 **Category exits:** Technical 10 · Security 10 (after 1.8 enforce) · Accessibility 10 · Performance 10 · Mobile 10 · Images 10.
 

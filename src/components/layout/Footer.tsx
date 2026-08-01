@@ -39,12 +39,17 @@ export function Footer() {
         <div className="grid gap-10 py-14 md:grid-cols-12 md:gap-8 md:py-24">
           {/* Brand column — centered on mobile, left-aligned from md up */}
           <div className="text-center md:col-span-4 md:text-left">
-            <Link href="/" className="inline-block text-white">
+            <Link
+              href="/"
+              className="inline-block text-white"
+              aria-label="Emily Kathryn Photography, home"
+            >
               <svg
                 viewBox="0 0 200 200"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-36 w-36 md:h-48 md:w-48"
+                aria-hidden="true"
               >
                 <circle cx="100" cy="100" r="92" stroke="currentColor" strokeWidth="1.5" fill="none"/>
                 <text x="100" y="108" textAnchor="middle" fontFamily="Georgia, 'Cormorant Garamond', serif" fontSize="72" fontWeight="400" fill="currentColor">ek.</text>
@@ -54,7 +59,7 @@ export function Footer() {
                 </text>
               </svg>
             </Link>
-            <p className="mx-auto mt-4 max-w-xs text-sm leading-relaxed text-white/50 md:mx-0">
+            <p className="mx-auto mt-4 max-w-xs text-sm leading-relaxed text-white/70 md:mx-0">
               Editorial-style portrait photography for seniors and families across
               South-Central Virginia.
             </p>
@@ -71,7 +76,7 @@ export function Footer() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex min-h-11 min-w-11 items-center justify-center text-white/40 transition-colors duration-300 hover:text-brand-gold"
+                  className="flex min-h-11 min-w-11 items-center justify-center text-white/60 transition-colors duration-300 hover:text-brand-gold"
                   aria-label={`Follow on ${label}`}
                 >
                   <Icon />
@@ -86,7 +91,7 @@ export function Footer() {
           <div className="grid grid-cols-2 gap-x-6 md:contents">
           {/* Navigation column — spans 2 */}
           <div className="md:col-span-2 md:col-start-6">
-            <h3 className="editorial-label mb-3 text-white/30 md:mb-6">
+            <h3 className="editorial-label mb-3 text-white/60 md:mb-6">
               Explore
             </h3>
             <nav className="flex flex-col">
@@ -104,7 +109,7 @@ export function Footer() {
 
           {/* Service areas column — spans 2 */}
           <div className="md:col-span-2">
-            <h3 className="editorial-label mb-3 text-white/30 md:mb-6">
+            <h3 className="editorial-label mb-3 text-white/60 md:mb-6">
               Service Areas
             </h3>
             <nav className="flex flex-col">
@@ -123,7 +128,7 @@ export function Footer() {
 
           {/* Contact column — spans 3 */}
           <div className="md:col-span-3">
-            <h3 className="editorial-label mb-3 text-white/30 md:mb-6">
+            <h3 className="editorial-label mb-3 text-white/60 md:mb-6">
               Contact
             </h3>
             <address className="flex flex-col gap-1 not-italic">
@@ -150,19 +155,19 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 py-8 sm:flex-row">
-          <p className="text-xs text-white/30">
+          <p className="text-xs text-white/60">
             &copy; {currentYear} {siteConfig.name}. All rights reserved.
           </p>
           <div className="flex items-center gap-8">
             <Link
               href="/privacy"
-              className="editorial-label text-white/30 transition-colors duration-300 hover:text-brand-gold"
+              className="editorial-label text-white/60 transition-colors duration-300 hover:text-brand-gold"
             >
               Privacy
             </Link>
             <Link
               href="/contact"
-              className="editorial-label text-white/30 transition-colors duration-300 hover:text-brand-gold"
+              className="editorial-label text-white/60 transition-colors duration-300 hover:text-brand-gold"
             >
               Book a Session
             </Link>
