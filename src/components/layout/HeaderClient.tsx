@@ -52,14 +52,15 @@ export function HeaderClient({ navigation, cta, logoText }: HeaderClientProps) {
             {/* This is the LCP element on mobile, not the hero photo: it sits
                 at the top of every page and the hero sits behind a gradient.
                 fetchpriority="high" pulls it out of the default low-priority
-                queue images start in. Intrinsic width/height are the file's
-                real pixels (the h-20/h-36 classes still drive layout); they
-                give the browser the box before the PNG arrives.
+                queue images start in, and Header.tsx preloads the same URL
+                from the document head. Lossless WebP: pixel-identical to the
+                PNG at 13KB vs 22KB. Intrinsic width/height are the file's
+                real pixels (the h-20/h-36 classes still drive layout).
                 Deliberately a raw img, not next/image, so the brightness-0
                 invert transition and shrink-0 sizing keep working. */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/brand/logo-stacked.png"
+              src="/brand/logo-stacked.webp"
               alt={logoText}
               width={507}
               height={318}

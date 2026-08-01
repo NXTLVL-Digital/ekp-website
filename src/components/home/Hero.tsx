@@ -37,7 +37,7 @@ export function Hero({ heading, subheading, ctaLabel, ctaHref }: HeroProps) {
           {/* Gold accent rule */}
           <div
             className="mb-6 h-px w-12 bg-brand-gold"
-            style={{ animation: 'growWidth 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both' }}
+            style={{ animation: 'growWidth 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both' }}
           />
 
           {/* Editorial label. Carries the search terms the H1 deliberately
@@ -45,7 +45,7 @@ export function Hero({ heading, subheading, ctaLabel, ctaHref }: HeroProps) {
               stays the brand hook. */}
           <p
             className="editorial-label mb-4 text-brand-gold"
-            style={{ animation: 'fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both' }}
+            style={{ animation: 'fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both' }}
           >
             Senior &amp; Family Portraits &bull; South-Central Virginia
           </p>
@@ -53,7 +53,7 @@ export function Hero({ heading, subheading, ctaLabel, ctaHref }: HeroProps) {
           {/* Massive editorial headline */}
           <h1
             className="max-w-4xl font-heading text-5xl font-light leading-[0.95] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl"
-            style={{ animation: 'heroTextReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.9s both' }}
+            style={{ animation: 'heroTextReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both' }}
           >
             {heading}
           </h1>
@@ -61,13 +61,13 @@ export function Hero({ heading, subheading, ctaLabel, ctaHref }: HeroProps) {
           {/* Subheading */}
           <p
             className="mt-6 max-w-lg text-sm leading-relaxed text-white/60 md:text-base"
-            style={{ animation: 'fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.2s both' }}
+            style={{ animation: 'fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both' }}
           >
             {subheading}
           </p>
 
           {/* CTA — editorial link style */}
-          <div style={{ animation: 'fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.5s both' }}>
+          <div style={{ animation: 'fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.65s both' }}>
             <Link
               href={ctaHref}
               className="group mt-8 inline-flex items-center gap-3"
@@ -86,7 +86,7 @@ export function Hero({ heading, subheading, ctaLabel, ctaHref }: HeroProps) {
       {/* Scroll indicator */}
       <div
         className="absolute bottom-6 left-1/2 -translate-x-1/2 md:bottom-8"
-        style={{ animation: 'fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 2s both' }}
+        style={{ animation: 'fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 1.2s both' }}
       >
         <div className="flex flex-col items-center gap-2">
           <span className="text-[0.5625rem] uppercase tracking-[0.25em] text-white/40">Scroll</span>
