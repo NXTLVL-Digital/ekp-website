@@ -18,6 +18,7 @@ import {
 } from '@/sanity/lib/queries'
 import { buildServiceSchema } from '@/lib/schemas/service'
 import { buildFaqPageSchema } from '@/lib/schemas/faqPage'
+import { buildBreadcrumbSchema } from '@/lib/schemas/breadcrumb'
 
 /**
  * This photo runs full width higher up the page as the featured image, so it
@@ -161,6 +162,12 @@ export default async function FamilyPortraitsPage() {
         url: 'https://emilykathryn.com/family-portraits',
       })} />
       <JsonLd data={buildFaqPageSchema(familyFaqs)} />
+      <JsonLd
+        data={buildBreadcrumbSchema([
+          { name: 'Home', url: 'https://emilykathryn.com' },
+          { name: 'Family Portraits', url: 'https://emilykathryn.com/family-portraits' },
+        ])}
+      />
       {/* Review JSON-LD lives on /raves only (quote-only, SD-06). The visible
           testimonial carousel below is unaffected. */}
 

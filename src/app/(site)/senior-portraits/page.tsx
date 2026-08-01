@@ -18,6 +18,7 @@ import {
 } from '@/sanity/lib/queries'
 import { buildServiceSchema } from '@/lib/schemas/service'
 import { buildFaqPageSchema } from '@/lib/schemas/faqPage'
+import { buildBreadcrumbSchema } from '@/lib/schemas/breadcrumb'
 
 /**
  * These frames run as standalone editorial moments between the text sections,
@@ -197,6 +198,12 @@ export default async function SeniorPortraitsPage() {
         url: 'https://emilykathryn.com/senior-portraits',
       })} />
       <JsonLd data={buildFaqPageSchema(seniorFaqs)} />
+      <JsonLd
+        data={buildBreadcrumbSchema([
+          { name: 'Home', url: 'https://emilykathryn.com' },
+          { name: 'Senior Portraits', url: 'https://emilykathryn.com/senior-portraits' },
+        ])}
+      />
       {/* Review JSON-LD lives on /raves only (quote-only, SD-06). The visible
           testimonial carousel below is unaffected. */}
 

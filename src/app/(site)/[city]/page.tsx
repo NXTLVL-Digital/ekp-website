@@ -22,8 +22,9 @@ import { CITY_PAGE_QUERY, TESTIMONIALS_QUERY } from '@/sanity/lib/queries'
 import { CITY_DATA, CITY_SLUGS } from '@/lib/cityData'
 import { CITY_CONTENT } from '@/lib/cityContent'
 import { cityGalleryImages } from '@/lib/placeholder-galleries'
-import { buildCityLocalBusinessSchema } from '@/lib/schemas/localBusiness'
+import { buildCityServiceSchema } from '@/lib/schemas/service'
 import { buildFaqPageSchema } from '@/lib/schemas/faqPage'
+import { buildBreadcrumbSchema } from '@/lib/schemas/breadcrumb'
 import { siteConfig } from '@/lib/siteConfig'
 import type { PortableTextBlock } from '@portabletext/types'
 
@@ -351,11 +352,23 @@ export default async function CityPage({
 
   return (
     <>
-      {/* JSON-LD: City-specific LocalBusiness */}
-      {cityGeo && <JsonLd data={buildCityLocalBusinessSchema(cityGeo)} />}
+      {/* JSON-LD: the city's Service, provided by the single #business
+          entity from the layout. One business sitewide (SD-04); the city
+          specificity lives in areaServed with geo coordinates. */}
+      {cityGeo && <JsonLd data={buildCityServiceSchema(cityGeo)} />}
 
       {/* JSON-LD: FAQPage for AEO extraction */}
       {cityFaqs.length > 0 && <JsonLd data={buildFaqPageSchema(cityFaqs)} />}
+
+      {/* JSON-LD: breadcrumb trail (SD-07) */}
+      {cityGeo && (
+        <JsonLd
+          data={buildBreadcrumbSchema([
+            { name: 'Home', url: siteConfig.url },
+            { name: `${cityGeo.name}, Virginia`, url: `${siteConfig.url}/${cityGeo.slug}` },
+          ])}
+        />
+      )}
 
       {/* ------------------------------------------------------------------ */}
       {/*  1. City Hero                                                       */}
