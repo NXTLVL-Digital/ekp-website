@@ -49,10 +49,22 @@ export function HeaderClient({ navigation, cta, logoText }: HeaderClientProps) {
         <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-5 lg:px-10">
           {/* Logo */}
           <Link href="/" className="relative z-10 flex shrink-0 items-center" aria-label={logoText}>
+            {/* This is the LCP element on mobile, not the hero photo: it sits
+                at the top of every page and the hero sits behind a gradient.
+                fetchpriority="high" pulls it out of the default low-priority
+                queue images start in. Intrinsic width/height are the file's
+                real pixels (the h-20/h-36 classes still drive layout); they
+                give the browser the box before the PNG arrives.
+                Deliberately a raw img, not next/image, so the brightness-0
+                invert transition and shrink-0 sizing keep working. */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/brand/logo-stacked.png"
               alt={logoText}
+              width={507}
+              height={318}
+              fetchPriority="high"
+              decoding="sync"
               className={`w-auto transition-all duration-500 ${
                 isScrolled ? 'h-20' : 'h-36 brightness-0 invert'
               }`}
