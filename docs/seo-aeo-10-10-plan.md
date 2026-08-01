@@ -60,13 +60,35 @@ Everything mechanical that gets Technical/Security/A11y/Performance/Mobile to 10
 
 **Verified locally** (prod build on :3100): Lighthouse **accessibility 100 · SEO 100 · best-practices 96**, canonicals intact on `/`, `/about`, `/danville`, `/senior-portraits`, all 21 gallery images laid out at correct ratios.
 
-**Still to verify after deploy:**
-- Mobile LCP ≤ 2.5s and perf ≥ 95 against production (localhost numbers are not representative)
-- Mozilla Observatory grade (expect B+ → A- once CSP enforces)
-- One clean week of CSP report-only before flipping the header name to `Content-Security-Policy` and re-adding `upgrade-insecure-requests` (it is inert and console-noisy in report-only, so it was deliberately left out)
-- The CSP allowlist has not been exercised by GA4 or Clarity yet — both are dormant until Jeff supplies IDs. Re-read the console after they go live.
+### Measured on production after deploy (PR #18 + #19, 2026-08-01)
 
-**Category exits:** Technical 10 · Security 10 (after 1.8 enforce) · Accessibility 10 · Performance 10 · Mobile 10 · Images 10.
+Lighthouse mobile against `https://emilykathryn.com/`, trace hosts confirmed to be emilykathryn.com (the check that caught the baseline misattribution):
+
+| | Before P1 | After #18 | After #19 | Target |
+|---|:---:|:---:|:---:|:---:|
+| Performance | 90 (pre-redesign) | 79 | **88** | 95 |
+| Accessibility | 91 | **100** | **100** | 100 ✅ |
+| Best practices | — | **100** | **100** | — ✅ |
+| SEO | — | **100** | **100** | — ✅ |
+| LCP | 3.2s | 3.7s | **3.5s** | ≤ 2.5s |
+| TBT | — | 340ms | **100ms** | — |
+| CLS | 0 | **0** | **0** | 0 ✅ |
+
+**⚠️ PERF-01 is NOT met. Performance 88 and LCP 3.5s both miss the 95 / 2.5s target — Performance is the one category Phase 1 did not carry to 10.**
+
+What the measurement established, so the next attempt does not re-tread it:
+- **The LCP element is the header logo, not the hero photo.** Lighthouse's `lcp-discovery-insight` named it: `header.fixed > nav > a > img.w-auto` (`/brand/logo-stacked.png`, 230×144). The hero sits behind a gradient at `opacity-70`, so it never wins LCP.
+- The hero is genuinely fast and needs no further work: `quality={65}` delivers 41KB in 254ms.
+- #19 fixed the one thing Lighthouse flagged (`fetchpriority=high` absent → now present) and took perf 79 → 88, TBT 340ms → 100ms. Some of the TBT gain is likely run-to-run variance; treat 88 as approximate.
+- The logo is correctly sized already (507×318 source for a 230×144 render at 2x), so resampling it buys nothing.
+- **Remaining gap is the critical render path, not any single asset**: total payload is a healthy 615KB over 38 requests with no Lighthouse opportunity above 31KB. Closing 88 → 95 means reducing JS on the critical path, which is a scoped performance project rather than a polish item. Worth deciding whether 95 is the right bar for a photography site before spending on it.
+
+**Also still open:**
+- Mozilla Observatory grade (expect B+, then A- once CSP enforces)
+- One clean week of CSP report-only before flipping the header name to `Content-Security-Policy` and re-adding `upgrade-insecure-requests` (inert and console-noisy in report-only, so deliberately left out)
+- The CSP allowlist has not been exercised by GA4 or Clarity — both dormant until Jeff supplies IDs. Re-read the console once they go live.
+
+**Category exits:** Technical 10 · Security 10 (after 1.8 enforce) · Accessibility 10 · Mobile 10 · Images 10 · **Performance 8, still open.**
 
 ---
 
@@ -144,12 +166,39 @@ The step-by-step guides already exist: `docs/google-business-profile-setup.md` +
 | # | Task | Cadence |
 |---|------|---------|
 | 6.1 | **T-06** GSC domain property (DNS TXT via Vercel DNS — env `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` already wired), submit sitemap, URL-inspect the 4 biggest legacy URLs to confirm 308s | Once, then weekly Page-Indexing check ×6 weeks |
+| 6.1a | **Submission queue** — sitemap first (no quota cost), then Request Indexing in this order. Daily quota is ~10–12 URLs, so day 1 stops at #11. **Journal posts are excluded on purpose**: they are `noindex, follow` and out of the sitemap as of #16, so submitting them would contradict the directive. | Blocked 2026-08-01 on Google re-auth |
 | 6.2 | Lighthouse + PSI re-run after P1 (expect 95+/100/100/100 mobile); pull CrUX as field data accrues | After each phase |
 | 6.3 | Rank tracking: "[city] senior photographer", "[city] family photographer", "senior pictures [school name]" ×7 cities | Weekly (free: GSC queries report) |
 | 6.4 | AI citation spot-check: ChatGPT/Perplexity/Google AI Mode "best senior photographer near Danville VA" | Monthly |
 | 6.5 | SPF/DKIM for Workspace + Resend sending domain (from Brain launch notes) | Once |
 | 6.6 | Old origin decommission: content is recovered → old Cloudflare zone can be deleted whenever access allows; GHL already inaccessible | When possible |
 | 6.7 | Re-run `/seo-auditor` full audit; every category 10/10 is the exit criterion for this plan | After P5 |
+
+---
+
+### 6.1a — GSC submission queue (ready to run)
+
+Live sitemap is **16 URLs** as of 2026-08-01 (journal posts correctly absent). Submit `https://emilykathryn.com/sitemap.xml` first — sitemap submission costs no indexing quota. Then Request Indexing in this order, ranked by commercial intent and how much each page changed in the relaunch:
+
+| # | URL | Why here |
+|---|---|---|
+| 1 | `/` | Homepage. Brand queries and the entry point for everything |
+| 2 | `/senior-portraits` | Primary money page, the bulk of the business |
+| 3 | `/family-portraits` | Second money page |
+| 4 | `/contact` | The conversion endpoint; worthless if unindexed |
+| 5 | `/danville` | Largest city in the immediate service area, high commercial intent |
+| 6 | `/lynchburg` | Largest metro in the service area |
+| 7 | `/about` | Carries E-E-A-T and the Emily-name queries |
+| 8 | `/raves` | Rebuilt with 8 real testimonials in #16, so the indexed copy is stale |
+| 9 | `/chatham` | Home-area city page |
+| 10 | `/smith-mountain-lake` | Affluent destination market |
+| 11 | `/forest` | Remaining city with the most search volume |
+
+**Day 2** (quota resets): `/altavista`, `/evington`, `/style-guide`, `/journal`, `/privacy`.
+
+**Do not submit** the 5 `/journal/*` post URLs. They are `noindex, follow` and were removed from the sitemap in #16; requesting indexing would send Google a directly contradictory signal.
+
+Also worth doing in the same session: URL-inspect `/home`, `/meet-emily`, `/experience`, `/gallery` to confirm Google sees the 308s (all verified serving correctly on 2026-08-01).
 
 ---
 
