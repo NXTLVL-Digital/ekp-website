@@ -12,6 +12,7 @@ import { JsonLd } from '@/components/shared/JsonLd'
 import { JOURNAL_CONTENT, getJournalPost } from '@/lib/journalContent'
 import { buildBlogPostingSchema } from '@/lib/schemas/blogPosting'
 import { buildFaqPageSchema } from '@/lib/schemas/faqPage'
+import { buildBreadcrumbSchema } from '@/lib/schemas/breadcrumb'
 import { siteConfig } from '@/lib/siteConfig'
 import type { Metadata } from 'next'
 
@@ -203,9 +204,13 @@ export async function generateMetadata({
   return {
     title,
     description,
-    // Individual posts are kept out of search: the archive is no longer
-    // relevant to what Emily sells. The /journal index stays indexable.
-    robots: { index: false, follow: true },
+    // Archive posts (2018-2019) are kept out of search: that content no
+    // longer sells what Emily sells. The evergreen guides are the opposite:
+    // written for search, marked indexable in journalContent.ts, and listed
+    // in the sitemap. The /journal index itself stays indexable throughout.
+    robots: seed?.indexable
+      ? { index: true, follow: true }
+      : { index: false, follow: true },
     alternates: {
       canonical: `/journal/${slug}`,
     },
@@ -272,11 +277,24 @@ export default async function JournalPostPage({
           description: excerpt,
           image: schemaImage,
           datePublished: publishedAt,
+          dateModified: seed?.updatedAt,
         })}
       />
 
       {/* JSON-LD: FAQPage for AEO extraction */}
       {faqs.length > 0 && <JsonLd data={buildFaqPageSchema(faqs)} />}
+
+      {/* JSON-LD: breadcrumbs, indexable guides only (archive posts are
+          noindex and get no SERP display to feed) */}
+      {seed?.indexable && (
+        <JsonLd
+          data={buildBreadcrumbSchema([
+            { name: 'Home', url: siteConfig.url },
+            { name: 'Journal', url: `${siteConfig.url}/journal` },
+            { name: title, url: `${siteConfig.url}/journal/${slug}` },
+          ])}
+        />
+      )}
 
       {/* Editorial post header */}
       <section className="bg-foreground pt-52 pb-20 md:pt-56 md:pb-24">

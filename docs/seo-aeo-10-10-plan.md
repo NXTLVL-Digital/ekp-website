@@ -94,7 +94,7 @@ What the measurement established, so the next attempt does not re-tread it:
 
 ---
 
-## Phase 1.5 — v3 quick wins (one small PR, zero human dependencies) ← NEXT
+## Phase 1.5 — v3 quick wins ✅ SHIPPED 2026-08-01 (PR #22, verified live)
 
 Everything the v3 audit surfaced that needs no input from Jeff/Emily and no observation window. Pulls the non-gated parts of Phase 3 forward.
 
@@ -129,9 +129,11 @@ Source material is already in `docs/legacy-content/` — this phase is porting, 
 
 ---
 
-## Phase 3 — Schema & entity graph (one PR, ~half day)
+## Phase 3 — Schema & entity graph — non-gated half ✅ SHIPPED 2026-08-01 (PR #23)
 
-⚠️ **Gate: Jeff/Emily confirm the canonical social handles before this ships.** Audit evidence says live accounts are `@emilykathrynphotos` (IG, 2,184 followers; TikTok same) while the site links `@emilykathrynphotography` (only Facebook uses that handle). Confirm, don't assume.
+Shipped and verified live: 3.3 entity merge (city pages now emit exactly **one** ProfessionalService; the per-city block became a `Service` with `provider → #business` and City+geo `areaServed`) · 3.5 breadcrumbs on city + service pages · business `image` array (OG + 3 portfolio photos) · `founder → /about#emily`.
+
+⚠️ **Still gated on Jeff/Emily: 3.1 (sameAs handles) and 3.6 (proof numbers).** Audit evidence says live accounts are `@emilykathrynphotos` (IG, 2,184 followers; TikTok same) while the site links `@emilykathrynphotography` (only Facebook uses that handle). Confirm, don't assume.
 
 | # | Task | Acceptance |
 |---|------|-----------|
@@ -166,7 +168,9 @@ The step-by-step guides already exist: `docs/google-business-profile-setup.md` +
 
 ---
 
-## Phase 5 — AEO build-out (one PR + writing, ~1 day)
+## Phase 5 — AEO build-out ✅ SHIPPED 2026-08-01 (one PR: homepage FAQ, llms.txt ×2, dates, 3 guides, Speakable)
+
+All items below shipped except the pricing lines, which stay out until pricing confirms. The three guides are live at `/journal/when-to-book-senior-photos-virginia`, `/journal/what-to-wear-senior-pictures`, `/journal/how-to-choose-senior-photographer`: indexable (the archive posts stay noindex), in the sitemap with real lastmod, BlogPosting with `author → Person` + dateModified, FAQ schema each, breadcrumbs, cited from the senior page's FAQ rail. Sitemap is now 19 URLs. 2.7 (real lastmod sitemap-wide) shipped in the same PR.
 
 | # | Task | Acceptance |
 |---|------|-----------|
@@ -194,7 +198,7 @@ The step-by-step guides already exist: `docs/google-business-profile-setup.md` +
 | 6.6 | Old origin decommission: content is recovered → old Cloudflare zone can be deleted whenever access allows; GHL already inaccessible | When possible |
 | 6.7 | Re-run `/seo-auditor` full audit (v4); every category 10/10 is the exit criterion for this plan | After P5 |
 | 6.8 | **S-02** Flip CSP from Report-Only to enforcing + re-add `upgrade-insecure-requests`; re-scan Observatory (expect B→A-) | After 1 clean prod week **and** after GA4/Clarity activate |
-| 6.9 | **PERF-04** decision + (if go) execution: preload logo → AVIF logo → client-JS audit → animation-delay cap; re-measure after each lever | Mobile ≥ 95 or explicit "88 is enough" call |
+| 6.9 | **PERF-04** — levers 1/2/4 shipped 2026-08-01 (PR #24: head preload, lossless WebP logo 22→13KB, hero delays halved). TBT now 10ms, CLS 0. **Lab mobile stuck at 89 due to a measurement anomaly, not a site defect**: observed first paint is ~2.3s ONLY when Lighthouse runs against production under mobile emulation on this rig; the identical build on localhost paints at 137ms, desktop at 312ms, and a warmed /privacy at 259ms. JS-audit lever skipped as moot (render delay dominates; TBT already 10ms). **Next measurement: PSI API when its quota resets, then CrUX field data (~3-4 weeks) — field data is what ranking actually uses.** | PSI + CrUX confirm ≥ 95, or field LCP ≤ 2.5s |
 
 ---
 

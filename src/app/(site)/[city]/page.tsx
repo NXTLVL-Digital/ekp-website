@@ -25,6 +25,7 @@ import { cityGalleryImages } from '@/lib/placeholder-galleries'
 import { buildCityServiceSchema } from '@/lib/schemas/service'
 import { buildFaqPageSchema } from '@/lib/schemas/faqPage'
 import { buildBreadcrumbSchema } from '@/lib/schemas/breadcrumb'
+import { buildWebPageSchema } from '@/lib/schemas/webPage'
 import { siteConfig } from '@/lib/siteConfig'
 import type { PortableTextBlock } from '@portabletext/types'
 
@@ -367,6 +368,20 @@ export default async function CityPage({
             { name: 'Home', url: siteConfig.url },
             { name: `${cityGeo.name}, Virginia`, url: `${siteConfig.url}/${cityGeo.slug}` },
           ])}
+        />
+      )}
+
+      {/* JSON-LD: page freshness dates for AI crawlers (AEO-02). The city
+          set was rebuilt in the 2026-07-31 redesign; bump when content
+          substantively changes again. */}
+      {cityGeo && (
+        <JsonLd
+          data={buildWebPageSchema({
+            url: `${siteConfig.url}/${cityGeo.slug}`,
+            name: `${cityGeo.name} Portrait Photographer | Emily Kathryn Photography`,
+            datePublished: '2026-07-31',
+            dateModified: '2026-07-31',
+          })}
         />
       )}
 

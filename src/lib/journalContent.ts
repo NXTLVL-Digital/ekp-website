@@ -50,6 +50,14 @@ export interface JournalPostContent {
    * Used to hold a restored post back until Emily approves publishing it.
    */
   draft?: boolean
+  /**
+   * Indexable posts are the evergreen guides written for search and answer
+   * engines (plan Phase 5). They get robots index, sitemap entries, and
+   * breadcrumbs. Archive posts stay noindex, follow per the #16 decision.
+   */
+  indexable?: boolean
+  /** ISO date of the last substantive edit. Falls back to publishedAt. */
+  updatedAt?: string
 }
 
 /* -------------------------------------------------------------------------- */
@@ -57,6 +65,181 @@ export interface JournalPostContent {
 /* -------------------------------------------------------------------------- */
 
 const ALL_JOURNAL_POSTS: JournalPostContent[] = [
+  /* ------------------------------------------------------------------------ */
+  /*  Evergreen guides (2026): written for search and answer engines.          */
+  /*  Indexable, in the sitemap, answer-first openings, FAQ schema.            */
+  /* ------------------------------------------------------------------------ */
+  {
+    slug: 'when-to-book-senior-photos-virginia',
+    title: 'When Should You Book Senior Photos in Virginia?',
+    publishedAt: '2026-08-01',
+    updatedAt: '2026-08-01',
+    category: 'for-seniors',
+    indexable: true,
+    excerpt:
+      'Most Virginia seniors book in the spring of junior year and shoot in summer or early fall. Here is the season by season logic, and what to do if you are already behind that schedule.',
+    coverImage: {
+      src: '/images/seniors/EKP_2401.jpg',
+      alt: 'Graduate in cap and gown at golden hour',
+      width: 3327,
+      height: 5000,
+    },
+    bodyHtml: `<p>Most Virginia seniors book their session in the spring of junior year and get photographed in summer or early fall, before senior year picks up speed. That window gets you the year's warmest light, first pick of session dates, and finished portraits in hand before yearbook deadlines land.</p>
+<p>That's the short answer. The longer answer depends on the look you want, because this part of Virginia changes character four times a year.</p>
+<h2>The Virginia seasons, honestly compared</h2>
+<p>I photograph across Chatham, Danville, Lynchburg, and Smith Mountain Lake, and every season here has a case to make.</p>
+<ul>
+<li><strong>Summer.</strong> Green fields, long evenings, and golden hour that stretches past eight o'clock. The classic senior session. It's also warm, so we plan sessions for the last two hours of light, not the middle of the afternoon.</li>
+<li><strong>Early fall.</strong> My most requested window. The light softens, the evenings cool off, and by late October the foothills near Lynchburg turn over into full color. Fall dates go first, so this is the window that rewards booking ahead.</li>
+<li><strong>Spring.</strong> Blossoms, new green, and softer light than summer. A strong choice for juniors who want their portraits done before the summer rush.</li>
+<li><strong>Winter.</strong> Bare trees and quiet backdrops. It reads moody and editorial in the right hands, and it's the season with the most open calendar. Not the default, but nobody should rule it out.</li>
+</ul>
+<h2>Work backward from your yearbook deadline</h2>
+<p>Many schools collect senior portraits during fall semester, and some want them within the first few weeks of the year. Ask your yearbook advisor for the exact date before you plan anything else.</p>
+<p>Then count backward. A session needs a planning conversation before it, and a gallery takes time to finish properly after. If your deadline is in October, a summer session is comfortable and a late September one is cutting it close.</p>
+<h2>Why juniors book in spring</h2>
+<p>By spring of junior year you know your school's rhythm, you've seen classmates' portraits, and summer is close enough to plan around vacations, sports schedules, and jobs. Reaching out then means we can talk locations and wardrobe without rushing either.</p>
+<p>It also protects the dates that matter. Golden hour is a fixed number of evenings per month, and the fall color window is even smaller. Early conversations get first choice.</p>
+<h2>Already a senior? You're not late</h2>
+<p>Every year I photograph seniors in September, October, and beyond, and their galleries hold their own against anyone's. Fall color is an argument for being on this side of the calendar, not against it.</p>
+<p>If the yearbook date has already passed, the portraits still matter. The yearbook gets one small square. The wall at home is the longer game.</p>
+<h2>What booking actually looks like here</h2>
+<p>It starts with a conversation, not a contract. You tell me about your senior, we talk locations, timing, and outfits, and we put a date on the calendar with room to plan properly. If you're reading this in junior year, you're right on time. If you're reading it in senior year, the next step is the same either way.</p>
+<p><a href="/senior-portraits">See how senior sessions work</a>, or <a href="/contact">start the conversation</a> whenever you're ready.</p>`,
+    faqs: [
+      {
+        question: 'Is summer or fall better for senior pictures in Virginia?',
+        answer:
+          'Both work well, which is why they are the two busiest windows. Summer gives you green fields and long golden evenings. Early fall gives you softer light and, by late October, full color in the foothills. Fall dates fill first, so book earlier if that is the look you want.',
+      },
+      {
+        question: 'How far in advance should I book a senior session?',
+        answer:
+          'Spring of junior year is the comfortable window for a summer or fall session. That leaves room for a planning conversation, first pick of dates, and finished portraits before most yearbook deadlines.',
+      },
+      {
+        question: 'Can I still get senior photos taken during senior year?',
+        answer:
+          'Yes. Fall and even winter sessions happen every year and the galleries hold up. If your yearbook deadline has passed, the portraits still matter for your family and your wall, and the yearbook square was never the point.',
+      },
+    ],
+  },
+  {
+    slug: 'what-to-wear-senior-pictures',
+    title: 'What to Wear for Senior Pictures',
+    publishedAt: '2026-08-01',
+    updatedAt: '2026-08-01',
+    category: 'style-tips',
+    indexable: true,
+    excerpt:
+      'Start with one outfit that feels like the everyday you, add one dressed up look, and build the rest around solid colors and real texture. The full logic, plus what to leave home.',
+    coverImage: {
+      src: '/images/seniors/EKP_0913.jpg',
+      alt: 'Fashion-forward senior portrait with a wide-brim hat',
+      width: 3050,
+      height: 2036,
+    },
+    bodyHtml: `<p>Start with one outfit that feels like the everyday you, add one dressed up look, and build the rest around solid colors and simple texture that hold up in print. Three to five outfits covers a full session without turning the day into a costume change.</p>
+<p>That formula has survived every session I've photographed. Here's how to fill it in.</p>
+<h2>The three outfits that carry a session</h2>
+<ul>
+<li><strong>The everyday you.</strong> Whatever you'd wear on a good Saturday. Jeans that fit right, a top you don't fuss with. These frames end up being the ones parents love most, because they look like their kid.</li>
+<li><strong>The dressed up one.</strong> A long dress with movement, or a jacket and real shoes. This is the frame that goes over the mantel.</li>
+<li><strong>The personality piece.</strong> The letterman jacket, the instrument, the ball glove, the truck you drive. One outfit built around the thing people know you for.</li>
+</ul>
+<p>Outfits four and five, if you bring them, are variations on those three. I don't cap outfit changes, but past five, the returns shrink.</p>
+<h2>Colors that print well</h2>
+<p>Muted, warm, and earthy tones photograph better than loud ones, especially outdoors. Cream, sage, rust, denim, soft black. They sit quietly against fields and brick and let your face lead the frame.</p>
+<p>What fights the photograph: neon anything, big printed logos, and busy patterns that flicker at print size. A portrait hangs around for decades, and simple is what ages well.</p>
+<h2>Texture beats pattern</h2>
+<p>A knit sweater, a flowing skirt, denim, linen, leather. Texture gives light something to do and reads richer in print than any pattern. If a dress moves when you walk, it will move in the photographs, and that's where the editorial look comes from.</p>
+<h2>For the guys</h2>
+<p>Layers do the heavy lifting. A flannel over a plain tee, a denim or canvas jacket, a well fitted suit if the mantel frame is the goal. Boots or clean leather shoes over athletic sneakers, unless the sneakers are the personality piece. The same color logic applies: solid, muted, simple.</p>
+<h2>Details people forget</h2>
+<ul>
+<li><strong>Shoes make it into more frames than you think.</strong> Bring the pair that belongs with each outfit.</li>
+<li><strong>A hat can anchor a whole look.</strong> Wide brim, ball cap, whatever is honestly yours.</li>
+<li><strong>Jewelry reads at close range.</strong> Small and personal beats big and borrowed.</li>
+<li><strong>Iron things.</strong> Wrinkles survive editing better than anyone wants.</li>
+</ul>
+<h2>You don't decide this alone</h2>
+<p>Every session here starts with a planning conversation, and wardrobe is half of it. Bring your options, send photos of outfits you're torn on, and we'll build the lineup around your locations and light together.</p>
+<p>There's a longer version of this thinking, with full color palettes and season notes, in the <a href="/style-guide">style guide</a>. When your closet is ready, <a href="/senior-portraits">here's how the session itself works</a>.</p>`,
+    faqs: [
+      {
+        question: 'How many outfits should I bring to a senior session?',
+        answer:
+          'Three to five. One that feels like the everyday you, one dressed up, one built around something personal like a jersey or an instrument, and up to two variations. My sessions do not cap outfit changes, but past five the returns shrink.',
+      },
+      {
+        question: 'What colors look good in senior pictures?',
+        answer:
+          'Muted, warm, earthy tones: cream, sage, rust, denim, soft black. They photograph well outdoors and age well in print. Avoid neon colors, large logos, and busy patterns, which pull attention away from your face.',
+      },
+      {
+        question: 'Should senior guys wear a suit for their photos?',
+        answer:
+          'Bring one if a dressed up frame matters to your family, but it should not be the whole session. Layers like a flannel over a plain tee or a canvas jacket usually produce the frames that look most like you.',
+      },
+    ],
+  },
+  {
+    slug: 'how-to-choose-senior-photographer',
+    title: 'How to Choose a Senior Photographer',
+    publishedAt: '2026-08-01',
+    updatedAt: '2026-08-01',
+    category: 'for-seniors',
+    indexable: true,
+    excerpt:
+      'Look at full galleries instead of highlight reels, ask how the session is directed, and decide what you want on the wall before you compare anyone. A working checklist.',
+    coverImage: {
+      src: '/images/seniors/EKP_7812.jpg',
+      alt: 'Senior boy portrait among historic stonework',
+      width: 5000,
+      height: 3327,
+    },
+    bodyHtml: `<p>Choose a senior photographer by looking at full galleries instead of highlight reels, asking how much direction they give during the session, and deciding what you actually want on your wall before you compare anyone. Price matters, but fit decides whether you love the results.</p>
+<p>I'm a photographer, so read this knowing where I stand. But these are the same things I'd check for my own kid, in order.</p>
+<h2>Ask to see one full session</h2>
+<p>Anyone can post three strong frames from three different years. What tells you the truth is a single session, start to finish. Is frame forty as considered as frame four? Do different locations in one afternoon still look like the same photographer? Consistency is the skill.</p>
+<h2>Ask how much direction you'll get</h2>
+<p>Almost nobody walks into a session knowing what to do with their hands, and the difference between stiff photos and natural ones is whether the photographer solves that for you.</p>
+<p>Ask directly: will you tell me where to stand, what to do, how to move? You want to hear yes, the whole way through. A guided session is the difference between hoping for good frames and planning for them.</p>
+<h2>Decide what the photos are for</h2>
+<p>If everything ends up as files on a phone, almost any photographer will do. If you want portraits made for the wall, an album, artwork for the grandparents, then you're hiring someone to think in prints: how light holds on paper, which frame anchors an album, which one earns the big spot in the hallway. Ask what happens after the session, because that's where the difference lives.</p>
+<h2>Local knowledge is quietly worth a lot</h2>
+<p>A photographer who works your area knows where the light lands at seven in the evening, which spots are quiet on a Saturday, and where the brick, fields, and water actually are. Around here, that means knowing downtown Danville from the fence lines outside Chatham and the docks at Smith Mountain Lake. Imported photographers guess at that. Local ones plan around it.</p>
+<h2>Check they photograph people like you</h2>
+<p>Some portfolios are all girls in fields. If you're a senior guy, or your senior is, look for real evidence: suits, flannel, trucks, stonework, whatever. The direction that works for a dancer doesn't work for a linebacker, and the portfolio shows whether the photographer knows both.</p>
+<h2>Read what past families say</h2>
+<p>Reviews tell you about the experience, which the pictures can't. Look for words about feeling comfortable, not rushed, and guided. That's the session your senior will actually live through. Mine are collected on the <a href="/raves">raves page</a>, names and schools included.</p>
+<h2>Five questions worth asking anyone</h2>
+<ul>
+<li>Can I see a complete session gallery, not highlights?</li>
+<li>How do you direct someone who feels awkward in photos?</li>
+<li>What happens after the session: prints, albums, wall art, or just files?</li>
+<li>How many locations and outfits fit in one session?</li>
+<li>When would we need to book to shoot this summer or fall?</li>
+</ul>
+<p>Ask those five of anyone you're considering, me included. If you want my answers, <a href="/senior-portraits">the senior page covers most of them</a> and <a href="/contact">the rest is a conversation away</a>.</p>`,
+    faqs: [
+      {
+        question: 'What questions should I ask a senior photographer before booking?',
+        answer:
+          'Ask to see one complete session gallery rather than highlights, how they direct someone who feels awkward in photos, what happens after the session in terms of prints and albums, how many locations and outfits fit in a session, and how far out they book.',
+      },
+      {
+        question: 'Do Instagram followers mean a photographer is good?',
+        answer:
+          'No. A following shows marketing, not consistency. One full session gallery tells you more than any follower count, because it shows whether frame forty is as considered as frame four.',
+      },
+      {
+        question: 'When should I start looking for a senior photographer?',
+        answer:
+          'Spring of junior year is the comfortable window. It leaves time to compare portfolios, have a planning conversation, and book a summer or early fall session before those dates fill.',
+      },
+    ],
+  },
   /* ------------------------------------------------------------------------ */
   /*  Raegan, 2019 Altavista High senior                                       */
   /* ------------------------------------------------------------------------ */
