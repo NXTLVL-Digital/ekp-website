@@ -1,7 +1,7 @@
 # Road to 10/10 — SEO & AEO Master Plan
 
-**Goal:** every category of the SEO/AEO audit (`Skills/SEO-Auditor/Output/SEO-AUDIT-emilykathryn.com-v2.md`) at 10/10.
-**Method:** seven phases, each independently shippable as one PR (main requires PR + passing "Validate project" CI). Knock them out one at a time, in order — each phase's acceptance criteria are the definition of done.
+**Goal:** every category of the SEO/AEO audit at 10/10. Authoritative audit: **`Skills/SEO-Auditor/Output/SEO-AUDIT-emilykathryn.com-v3.md`** (2026-08-01, post-Phase-1 re-audit; supersedes v2's scores, carries its history).
+**Method:** phases, each independently shippable as one PR (main requires PR + passing "Validate project" CI). Knock them out one at a time, in order — each phase's acceptance criteria are the definition of done.
 
 **Standing constraints (do not violate):**
 - **SAB rule:** no street address on site or in schema, ever — Emily is a service-area business; the street goes to Google privately via GBP only. Phone stays hidden until the real number lands in `siteConfig.ts`. (The audit items suggesting street/phone additions are superseded by this rule.)
@@ -9,23 +9,25 @@
 - **Pricing is unconfirmed** ($400 Sanity fallback is placeholder; $799/$899 are research anchors). Nothing new that states prices ships until Jeff confirms — this gates parts of llms.txt and the Investment page.
 - Sanity is the eventual home for content; hardcoded fallbacks are the current pattern. Either is acceptable for a phase — don't block content on CMS plumbing.
 
-**Category scores → target:**
+**Category scores → target (v3 re-audit, 2026-08-01):**
 
-| Category | Now | After phase |
-|----------|:---:|:---:|
-| Technical Foundation | 4 | **10** after P0+P1 |
-| Crawlability | 5 | **10** after P0+P1 (index recovery verified in P6) |
-| Performance | 8 | **10** after P1 |
-| On-Page SEO | 7 | **10** after P1 |
-| Structured Data | 6 | **10** after P3 |
-| Content Quality | 5 | **10** after P2 (+P5 guides) |
-| Images & Media | 6 | **10** after P0 (logo) + P1 |
-| AEO Readiness | 5 | **10** after P5 |
-| E-E-A-T & Trust | 5 | **10** after P2+P3+P4 |
-| Local SEO | 6 | **10** after P4 |
-| Mobile | 8 | **10** after P1 |
-| Accessibility | 7 | **10** after P1 |
-| Security | 5 | **10** after P1 |
+| Category | v2 | **v3 now** | Remaining path to 10 |
+|----------|:---:|:---:|:---|
+| Technical Foundation | 4 | **9** | 2.7 lastmod · 1.5 icon alias · 1.5 journal link |
+| Crawlability | 5 | **8** | GSC submit (§6.1a, blocked on re-auth) → verified index recovery |
+| Performance | 8 | **8** | PERF-04 project (below) — Jeff decision gate |
+| On-Page SEO | 7 | **9** | 1.5 keyword subtitle + desc trim |
+| Structured Data | 6 | **7** | 1.5 (SD-06 defuse, logo, Person) + P3 (entity merge, breadcrumbs, sameAs) |
+| Content Quality | 5 | **7** | 2.6 /terms · 4.4 /gretna · P5 guides |
+| Images & Media | 6 | **9** | 4.9 unique city OG images |
+| AEO Readiness | 5 | **6** | P5 wholesale (homepage FAQ first) |
+| E-E-A-T & Trust | 5 | **7** | 1.5 Person · handles confirmation · 3.6 proof numbers · P4 GBP loop |
+| Local SEO | 6 | **7** | P4 wholesale (GBP is the lever) |
+| Mobile | 8 | **9** | rides on PERF-04 only |
+| Accessibility | 7 | **9** | 1.5 hamburger markup fix → W3C 0 errors |
+| Security | 5 | **8** | 6.8 CSP enforce after clean week (Observatory B→A-) |
+
+**PERF-04 — the scoped mobile-performance project (Jeff decision gate).** Mobile 88 / LCP 3.5s vs target 95 / 2.5s; desktop is 100. Measurement has already ruled out the assets: the LCP element is the **header logo** (fetchpriority shipped in #19; hero exonerated at 41KB/254ms; payload healthy at 615KB). Remaining levers in yield order: (1) `<link rel="preload">` for the logo in the root head, (2) logo as AVIF/WebP (~22KB→~9KB), (3) client-component JS audit — TestimonialCarousel/GalleryClient/RevealOnScroll candidates for server-side or lazy hydration off the ~154KB first-load, (4) cap hero entrance-animation delays (H1 sits at `opacity: 0` for 0.9s and becomes the LCP ceiling once the logo is fixed). Decide whether mobile-95 is worth the project; 88/100-desktop is already top-decile for portfolio sites.
 
 ---
 
@@ -92,21 +94,38 @@ What the measurement established, so the next attempt does not re-tread it:
 
 ---
 
+## Phase 1.5 — v3 quick wins (one small PR, zero human dependencies) ← NEXT
+
+Everything the v3 audit surfaced that needs no input from Jeff/Emily and no observation window. Pulls the non-gated parts of Phase 3 forward.
+
+| # | Task | File(s) | Acceptance |
+|---|------|---------|-----------|
+| 1.5.1 | **SD-06 (High, latent)** Defuse the review builder: remove hardcoded `ratingValue: 5` and the synthetic `AggregateRating` — quote-only `Review` is the approved shape (was 2.2). Then wire the 8 real testimonials from `testimonialContent.ts` into quote-only Review blocks on /raves, `itemReviewed` → `#business` | `src/lib/schemas/review.ts`, raves page | Rich Results: Reviews valid, **zero rating values anywhere**; populating Sanity can no longer fabricate stars |
+| 1.5.2 | **A-03** Hamburger `div`-in-`button` → `span` (sole W3C error) | `HeaderClient.tsx` | W3C Nu: 0 errors |
+| 1.5.3 | **SD-05** `logo: /brand/logo-primary.png` on both business schema builders | `localBusiness.ts` | property present, file 200 |
+| 1.5.4 | **SD-02** Person schema for Emily on /about: name, jobTitle, worksFor→`#business`, knowsAbout, image. **No sameAs yet** (handles unconfirmed — added in 3.1) | new `schemas/person.ts`, about page | validates |
+| 1.5.5 | **M-01** Keyword-bearing subtitle: upgrade the hero's editorial label to "Senior & Family Portraits · South-Central Virginia" (H1 hook untouched) | `Hero.tsx` call site | label visible, contains service+geo |
+| 1.5.6 | **M-05** Trim /senior-portraits description 191c → ≤160c | senior-portraits page | ≤160c |
+| 1.5.7 | **T-09** Redirect `/apple-touch-icon.png` + `-precomposed` → `/apple-icon.png` | `next.config.ts` | both 308→200 |
+| 1.5.8 | **T-10** Footer "Journal" link under Explore (kills the sitemap-listed-but-orphaned inconsistency; P5 relinks it anyway) | `siteConfig.ts` nav or `Footer.tsx` | /journal reachable by internal link |
+
+**Category exits:** Accessibility 10 · On-Page 10 · Structured Data → 8 (rest in P3).
+
+---
+
 ## Phase 2 — Content restoration (raves + journal) (one PR, ~1 day)
 
 Source material is already in `docs/legacy-content/` — this phase is porting, not writing from scratch.
 
+**v3 status: mostly overtaken by events.** #14 restored 5 journal posts (2.3/2.4 ✅ — BlogPosting + real dates + 1:1 redirects 2.5 ✅), then #16 rebuilt /raves with 8 real attributed testimonials (2.1 ✅ at 999 words) and **retired the journal posts to `noindex, follow`** (decision: archive posts no longer sell what Emily sells). 2.2 is superseded by 1.5.1's quote-only implementation. What survives:
+
 | # | Task | Acceptance |
 |---|------|-----------|
-| 2.1 | **C-02** Rebuild /raves from the recovered corpus: 8–12 full testimonials with name + school/class attribution (dedupe the desktop/mobile twins), pull-quote layout consistent with editorial design | /raves ≥ 1,200 words |
-| 2.2 | **SD-03** `Review` schema per testimonial attached to `#business` (no invented ratings — quotes only, so omit reviewRating unless real star ratings exist) | Rich Results test passes |
-| 2.3 | **C-01/C-03** Seed /journal with 3 recovered posts, rewritten lightly with 2026 framing: "The New Home of EKP" (origin story — evergreen), "Faith — Gretna High" and "Raegan — Altavista" (school-name long-tail). Real `datePublished` (original era) + `dateModified` (2026 republish) | /journal lists 3 posts; each ≥ 400 words |
-| 2.4 | **AEO-02 partial** `BlogPosting` schema + visible dates on each post | Schema validates |
-| 2.5 | 1:1 redirects: `/blog/b/faith-2019-gretna-high-senior` → its /journal slug, same for raegan + chatham post; keep blanket rule for the rest | curl each → 308 to post |
-| 2.6 | **C-04** /terms page (session agreement summary, print release, image usage); update `/terms-conditions` redirect to point at it | /terms 200, in sitemap |
-| 2.7 | **T-07** Sitemap lastmod from real content dates (Sanity `_updatedAt` where CMS-backed, git-derived or manual constants otherwise) | lastmod varies per URL |
+| 2.6 | **C-04** /terms page (session agreement summary, print release, image usage); retarget the `/terms-conditions` redirect (currently parks on /privacy) | /terms 200, in sitemap |
+| 2.7 | **T-07** Sitemap lastmod from real content dates (per-page constants or Sanity `_updatedAt`) | lastmod varies per URL |
+| 2.8 | *(optional)* /about +150 words of specifics — pairs with 3.6 proof numbers when Emily supplies them | about ≥ 600 words |
 
-**Category exit:** Content Quality 10 (journal live + raves restored; P5 guides push it durable).
+**Category exit:** Content Quality 10 arrives with P5's guides + 4.4's /gretna, not here.
 
 ---
 
@@ -116,11 +135,11 @@ Source material is already in `docs/legacy-content/` — this phase is porting, 
 
 | # | Task | Acceptance |
 |---|------|-----------|
-| 3.1 | **SD-01/EEAT-01** Correct IG/TikTok URLs in footer + `sameAs`; add the other live profiles (YouTube `@Emilykathryn`, Pinterest `emilykathrynva`, SmugMug) | Every link resolves to a live profile |
-| 3.2 | **SD-02** `Person` schema on /about (Emily Kathryn Walker, jobTitle, worksFor → `#business`, knowsAbout, sameAs) + `founder` ref from business block | Validates; person knowledge panel eligible |
-| 3.3 | **SD-04** City pages: merge the duplicate ProfessionalService blocks via shared `@id` | One business entity per page |
-| 3.4 | **SD-05 (SAB-safe parts only)** Add `logo` (`/brand/logo-primary.png`) and `image` array to business schema. **No street, no phone** until siteConfig flips | Validates |
-| 3.5 | BreadcrumbList on city + service + journal pages | Validates |
+| 3.1 | **SD-01/EEAT-01** Correct IG/TikTok URLs in footer + `sameAs`; add the other live profiles (YouTube `@Emilykathryn`, Pinterest `emilykathrynva`, SmugMug); add the confirmed handles to 1.5.4's Person `sameAs` | Every link resolves to a live profile |
+| 3.2 | ~~Person schema~~ → shipped un-gated in 1.5.4; this slot is now just the `founder` ref from the business block to the Person `@id` | Validates |
+| 3.3 | **SD-04** City pages: merge the duplicate ProfessionalService entities — city block keeps geo/areaServed specificity but shares the canonical `#business` `@id` (or becomes `department` of it) | **One** business entity per page, Rich Results clean |
+| 3.4 | ~~logo~~ → shipped in 1.5.3; this slot is now the `image` array (3–4 representative session photos) on the business block | Validates |
+| 3.5 | **SD-07** BreadcrumbList on city + service pages | Validates |
 | 3.6 | **EEAT-02** One proof line per service page (real numbers from Emily: years shooting, seniors photographed, schools served) | Present on both service pages |
 
 **Category exit:** Structured Data 10 · E-E-A-T to 8 (10 after P4's GBP reviews loop).
@@ -141,8 +160,9 @@ The step-by-step guides already exist: `docs/google-business-profile-setup.md` +
 | 4.6 | Real phone → `siteConfig.ts` when Emily provides it (unhides footer/contact/schema phone in one line) | Phone visible + in schema |
 | 4.7 | Apple Business Connect (guide exists) | Listing live |
 | 4.8 | GBP posting habit: one photo post per week from recent sessions (Emily, 5 min/week) | 4 consecutive weeks |
+| 4.9 | **I-04 (v3)** Unique OG images for the 7 city pages (session photo from/near each city + city name), replacing the shared `/og/default.jpg` | each city og:image unique, 200 |
 
-**Category exit:** Local SEO 10 · E-E-A-T 10 (review velocity flowing).
+**Category exit:** Local SEO 10 · E-E-A-T 10 (review velocity flowing) · Images 10.
 
 ---
 
@@ -150,11 +170,11 @@ The step-by-step guides already exist: `docs/google-business-profile-setup.md` +
 
 | # | Task | Acceptance |
 |---|------|-----------|
+| 5.0 | **AEO-04 (elevated per v3 — Jeff asked, answer is yes)** Homepage FAQ section (4–6 Qs, editorial styling) with FAQPage schema — the only key page without it, and the page AI engines cite first. Suggested Qs: who/where/what-areas, booking lead time, what-happens-at-a-session, prints-vs-digitals. Pricing Q only after pricing confirms | Validates; homepage carries FAQPage |
 | 5.1 | **AEO-01** `llms.txt` route handler: business summary, service pages, city list, contact — absolute URLs. **Pricing line only after Jeff confirms real pricing** | /llms.txt 200 text/plain, accurate |
 | 5.2 | llms-full.txt with expanded per-page descriptions | 200, consistent with llms.txt |
 | 5.3 | **AEO-02** `dateModified` on service/city pages (from Sanity/_manual constants) | In schema on all key pages |
 | 5.4 | **AEO-03** 3 answer-shaped journal guides, each opening with a 2-sentence direct answer + FAQ schema: "When should you book senior photos in Virginia?" / "What to wear for senior pictures" (distill from /style-guide) / "How to choose a senior photographer" | Each ≥ 800 words, FAQ markup, cited internally from service pages |
-| 5.5 | Homepage FAQ section (4–6 Qs) with FAQPage schema — the only key page without it | Validates |
 | 5.6 | Speakable schema on homepage + service pages (low effort, forward bet) | Validates |
 
 **Category exit:** AEO Readiness 10 · Content Quality locked at 10.
@@ -172,7 +192,9 @@ The step-by-step guides already exist: `docs/google-business-profile-setup.md` +
 | 6.4 | AI citation spot-check: ChatGPT/Perplexity/Google AI Mode "best senior photographer near Danville VA" | Monthly |
 | 6.5 | SPF/DKIM for Workspace + Resend sending domain (from Brain launch notes) | Once |
 | 6.6 | Old origin decommission: content is recovered → old Cloudflare zone can be deleted whenever access allows; GHL already inaccessible | When possible |
-| 6.7 | Re-run `/seo-auditor` full audit; every category 10/10 is the exit criterion for this plan | After P5 |
+| 6.7 | Re-run `/seo-auditor` full audit (v4); every category 10/10 is the exit criterion for this plan | After P5 |
+| 6.8 | **S-02** Flip CSP from Report-Only to enforcing + re-add `upgrade-insecure-requests`; re-scan Observatory (expect B→A-) | After 1 clean prod week **and** after GA4/Clarity activate |
+| 6.9 | **PERF-04** decision + (if go) execution: preload logo → AVIF logo → client-JS audit → animation-delay cap; re-measure after each lever | Mobile ≥ 95 or explicit "88 is enough" call |
 
 ---
 
