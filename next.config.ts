@@ -141,6 +141,10 @@ const nextConfig: NextConfig = {
       { source: "/privacy-policy", destination: "/privacy", permanent: true },
       { source: "/terms-conditions", destination: "/privacy", permanent: true },
       { source: "/test_path", destination: "/", permanent: true },
+      // Devices and bots that blind-probe the legacy touch-icon paths instead
+      // of reading the <link rel="apple-touch-icon"> tag. Kills the 404 noise.
+      { source: "/apple-touch-icon.png", destination: "/apple-icon.png", permanent: true },
+      { source: "/apple-touch-icon-precomposed.png", destination: "/apple-icon.png", permanent: true },
     ];
   },
 };

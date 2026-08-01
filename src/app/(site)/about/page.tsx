@@ -7,6 +7,8 @@ import { ABOUT_PAGE_QUERY } from '@/sanity/lib/queries'
 import { sanityLoader } from '@/sanity/lib/image'
 import { Section } from '@/components/shared/Section'
 import { RevealOnScroll } from '@/components/shared/RevealOnScroll'
+import { JsonLd } from '@/components/shared/JsonLd'
+import { buildPersonSchema } from '@/lib/schemas/person'
 import type { Metadata } from 'next'
 
 interface AboutPageData {
@@ -174,6 +176,8 @@ export default async function AboutPage() {
 
   return (
     <>
+      <JsonLd data={buildPersonSchema()} />
+
       {/* Editorial page header */}
       <section className="bg-foreground pt-52 pb-20 md:pt-56 md:pb-24">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">

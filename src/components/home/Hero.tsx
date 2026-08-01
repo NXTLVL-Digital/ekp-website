@@ -40,12 +40,14 @@ export function Hero({ heading, subheading, ctaLabel, ctaHref }: HeroProps) {
             style={{ animation: 'growWidth 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both' }}
           />
 
-          {/* Editorial label */}
+          {/* Editorial label. Carries the search terms the H1 deliberately
+              does not: service + geography (v3 audit M-01). The H1 below
+              stays the brand hook. */}
           <p
             className="editorial-label mb-4 text-brand-gold"
             style={{ animation: 'fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both' }}
           >
-            Senior Portraits &bull; Family Photography
+            Senior &amp; Family Portraits &bull; South-Central Virginia
           </p>
 
           {/* Massive editorial headline */}

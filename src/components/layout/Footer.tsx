@@ -104,6 +104,16 @@ export function Footer() {
                   {item.label}
                 </Link>
               ))}
+              {/* Journal sits here rather than in siteConfig.navigation: the
+                  header nav dropped it on purpose, but the index is in the
+                  sitemap and needs at least one internal link (v3 audit T-10).
+                  The Phase 5 guides will live there. */}
+              <Link
+                href="/journal"
+                className="flex min-h-11 items-center text-sm text-white/60 transition-colors duration-300 hover:text-white"
+              >
+                Journal
+              </Link>
             </nav>
           </div>
 

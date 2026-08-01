@@ -9,7 +9,7 @@ import { TestimonialCard } from '@/components/testimonials/TestimonialCard'
 import { SEED_TESTIMONIALS } from '@/lib/testimonialContent'
 import type { TestimonialImage } from '@/components/testimonials/TestimonialCard'
 import type { Metadata } from 'next'
-import { buildReviewSchemas, buildAggregateRatingSchema } from '@/lib/schemas/review'
+import { buildReviewSchemas } from '@/lib/schemas/review'
 import type { TestimonialData } from '@/lib/schemas/review'
 
 export const metadata: Metadata = {
@@ -72,21 +72,21 @@ export default async function RavesPage() {
     tags: ['testimonial'],
   })
 
-  const reviewData: TestimonialData[] = testimonials.map((t) => ({
-    name: t.name,
-    quote: t.quote,
-    service: t.service,
-  }))
-  const reviewSchemas = reviewData.length > 0 ? buildReviewSchemas(reviewData) : []
+  // Review JSON-LD lives on this page only, so the same quotes never appear
+  // as duplicate entities on other routes. CMS testimonials take precedence;
+  // until Emily populates Sanity, the eight recovered real testimonials carry
+  // the markup. Quote-only by design: the builder emits no ratings (SD-06).
+  const reviewData: TestimonialData[] =
+    testimonials.length > 0
+      ? testimonials.map((t) => ({ name: t.name, quote: t.quote, service: t.service }))
+      : SEED_TESTIMONIALS.map((t) => ({ name: t.name, quote: t.quote, service: t.context }))
+  const reviewSchemas = buildReviewSchemas(reviewData)
 
   return (
     <>
       {reviewSchemas.map((schema, i) => (
         <JsonLd key={i} data={schema} />
       ))}
-      {reviewData.length > 0 && (
-        <JsonLd data={buildAggregateRatingSchema(reviewData)} />
-      )}
 
       {/* Editorial page header */}
       <section className="bg-foreground pt-52 pb-20 md:pt-56 md:pb-24">
@@ -124,10 +124,10 @@ export default async function RavesPage() {
             </div>
           </RevealOnScroll>
         ) : SEED_TESTIMONIALS.length > 0 ? (
-          /* Real testimonials carried over from the previous site. They are not
-             fed into the Review JSON-LD above, because that builder asserts a
-             five star rating and these were written testimonials with no rating
-             attached. Emily's CMS entries take over the moment she adds them. */
+          /* Real testimonials carried over from the previous site. They also
+             feed the quote-only Review JSON-LD above (the builder emits no
+             ratings, so nothing is asserted that a client did not write).
+             Emily's CMS entries take over the moment she adds them. */
           <RevealOnScroll variant="stagger">
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
               {SEED_TESTIMONIALS.map((testimonial) => (
