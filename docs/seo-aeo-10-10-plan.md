@@ -9,7 +9,9 @@
 - **Pricing is unconfirmed** ($400 Sanity fallback is placeholder; $799/$899 are research anchors). Nothing new that states prices ships until Jeff confirms — this gates parts of llms.txt and the Investment page.
 - Sanity is the eventual home for content; hardcoded fallbacks are the current pattern. Either is acceptable for a phase — don't block content on CMS plumbing.
 
-**Category scores → target (v3 re-audit, 2026-08-01):**
+**State after the 2026-08-01 build-out (PRs #22 #23 #24 #25 #26, all verified live):** every on-site lever that could ship without human inputs has shipped. Live sweep confirms: exactly **one** business entity on every page, **zero** rating assertions, 3 indexable guides, sitemap at 20 URLs with honest lastmod, llms.txt ×2, homepage FAQ, /gretna live, 8 unique city OG cards, Person + founder + breadcrumbs + WebPage dates throughout. What still separates the site from 10-across-the-board is exactly the human-dependency list at the bottom of this file plus: GSC submission (Google re-auth), the CSP enforce flip (needs its clean week + GA4/Clarity activation), PSI/CrUX confirmation of mobile perf (lab measurement on the local rig is anomalous; see 6.9), and the v4 re-audit (6.7).
+
+**Category scores → target (v3 re-audit, 2026-08-01, taken BEFORE the same-day build-out above):**
 
 | Category | v2 | **v3 now** | Remaining path to 10 |
 |----------|:---:|:---:|:---|
