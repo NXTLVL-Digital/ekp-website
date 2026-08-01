@@ -1,6 +1,5 @@
 import type { LocalBusiness, WithContext } from 'schema-dts'
 import { siteConfig } from '@/lib/siteConfig'
-import type { CityGeoData } from '@/lib/cityData'
 
 /**
  * Canonical @id for the LocalBusiness entity. Exported so Service and Review
@@ -61,7 +60,18 @@ export function buildLocalBusinessSchema(): WithContext<LocalBusiness> {
     priceRange: '$$$',
     paymentAccepted: 'Cash, Credit Card, Venmo',
     logo: `${siteConfig.url}/brand/logo-primary.png`,
-    image: `${siteConfig.url}/og/default.jpg`,
+    // Representative work, not just the OG card: gives image search and AI
+    // engines real portfolio pixels to associate with the entity.
+    image: [
+      `${siteConfig.url}/og/default.jpg`,
+      `${siteConfig.url}/images/seniors/EKP_1337.jpg`,
+      `${siteConfig.url}/images/seniors/EKP_2401.jpg`,
+      `${siteConfig.url}/images/families/EKP_1211.jpg`,
+    ],
+    // Kept as a literal rather than importing PERSON_ID from person.ts:
+    // person.ts already imports BUSINESS_ID from this file, and the founder
+    // reference is not worth a module cycle. Keep in sync with person.ts.
+    founder: { '@id': `${siteConfig.url}/about#emily` },
     sameAs: [
       siteConfig.social.instagram,
       siteConfig.social.facebook,
@@ -77,70 +87,9 @@ export function buildLocalBusinessSchema(): WithContext<LocalBusiness> {
   }
 }
 
-/**
- * Build a city-specific ProfessionalService JSON-LD schema.
- *
- * Each city page gets its own LocalBusiness with a unique @id
- * (e.g., emilykathryn.com/chatham/#business), a single-city areaServed,
- * and geo coordinates for that specific city. Shares NAP data and other
- * properties with the site-wide schema.
+/*
+ * The old buildCityLocalBusinessSchema is gone on purpose (v3 audit SD-04):
+ * it gave every city page a second business entity with its own @id next to
+ * the sitewide one. City pages now emit buildCityServiceSchema from
+ * service.ts instead: one business entity, seven localized services.
  */
-export function buildCityLocalBusinessSchema(
-  city: CityGeoData,
-): WithContext<LocalBusiness> {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
-    '@id': `${siteConfig.url}/${city.slug}/#business`,
-    name: siteConfig.name,
-    url: `${siteConfig.url}/${city.slug}`,
-    ...(siteConfig.phone ? { telephone: siteConfig.phone } : {}),
-    email: siteConfig.email,
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: siteConfig.address.city,
-      addressRegion: siteConfig.address.state,
-      postalCode: siteConfig.address.zip,
-      addressCountry: 'US',
-    },
-    areaServed: {
-      '@type': 'City',
-      name: city.name,
-      containedInPlace: { '@type': 'State', name: 'Virginia' },
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: city.latitude,
-      longitude: city.longitude,
-    },
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-        opens: '09:00',
-        closes: '17:00',
-      },
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: 'Saturday',
-        opens: '09:00',
-        closes: '17:00',
-      },
-    ],
-    priceRange: '$$$',
-    paymentAccepted: 'Cash, Credit Card, Venmo',
-    logo: `${siteConfig.url}/brand/logo-primary.png`,
-    image: `${siteConfig.url}/og/default.jpg`,
-    sameAs: [
-      siteConfig.social.instagram,
-      siteConfig.social.facebook,
-      siteConfig.social.tiktok,
-    ],
-    description: `Editorial-style senior portrait and family photographer serving ${city.name}, Virginia.`,
-    knowsAbout: [
-      'Senior Portrait Photography',
-      'Family Portrait Photography',
-      'Editorial Photography',
-    ],
-  }
-}
