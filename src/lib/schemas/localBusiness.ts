@@ -60,6 +60,7 @@ export function buildLocalBusinessSchema(): WithContext<LocalBusiness> {
     ],
     priceRange: '$$$',
     paymentAccepted: 'Cash, Credit Card, Venmo',
+    logo: `${siteConfig.url}/brand/logo-primary.png`,
     image: `${siteConfig.url}/og/default.jpg`,
     sameAs: [
       siteConfig.social.instagram,
@@ -128,6 +129,7 @@ export function buildCityLocalBusinessSchema(
     ],
     priceRange: '$$$',
     paymentAccepted: 'Cash, Credit Card, Venmo',
+    logo: `${siteConfig.url}/brand/logo-primary.png`,
     image: `${siteConfig.url}/og/default.jpg`,
     sameAs: [
       siteConfig.social.instagram,

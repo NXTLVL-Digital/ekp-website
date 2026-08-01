@@ -18,8 +18,6 @@ import { JsonLd } from '@/components/shared/JsonLd'
 import { RevealOnScroll } from '@/components/shared/RevealOnScroll'
 import { homepageGalleryImages } from '@/lib/placeholder-galleries'
 import type { TestimonialImage } from '@/components/testimonials/TestimonialCard'
-import { buildReviewSchemas, buildAggregateRatingSchema } from '@/lib/schemas/review'
-import type { TestimonialData as ReviewTestimonialData } from '@/lib/schemas/review'
 
 // ---------------------------------------------------------------------------
 // Types for CMS data
@@ -96,22 +94,11 @@ export default async function HomePage() {
     }),
   ])
 
-  const reviewTestimonialData: ReviewTestimonialData[] =
-    testimonials && testimonials.length > 0
-      ? testimonials.map((t) => ({ name: t.name, quote: t.quote, service: t.service }))
-      : []
-  const reviewSchemas =
-    reviewTestimonialData.length > 0 ? buildReviewSchemas(reviewTestimonialData) : []
-
   return (
     <>
-      {/* JSON-LD */}
-      {reviewSchemas.map((schema, i) => (
-        <JsonLd key={i} data={schema} />
-      ))}
-      {reviewTestimonialData.length > 0 && (
-        <JsonLd data={buildAggregateRatingSchema(reviewTestimonialData)} />
-      )}
+      {/* Review JSON-LD deliberately lives on /raves only (quote-only, SD-06).
+          The testimonial carousel below is visible social proof; duplicating
+          the same quotes as schema entities here would split the entity. */}
 
       {/* ----------------------------------------------------------------- */}
       {/* 1. Hero — full-viewport editorial impact                          */}

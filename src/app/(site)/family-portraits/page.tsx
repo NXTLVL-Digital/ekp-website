@@ -18,8 +18,6 @@ import {
 } from '@/sanity/lib/queries'
 import { buildServiceSchema } from '@/lib/schemas/service'
 import { buildFaqPageSchema } from '@/lib/schemas/faqPage'
-import { buildReviewSchemas, buildAggregateRatingSchema } from '@/lib/schemas/review'
-import type { TestimonialData } from '@/lib/schemas/review'
 
 /**
  * This photo runs full width higher up the page as the featured image, so it
@@ -155,11 +153,6 @@ export default async function FamilyPortraitsPage() {
     (t) => t.name?.toLowerCase().includes('family'),
   )
 
-  const testimonialData: TestimonialData[] = testimonials
-    ? testimonials.map((t) => ({ name: t.name, quote: t.quote, service: t.service }))
-    : []
-  const reviewSchemas = testimonialData.length > 0 ? buildReviewSchemas(testimonialData) : []
-
   return (
     <>
       <JsonLd data={buildServiceSchema({
@@ -168,12 +161,8 @@ export default async function FamilyPortraitsPage() {
         url: 'https://emilykathryn.com/family-portraits',
       })} />
       <JsonLd data={buildFaqPageSchema(familyFaqs)} />
-      {reviewSchemas.map((schema, i) => (
-        <JsonLd key={i} data={schema} />
-      ))}
-      {testimonialData.length > 0 && (
-        <JsonLd data={buildAggregateRatingSchema(testimonialData)} />
-      )}
+      {/* Review JSON-LD lives on /raves only (quote-only, SD-06). The visible
+          testimonial carousel below is unaffected. */}
 
       {/* Editorial page header */}
       <section className="relative overflow-hidden bg-foreground pt-52 pb-20 md:pt-56 md:pb-24">

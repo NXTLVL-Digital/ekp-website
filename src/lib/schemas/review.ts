@@ -1,4 +1,4 @@
-import type { Review, LocalBusiness, WithContext } from 'schema-dts'
+import type { Review, WithContext } from 'schema-dts'
 import { BUSINESS_ID } from '@/lib/schemas/localBusiness'
 
 export interface TestimonialData {
@@ -8,14 +8,24 @@ export interface TestimonialData {
 }
 
 /**
- * Build individual Review JSON-LD entities from testimonial data.
+ * Build quote-only Review JSON-LD entities from testimonial data.
  *
- * Each review references the parent LocalBusiness via BUSINESS_ID and
- * defaults to a 5-star rating (hand-picked happy client testimonials).
+ * Deliberately NO reviewRating and NO AggregateRating anywhere in this file.
+ * The testimonials are written quotes; nobody attached a star rating to
+ * them, and schema that asserts ratings nobody gave is fabricated review
+ * data (v3 audit, SD-06 - this file used to default every review to five
+ * stars and emit a synthetic AggregateRating, armed to fire the moment the
+ * CMS gained its first testimonial). Review without reviewRating is valid
+ * schema.org and still gives search and AI engines named, attributed
+ * social proof tied to the business entity.
+ *
+ * If real star ratings ever exist (a live Google Business Profile), build a
+ * rating-bearing schema from THAT data source. Do not add defaults back
+ * here.
  *
  * NOTE: Self-serving reviews on a business's own site are ineligible for
- * Google star snippets. Implemented for semantic value — AI assistants,
- * voice search, and non-Google surfaces (SEO-04).
+ * Google star snippets regardless. The value here is semantic: AI
+ * assistants, voice search, and entity association via itemReviewed.
  */
 export function buildReviewSchemas(
   testimonials: TestimonialData[],
@@ -25,33 +35,6 @@ export function buildReviewSchemas(
     '@type': 'Review' as const,
     author: { '@type': 'Person' as const, name: t.name },
     reviewBody: t.quote,
-    reviewRating: {
-      '@type': 'Rating' as const,
-      ratingValue: 5,
-      bestRating: 5,
-    },
     itemReviewed: { '@id': BUSINESS_ID },
   }))
-}
-
-/**
- * Build an AggregateRating JSON-LD wrapped in a LocalBusiness entity.
- *
- * Returns a ProfessionalService with only @id and aggregateRating so
- * search engines merge it with the full LocalBusiness schema on the page.
- */
-export function buildAggregateRatingSchema(
-  testimonials: TestimonialData[],
-): WithContext<LocalBusiness> {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
-    '@id': BUSINESS_ID,
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: 5,
-      reviewCount: testimonials.length,
-      bestRating: 5,
-    },
-  }
 }

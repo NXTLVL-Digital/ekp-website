@@ -18,8 +18,6 @@ import {
 } from '@/sanity/lib/queries'
 import { buildServiceSchema } from '@/lib/schemas/service'
 import { buildFaqPageSchema } from '@/lib/schemas/faqPage'
-import { buildReviewSchemas, buildAggregateRatingSchema } from '@/lib/schemas/review'
-import type { TestimonialData } from '@/lib/schemas/review'
 
 /**
  * These frames run as standalone editorial moments between the text sections,
@@ -51,8 +49,9 @@ const galleryImages = seniorGalleryImages.filter(
 
 export const metadata: Metadata = {
   title: 'Senior Portraits',
+  // 156 chars: fits the ~160 char SERP limit the old 191 char version overran
   description:
-    'Editorial senior portraits for boys and girls in South-Central Virginia. A guided experience from wardrobe planning to session day, finished as framed artwork and a senior album made to keep.',
+    'Editorial senior portraits for boys and girls in South-Central Virginia. Guided from wardrobe planning to session day, finished as framed artwork.',
   openGraph: {
     title: 'Senior Portraits | Emily Kathryn Photography',
     description:
@@ -190,11 +189,6 @@ export default async function SeniorPortraitsPage() {
     (t) => t.name?.toLowerCase().includes('senior'),
   )
 
-  const testimonialData: TestimonialData[] = testimonials
-    ? testimonials.map((t) => ({ name: t.name, quote: t.quote, service: t.service }))
-    : []
-  const reviewSchemas = testimonialData.length > 0 ? buildReviewSchemas(testimonialData) : []
-
   return (
     <>
       <JsonLd data={buildServiceSchema({
@@ -203,12 +197,8 @@ export default async function SeniorPortraitsPage() {
         url: 'https://emilykathryn.com/senior-portraits',
       })} />
       <JsonLd data={buildFaqPageSchema(seniorFaqs)} />
-      {reviewSchemas.map((schema, i) => (
-        <JsonLd key={i} data={schema} />
-      ))}
-      {testimonialData.length > 0 && (
-        <JsonLd data={buildAggregateRatingSchema(testimonialData)} />
-      )}
+      {/* Review JSON-LD lives on /raves only (quote-only, SD-06). The visible
+          testimonial carousel below is unaffected. */}
 
       {/* Editorial page header, dark */}
       <section className="relative overflow-hidden bg-foreground pt-52 pb-20 md:pt-56 md:pb-24">

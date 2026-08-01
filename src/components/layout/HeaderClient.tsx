@@ -104,7 +104,9 @@ export function HeaderClient({ navigation, cta, logoText }: HeaderClientProps) {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           >
-            <div className="flex w-7 flex-col items-end gap-1.5">
+            {/* span, not div: flow content inside button is invalid HTML and
+                was the site's only W3C error (v3 audit A-03) */}
+            <span className="flex w-7 flex-col items-end gap-1.5">
               <span
                 className={`block h-[1.5px] transition-all duration-500 ${
                   isScrolled ? 'bg-foreground' : 'bg-white'
@@ -120,7 +122,7 @@ export function HeaderClient({ navigation, cta, logoText }: HeaderClientProps) {
                   isScrolled ? 'bg-foreground' : 'bg-white'
                 } ${isMenuOpen ? 'w-7 -translate-y-[7.5px] -rotate-45' : 'w-4'}`}
               />
-            </div>
+            </span>
           </button>
         </nav>
       </header>
