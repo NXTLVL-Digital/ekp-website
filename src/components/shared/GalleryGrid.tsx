@@ -41,6 +41,30 @@ function isSanityUrl(url?: string): boolean {
   return !!url && url.includes("cdn.sanity.io");
 }
 
+/** Portrait 2:3, the shape most of the portfolio is shot in. */
+const FALLBACK_DIMENSIONS = { width: 800, height: 1200 };
+
+/**
+ * Resolve an intrinsic width and height for an image so the browser can
+ * reserve the right box before the file arrives. Every local portfolio image
+ * carries real dimensions, and Sanity supplies them on upload, so the
+ * fallback only catches a CMS asset whose metadata failed to populate.
+ * Without it that image would render unsized and shift the grid on load.
+ */
+function resolveDimensions(image: GalleryImageData) {
+  const dims = image.asset.metadata?.dimensions;
+  if (dims?.width && dims?.height) {
+    return { width: dims.width, height: dims.height };
+  }
+  if (dims?.aspectRatio && dims.aspectRatio > 0) {
+    return {
+      width: FALLBACK_DIMENSIONS.width,
+      height: Math.round(FALLBACK_DIMENSIONS.width / dims.aspectRatio),
+    };
+  }
+  return FALLBACK_DIMENSIONS;
+}
+
 /**
  * Render a single gallery image, choosing SanityImage for Sanity CDN URLs
  * and standard next/image for external URLs (test/dev).
@@ -58,6 +82,7 @@ function GalleryImage({
   priority?: boolean;
 }) {
   const sizes = "(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw";
+  const { width, height } = resolveDimensions(image);
 
   if (isSanityUrl(image.asset.url)) {
     return (
@@ -67,6 +92,7 @@ function GalleryImage({
         hotspot={image.hotspot}
         crop={image.crop}
         fill={fill}
+        {...(fill ? {} : { width, height })}
         sizes={sizes}
         className={className}
         priority={priority}
@@ -93,8 +119,8 @@ function GalleryImage({
     <Image
       src={image.asset.url || ""}
       alt={image.alt || ""}
-      width={image.asset.metadata?.dimensions?.width || 800}
-      height={image.asset.metadata?.dimensions?.height || 1200}
+      width={width}
+      height={height}
       sizes={sizes}
       className={className}
       priority={priority}
@@ -147,17 +173,23 @@ export function GalleryGrid({
   // Masonry layout using CSS columns
   return (
     <div className="columns-2 gap-3 md:columns-3 md:gap-4 lg:columns-4">
-      {images.map((image, index) => (
+      {images.map((image, index) => {
+        const { width, height } = resolveDimensions(image);
+        return (
         <div key={image._key} className="mb-3 break-inside-avoid md:mb-4">
           <button
             type="button"
             className="group relative w-full overflow-hidden"
+            // Reserves the exact box before the image resolves. The ratio comes
+            // from the same metadata the img tag is sized from, so the two
+            // always agree and the column never reflows mid-load.
+            style={{ aspectRatio: `${width} / ${height}` }}
             onClick={() => onImageClick?.(index)}
             aria-label={`View ${image.alt || "gallery image"} in lightbox`}
           >
             <GalleryImage
               image={image}
-              className="w-full transition-transform duration-500 group-hover:scale-[1.02]"
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
               priority={index < priorityCount}
             />
           </button>
@@ -165,7 +197,8 @@ export function GalleryGrid({
             <p className="mt-1.5 text-xs text-stone-500">{image.caption}</p>
           )}
         </div>
-      ))}
+        );
+      })}
     </div>
   );
 }

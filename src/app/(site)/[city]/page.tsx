@@ -232,10 +232,20 @@ export async function generateMetadata({
     seedContent?.metaDescription ||
     `Senior and family portrait photographer serving ${cityName}, Virginia. Editorial-style photography by Emily Kathryn Photography.`
 
-  const title = `${cityName} Portrait Photographer | Emily Kathryn Photography`
+  // Google truncates around 60 characters. The root layout appends
+  // " | Emily Kathryn Photography" to whatever goes in `title`, which fits
+  // every city except Smith Mountain Lake, whose name is long enough to push
+  // the tag to 69. Those fall back to the short brand form and set the title
+  // absolutely so the template does not append a second time.
+  const pageTitle = `${cityName} Portrait Photographer`
+  const fullTitle = `${pageTitle} | Emily Kathryn Photography`
+  const shortTitle = `${pageTitle} | Emily Kathryn`
+  const fitsSerp = fullTitle.length <= 60
+
+  const title = fitsSerp ? fullTitle : shortTitle
 
   return {
-    title: `${cityName} Portrait Photographer`,
+    title: fitsSerp ? pageTitle : { absolute: shortTitle },
     description: metaDesc,
     openGraph: {
       title,

@@ -17,6 +17,12 @@ export function Hero({ heading, subheading, ctaLabel, ctaHref }: HeroProps) {
         alt="Senior portrait session by Emily Kathryn Photography"
         fill
         priority
+        fetchPriority="high"
+        // This image is the LCP element on every mobile visit. 65 shaves a
+        // meaningful chunk off the transfer versus the default 75, and the
+        // gradient overlay and opacity-70 sitting on top of it hide the
+        // difference at full-bleed size.
+        quality={65}
         className="object-cover object-[60%_center] opacity-70"
         sizes="100vw"
       />
