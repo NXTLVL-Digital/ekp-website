@@ -1,6 +1,8 @@
 # Session Handoff — EKP SEO/AEO work
 
-**Written:** 2026-07-31, end of the launch-day SEO session. Read this first; it's the entry point.
+**Written:** 2026-07-31, end of the launch-day SEO session.
+
+> **⚠️ LARGELY SUPERSEDED (2026-08-04).** Everything this file names as "next" has shipped: Phases 0, 1, 1.5, 3 (non-gated), 4 (on-site), 5, and PERF-04 all landed 2026-08-01 (PRs #18-#27) and are verified live. Current truth: **`docs/seo-aeo-10-10-plan.md`** (state paragraph at the top) and the Brain client page. The one open operational workstream has its own handoff: **`docs/gsc-indexing-handoff.md`** (Request-Indexing tabled by Jeff 2026-08-04). Still accurate here: the Vercel deploy-via-CLI caveat, the blocked-on-Jeff/Emily list, and the decisions-not-bugs section.
 
 **Read next, in order:**
 1. `Brain/wiki/clients/emily-kathryn.md` (agency-wide truth for this client — required by the workspace CLAUDE.md anyway)
